@@ -1,0 +1,285 @@
+# Copyright (C) 2015 Fikri Rasyid
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cinnamon 1.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2015-04-20 02:16:44+00:00\n"
+"PO-Revision-Date: 2015-04-20 09:17+0700\n"
+"Last-Translator: Fikri Rasyid <fikrirasyid@gmail.com>\n"
+"Language-Team: Fikri Rasyid <fikrirasyid@gmail.com>\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: 404.php:23
+msgid "Most Used Categories"
+msgstr "Kategori Populer"
+
+#. translators: %1$s: smiley
+#: 404.php:40
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Coba cari di arsip bulanan. %1$s"
+
+#: comments.php:35 comments.php:53
+msgid "Comment navigation"
+msgstr "Navigasi komentar"
+
+#: comments.php:36 comments.php:54
+msgid "&larr; Older Comments"
+msgstr "&larr; Komentar Lama"
+
+#: comments.php:37 comments.php:55
+msgid "Newer Comments &rarr;"
+msgstr "Komentar Baru &rarr;"
+
+#: comments.php:65
+msgid "Comments are closed."
+msgstr "Komentar ditutup."
+
+#: comments.php:72
+msgid "Share Your Thought"
+msgstr "Bagikan Komentarmu"
+
+#: content-none.php:13
+msgid "Nothing Found"
+msgstr "Tidak Ditemukan"
+
+#: content-none.php:19
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Siap untuk mempublikasikan pos pertamamu? <a href=\"%1$s\">Mulai dari sini</"
+"a>."
+
+#: content-none.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Maaf, tidak ada hasil pencarian yang cocok dengan kata kunci yang digunakan. "
+"Coba lakukan pencarian dengan kata kunci berbeda."
+
+#: content-none.php:28
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "Halaman yang anda akses tidak ditemukan. Coba lakukan pencarian"
+
+#: content-page.php:14 content-single.php:12 content.php:47
+#: single-jetpack-portfolio.php:21
+msgid "Pages:"
+msgstr "Halaman:"
+
+#. translators: %s: Name of current post
+#: content.php:40
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Lanjutkan membaca %s <span class=\"meta-nav\">&rarr;</span>"
+
+#: footer.php:15
+msgid "Powered by %s &amp; %s"
+msgstr "Ditenagai oleh %s &amp; %s"
+
+#: functions.php:82 header.php:41
+msgid "Primary Menu"
+msgstr "Menu Utama"
+
+#: functions.php:121
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: header.php:22
+msgid "Skip to content"
+msgstr "Langsung ke konten"
+
+#: inc/customizer.php:76
+msgid "Accent color"
+msgstr "Warna aksen"
+
+#: inc/customizer.php:77
+msgid ""
+"Select one light color of your choice. Cinnamon will adjust its color scheme "
+"based on this color of choice.."
+msgstr ""
+"Pilih satu warna cerah pilihanmu. Cinnamon akan menyesuaikan skema warna "
+"berdasarkan warna pilihanmu."
+
+#: inc/customizer.php:313
+msgid "Error generating color scheme. Please try again."
+msgstr "Gagal membuat skema warna. Silahkan coba lagi."
+
+#: inc/extras.php:70
+msgid "Page %s"
+msgstr "Halaman %s"
+
+#: inc/plugin-compatibility-subtitles.php:80
+msgid "%s under <span class=\"taxonomies\">%s</span>"
+msgstr "%s dalam <span class=\"taxonomies\">%s</span>"
+
+#: inc/template-tags.php:23 inc/template-tags.php:48
+msgid "Posts navigation"
+msgstr "Navigasi pos-pos"
+
+#: inc/template-tags.php:25
+msgid "Newer stories"
+msgstr "Pos terbaru"
+
+#: inc/template-tags.php:50
+msgid "More stories"
+msgstr "Pos lainnya"
+
+#: inc/template-tags.php:74
+msgid "Post navigation"
+msgstr "Navigasi pos"
+
+#: inc/template-tags.php:77
+msgid "<span class=\"meta-label\">Previously</span>%title"
+msgstr "<span class=\"meta-label\">Sebelumnya</span>%title"
+
+#: inc/template-tags.php:78
+msgid "<span class=\"meta-label\">Read Next</span>%title"
+msgstr "<span class=\"meta-label\">Baca Selanjutnya</span>%title"
+
+#: inc/template-tags.php:98
+msgid "M j, Y"
+msgstr "M j, Y"
+
+#: inc/template-tags.php:105
+msgid "Posted on %s: "
+msgstr "Ditulis pada %s: "
+
+#: inc/template-tags.php:116
+msgid "Edit"
+msgstr "Sunting"
+
+#: inc/template-tags.php:132
+msgid ", "
+msgstr ", "
+
+#. translators: 1: date
+#: inc/template-tags.php:214 inc/template-tags.php:275
+msgid "on %1$s"
+msgstr "on %1$s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:230
+msgid " "
+msgstr ""
+
+#: inc/template-tags.php:232
+msgid "Tagged"
+msgstr "Tag"
+
+#: inc/template-tags.php:238
+msgid "Leave a comment"
+msgstr "Tinggalkan komentar"
+
+#: inc/template-tags.php:238
+msgid "1 Comment"
+msgstr "1 Komentar"
+
+#: inc/template-tags.php:238
+msgid "% Comments"
+msgstr "% Komentar"
+
+#: inc/template-tags.php:269
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr "<cite class=\"fn\">%s</cite>"
+
+#: inc/template-tags.php:275
+msgid "(Edit)"
+msgstr "(Sunting)"
+
+#: inc/template-tags.php:282
+msgid "Your comment is awaiting moderation."
+msgstr "Komentar kamu akan dimoderasi terlebih dahulu"
+
+#: inc/template-tags.php:429
+msgid "Author: %s"
+msgstr "Penulis: %s"
+
+#: inc/template-tags.php:432
+msgid "Day: %s"
+msgstr "Hari: %s"
+
+#: inc/template-tags.php:435
+msgid "%s"
+msgstr "%s"
+
+#: inc/template-tags.php:438
+msgid "Year: %s"
+msgstr "Tahun: %s"
+
+#: inc/template-tags.php:448
+msgid "Asides"
+msgstr "Catatan"
+
+#: inc/template-tags.php:457
+msgid "Archives"
+msgstr "Arsip"
+
+#: inc/template-tags.php:474
+msgid "Search Results for: %s"
+msgstr "Hasil pencarian untuk: %s"
+
+#: inc/template-tags.php:478
+msgid "Page Not Found"
+msgstr "Halaman Tidak Ditemukan"
+
+#: inc/template-tags.php:479
+msgid ""
+"Nothing was found at this location. Try one of the links below or a search:"
+msgstr ""
+"Tidak ditemukan. Coba salah satu tautan dibawah ini atau lakukan pencarian:"
+
+#. Theme Name of the plugin/theme
+msgid "Cinnamon"
+msgstr "Cinnamon"
+
+#. Theme URI of the plugin/theme
+msgid "http://fikrirasy.id/portfolio/cinnamon/"
+msgstr "http://fikrirasy.id/portfolio/cinnamon/"
+
+#. Description of the plugin/theme
+msgid ""
+"Cinnamon is default-looking classic two column WordPress theme with a soul"
+msgstr "Cinnamon adalah tema dua kolom dengan tampilan klasik yang berkarakter"
+
+#. Author of the plugin/theme
+msgid "Fikri Rasyid"
+msgstr "Fikri Rasyid"
+
+#. Author URI of the plugin/theme
+msgid "http://fikrirasy.id"
+msgstr "http://fikrirasy.id"
+
+#. Template Name of the plugin/theme
+msgid "One Column Page"
+msgstr "Halaman Satu Kolom"
+
+#: comments.php:28
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s komentar untuk &ldquo;%2$s&rdquo;"
+
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate
+#. * into your own language.
+#: functions.php:26
+msgctxt "Lato font: on or off"
+msgid "on"
+msgstr "on"
+
+#: inc/template-tags.php:435
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: inc/template-tags.php:438
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"

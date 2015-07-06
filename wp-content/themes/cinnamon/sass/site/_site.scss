@@ -1,0 +1,71 @@
+// @import "../layout/content-sidebar";
+// @import "../layout/sidebar-content";
+/*--------------------------------------------------------------
+11.1 Posts and pages
+--------------------------------------------------------------*/
+@import "primary/posts-and-pages";
+
+/*--------------------------------------------------------------
+11.2 Asides
+--------------------------------------------------------------*/
+@import "primary/asides";
+
+/*--------------------------------------------------------------
+11.3 Comments
+--------------------------------------------------------------*/
+@import "primary/comments";
+
+/*--------------------------------------------------------------
+11.4 Desktop Adjustment
+--------------------------------------------------------------*/
+
+/**
+* Desktop adjustment
+*/
+@media screen and ( min-width: $size__breakpoint-desktop ){
+	.wrap{
+		@include wrap( $size__breakpoint-desktop );		
+	}
+
+	#content{
+		position: relative;
+
+		&:before{
+			display: inline-block;
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 670px;
+			width: 1px;
+			background: $color__border;
+		}
+	}
+
+	#primary{
+		float: left;
+		width: 670px;
+	}
+	
+	// One column layout adjustment
+	.single-jetpack-portfolio,
+	.page-template-temp-one-column-page{
+		#content{
+			&:before{
+				display: none;
+			}
+		}
+
+		#primary{
+			float: none;
+			@include wrap( 740px );
+			// margin-left: 145px;
+		}
+	}
+
+	#secondary{
+		float: left;
+		width: 250px;
+		margin-left: 40px;		
+	}
+}

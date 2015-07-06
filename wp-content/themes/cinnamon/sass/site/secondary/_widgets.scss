@@ -1,0 +1,152 @@
+#secondary{
+	border-top: 1px solid $color__border;
+	background: $color__secondary-bg;
+}
+
+.widget {
+	padding: 15px;
+	border-bottom: 1px solid $color__border;
+
+	@include font-size( 1.4 );
+
+	/* Make sure select elements fit in widgets */
+	select {
+		max-width: 100%;
+	}
+
+	ul,ol{
+		margin-left: 0;
+	}
+
+	li{
+		list-style: none;
+		margin-bottom: 3px;
+
+		li{
+			padding-left: 2em;
+			text-transform: uppercase;
+			@include font-size( 1.1 );
+		}
+	}
+
+	a{
+		color: $color__text-light;
+	}
+}
+
+.widgettitle,
+.widget-title{
+	@include font-size( 1.9 );
+	@include font-size-desktop( 2.2 );
+	color: $color__text-title;
+		
+	font-weight: lighter;
+	margin-bottom: 10px;
+}
+
+/* Search widget */
+.widget_search{
+	.search-form{
+		position: relative;
+		padding-right: 105px;
+	}
+
+	.search-field{
+		display: block;
+		width: 100%;
+		@include box-sizing( border-box );
+	}
+
+	.search-submit {
+		margin-left: 5px;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}	
+}
+
+/* RSS Widget */
+.widget_rss{
+	li{
+		margin-bottom: 20px;
+
+		.rsswidget{
+			display: block;
+			@include font-size( 1.6 );
+			font-weight: bold;
+			line-height: 1.2;
+			color: $color__text-title;
+		}
+
+		.rss-date{
+			@include font-size( 1.2 );
+			color: $color__text-light;
+		}
+
+		.rssSummary{
+		}
+	}
+}
+
+/* Jetpack Subscription Widget */
+.jetpack_subscription_widget{
+	#subscribe-email input{
+		padding: 7px 10px;
+		margin-bottom: 10px;
+	}
+
+	#subscribe-text{
+		line-height: 1.4;
+		margin-bottom: 15px;	
+		color: $color__text-light;
+	}
+}
+
+/* Jetpack Gravatar Profile */
+.widget-grofile{
+	.grofile-meta{
+		h4{
+			font-weight: bold;
+		}
+	}
+}
+
+/* Jetpack contact info widget */
+.widget_contact_info{
+	.confit-address{
+		margin-top: 10px;
+	}
+}
+
+/**
+* Tablet adjustment
+*/
+@media screen and ( min-width: $size__breakpoint-tablet ){
+	#secondary{		
+		@include font-size( 1.6 );
+	}
+
+	.widget{
+		padding: 20px 33px;		
+	}
+}
+
+/**
+* Desktop adjustment
+*/
+@media screen and ( min-width: $size__breakpoint-desktop ){
+	#secondary{
+		border-top: none;
+		background: none !important;
+	}
+
+	.widget{
+		border-bottom: none;
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	.widget-title{
+		margin-bottom: 5px;
+	}
+}

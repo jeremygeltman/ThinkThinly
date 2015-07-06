@@ -1,0 +1,353 @@
+<?php
+
+function Process_EWD_FEUP_Front_End_Forms() {
+	global $user_message;
+		
+	//echo $_POST['ewd-feup-action'];die;
+	if (isset($_POST['ewd-feup-action'])) {
+		switch ($_POST['ewd-feup-action']) {
+			case "register":
+				$user_message = Add_Edit_User();
+				break;
+			case "edit-profile":
+				$user_message = Add_Edit_User();
+				break;
+			case "edit-account":
+				$user_message = Add_Edit_User();
+				break;
+			case "login":
+				$user_message['Message'] = Confirm_Login();
+				break;
+			case "forgot-password":
+				$user_message['Message'] = Forgot_Password();
+				break;
+
+			case "confirm-forgot-password":
+				$user_message['Message'] = Confirm_Forgot_Password();
+				break;
+				}
+		}
+}
+
+function Confirm_Login() {
+	global $wpdb, $feup_success;
+	global $ewd_feup_user_table_name;
+	$Salt = get_option("EWD_FEUP_Hash_Salt");
+	$Admin_Approval = get_option("EWD_FEUP_Admin_Approval");
+	$Email_Confirmation = get_option("EWD_FEUP_Email_Confirmation");
+	$Use_Crypt = get_option("EWD_FEUP_Use_Crypt");
+		
+	$User = $wpdb->get_row($wpdb->prepare("SELECT User_Password, User_Email_Confirmed, User_Admin_Approved FROM $ewd_feup_user_table_name WHERE Username ='%s'", $_POST['Username']));
+		
+	$Passwords_Match = false;
+	if (function_exists('hash_equals')) {
+		if($Use_Crypt == "Yes") {
+			$Passwords_Match = hash_equals($User->User_Password, crypt($_POST['User_Password'], $User->User_Password));
+		} else {
+			$Passwords_Match = hash_equals($User->User_Password, sha1(md5($_POST['User_Password'].$Salt)));
+		}
+	} else {
+		if($Use_Crypt == "Yes") {
+			if (strcmp($User->User_Password, crypt($_POST['User_Password'], $User->User_Password)) === 0) {
+				$Passwords_Match = true;
+			} else {
+				$Passwords_Match = false;
+			}
+		} else {
+			if (strcmp($User->User_Password, sha1(md5($_POST['User_Password'].$Salt)), $User->User_Password) === 0) {
+				$Passwords_Match = true;
+			} else {
+				$Passwords_Match = false;
+			}
+		}
+	}
+
+	if($Passwords_Match) {
+		if ($Admin_Approval != "Yes" or $User->User_Admin_Approved == "Yes") {
+			if ($Email_Confirmation != "Yes" or $User->User_Email_Confirmed == "Yes") {
+			  	CreateLoginCookie($_POST['Username'], $_POST['User_Password']);
+				$Date = date("Y-m-d H:i:s");   
+				$wpdb->query($wpdb->prepare("UPDATE $ewd_feup_user_table_name SET User_Last_Login='" . $Date . "', User_Total_Logins=User_Total_Logins+1 WHERE Username ='%s'", $_POST['Username']));
+				$wpdb->query($wpdb->prepare("UPDATE $ewd_feup_user_table_name SET User_Sessioncheck='%s' WHERE Username ='%s'", sha1(md5($_SERVER['REMOTE_ADDR'].$Salt).$_SERVER['HTTP_USER_AGENT']), $_POST['Username']));
+				$feup_success = true;
+				return __("Login successful", 'EWD_FEUP');
+			}
+			return __("Login failed - you need to confirm your e-mail before you can log in", 'EWD_FEUP');
+		}
+		return __("Login failed - an administrator needs to approve your registration before you can log in", 'EWD_FEUP');
+	}
+	return __("Login failed - incorrect username or password", 'EWD_FEUP');
+}
+
+function Forgot_Password() {
+	global $wpdb, $feup_success;
+	global $ewd_feup_user_table_name, $ewd_feup_fields_table_name;
+
+	$Salt = get_option("EWD_FEUP_Hash_Salt");
+	$Admin_Approval = get_option("EWD_FEUP_Admin_Approval");
+	$Admin_Email = get_option("EWD_FEUP_Admin_Email");
+	$Email_Confirmation = get_option("EWD_FEUP_Email_Confirmation");
+	$Username_Is_Email = get_option("EWD_FEUP_Username_Is_Email");
+	$Email_Field = get_option("EWD_FEUP_Email_Field");
+	$Email_Field = str_replace(" ", "_", $Email_Field);
+		
+	//$User = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE Username ='%s'", $_POST['Email']));
+//	if($Username_Is_Email == "Yes") {
+//		$User = $wpdb -> get_row( $wpdb -> prepare( "SELECT * FROM $ewd_feup_user_table_name WHERE Username = '%s'", $_POST['Email'] ) );
+//		$User_Email = $User->Username;
+//	} else {
+//		$User_Fields = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_fields_table_name WHERE Field_Value = '%d' AND Field_Name = '%s' ", $_POST['Email'], $Email_Field));
+//		$User = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE User_ID = '%d'", $User_Fields->User_ID ));
+//		$User_Email = $User_Fields->Field_Value;
+//	}
+
+    //brian3t username is phone
+		$User = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE Username = '%d'", $_POST['user_name'] ));
+		$User_Email = $User->user_email;
+    ////brian3t username is phone
+
+	if( !empty( $User ) )
+	{
+		//update users password
+		//$password = wp_generate_password();
+		//$hashedPassword = sha1( md5( $password.$Salt ) );
+
+		// generate pw reset code
+		$letters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$resetcode = '';
+		$length = 15;
+		for ($i = 0; $i < $length; $i++) {
+			$resetcode .= $letters[rand(0, strlen($letters) - 1)];
+		}
+
+		
+		$wpdb -> update( $ewd_feup_user_table_name, array(
+				'User_Password_Reset_Code' => $resetcode,
+				'User_Password_Reset_Date' => date('Y-m-d H:i:s', time())
+			),
+			array(
+				'User_ID' => $User->User_ID,
+			),
+			array(
+				'%s'
+			)
+		);
+		
+		//send email to user with account credentials
+		$subject = __("Password reset requested from ", 'EWD_FEUP').get_bloginfo('name');
+
+		$headers = 'From: ' . $Admin_Email . "\r\n" .
+    		'Reply-To: ' . $Admin_Email . "\r\n" .
+    		'X-Mailer: PHP/' . phpversion();
+		
+		$message = __("Greetings from ", 'EWD_FEUP').get_bloginfo('name')."\n\n";
+		$message .= __("Somebody requested a password reset for you. If this wasn't you, you can ignore this mail.", 'EWD_FEUP')."\n\n";
+		$message .= __("If you want to reset the password, please visit ", 'EWD_FEUP').site_url()."/".$_POST['ewd-feup-reset-email-url']."/?add=". $User->Username."&rc=".$resetcode."\n";
+		$message .= __("If the link above doesn't work, go to ", 'EWD_FEUP').site_url()."/".$_POST['ewd-feup-reset-email-url'].__(" and enter your phone number and the following code:", 'EWD_FEUP')."\n";
+		$message .= $resetcode;
+		//$feup_success = true;
+		//return($User_Email."\n". $subject."\n". $message."\n". $headers);
+
+        //brian3t send sms to user with new password
+        require "Services/Twilio.php";
+        $AccountSid = "ACddcce2ed6943c1bd04b0642fab6b2f3f";
+//$AccountSid = "AC34a5f15925ad36bbbc27982fd4b9deba";
+        $AuthToken = "1542d1f8621777361d4d0332d1f8ec4c";
+//$AuthToken = "3342df8735f959b64c61ec3135f8ba2b";
+//mail("reetika.php@gmail.com","My subject","test");
+        $client = new Services_Twilio($AccountSid, $AuthToken);
+
+        try {
+            $sms = $client->account->messages->sendMessage(
+                "+16194190679",
+                $User->Username,
+                "If you want to reset the password, please visit ".site_url()."/".$_POST['ewd-feup-reset-email-url']."/?add=". $User->Username."&rc=".$resetcode,
+                array()
+            );
+        }
+        catch (Services_Twilio_RestException $e) {
+            echo $e->getMessage();
+        }
+
+
+            //brian3t skips foobar
+        if (strpos("foobar.com", $User_Email) == false) {
+            wp_mail($User_Email, $subject, $message, $headers);
+        }
+		
+		$feup_success = true;
+		
+		//return success message
+		return __("For completing the password reset procedure, please follow the instructions in your email and your sms.", 'EWD_FEUP');
+	}
+	else
+	{
+		//return success message even though operation failed - we don't want 'them' to know which
+		// email addresses are used
+		return __("For completing the password reset procedure, please follow the instructions in your email and your sms.", 'EWD_FEUP');
+	}
+}
+
+function Confirm_Forgot_Password() {
+	global $wpdb, $feup_success;
+	global $ewd_feup_user_table_name, $ewd_feup_fields_table_name;
+
+	$Salt = get_option("EWD_FEUP_Hash_Salt");
+	$Admin_Approval = get_option("EWD_FEUP_Admin_Approval");
+	$Admin_Email = get_option("EWD_FEUP_Admin_Email");
+	$Email_Confirmation = get_option("EWD_FEUP_Email_Confirmation");
+	$Username_Is_Email = get_option("EWD_FEUP_Username_Is_Email");
+	$Email_Field = get_option("EWD_FEUP_Email_Field");
+	$Email_Field = str_replace(" ", "_", $Email_Field);
+	$Given_Reset_Code = $_POST['Resetcode'];
+	$Given_Password = $_POST['User_Password'];
+
+	if(!empty($Given_Reset_Code)) {
+		if (strcmp($Given_Password, $_POST['Confirm_User_Password']) === 0) {
+			if(!empty($Given_Password)) {
+
+//				if ($Username_Is_Email == "Yes") {
+//					$User = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE Username = '%s'", $_POST['Email']));
+//					$User_Email = $User->Username;
+//				} else {
+//					$User_Fields = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_fields_table_name WHERE Field_Value = '%d' AND Field_Name = '%s' ", $_POST['Email'], $Email_Field));
+//					$User = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE User_ID = '%d'", $User_Fields->User_ID));
+//					$User_Email = $User_Fields->Field_Value;
+//				}
+                //brian 3t username is phone
+                $User = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE Username = '%d'", $_GET['add'] ));
+                $User_Email = $User->user_email;
+                ////brian 3t username is phone
+
+				if (!empty($User) && !empty($User->User_Password_Reset_Code)) {
+					$Current_Date = new DateTime();
+					$Request_Date = new DateTime($User->User_Password_Reset_Date);
+					$Time_Since_Reset_Requested = $Current_Date->diff($Request_Date);
+					if($Time_Since_Reset_Requested->d < 7) {
+						if (strcmp($Given_Reset_Code, $User->User_Password_Reset_Code) === 0) {
+							// everything seems ok, let's change the pw
+							// also remove the reset code so it can't be reused
+                            //brian3t fixes plugin to check for Use_Crypt option
+                            $Use_Crypt          = get_option("EWD_FEUP_Use_Crypt");
+                            if ( $Use_Crypt == "Yes" ) {
+                                if ( isset($Given_Password) ) {
+                                    $New_Password_Hash = Generate_Password($_POST['User_Password']);
+                                }
+                            } else {
+                                if ( isset($Given_Password) ) {
+                                    $New_Password_Hash = sha1(md5($_POST['User_Password'] . $Salt));
+                                }
+                            }
+                            //__brian3t fixes plugin to check for Use_Crypt option
+
+							$wpdb->update($ewd_feup_user_table_name, array(
+									'User_Password_Reset_Code' => '',
+									'User_Password' => $New_Password_Hash,
+								),
+								array(
+									'User_ID' => $User->User_ID,
+								),
+								array(
+									'%s'
+								)
+							);
+
+
+							$feup_success = true;
+
+							//return success message
+							return __("Your password has been successfully changed. You can log in using your new password now.", 'EWD_FEUP'). ": <a href='/signin'>Log in</a>";
+						} else {
+							return __("The password reset code you entered was wrong. You need to get a new one before using this function again.", 'EWD_FEUP');
+						}
+					} else {
+						$wpdb->update($ewd_feup_user_table_name, array(
+								'User_Password_Reset_Code' => '',
+							),
+							array(
+								'User_ID' => $User->User_ID,
+							),
+							array(
+								'%s'
+							)
+						);
+						return __("This password reset code is too old and we have disabled it for your security. Please use the 'I forgot my password' function to acquire a new one.");
+					}
+				} else {
+					return __("You need a password reset code to reset your password. Please use the 'I forgot my password' function first to acquire one.");
+				}
+			} else {
+				return __("Please select a new password");
+			}
+		} else {
+			return __("The passwords you entered did not match");
+		}
+	} else {
+		return __("You need a password reset code to reset your password. Please use the 'I forgot my password' function first to acquire one.");
+	}
+}
+
+function FEUPRedirect($redirect_page) {
+	header("location:" . $redirect_page);
+}
+
+function ConfirmUserEmail() {
+	global $wpdb, $ewd_feup_user_table_name;
+
+	$User_ID = $_GET['User_ID'];
+	$Email_Address = $_GET['ConfirmEmail'];
+	$Confirmation_Code = $_GET['Confirmation_Code'];
+
+	$Retrieved_User_ID = $wpdb->get_row($wpdb->prepare("SELECT User_ID FROM $ewd_feup_user_table_name WHERE User_ID=%d AND User_Confirmation_Code=%s", $User_ID, $Confirmation_Code));
+	if (isset($Retrieved_User_ID->User_ID)) {
+		$wpdb->query($wpdb->prepare("UPDATE $ewd_feup_user_table_name SET User_Email_Confirmed='Yes' WHERE User_ID=%d", $Retrieved_User_ID->User_ID));
+		$ConfirmationSuccess = "Yes";
+	}
+	else {
+		$ConfirmationSuccess = "No";
+	}
+
+	return $ConfirmationSuccess;
+}
+
+function Get_User_Search_Results() {
+	global $wpdb, $ewd_feup_user_fields_table_name, $ewd_feup_user_table_name;
+		
+	foreach ($_POST as $field => $value) {
+		if (substr($field, 0, 7) == "search_") {
+			$DataSet['Criteria'] .= str_replace("_", " ", substr($field, 7));
+			$DataSet['Value'] = "%" . $value . "%";
+			$Criterion[] = $DataSet;
+			unset($DataSet);
+		}
+	}
+		
+	if (!is_array($Criterion)) {return array();}
+		
+	$list = array();
+	foreach ($Criterion as $DataSet) {
+		unset($IDs);
+		$IDs = array();
+		$UserList = $wpdb->get_results($wpdb->prepare("SELECT User_ID FROM $ewd_feup_user_fields_table_name WHERE Field_Name='%s' AND Field_Value LIKE '%s'", $DataSet['Criteria'], $DataSet['Value']));
+		foreach ($UserList as $User) {
+			$IDs[] = $User->User_ID;
+		}
+		$list[] = $IDs;
+	}
+		
+	if (sizeOf($list) < 2) {
+		$UserIDs = $IDs;
+	} else {
+		$UserIDs = call_user_func_array('array_intersect',$list);
+	}
+
+	foreach ($UserIDs as $UserID) {
+		$User = $wpdb->get_row($wpdb->prepare("SELECT Username FROM $ewd_feup_user_table_name WHERE User_ID='%d'", $UserID));
+		$UserInformation['Username'] = $User->Username;
+		$Users[] = $UserInformation;
+		unset($UserInformation);
+	}
+		
+	return $Users;
+}
+?>

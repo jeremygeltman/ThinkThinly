@@ -1,0 +1,47 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+	line-height: 1;
+	background: $color__link;
+	box-shadow: 0 3px 0 $color__link-shadow;
+	color: white;
+	@include font-size( 1.4 );
+	border: none;
+	@include border-radius( 4px );
+	font-weight: lighter;
+	padding: 12px 25px 10px;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	background: $color__link-hover;
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	background: $color__link-visited;
+	outline: 0;
+}
+
+/**
+* Desktop Adjustment
+*/
+@media screen and ( min-width: $size__breakpoint-desktop ){
+	button,
+	input[type="button"],
+	input[type="reset"],
+	input[type="submit"]{
+		@include font-size( 1.6 );
+	}	
+}

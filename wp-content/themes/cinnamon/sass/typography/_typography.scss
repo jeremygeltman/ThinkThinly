@@ -1,0 +1,28 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size( 1.6);
+	line-height: $font__line-height-body;
+}
+
+/**
+* Desktop adjustment
+*/
+@media screen and ( min-width: $size__breakpoint-desktop ){
+	body,
+	button,
+	input,
+	select,
+	textarea {
+		@include font-size( 1.6 );
+		line-height: 1.8;
+	}
+}
+
+@import "headings";
+
+@import "copy";

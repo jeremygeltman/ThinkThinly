@@ -1,0 +1,274 @@
+# Copyright (C) 2015 Fikri Rasyid
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cinnamon 1.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2015-04-21 01:03:16+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
+
+#: 404.php:23
+msgid "Most Used Categories"
+msgstr ""
+
+#: 404.php:40
+#. translators: %1$s: smiley
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: comments.php:35 comments.php:53
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:36 comments.php:54
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:37 comments.php:55
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:65
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:72
+msgid "Share Your Thought"
+msgstr ""
+
+#: content-none.php:13
+msgid "Nothing Found"
+msgstr ""
+
+#: content-none.php:19
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: content-none.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: content-none.php:28
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: content-page.php:14 content-single.php:12 content.php:47
+#: single-jetpack-portfolio.php:21
+msgid "Pages:"
+msgstr ""
+
+#: content.php:40
+#. translators: %s: Name of current post
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: footer.php:15
+msgid "Powered by %s &amp; %s"
+msgstr ""
+
+#: functions.php:82 header.php:41
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:121
+msgid "Sidebar"
+msgstr ""
+
+#: header.php:22
+msgid "Skip to content"
+msgstr ""
+
+#: inc/customizer.php:76
+msgid "Accent color"
+msgstr ""
+
+#: inc/customizer.php:77
+msgid ""
+"Select one light color of your choice. Cinnamon will adjust its color "
+"scheme based on this color of choice.."
+msgstr ""
+
+#: inc/customizer.php:313
+msgid "Error generating color scheme. Please try again."
+msgstr ""
+
+#: inc/extras.php:70
+msgid "Page %s"
+msgstr ""
+
+#: inc/plugin-compatibility-subtitles.php:80
+msgid "%s under <span class=\"taxonomies\">%s</span>"
+msgstr ""
+
+#: inc/template-tags.php:23 inc/template-tags.php:48
+msgid "Posts navigation"
+msgstr ""
+
+#: inc/template-tags.php:25
+msgid "Newer stories"
+msgstr ""
+
+#: inc/template-tags.php:50
+msgid "More stories"
+msgstr ""
+
+#: inc/template-tags.php:74
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-tags.php:77
+msgid "<span class=\"meta-label\">Previously</span>%title"
+msgstr ""
+
+#: inc/template-tags.php:78
+msgid "<span class=\"meta-label\">Read Next</span>%title"
+msgstr ""
+
+#: inc/template-tags.php:98
+msgid "M j, Y"
+msgstr ""
+
+#: inc/template-tags.php:105
+msgid "Posted on %s: "
+msgstr ""
+
+#: inc/template-tags.php:116
+msgid "Edit"
+msgstr ""
+
+#: inc/template-tags.php:132
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:214 inc/template-tags.php:275
+#. translators: 1: date
+msgid "on %1$s"
+msgstr ""
+
+#: inc/template-tags.php:230
+#. translators: used between list items, there is a space after the comma
+msgid " "
+msgstr ""
+
+#: inc/template-tags.php:232
+msgid "Tagged"
+msgstr ""
+
+#: inc/template-tags.php:238
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/template-tags.php:238
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:238
+msgid "% Comments"
+msgstr ""
+
+#: inc/template-tags.php:269
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr ""
+
+#: inc/template-tags.php:275
+msgid "(Edit)"
+msgstr ""
+
+#: inc/template-tags.php:282
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/template-tags.php:429
+msgid "Author: %s"
+msgstr ""
+
+#: inc/template-tags.php:432
+msgid "Day: %s"
+msgstr ""
+
+#: inc/template-tags.php:435
+msgid "%s"
+msgstr ""
+
+#: inc/template-tags.php:438
+msgid "Year: %s"
+msgstr ""
+
+#: inc/template-tags.php:448
+msgid "Asides"
+msgstr ""
+
+#: inc/template-tags.php:457
+msgid "Archives"
+msgstr ""
+
+#: inc/template-tags.php:474
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/template-tags.php:478
+msgid "Page Not Found"
+msgstr ""
+
+#: inc/template-tags.php:479
+msgid "Nothing was found at this location. Try one of the links below or a search:"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Cinnamon"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://fikrirasy.id/portfolio/cinnamon/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Cinnamon is default-looking classic two column WordPress theme with a soul"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Fikri Rasyid"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://fikrirasy.id"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "One Column Page"
+msgstr ""
+
+#: comments.php:28
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions.php:26
+#. Translators: If there are characters in your language that are not
+#. * supported by Lato, translate this to 'off'. Do not translate
+#. * into your own language.
+msgctxt "Lato font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/template-tags.php:435
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: inc/template-tags.php:438
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""

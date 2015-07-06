@@ -1,0 +1,32 @@
+v1.0.6  - Fixed theme panel font compat with https
+        - Fixed logo display issue at mobile
+        - Fixed sidebar layout issue
+        - Updated FontAwesome to 4.2.0
+        - Removed screenshot.jpg because it duplicates screenshot.png
+        - Removed fancybox from admin
+        - Added hide comment count on blog/archive if comments turned off
+        - Added hide comment count on singel if comments turned off
+        - Added option to set social media font color
+        - Added option to hide date on single post
+        - Updated default styles in options panel
+        - Updated color of blog date on blog/archive
+
+v1.0.5  - Fixed stacking issue with posts and pages at mobile viewports
+        - Fixed undeclared function error on posts and pages
+        - Fixed alternate sidebar key issue
+        - Updated theme options panel
+ 
+v1.0.4  - Remove check for register_nav_menu
+
+v1.0.3  - Move global content_width outside of conditional
+
+v1.0.2  - Fixed missing global var $content_width in after_setup_theme
+
+v1.0.1  - Added core color picker to theme options panel
+        - Fixed namespace issue with n_clear to nimbus_clear
+        - Removed menu attribute from wp_nav_menu
+        - Remove scripts settings
+        - Updated Bebas font licence info in readme.txt
+        - Moved $content_width into after_setup_theme
+
+v1.0.0  - Initial Launch 

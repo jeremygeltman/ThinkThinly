@@ -1,0 +1,272 @@
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+	background: $color__menu-background;
+	border-top: 1px solid $color__border;
+
+	&.toggled{
+		border-bottom: 1px solid $color__border;
+	}
+
+	.nav-menu{
+		display: none;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		display: none;
+
+		ul {	
+
+			li {
+				padding-left: 30px;
+
+				&:last-child{
+					a{						
+						border-bottom: 1px dashed $color__border;
+					}
+				}
+
+				a{
+					border-top: 1px dashed $color__border;
+					@include font-size( 1.3 );
+					padding: 4px 15px;
+					opacity: .8;
+				}
+
+				ul{
+					border-top: 1px dashed $color__border;
+
+					li{
+						&:first-child{
+							a{
+								border-top: 0;
+							}
+						}
+
+						&:last-child{
+							a{
+								border-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+
+			a {
+				display: block;
+			}
+
+			:hover > a {
+			}
+
+			a:hover {
+			}
+		}
+
+		li:hover > ul {
+			left: auto;
+		}
+	}
+
+	li {
+		position: relative;
+
+		&:hover > a {
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+		padding: 7px 15px;
+		// text-align: center;
+		color: $color__text-title;
+		@include font-size( 1.6 );
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a {
+	}
+}
+
+/* Small menu */
+.menu-toggle {
+	// display: none;
+}
+
+.menu-toggle,
+.main-navigation.toggled .nav-menu {
+	display: block;
+
+	ul{
+		display: block;
+	}
+}
+
+/**
+* Older / Newer navigation
+*/
+.paging-navigation{
+	text-align: center;
+	padding: 40px 10px;
+
+	a{
+		@include font-size( 1.4 );
+		border: 1px solid $color__link;
+		padding: 7px 40px;
+		@include border-radius( 4px );
+
+		&:hover{
+			text-decoration: none;
+			border-color: $color__link-hover;
+		}
+	}
+}
+
+/**
+* Desktop Adjustment
+*/
+@media screen and ( min-width: $size__breakpoint-desktop ){
+	#site-navigation{
+		&.main-navigation{
+			border-top: none;
+
+			&.toggled{
+				border-top: 1px solid $color__border;
+			}
+		}
+	}
+
+	.not-touch-device{
+		#site-navigation{
+			float: right;
+			width: auto;
+			margin-top: 6px;
+			background: transparent;
+
+			.menu-toggle{
+				display: none;
+			}
+
+			&.main-navigation{
+				display: block;
+				clear: none;
+
+				.nav-menu{
+					display: block;
+				}
+
+				ul{
+					position: relative;
+
+					li{
+						display: inline-block;
+
+						&.menu-item-has-children{
+							> a{
+								position: relative;
+								padding-right: 20px;
+
+								&:after{
+									content: "\f347";
+									@include dashicons( 16px );
+									position: absolute;
+									top: 9px;
+									right: 0;
+								}
+							}
+						}
+
+						a{
+							padding-bottom: 11px;
+
+							&:hover{
+								text-decoration: underline;
+							}
+						}
+
+						li{
+							&.menu-item-has-children > a{
+								// padding-right: 15px;
+
+								&:after{
+									content: "\f345";
+									top: 5px;
+									right: 5px;
+								}
+							}
+
+							a{
+								padding-bottom: 4px;
+
+								&:hover{
+									background: #fafafa;
+									text-decoration: none;
+								}
+							}
+						}
+					}
+
+					ul{
+						display: none;
+						position: absolute;
+						top: 46px;
+						left: -1px;
+						background: white;
+						z-index: 30; // should be higher than .page-header .background & .page-header .page-title, .page-header .page-description
+						width: 180px;
+						border: 1px solid $color__border;
+
+
+						li,
+						li:first-child,
+						li:last-child{
+							a{
+								border-top: none;
+								border-bottom: none;
+							}
+						}
+
+						li{
+							padding-left: 0;
+							display: block;
+							border-bottom: 1px solid $color__border;
+
+							&:last-child{
+								border-bottom: none;
+							}
+
+							a{
+								@include font-size( 1.6 );
+								display: block;
+								opacity: 1;
+							}
+
+							ul{
+								border-top: 1px solid $color__border;
+								display: none;
+							}
+						}
+					}
+					
+					/**
+					* Hover state
+					*/
+					li.hovered > ul{
+						display: block;
+
+						li.hovered > ul{
+							top: -1px;
+							left: 178px;
+						}
+					}
+				}
+			}		
+		}
+	}
+}
