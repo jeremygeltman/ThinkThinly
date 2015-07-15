@@ -58,7 +58,7 @@ function Try_Now( $atts )
         if ( isset($user_message['Message']) ) {
             $ReturnString .= "<span id='signup_error_message' class='error-message'>" . $user_message['Message'] . "</span>";
         }
-        $ReturnString .= "<form action='#' method='post' id='ewd-feup-register-form' class='pure-form pure-form-aligned' enctype='multipart/form-data' data-toggle='validator'>";
+        $ReturnString .= "<form action='#' name='ewd-feup-register-form' method='post' id='ewd-feup-register-form' class='pure-form pure-form-aligned' enctype='multipart/form-data' data-toggle='validator' novalidate>";
         $ReturnString .= "<input type='hidden' name='ewd-feup-check' value='" . sha1(md5($Time . $Salt)) . "'>";
         $ReturnString .= "<input type='hidden' name='ewd-feup-time' value='" . $Time . "'>";
         $ReturnString .= "<input type='hidden' name='ewd-feup-action' value='register'>";
@@ -75,10 +75,10 @@ function Try_Now( $atts )
                                                                                                   required=""></div>
         <div class="pure-control-group"><label for="Gender" id="ewd-feup-register-11" class="ewd-feup-field-label" required>Gender: </label><select
                 name="Gender" id="ewd-feup-register-input-11" class="ewd-feup-select pure-input-1-3" required>
-                <option value="">Please select</option>
-                <option value="Female">Female</option>
+                <!--<option value="">Gender</option> -->
+                <option value="Female" selected>Female</option>
                 <option value="Male">Male</option>
-                <option value="Other">Other</option>
+                <!--<option value="Other">Other</option>-->
             </select></div>
 
 

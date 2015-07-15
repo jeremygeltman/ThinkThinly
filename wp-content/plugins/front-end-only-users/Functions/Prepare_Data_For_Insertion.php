@@ -109,16 +109,18 @@ function Add_Edit_User()
         if ( $wpdb->num_rows > 0 ) {
             $user_update = array(
                 "Message_Type" => "Error",
-                "Message" => __("There is already a user with that phone number. Please use a different one.",
+                "Message" => __("Doppelgänger alert! There is already a user with that phone number. Please try a different one.",
                                 "EWD_FEUP")
             );
 
             return $user_update;
         }
-        if ( strlen($_POST['Username']) < 3 ) {
+        //remove placeholder text
+        $newUsername = str_replace("_","",$_POST['Username']);
+        if ( strlen($newUsername) < 10 ) {
             $user_update = array(
                 "Message_Type" => "Error",
-                "Message" => __("Username must be at least 3 characters.", "EWD_FEUP")
+                "Message" => __("Phone must be at least 10 characters.", "EWD_FEUP")
             );
 
             return $user_update;
@@ -158,15 +160,15 @@ function Add_Edit_User()
             /*echo  "<pre>";
             print_r($Additional_Fields_Array);
             echo "</pre>"; */
-            $bf_date1 = $Additional_Fields_Array['Breakfast time']['Field_Value'];
+            $bf_date1 = $Additional_Fields_Array['Breakfast']['Field_Value'];
             $bf_date  = date('H:ia ', strtotime($bf_date1));
             //echo $bf_date;
 
-            $lnh_date1 = $Additional_Fields_Array['Lunch time']['Field_Value'];
+            $lnh_date1 = $Additional_Fields_Array['Lunch']['Field_Value'];
             $lnh_date  = date('H:ia ', strtotime($lnh_date1));
             //echo $lnh_date;
 
-            $dnr_date1 = $Additional_Fields_Array['Dinner time']['Field_Value'];
+            $dnr_date1 = $Additional_Fields_Array['Dinner']['Field_Value'];
             $dnr_date  = date('H:ia ', strtotime($dnr_date1));
             //echo $dnr_date;
 
@@ -190,7 +192,7 @@ function Add_Edit_User()
             $User_ID     = $wpdb->insert_id;
 
             //Custom code
-            if ( $Additional_Fields_Array['time zone'] ) {
+            if ( $Additional_Fields_Array['Time zone'] ) {
                 $offset   = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
                 $operator = preg_replace('/[0-9]/', '', $offset);
                 $vals     = preg_replace('/[-+]/', '', $offset);
@@ -216,14 +218,12 @@ function Add_Edit_User()
                         $brk    = date('H:ia', strtotime($b) + $vals * 60 * 60);
                         $lunch  = date('H:ia', strtotime($l) + $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) + $vals * 60 * 60);
-                        //echo "<br> Minus <br>".$brk.$lunch.$dinner.$Additional_Fields_Array['Dinner time']['Field_Value'];
 
 
                     } elseif ( trim($operator) == '+' ) {
                         $brk    = date('H:ia', strtotime($b) - $vals * 60 * 60);
                         $lunch  = date('H:ia', strtotime($l) - $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) - $vals * 60 * 60);
-                        //echo "<br> Plus <br>".$brk.$lunch.$dinner.$Additional_Fields_Array['Dinner time']['Field_Value'];
 
 
                     } else {
@@ -232,9 +232,9 @@ function Add_Edit_User()
                         $dinner = $dnr_date;
                     }
 
-                    $Additional_Fields_Array['Breakfast time']['Field_Value'] = $brk;
-                    $Additional_Fields_Array['Lunch time']['Field_Value']     = $lunch;
-                    $Additional_Fields_Array['Dinner time']['Field_Value']    = $dinner;
+                    $Additional_Fields_Array['Breakfast']['Field_Value'] = $brk;
+                    $Additional_Fields_Array['Lunch']['Field_Value']     = $lunch;
+                    $Additional_Fields_Array['Dinner']['Field_Value']    = $dinner;
                 }
             }
 
@@ -263,15 +263,15 @@ function Add_Edit_User()
         } /* Pass the data to the appropriate function in Update_Admin_Databases.php to edit the user */
         else {
 
-            $bf_date1 = $Additional_Fields_Array['Breakfast time']['Field_Value'];
+            $bf_date1 = $Additional_Fields_Array['Breakfast']['Field_Value'];
             $bf_date  = date('H:ia ', strtotime($bf_date1));
             //echo $bf_date;
 
-            $lnh_date1 = $Additional_Fields_Array['Lunch time']['Field_Value'];
+            $lnh_date1 = $Additional_Fields_Array['Lunch']['Field_Value'];
             $lnh_date  = date('H:ia ', strtotime($lnh_date1));
             //echo $lnh_date;
 
-            $dnr_date1 = $Additional_Fields_Array['Dinner time']['Field_Value'];
+            $dnr_date1 = $Additional_Fields_Array['Dinner']['Field_Value'];
             $dnr_date  = date('H:ia ', strtotime($dnr_date1));
             //echo $dnr_date;
 
@@ -302,7 +302,6 @@ function Add_Edit_User()
                             $brk    = date('H:ia', strtotime($b) + $vals * 60 * 60);
                             $lunch  = date('H:ia', strtotime($l) + $vals * 60 * 60);
                             $dinner = date('H:ia', strtotime($d) + $vals * 60 * 60);
-                            //echo $brk.$lunch.$dinner.$Additional_Fields_Array['Dinner time']['Field_Value'];die;
                         } elseif ( trim($operator) == '+' ) {
                             $brk    = date('H:ia', strtotime($b) - $vals * 60 * 60);
                             $lunch  = date('H:ia', strtotime($l) - $vals * 60 * 60);
@@ -313,9 +312,9 @@ function Add_Edit_User()
                             $dinner = $dnr_date;
                         }
 
-                        $Additional_Fields_Array['Breakfast time']['Field_Value'] = $brk;
-                        $Additional_Fields_Array['Lunch time']['Field_Value']     = $lunch;
-                        $Additional_Fields_Array['Dinner time']['Field_Value']    = $dinner;
+                        $Additional_Fields_Array['Breakfast']['Field_Value'] = $brk;
+                        $Additional_Fields_Array['Lunch']['Field_Value']     = $lunch;
+                        $Additional_Fields_Array['Dinner']['Field_Value']    = $dinner;
                     }
                 }
                 //Custom code end

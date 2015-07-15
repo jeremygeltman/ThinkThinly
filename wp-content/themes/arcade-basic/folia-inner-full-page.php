@@ -1,13 +1,10 @@
 <?php
 /**
- * Template Name: Page Folia
+ * Template Name: Folia Inner
  *
- * @package WordPress2
- * @subpackage Twenty_Fourteen2
- * @since Twenty Fifteen
  */
 ?>
-
+<?php get_header(); ?>
 
     <header id="layout1-header">
         <nav class="navbar main-navigation-header top-nav navbar-fixed-top">
@@ -43,35 +40,16 @@
     		<div class="row">
     			<div class="col-md-8 col-md-offset-2">
 	    			
-	    			<h1><a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+	    			<h1><?php single_post_title(); ?> </h1>
 	    			
-	    			<p class="main-text"><?php bloginfo( 'description' ); ?></p>
-
-					<div class="subscribe-form center-block clearfix">
-						<?php
-                        if ( is_front_page() ) {
-
-                            $featuredPosts = new WP_Query('');
-                            $featuredPosts->query('');
-                            while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); 
-                                
-                            the_content( __( 'Read more', 'arcade') );
-                           ?>
-                                                        
-                            <?php endwhile;
-                        }
-
-						if ( ! defined( 'BAVOTASAN_SEE_MORE' ) )
-							define( 'BAVOTASAN_SEE_MORE', __( 'See More', 'arcade' ) );
-						?>
-	    				
-	    			</div>
 	    			
 
+					<?php
+                        if (have_posts()) : while (have_posts()) : the_post(); the_content(); 
+                        endwhile; endif;
+                    ?>
 
-
-
-	    			
+	   
     			</div>
     		</div>
     	</div>
@@ -173,7 +151,7 @@
                     <p>Imagine if right at the moment you were about to cave you got a text with a photo reminding you what you want to look like.  Would it make you back away from the ledge of death by brownie?  Science says it will.  And science knows everything.  Give it a try for free.  
 </p>
 					
-					<a href="" id="more-site" class="button btn btn-default btn-lg" data-scroll-to="0">Free sign up</a>
+					<a href="" class="button">Free sign up</a>
 					
 				</div>
 				
@@ -210,10 +188,10 @@
 						<h4>Subscribe now - Free 30 Day Trial</h4>
 						<input type="text" name="subscribe_phone" class="form-control" placeholder="Phone">
                         <select id="ewd-feup-register-input-11" name="subscribe_gender" class="ewd-feup-select pure-input-1-3" required="">
-                           <!-- <option value="">Gender</option>-->
-                            <option value="Female" selected>Female</option>
+                            <option value="">Gender</option>
+                            <option value="Female">Female</option>
                             <option value="Male">Male</option>
-                            <!--<option value="Other">Other</option> -->
+                            <option value="Other">Other</option>
                         </select>
 						<div class="holder clearfix">
 							<!-- <span class="pull-left">* we are note spammers <br>Read Privacy for more information</span> -->

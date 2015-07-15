@@ -245,7 +245,27 @@ th {
     background: #fff !important; }
 
   .navbar {
-    display: none; }
+    display: none;
+  }
+
+
+#article.page #layout1-header{
+  min-height: 60px;
+  margin-top:150px;
+}
+
+
+
+#article.page nav.navbar{
+  background-color:none;
+  box-shadow: none;
+  padding:0px!important;
+}
+
+
+
+
+
 
   .table td,
   .table th {
@@ -2832,6 +2852,10 @@ input[type="button"].btn-block {
     .navbar {
       border-radius: 4px; } }
 
+article.page .navbar {
+  margin-bottom:0;
+}
+
 .navbar-header:before, .navbar-header:after {
   content: " ";
   display: table; }
@@ -3778,8 +3802,8 @@ input, textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 8px;
-  border: 1px solid #bbb;
-  font-size: 14px;
+  /* border: 1px solid #bbb;
+  font-size: 14px; */
   color: #555; }
 
 /* =Header
@@ -3889,11 +3913,13 @@ input, textarea {
     margin-top: 90px; }
 
 #more-site {
-  margin-top: 50px;
+  /* margin-top: 50px;
+    padding: 10px 25px; */
+    height:inherit!important;
+    padding:2px 25px;
   border: 1px solid #fff;
   color: #fff;
   font-weight: normal;
-  padding: 10px 25px;
   display: none;
   background: transparent; }
   #more-site:hover {
@@ -4190,11 +4216,23 @@ input, textarea {
 
 /* =Main elements
 -------------------------------------------------------------- */
+body.custom-background{color:transparent;}
+
 #page {
-  overflow: hidden; }
+  overflow: hidden;
+  color:black;
+}
+
 
 #primary {
-  margin: 50px 0; }
+  margin: 50px auto;
+  float:none;
+}
+
+body.page-template-default #primary{
+  margin-top: 150px;  
+}
+
   #primary.centered {
     float: none !important;
     margin-left: auto;
@@ -4653,7 +4691,11 @@ iframe {
 
 /* =Sidebar
 -------------------------------------------------------------- */
-#secondary,
+
+#secondary{display: none;}
+
+
+/* #secondary, */
 #tertiary {
   margin: 50px 0; }
   @media (max-width: 480px) {
@@ -5105,8 +5147,13 @@ label#ewd-feup-register-11{display: none;}
 
 
 .pure-control-group{
-  display: inline;
+  display: inline; 
 }
+#layout1-main-section .subscribe-form input[name=Phone]{font-size: 16px;}
+
+#layout1-subscribe-form form select{}
+
+#layout1-subscribe-form p{font-size:20px;}
 
 #layout1-main-section .subscribe-form input.ewd-feup-submit{
   color: #FFF;
@@ -5133,3 +5180,135 @@ body.home div#page select option {
 }
 body.page-template-default .pure-form-aligned .pure-control-group > input, body.page-template-default .pure-form-aligned .pure-control-group > select{margin-bottom: .3em}
 /*//brian fix*/
+
+.page-template-default .container{text-align: center;}
+
+
+.page-template-folia-inner #layout1-main-section{
+    padding-top:100px!important;
+    background:#ccc;
+    background: url('http://thinkthinly.com/wp-content/uploads/2015/07/photo-1428954376791-d9ae785dfb2d-1.jpeg')  no-repeat fixed 0 0;
+    background-size: cover;
+}
+
+
+@media only screen and (max-width: 996px){
+    .page-template-page-folia #layout1-main-section{
+      padding:87px 0 290px !important;
+    }
+
+    .page-template-page-folia h1 {font-size: 29px!important; }
+
+    #layout1-main-section .subscribe-form{
+      margin-top:-10px;
+    }
+
+    .page-template-folia-inner #layout1-main-section{
+       padding-top:100px !important;
+    }
+
+}
+
+    .page-template-folia-inner #ewd-feup-login-form-div{
+      color:red;
+      padding:10px 0 0 0;
+    }
+
+    .page-template-folia-inner form{
+      color:black;
+      padding:inherit;
+    }
+
+#user-form-container{
+    padding:40px 40px 30px 40px;
+    margin:auto;
+    background-color:white;
+    
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.6);
+}
+
+#user-form-container label[for=Submit]{
+    display: block;
+}
+
+#user-form-container input[type=submit]{
+    display: block;
+    padding: 15px 40px;
+    margin: 25px auto 0px auto;
+}
+
+
+.page-id-12 #user-form-container{
+    text-align: left;   
+}
+
+.page-id-39 #user-form-container .pure-form .pure-input-1-3{width:inherit;}
+
+#user-form-container .pure-control-group{
+  display: block; 
+}
+
+
+
+@media only screen and (max-width: 684px){
+#layout1-main-section .subscribe-form input{padding-left:0;}
+}
+
+@media only screen and (max-width: 684px) and (min-width: 590px){
+  #layout1-main-section .subscribe-form input{width:140px;}
+}
+
+@media only screen and (max-width: 590px){
+  .page-id-39 .pure-form .pure-input-1-3{
+    width:28%;  
+  }
+
+  .page-id-39 #user-form-container{
+    padding:40px 0;
+    min-width: 324px;
+  }
+
+}
+
+
+
+  .page-id-12 .pure-form-aligned .pure-control-group label{
+    width:208px;
+  }
+
+
+@media only screen and (max-width: 480px){
+  .page-id-39 .pure-form-aligned .pure-control-group label{
+    text-align: center;
+  }
+
+  .page-id-39 #user-form-container .pure-control-group input.ewd-feup-text-input{ 
+    margin:auto;
+  }
+  .page-id-12 .pure-form .pure-input-1-3{width: 67%;}
+
+  }
+
+  
+}
+
+.home .main-navigation li#menu-item-382,
+.page-id-12 .ewd-feup-edit-4,
+.page-id-12 .ewd-feup-register-input-4,
+.page-id-12 label[for=Username],
+.page-id-12 input[type=text]{
+  display:none;
+}
+
+
+#user-form-container p{
+  text-align: center;
+}
+
+.error-message{
+  font-weight: bold;
+  color:#FFD500;
+  padding:20px 0;
+}
+

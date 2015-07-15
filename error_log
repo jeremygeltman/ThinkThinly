@@ -2731,3 +2731,415 @@ Stack trace:
 #3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
 #4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
 #5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[07-Jul-2015 00:55:02 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_dinner =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[07-Jul-2015 00:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[07-Jul-2015 05:11:40 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 for query SELECT Field_Value,User_ID FROM `wp_EWD_FEUP_User_Fields` where Field_Name = 'Phone' and User_ID =  made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendsignupmms.php')
+[07-Jul-2015 15:55:01 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_breakfast =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[07-Jul-2015 15:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[07-Jul-2015 18:55:02 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET msgid_lunch =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[07-Jul-2015 18:55:03 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[07-Jul-2015 20:33:06 UTC] PHP Parse error:  syntax error, unexpected end of file in /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/footer.php on line 102
+[07-Jul-2015 20:47:22 UTC] PHP Parse error:  syntax error, unexpected ':' in /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/thinkthinly-form-template.php on line 12
+[08-Jul-2015 00:55:01 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_dinner =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[08-Jul-2015 00:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[08-Jul-2015 04:31:04 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('555_______', '4c488844de7928aa31ca295fdce293a7da9cc567', '', 'No', 'No', '2015-07-08 04:31:04', '2015-07-08 04:31:04') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 04:32:18 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('555_______', '4c488844de7928aa31ca295fdce293a7da9cc567', '', 'No', 'No', '2015-07-08 04:32:18', '2015-07-08 04:32:18') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 04:56:12 UTC] PHP Parse error:  syntax error, unexpected 'error_message' (T_STRING) in /home4/saramy/public_html/Thinkthinly.com/wp-content/plugins/front-end-only-users/Functions/Process_Front_End_Forms.php on line 79
+[08-Jul-2015 06:55:02 UTC] WordPress database error Unknown column 'msgid_' in 'field list' for query SELECT msgid_ FROM `wp_message` WHERE `User_ID` = 165 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[08-Jul-2015 06:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6199203348', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[08-Jul-2015 06:58:08 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('125_______', '4c488844de7928aa31ca295fdce293a7da9cc567', '', 'No', 'No', '2015-07-08 06:58:08', '2015-07-08 06:58:08') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 07:12:20 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('6199203348', '9d55eb10cdba6ea5692b06c1ad28a5617b518a38', '', 'No', 'No', '2015-07-08 07:12:20', '2015-07-08 07:12:20') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 07:16:07 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('6199203348', '9d55eb10cdba6ea5692b06c1ad28a5617b518a38', '', 'No', 'No', '2015-07-08 07:16:07', '2015-07-08 07:16:07') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 07:16:50 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('6199203348', '9d55eb10cdba6ea5692b06c1ad28a5617b518a38', '', 'No', 'No', '2015-07-08 07:16:50', '2015-07-08 07:16:50') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 07:17:45 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('6199203348', '9d55eb10cdba6ea5692b06c1ad28a5617b518a38', '', 'No', 'No', '2015-07-08 07:17:45', '2015-07-08 07:17:45') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 07:18:36 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('6199203348', '9d55eb10cdba6ea5692b06c1ad28a5617b518a38', '', 'No', 'No', '2015-07-08 07:18:36', '2015-07-08 07:18:36') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 07:19:51 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('6199203348', '9d55eb10cdba6ea5692b06c1ad28a5617b518a38', '', 'No', 'No', '2015-07-08 07:19:51', '2015-07-08 07:19:51') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 07:23:57 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('5555555555', '7c0d4f7d7345829d302bf009c4ed1ab7e3cf2baf', '', 'No', 'No', '2015-07-08 07:23:57', '2015-07-08 07:23:57') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 15:55:07 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_breakfast =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[08-Jul-2015 15:55:07 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[08-Jul-2015 18:48:22 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('5593474767', '31a092d842dae24f7a5d98f63018f9aa49b8cde4', '', 'No', 'No', '2015-07-08 18:48:22', '2015-07-08 18:48:22') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 18:55:01 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET msgid_lunch =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[08-Jul-2015 18:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[08-Jul-2015 18:57:51 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('5593474767', '31a092d842dae24f7a5d98f63018f9aa49b8cde4', '', 'No', 'No', '2015-07-08 18:57:51', '2015-07-08 18:57:51') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 18:58:07 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('5593474767', '31a092d842dae24f7a5d98f63018f9aa49b8cde4', '', 'No', 'No', '2015-07-08 18:58:07', '2015-07-08 18:58:07') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 18:59:32 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('5593474767', '31a092d842dae24f7a5d98f63018f9aa49b8cde4', '', 'No', 'No', '2015-07-08 18:59:32', '2015-07-08 18:59:32') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 19:01:38 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('5593474767', '31a092d842dae24f7a5d98f63018f9aa49b8cde4', '', 'No', 'No', '2015-07-08 19:01:38', '2015-07-08 19:01:38') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[08-Jul-2015 19:06:44 UTC] WordPress database error Duplicate entry '' for key 'user_email' for query INSERT INTO `wp_EWD_FEUP_Users` (`Username`, `User_Password`, `Level_ID`, `User_Admin_Approved`, `User_Email_Confirmed`, `User_Date_Created`, `User_Last_Login`) VALUES ('5593474767', '31a092d842dae24f7a5d98f63018f9aa49b8cde4', '', 'No', 'No', '2015-07-08 19:06:44', '2015-07-08 19:06:44') made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, Process_EWD_FEUP_Front_End_Forms, Add_Edit_User, Add_EWD_FEUP_User
+[09-Jul-2015 00:55:04 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_dinner =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[09-Jul-2015 00:55:04 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[09-Jul-2015 15:55:02 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_breakfast =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[09-Jul-2015 15:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[09-Jul-2015 18:55:01 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET msgid_lunch =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[09-Jul-2015 18:55:01 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[10-Jul-2015 00:55:02 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_dinner =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[10-Jul-2015 00:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[10-Jul-2015 06:55:02 UTC] WordPress database error Unknown column 'msgid_' in 'field list' for query SELECT msgid_ FROM `wp_message` WHERE `User_ID` = 174 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[10-Jul-2015 06:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6194051451', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[10-Jul-2015 15:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Bust that belly...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[10-Jul-2015 18:55:03 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET msgid_lunch =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[10-Jul-2015 18:55:04 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[10-Jul-2015 22:25:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[11-Jul-2015 00:55:05 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_dinner =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[11-Jul-2015 00:55:05 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[11-Jul-2015 06:55:02 UTC] WordPress database error Unknown column 'msgid_' in 'field list' for query SELECT msgid_ FROM `wp_message` WHERE `User_ID` = 174 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[11-Jul-2015 06:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6194051451', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[11-Jul-2015 10:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[11-Jul-2015 15:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Move it, move i...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[11-Jul-2015 18:55:05 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET msgid_lunch =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[11-Jul-2015 18:55:06 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[11-Jul-2015 22:25:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[12-Jul-2015 00:55:05 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_dinner =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[12-Jul-2015 00:55:05 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[12-Jul-2015 06:55:01 UTC] WordPress database error Unknown column 'msgid_' in 'field list' for query SELECT msgid_ FROM `wp_message` WHERE `User_ID` = 174 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[12-Jul-2015 06:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6194051451', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[12-Jul-2015 10:55:03 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[12-Jul-2015 15:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[12-Jul-2015 18:55:05 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET msgid_lunch =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[12-Jul-2015 18:55:06 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[12-Jul-2015 22:25:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Today one less ...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[13-Jul-2015 00:55:07 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET  msgid_dinner =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[13-Jul-2015 00:55:07 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[13-Jul-2015 06:55:02 UTC] WordPress database error Unknown column 'msgid_' in 'field list' for query SELECT msgid_ FROM `wp_message` WHERE `User_ID` = 174 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[13-Jul-2015 06:55:06 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6194051451', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[13-Jul-2015 10:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Drink water! Yo...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[13-Jul-2015 15:55:07 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[13-Jul-2015 18:55:05 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `User_ID` = 150' at line 1 for query UPDATE `wp_message` SET msgid_lunch =  WHERE `User_ID` = 150 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[13-Jul-2015 18:55:06 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6195732033', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[13-Jul-2015 22:25:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Even the sun ca...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[14-Jul-2015 00:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'The 'To' number 1619885163 is not a valid phone number.' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '1619885163', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[14-Jul-2015 06:55:02 UTC] WordPress database error Unknown column 'msgid_' in 'field list' for query SELECT msgid_ FROM `wp_message` WHERE `User_ID` = 174 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[14-Jul-2015 06:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6194051451', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[14-Jul-2015 10:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'You're so sweet...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[14-Jul-2015 15:55:03 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Become your own...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[14-Jul-2015 18:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'The 'To' number 1619885163 is not a valid phone number.' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '1619885163', 'Bust that belly...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[14-Jul-2015 22:25:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[15-Jul-2015 00:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'The 'To' number 1619885163 is not a valid phone number.' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '1619885163', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[15-Jul-2015 06:55:01 UTC] WordPress database error Unknown column 'msgid_' in 'field list' for query SELECT msgid_ FROM `wp_message` WHERE `User_ID` = 174 made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/arcade-basic/sendmms.php')
+[15-Jul-2015 06:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'Media urls:  are invalid. Please use only valid http and https urls' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '6194051451', NULL, Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p.. in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[15-Jul-2015 10:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Your Friend, Th...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[15-Jul-2015 15:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'To number: +19733668301, is not a mobile number' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '9733668301', 'Turn those mars...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy/p...')
+ in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
+[15-Jul-2015 18:55:02 UTC] PHP Fatal error:  Uncaught exception 'Services_Twilio_RestException' with message 'The 'To' number 1619885163 is not a valid phone number.' in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php:297
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php(180): Base_Services_Twilio->_processResponse(Array)
+#1 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/ListResource.php(92): Base_Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(24): Services_Twilio_ListResource->_create(Array)
+#3 /home4/saramy/public_html/Thinkthinly.com/Services/Twilio/Rest/Messages.php(71): Services_Twilio_Rest_Messages->create(Array)
+#4 /home4/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendmms.php(209): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '1619885163', 'Move it, move i...', Array)
+#5 /home4/saramy/public_html/Thinkthinly.com/wp-includes/template-loader.php(74): include('/home4/saramy in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297

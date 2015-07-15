@@ -151,13 +151,13 @@ function Insert_Edit_Profile( $atts )
             echo $_COOKIE['words'];*/
                 if ( empty($Value) ) {
                     switch ( $Field->Field_Name ) {
-                        case 'Breakfast time':
+                        case 'Breakfast':
                             $Value = '16:00';
                             break;
-                        case 'Lunch time':
+                        case 'Lunch':
                             $Value = '19:00';
                             break;
-                        case 'Dinner time':
+                        case 'Dinner':
                             $Value = '1:00am';
                             break;
                         default:
@@ -165,7 +165,7 @@ function Insert_Edit_Profile( $atts )
 
                     }
                 }
-                if ( $Field->Field_Name == 'Breakfast time' || $Field->Field_Name == 'Lunch time' || $Field->Field_Name == 'Dinner time' ) //if($Field->Field_Name == 'Dinner time')
+                if ( $Field->Field_Name == 'Breakfast' || $Field->Field_Name == 'Lunch' || $Field->Field_Name == 'Dinner' )
                 {
                     date_default_timezone_set('UTC');
                     $coo      = $_COOKIE['words'];
