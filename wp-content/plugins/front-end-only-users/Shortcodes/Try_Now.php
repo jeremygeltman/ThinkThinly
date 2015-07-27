@@ -126,10 +126,10 @@ function Try_Now( $atts )
 
         <?php
         $ReturnString .= "<div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Register_Submit' value='" . "Try It Now" . "'></div>";
+        $ReturnString .= "</form>";
         $ReturnString .= '                        <div class="terms_cond">
                             By signing up I accept the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
                         </div>';
-        $ReturnString .= "</form>";
         $ReturnString .= "</div>";
     } else {
         $ReturnString = "<div class='ewd-feup-email-confirmation'>";
