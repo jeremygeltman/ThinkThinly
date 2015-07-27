@@ -17,10 +17,10 @@ global $feup_message;
 global $user_message;
 global $feup_success;
 global $EWD_FEUP_Full_Version;
-$ewd_feup_user_table_name = $wpdb->prefix . "EWD_FEUP_Users";
-$ewd_feup_user_fields_table_name = $wpdb->prefix . "EWD_FEUP_User_Fields";
-$ewd_feup_fields_table_name = $wpdb->prefix . "EWD_FEUP_Fields";
-$ewd_feup_levels_table_name = $wpdb->prefix . "EWD_FEUP_Levels";
+$ewd_feup_user_table_name = $wpdb->prefix . "ewd_feup_users";
+$ewd_feup_user_fields_table_name = $wpdb->prefix . "ewd_feup_user_fields";
+$ewd_feup_fields_table_name = $wpdb->prefix . "ewd_feup_fields";
+$ewd_feup_levels_table_name = $wpdb->prefix . "ewd_feup_levels";
 $EWD_FEUP_db_version = "2.0.0";
 
 define( 'EWD_FEUP_CD_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
