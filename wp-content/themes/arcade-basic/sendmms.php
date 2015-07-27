@@ -25,7 +25,7 @@ if ($DAYLIGHT_SAVING) {
     }, array(&$time_cst, &$time_est, &$time_mst, &$time_pst));
 }
 
-define('DEBUG_DONT_SEND_SMS', true);
+define('DEBUG_DONT_SEND_SMS', false);
 
 if (DEBUG_DONT_SEND_SMS) {
     $time_pst = '02:00pm';
