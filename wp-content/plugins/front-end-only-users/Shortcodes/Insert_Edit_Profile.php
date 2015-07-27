@@ -3,6 +3,11 @@
 * supplied in the product-catalog shortcode */
 function Insert_Edit_Profile( $atts )
 {
+    /** @var string $redirect_page
+     * @var string $login_page
+     * @var string $Time
+     * @var string $Salt
+     * @var string $omit_fields */
     // Include the required global variables, and create a few new ones
     global $wpdb, $user_message, $feup_success;
     global $ewd_feup_fields_table_name, $ewd_feup_user_table_name, $ewd_feup_user_fields_table_name;
@@ -58,11 +63,11 @@ function Insert_Edit_Profile( $atts )
 
     $ReturnString .= "<div id='ewd-feup-edit-profile-form-div'>";
     if ( isset($user_message['Message']) ) {
-        $ReturnString .= $user_message['Message'];
+        $ReturnString .= "<div class='updated'><p>" . $user_message['Message'] ."</p></div>";
     }
     session_start();
     if ( isset($_SESSION['first_sms_sent_to']) && ! empty($_SESSION['first_sms_sent_to']) && isset($_SESSION['message_count']) && $_SESSION['message_count'] > 0 ) {
-        $ReturnString .= "<br/><p class='text-success'>Welcome to Thinkthinly. A message has been sent to your number " . $_SESSION['first_sms_sent_to'] . "</p>";
+        $ReturnString .= "<br/><p class='text-success'>Welcome to ThinkThinly. A message has been sent to your number " . $_SESSION['first_sms_sent_to'] . "</p>";
         $_SESSION['message_count'] --;
     }
 
@@ -76,12 +81,12 @@ function Insert_Edit_Profile( $atts )
 
     //Brian added. Force new username and password if user has just signed up
     $username = $User->Username;
-    //TODO B
+    //TODOB
     $user_email = $User->user_email;
     if ( strpos($username, "@foobar.com") != false ) {
         $username = "";
     }
-    $ReturnString .= '<div class="pure-control-group">';
+    $ReturnString .= '<div class="pure-control-group hidden">';
     $ReturnString .= '<label for="Username">Phone number: </label>';
     $ReturnString .= '<input type="text" class="ewd-feup-text-input" name="Username" value="' . $username . '" required>';
     $ReturnString .= '</div>';
@@ -152,53 +157,19 @@ function Insert_Edit_Profile( $atts )
                 if ( empty($Value) ) {
                     switch ( $Field->Field_Name ) {
                         case 'Breakfast':
-                            $Value = '16:00';
+                            $Value = '09:00am';
                             break;
                         case 'Lunch':
-                            $Value = '19:00';
+                            $Value = '12:00pm';
                             break;
                         case 'Dinner':
-                            $Value = '1:00am';
+                            $Value = '06:00pm';
                             break;
                         default:
                             break;
 
                     }
                 }
-                if ( $Field->Field_Name == 'Breakfast' || $Field->Field_Name == 'Lunch' || $Field->Field_Name == 'Dinner' )
-                {
-                    date_default_timezone_set('UTC');
-                    $coo      = $_COOKIE['words'];
-                    $coo      = trim($coo);
-                    $operator = preg_replace('/[0-9]/', '', $coo);
-                    //echo 'g'.$operator.'h';die;
-                    if ( trim($operator) == '' ) {
-                        $coo      = '+' . $coo;
-                        $operator = '+';
-                        //echo $operator;die;
-                    }
-                    $vals = preg_replace('/[-+]/', '', $coo);
-                    $Valu = preg_replace('/[A-Za-z]/', '', $Value);
-                    //echo $Valu;die;
-                    if ( $vals < 9 ) {
-                        $vals = str_replace('0', '', $vals);
-                    }
-
-                    //echo $operator;die;
-
-                    if ( trim($operator) == '+' ) {
-                        $bkend_calculated_time = date('h:ia', strtotime($Valu) + $vals * 60 * 60);
-                        //echo $Valu.$brk;die;
-                    } elseif ( trim($operator) == '-' ) {
-                        $bkend_calculated_time = date('h:ia', strtotime($Valu) - $vals * 60 * 60);
-
-                        //echo $Value.$brk;
-                    } else {
-                        $bkend_calculated_time = $Value;
-                    }
-
-                }
-
 
                 $ReturnString .= "<select rel='" . $bkend_calculated_time . "' name='" . $Field->Field_Name . "' id='ewd-feup-register-input-" . $Field->Field_ID . "' class='ewd-feup-select pure-input-1-3'>";
 

@@ -15,7 +15,7 @@ $bavotasan_theme_options = bavotasan_theme_options();
 
 <?php wp_footer(); ?>
 <?php echo $uri = str_replace('/', '', $_SERVER['REQUEST_URI']);
-if ( $uri == 'your-settings' ) {
+if ($uri == 'your-settings') {
     ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
@@ -41,31 +41,27 @@ if ( $uri == 'your-settings' ) {
 
         $(document).ready(function () {
                 //brian3t defaults timezone:
-                var hours_offset = -(new Date().getTimezoneOffset() / 60);
                 var timezone_select = $('select[name="Time zone"]');
-                var timezone_val = 'Please select';
-                //,,,,,(MST) Mountain Standard Time UTC-07,,
-                switch (hours_offset) {
-                    case -8:
-                        timezone_val = '(PST) Pacific Standard Time UTC-08';
-                        break;
-                    case -4:
-                        timezone_val = '(EDT) Eastern Daylight Time UTC-04';
-                        break;
-                    case -5:
-                        timezone_val = '(EST) Eastern Standard Time  UTC-05';
-                        break;
-                    case -6:
-                        timezone_val = '(CST) Central Standard Time  UTC-06';
-                        break;
-                    case -7:
-                        timezone_val = '(PDT) Pacific Daylight Time UTC-07';
-                        break;
-                    case -11:
-                        timezone_val = '(SST) Samoa Standard Time UTC-11';
-                        break;
+                if (timezone_select.val() === "Please select") {
+                    var hours_offset = -(new Date().getTimezoneOffset() / 60);
+                    //TODOB assuming daylight saving time
+                    //In the future, create cronjob to update hours offset when daylight savings is in effect
+                    switch (hours_offset) {
+                        case -7:
+                            timezone_val = 'PST';
+                            break;
+                        case -6:
+                            timezone_val = 'MST';
+                            break;
+                        case -5:
+                            timezone_val = 'CST';
+                            break;
+                        case -4:
+                            timezone_val = 'EST';
+                            break;
+                    }
+                    timezone_select.val(timezone_val);
                 }
-                timezone_select.val(timezone_val);
                 ////brian3t defaults timezone:
                 var regx = "/[a-zA-Z()]/g";
                 var word = $('#ewd-feup-register-input-14').val();
@@ -83,13 +79,13 @@ if ( $uri == 'your-settings' ) {
                     if ($('#ewd-feup-register-input-9').attr('rel') && ($('#ewd-feup-register-input-9').val() !== 'select'))
                         $('#ewd-feup-register-input-9').val($('#ewd-feup-register-input-9').attr('rel'));
 
-                    if (document.URL.indexOf("#loaded") == -1) {
-                        if (!window.location.hash) {
-                            window.location = window.location + '#loaded';
-                            window.location.reload();
-                        }
-                        //location.reload(true);
-                    }
+//                    if (document.URL.indexOf("#loaded") == -1) {
+//                        if (!window.location.hash) {
+//                            window.location = window.location + '#loaded';
+//                            window.location.reload();
+//                        }
+//                        //location.reload(true);
+//                    }
                 }
             }
         )

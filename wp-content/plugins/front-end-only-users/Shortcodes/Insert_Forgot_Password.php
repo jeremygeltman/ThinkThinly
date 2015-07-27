@@ -18,10 +18,10 @@ function Insert_Forgot_Password_Form($atts) {
 	if ($feup_success and $redirect_page != '#') {FEUPRedirect($redirect_page);}
 		
 	$User = new FEUP_User();
-	if( $User -> Is_Logged_In() )
-	{
-		FEUPRedirect($loggedin_page);
-	}
+//	if( $User -> Is_Logged_In() )
+//	{
+//		FEUPRedirect($loggedin_page);
+//	}
 		
 	$ReturnString = "";
 												
