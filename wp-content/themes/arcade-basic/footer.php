@@ -65,7 +65,7 @@ if ($uri == 'your-settings') {
                 ////brian3t defaults timezone:
                 var regx = "/[a-zA-Z()]/g";
                 var word = $('#ewd-feup-register-input-14').val();
-                if (typeof word !== "undefined") {
+                if (typeof word !== "undefined" && word !== null) {
                     word = word.replace(eval(regx), '');
                     setCookie('words', word, 365);
 
