@@ -31,7 +31,6 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
 nav,
 section,
@@ -257,7 +256,7 @@ th {
 
 
 #article.page nav.navbar{
-  background-color:none;
+  /*background-color:none;*/
   box-shadow: none;
   padding:0px!important;
 }
@@ -361,7 +360,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eeeeee; }
+  border-top: 1px solid #000; }
 
 .sr-only {
   position: absolute;
@@ -5290,16 +5289,14 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 
   }
 
-  
-}
 
 .home .main-navigation li#menu-item-382,
 .page-id-12 .ewd-feup-edit-4,
 .page-id-12 .ewd-feup-register-input-4,
 .page-id-12 label[for=Username],
-.page-id-12 input[type=text]{
-  display:none;
-}
+/*.page-id-12 input[type=text]{*/
+  /*display:none;*/
+/*}*/
 
 
 #user-form-container p{
@@ -5311,4 +5308,7 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
   color:#FFD500;
   padding:20px 0;
 }
-
+.terms_cond{
+    color: #fff;
+    margin-top: 12px;
+}

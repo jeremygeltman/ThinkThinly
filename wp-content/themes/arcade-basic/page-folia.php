@@ -208,13 +208,17 @@
 					<form action="#" novalidate="novalidate">
 						
 						<h4>Subscribe now - Free 30 Day Trial</h4>
-						<input type="text" name="subscribe_phone" class="form-control" placeholder="Phone">
+						<input type="text" name="subscribe_phone" class="form-control" placeholder="Mobile">
                         <select id="ewd-feup-register-input-11" name="subscribe_gender" class="ewd-feup-select pure-input-1-3" required="">
                            <!-- <option value="">Gender</option>-->
                             <option value="Female" selected>Female</option>
                             <option value="Male">Male</option>
                             <!--<option value="Other">Other</option> -->
                         </select>
+                        <div class="terms_cond">
+                            By signing up I accept the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
+                        </div>
+
 						<div class="holder clearfix">
 							<!-- <span class="pull-left">* we are note spammers <br>Read Privacy for more information</span> -->
 							<button class="btn btn-default pull-right" id="subscribe_btn" type="button">Try it out</button>

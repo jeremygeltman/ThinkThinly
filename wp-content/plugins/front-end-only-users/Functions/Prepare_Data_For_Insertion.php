@@ -144,9 +144,9 @@ function Add_Edit_User()
                     }
                 } elseif ( is_array($_POST[$Field_Name]) ) {
                     $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep(implode(",",
-                                                                                                            $_POST[$Field_Name]));
+                                                                                                            $_POST[str_replace("...","___",$Field_Name)]));
                 } else {
-                    $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep($_POST[$Field_Name]);
+                    $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep($_POST[str_replace("...","___",$Field_Name)]);
                 }
             }
         }

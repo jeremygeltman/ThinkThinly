@@ -16,7 +16,7 @@ function Insert_Edit_Profile( $atts )
 
     $CheckCookie = CheckLoginCookie();
 
-    $Sql      = "SELECT * FROM $ewd_feup_fields_table_name WHERE Field_Show_In_Front_End='Yes'";
+    $Sql      = "SELECT * FROM $ewd_feup_fields_table_name WHERE Field_Show_In_Front_End='Yes' ORDER BY `FIELD_ORDER` ASC";
     $Fields   = $wpdb->get_results($Sql);
     $User     = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE Username='%s'",
                                               $CheckCookie['Username']));
@@ -81,7 +81,6 @@ function Insert_Edit_Profile( $atts )
 
     //Brian added. Force new username and password if user has just signed up
     $username = $User->Username;
-    //TODOB
     $user_email = $User->user_email;
     if ( strpos($username, "@foobar.com") != false ) {
         $username = "";
@@ -127,6 +126,9 @@ function Insert_Edit_Profile( $atts )
                 if ( $Field->Field_Name == $UserField->Field_Name ) {
                     $Value = $UserField->Field_Value;
                 }
+            }
+            if ($Field->Field_Name == "I need the most help..."){
+                $ReturnString .= '<hr/>';
             }
             $ReturnString .= "<div class='pure-control-group'>";
             $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-" . $Field->Field_ID . "' class='ewd-feup-field-label'>" . __($Field->Field_Name,
@@ -217,6 +219,11 @@ function Insert_Edit_Profile( $atts )
             }
             $ReturnString .= "</div>";
             unset($Req_Text);
+
+            if ($Field->Field_Name == "I need the most help..."){
+                $ReturnString .= '<hr/>';
+            }
+
         }
     }
 

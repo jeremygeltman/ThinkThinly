@@ -70,7 +70,7 @@ function Try_Now( $atts )
                                                                                                   id="ewd-feup-register-input-4"
                                                                                                   class="ewd-feup-text-input pure-input-1-3"
                                                                                                   type="tel"
-                                                                                                  placeholder="Phone"
+                                                                                                  placeholder="Mobile"
                                                                                                   data-inputmask="\'mask\': \'9999999999\'"
                                                                                                   required=""></div>
         <div class="pure-control-group"><label for="Gender" id="ewd-feup-register-11" class="ewd-feup-field-label" required>Gender: </label><select
@@ -126,6 +126,9 @@ function Try_Now( $atts )
 
         <?php
         $ReturnString .= "<div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Register_Submit' value='" . "Try It Now" . "'></div>";
+        $ReturnString .= '                        <div class="terms_cond">
+                            By signing up I accept the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
+                        </div>';
         $ReturnString .= "</form>";
         $ReturnString .= "</div>";
     } else {

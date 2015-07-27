@@ -44,7 +44,7 @@ if ($uri == 'your-settings') {
                 var timezone_select = $('select[name="Time zone"]');
                 if (timezone_select.val() === "Please select") {
                     var hours_offset = -(new Date().getTimezoneOffset() / 60);
-                    //TODOB assuming daylight saving time
+                    //Brian3t assuming daylight saving time
                     //In the future, create cronjob to update hours offset when daylight savings is in effect
                     switch (hours_offset) {
                         case -7:
