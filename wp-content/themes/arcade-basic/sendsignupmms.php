@@ -19,13 +19,13 @@ $current_time = date('H:ia', strtotime("+5 minutes"));
 global $uid;
 $userId = $uid;
 //$wpdb->query("INSERT INTO `wp_message` (`User_ID`, `msgid_breakfast`, `msgid_lunch`, `msgid_dinner`) VALUES (11,2, 1, 2)");die;
-$userPhone = $wpdb->get_results("SELECT Field_Value,User_ID FROM `wp_EWD_FEUP_User_Fields` where Field_Name = 'Phone' and User_ID = $userId");
+$userPhone = $wpdb->get_results("SELECT Field_Value,User_ID FROM `wp_ewd_feup_user_fields` where Field_Name = 'Phone' and User_ID = $userId");
 if ( count($userPhone) != 1 ) {
     echo "No user phone found";
     die;
 }
 $userPhone = $userPhone[0]->Field_Value;
-$gender    = $wpdb->get_results("SELECT Field_Value,User_ID FROM `wp_EWD_FEUP_User_Fields` where Field_Name = 'Gender' and User_ID = $userId");
+$gender    = $wpdb->get_results("SELECT Field_Value,User_ID FROM `wp_ewd_feup_user_fields` where Field_Name = 'Gender' and User_ID = $userId");
 if ( count($gender) != 1 ) {
     echo "No gender found";
     die;
@@ -35,7 +35,7 @@ $gender = strtolower($gender);
 
 //	print_r($users);die;
 
-//$mms_meal = $wpdb->get_results("SELECT `Field_Name` FROM `wp_EWD_FEUP_User_Fields` WHERE `Field_Value` = '$current_time' LIMIT 1");
+//$mms_meal = $wpdb->get_results("SELECT `Field_Name` FROM `wp_ewd_feup_user_fields` WHERE `Field_Value` = '$current_time' LIMIT 1");
 //print_r($mms_meal);die;
 
 //foreach ( $users as $user ) {
@@ -43,9 +43,9 @@ $gender = strtolower($gender);
 
 //    $mealid = get_term_by('slug', $meal[0], 'meal');
 
-//    $sms = $wpdb->get_results("SELECT `Field_Value` FROM `wp_EWD_FEUP_User_Fields` WHERE `User_ID` = $user->User_ID and Field_Name = 'Send MMS'");
+//    $sms = $wpdb->get_results("SELECT `Field_Value` FROM `wp_ewd_feup_user_fields` WHERE `User_ID` = $user->User_ID and Field_Name = 'Send MMS'");
 
-//    $gndr = $wpdb->get_results("SELECT `Field_Value` FROM `wp_EWD_FEUP_User_Fields` WHERE `User_ID` = $user->User_ID and Field_Name = 'Gender'");
+//    $gndr = $wpdb->get_results("SELECT `Field_Value` FROM `wp_ewd_feup_user_fields` WHERE `User_ID` = $user->User_ID and Field_Name = 'Gender'");
 
 //    $gndrs = get_term_by('slug', strtolower($gndr[0]->Field_Value), 'meal');
 
