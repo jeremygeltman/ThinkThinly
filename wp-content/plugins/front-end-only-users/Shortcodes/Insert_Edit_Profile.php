@@ -91,7 +91,7 @@ function Insert_Edit_Profile( $atts )
     $ReturnString .= '</div>';
     $ReturnString .= '<div class="pure-control-group">';
     $ReturnString .= '<label for="user_email">Email: </label>';
-    $ReturnString .= '<input type="email" class="ewd-feup-text-input" name="user_email" value="' . $user_email . '" >';
+    $ReturnString .= '<input type="email" class="ewd-feup-text-input pure-input-1-3" name="user_email" value="' . $user_email . '" >';
     $ReturnString .= '</div>';
     if ( empty($username) ) {
         $ReturnString .= '<div class="pure-control-group">';
