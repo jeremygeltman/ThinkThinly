@@ -339,7 +339,7 @@ function Add_Edit_User()
         //        Brian3T sends sms here
         //find uid
         if ( $_POST['ewd-feup-action'] == "register" ) {
-            $sql    = "SELECT `User_ID` FROM `wp_EWD_FEUP_Users` order by User_ID DESC LIMIT 1";
+            $sql    = "SELECT `User_ID` FROM `wp_ewd_feup_users` order by User_ID DESC LIMIT 1";
             $result = $wpdb->get_results($sql);
 //                    echo "result: " . json_encode($result);die;
 
