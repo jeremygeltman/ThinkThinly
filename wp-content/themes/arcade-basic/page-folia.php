@@ -207,7 +207,7 @@
 				<div class="col-sm-6 col-md-5 col-md-offset-1">
 					<form action="#" novalidate="novalidate">
 						
-						<h4>Subscribe now - Free 30 Day Trial</h4>
+						<h4>Subscribe now - Free Trial</h4>
 						<input type="text" name="subscribe_phone" class="form-control" placeholder="Mobile">
                         <select id="ewd-feup-register-input-11" name="subscribe_gender" class="ewd-feup-select pure-input-1-3" required="">
                            <!-- <option value="">Gender</option>-->

@@ -80,7 +80,6 @@ video {
 
 #layout1-header {
 	background: #fff;
-	position: fixed;
 	width: 100%;
 	min-height: 87px;
 	left: 0;
@@ -96,16 +95,22 @@ video {
 	z-index: 9991!important;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
-.main-navigation-header .main-navigation {
-  	/* padding-top: 10px; */
-}
+
+
 .main-navigation-header .main-navigation li a {
-	color: #878a91;
+	color: #565656;
 	font-family: Lato,sans-serif;
 	position: relative;
 	-webkit-transition: all .6s;
 	transition: all .6s;
 	z-index: 1;
+	
+
+}
+
+
+body.home .menu-main-menu-container .current-menu-item{
+	display: none;
 }
 
 .main-navigation-header .main-navigation li a:hover {
@@ -123,16 +128,26 @@ video {
 /*		    main section  	      */
 /* ============================== */
 #layout1-main-section {
-	background: url('../img/main-bg.jpg') no-repeat fixed center bottom;
-	background-size: cover;
 	position: relative;
 	text-align: center;
-	padding: 210px 0 170px;
-	position: relative;
+	padding: 170px 0 170px;
+	background: url('../img/main-bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+@media only screen and (max-width: 590px) {
+    #layout1-main-section{
+        background: url('../img/main-bg.jpg') no-repeat 50% 50%;
+        background-size: 480%;
+    }
 }
 
 #layout1-main-section .overlay {
-  	background-color: rgba(45, 48, 52, 0.35);
+  	background-color: rgba(0, 0, 0, 0.27);
   	position: absolute;
   	top: 0;
   	left: 0;
@@ -245,7 +260,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 }
 
 /* ============================== */
-/*		    layout1-features section  	  */
+/*	layout1-features section  	  */
 /* ============================== */
 #layout1-features{
 	background-color: #fff;
@@ -428,12 +443,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 /*		  layout1-testimonials section    */
 /* ============================== */
 #layout1-testimonials {
-  	background: url("/wp-content/uploads/2015/06/Screen-Capture-2015-04-15-at-8.102.png") no-repeat fixed center bottom;
-  	background-size: cover;
+  	background: url("/wp-content/uploads/2015/06/Screen-Capture-2015-04-15-at-8.102.png")  no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   	padding: 90px 0 80px;
   	position: relative;
   	text-align: center;
 }
+
+
+@media only screen and (max-width: 590px) {
+    #layout1-testimonials{
+        background: url('/wp-content/uploads/2015/06/Screen-Capture-2015-04-15-at-8.102.png') no-repeat 50% 50%;
+        background-size: 480%;
+    }
+}
+
+
+
+
 #layout1-testimonials .overlay {
   	background-color: rgba(45, 48, 52, 0.35);
   	position: absolute;
@@ -556,11 +586,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 /* ============================== */
 
 #layout1-subscribe-form{
-	background: url("/wp-content/uploads/2015/06/Screen-Capture-2015-04-14-at-11.33.png") no-repeat fixed center bottom;
-  	background-size: cover;
+	background: url("/wp-content/uploads/2015/06/Screen-Capture-2015-04-14-at-11.33.png")  no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
   	padding: 90px 0;
   	position: relative;
 }
+
+
+
+@media only screen and (max-width: 590px) {
+    #layout1-subscribe-form{
+        background: url('/wp-content/uploads/2015/06/Screen-Capture-2015-04-14-at-11.33.png') no-repeat 50% 50%;
+        background-size: 480%;
+    }
+}
+
+
+
 
 #layout1-subscribe-form .overlay {
   	background-color: rgba(45, 48, 52, 0.35);

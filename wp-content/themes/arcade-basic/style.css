@@ -2840,7 +2840,7 @@ input[type="button"].btn-block {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   border: 1px solid transparent; }
   .navbar:before, .navbar:after {
     content: " ";
@@ -2916,7 +2916,7 @@ article.page .navbar {
     .navbar-static-top {
       border-radius: 0; } }
 
-.navbar-fixed-top,
+/*.navbar-fixed-top,*/
 .navbar-fixed-bottom {
   position: fixed;
   right: 0;
@@ -5186,24 +5186,25 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 .page-template-folia-inner #layout1-main-section{
     padding-top:100px!important;
     background:#ccc;
-    background: url('http://thinkthinly.com/wp-content/uploads/2015/07/photo-1428954376791-d9ae785dfb2d-1.jpeg')  no-repeat fixed 0 0;
+    background: url('http://thinkthinly.com/wp-content/uploads/2015/07/photo-1428954376791-d9ae785dfb2d-1.jpeg')  no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 
 
 @media only screen and (max-width: 996px){
     .page-template-page-folia #layout1-main-section{
-      padding:87px 0 290px !important;
+      padding:0px 0 290px !important;
     }
-
-    .page-template-page-folia h1 {font-size: 29px!important; }
 
     #layout1-main-section .subscribe-form{
       margin-top:-10px;
     }
 
     .page-template-folia-inner #layout1-main-section{
-       padding-top:100px !important;
+       padding:0 0 20px 0 !important;
     }
 
 }
@@ -5256,17 +5257,41 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 
 @media only screen and (max-width: 684px) and (min-width: 590px){
   #layout1-main-section .subscribe-form input{width:140px;}
+    width:
 }
+
+
 
 @media only screen and (max-width: 590px){
   .page-id-39 .pure-form .pure-input-1-3{
     width:28%;  
   }
+    
+   .page-id-380 .pure-form .pure-input-1-3{   
+    width:inherit;
+   }
 
   .page-id-39 #user-form-container{
-    padding:40px 0;
-    min-width: 324px;
+    padding:15px 0;
+    min-width: 275px;
+
   }
+
+
+  #ewd-feup-login-form-div .ewd-feup-field-label{
+    font-size: 24px;
+    font-weight: 100;
+    color: #868686;
+    text-align: center;
+  }
+
+
+  #ewd-feup-login-form-div .ewd-feup-text-input{
+    font-size: 35px;
+    width: 244px;
+    text-align: center;
+  }
+
 
 }
 
@@ -5294,9 +5319,7 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 .page-id-12 .ewd-feup-edit-4,
 .page-id-12 .ewd-feup-register-input-4,
 .page-id-12 label[for=Username],
-/*.page-id-12 input[type=text]{*/
-  /*display:none;*/
-/*}*/
+
 
 
 #user-form-container p{
@@ -5304,11 +5327,78 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 }
 
 .error-message{
-  font-weight: bold;
-  color:#FFD500;
-  padding:20px 0;
+  color: #FFF;
+    padding: 7px 24px;
+    background-color: rgba(255, 0, 0, 0.85);
+    display: block;
+    margin: -4px 0 6px 0;
+    border-radius: 4px;
+    font-size: 18px;
 }
 .terms_cond{
     color: #fff;
     margin-top: 12px;
 }
+
+.updated{
+  color: #FFF;
+  padding: 9px 10px 1px 10px;
+  background-color: rgba(109, 169, 234, 0.85);
+  display: block;
+  margin: -4px 0 25px 0;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+div.pure-control-group input[type="radio"]{
+  margin: 0 7px 3px 4px;
+}
+
+
+////  BLOG  /////
+
+@media (min-width: 992px){
+  .blog .col-md-6 {
+      width: 68%;
+  }
+
+}
+
+.blog article {
+    margin: 20px;
+    padding: 40px;
+    border: 1px solid #FFA100;
+    background-color: #FFF;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.19);
+    border-width: 0 0px 6px 0;
+}
+
+.blog article h1 a, 
+.blog article h2 a, 
+.blog article h3 a, 
+.blog article h4 a, 
+.blog article h5 a, 
+.blog article h6 a{
+  color:black;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+}
+
+
+.blog article .updated{
+  background-color:transparent;
+  border-radius: 0;
+  border-bottom: 1px solid #d6d6d6;
+  color:black;
+  margin:0;
+}
+
+
+
+
+
+
+
+
+
+

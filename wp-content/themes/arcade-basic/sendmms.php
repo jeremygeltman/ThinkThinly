@@ -1,35 +1,43 @@
 <?php
 /* Template Name: sms*/
 /** @var $wpdb */
-$DAYLIGHT_SAVING = true;
+
+//check magic word
+if (!array_key_exists("secret_key",$_GET) || ($_GET['secret_key'] != 'e2e697afc5ebee779eb383238b95b92e') ){
+    mail('someids@gmail.com', "Improper request from thinkthinly.com", "Request from " . json_encode($_SERVER));
+    return;
+}
 
 require "Services/Twilio.php";
 $AccountSid = "ACddcce2ed6943c1bd04b0642fab6b2f3f";
-//$AccountSid = "AC34a5f15925ad36bbbc27982fd4b9deba";
 $AuthToken = "1542d1f8621777361d4d0332d1f8ec4c";
-//$AuthToken = "3342df8735f959b64c61ec3135f8ba2b";
-//mail("reetika.php@gmail.com","My subject","test");
 $client = new Services_Twilio($AccountSid, $AuthToken);
 
-//date_default_timezone_set('UTC');
-//$current_time = date('H:ia', strtotime("+5 minutes"));
-$current_time = (new DateTime())->modify('+5 minutes');
-$time_pst     = $current_time->modify('-8 hours');
-$time_mst     = $current_time->modify('-7 hours');
-$time_cst     = $current_time->modify('-6 hours');
-$time_est     = $current_time->modify('-5 hours');
-if ($DAYLIGHT_SAVING) {
-    array_map(function (&$v) {
-        /** @var DateTime $v */
-        $v->modify('-1 hour'); $v = $v->format('H:ia');
-    }, array(&$time_cst, &$time_est, &$time_mst, &$time_pst));
-}
+$old_date_def_timezone = date_default_timezone_get();
+date_default_timezone_set('UTC');
+
+$current_time = (new DateTime())->modify('+15 minutes');
 
 define('DEBUG_DONT_SEND_SMS', false);
 
 if (DEBUG_DONT_SEND_SMS) {
-    $time_pst = '02:00pm';
+    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(17,0,0));
 }
+
+$time_cst = clone $current_time;
+$time_est = clone $current_time;
+$time_mst = clone $current_time;
+$time_pst = clone $current_time;
+
+$time_pst->setTimezone(new DateTimeZone('America/Los_Angeles'));
+$time_mst->setTimezone(new DateTimeZone('America/Denver'));
+$time_cst->setTimezone(new DateTimeZone('America/Chicago'));
+$time_est->setTimezone(new DateTimeZone('America/New_York'));
+    array_map(function (&$v) {
+        /** @var DateTime $v */
+        $v = $v->format('H:ia');
+    }, array(&$time_cst, &$time_est, &$time_mst, &$time_pst));
+
 
 //$wpdb->query("INSERT INTO `wp_message` (`User_ID`, `msgid_breakfast`, `msgid_lunch`, `msgid_dinner`) VALUES (11,2, 1, 2)");die;
 $user_ids_cst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'CST'"));
@@ -42,7 +50,7 @@ $user_ids_est_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fi
 $user_ids_mst_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_mst) AND Field_Value = '$time_mst'");
 $user_ids_pst_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_pst) AND Field_Value = '$time_pst'");
 $user_ids_all_current = implode(",",array_merge($user_ids_cst_current, $user_ids_est_current, $user_ids_mst_current, $user_ids_pst_current));
-
+array_unique($user_ids_all_current);
 $users     = $wpdb->get_results("SELECT Field_Value,u.User_ID FROM `wp_ewd_feup_users` as u JOIN `wp_ewd_feup_user_fields` as uf on u.User_ID = uf.User_ID where uf.Field_Name = 'Phone' and u.User_ID in ($user_ids_all_current)");
 
 $mms_meal_cst = $wpdb->get_results("SELECT `Field_Name` FROM `wp_ewd_feup_user_fields` WHERE `Field_Value` = '$time_cst' and User_ID IN ($user_ids_cst) LIMIT 1");
@@ -246,5 +254,6 @@ foreach ($users as $user) {
         echo "Please enable Send MMS from settings.";
     }
 }
+date_default_timezone_set($old_date_def_timezone);
 //die;
 ?>

@@ -89,7 +89,7 @@ $sms = $client->account->messages->sendMessage(
 //    $user_message['Message'] .= "<br/><p class='text-success'>A message has been sent to your number $userPhone . Please enter our email and set a password for your account.</p>";
 }
 catch (Services_Twilio_RestException $e) {
-//    echo $e->getMessage();
+    echo $e->getMessage();
 }
 
 wp_reset_postdata();

@@ -70,3 +70,10 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 198.12.149.248
