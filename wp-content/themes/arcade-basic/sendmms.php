@@ -4,7 +4,7 @@
 
 //check magic word
 if (!array_key_exists("secret_key",$_GET) || ($_GET['secret_key'] != 'e2e697afc5ebee779eb383238b95b92e') ){
-    mail('someids@gmail.com', "Improper request from thinkthinly.com", "Request from " . json_encode($_SERVER));
+    mail('someids@gmail.com', "Improper request from thinkthinly.com", "Request from " .  json_encode($_SERVER));
     return;
 }
 
@@ -21,7 +21,8 @@ $current_time = (new DateTime())->modify('+15 minutes');
 define('DEBUG_DONT_SEND_SMS', false);
 
 if (DEBUG_DONT_SEND_SMS) {
-    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(17,0,0));
+    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(3,8));
+    // $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(16,0));
 }
 
 $time_cst = clone $current_time;
@@ -35,30 +36,28 @@ $time_cst->setTimezone(new DateTimeZone('America/Chicago'));
 $time_est->setTimezone(new DateTimeZone('America/New_York'));
     array_map(function (&$v) {
         /** @var DateTime $v */
-        $v = $v->format('H:ia');
+        $v = $v->format('h:ia');
     }, array(&$time_cst, &$time_est, &$time_mst, &$time_pst));
-
 
 //$wpdb->query("INSERT INTO `wp_message` (`User_ID`, `msgid_breakfast`, `msgid_lunch`, `msgid_dinner`) VALUES (11,2, 1, 2)");die;
 $user_ids_cst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'CST'"));
 $user_ids_est = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'EST'"));
 $user_ids_mst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'MST'"));
 $user_ids_pst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'PST'"));
-
 $user_ids_cst_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_cst) AND Field_Value = '$time_cst'");
 $user_ids_est_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_est) AND Field_Value = '$time_est'");
 $user_ids_mst_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_mst) AND Field_Value = '$time_mst'");
 $user_ids_pst_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_pst) AND Field_Value = '$time_pst'");
 $user_ids_all_current = implode(",",array_merge($user_ids_cst_current, $user_ids_est_current, $user_ids_mst_current, $user_ids_pst_current));
-array_unique($user_ids_all_current);
-$users     = $wpdb->get_results("SELECT Field_Value,u.User_ID FROM `wp_ewd_feup_users` as u JOIN `wp_ewd_feup_user_fields` as uf on u.User_ID = uf.User_ID where uf.Field_Name = 'Phone' and u.User_ID in ($user_ids_all_current)");
 
+$users     = $wpdb->get_results("SELECT Field_Value,u.User_ID FROM `wp_ewd_feup_users` as u JOIN `wp_ewd_feup_user_fields` as uf on u.User_ID = uf.User_ID where uf.Field_Name = 'Phone' and u.User_ID in ($user_ids_all_current)");
 $mms_meal_cst = $wpdb->get_results("SELECT `Field_Name` FROM `wp_ewd_feup_user_fields` WHERE `Field_Value` = '$time_cst' and User_ID IN ($user_ids_cst) LIMIT 1");
 $mms_meal_est = $wpdb->get_results("SELECT `Field_Name` FROM `wp_ewd_feup_user_fields` WHERE `Field_Value` = '$time_est' and User_ID IN ($user_ids_est) LIMIT 1");
 $mms_meal_mst = $wpdb->get_results("SELECT `Field_Name` FROM `wp_ewd_feup_user_fields` WHERE `Field_Value` = '$time_mst' and User_ID IN ($user_ids_mst) LIMIT 1");
 $mms_meal_pst = $wpdb->get_results("SELECT `Field_Name` FROM `wp_ewd_feup_user_fields` WHERE `Field_Value` = '$time_pst' and User_ID IN ($user_ids_pst) LIMIT 1");
 $mms_meal = array_merge($mms_meal_cst, $mms_meal_est, $mms_meal_mst, $mms_meal_pst);
 //print_r($mms_meal);die;
+//var_dump(get_defined_vars());
 
 foreach ($users as $user) {
     $meal = explode(' ', strtolower($mms_meal[0]->Field_Name));

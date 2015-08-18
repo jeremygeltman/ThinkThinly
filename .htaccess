@@ -76,4 +76,4 @@ order allow,deny
 allow from all
 </Files>
 
-deny from 198.12.149.248
+#deny from 198.12.149.248
