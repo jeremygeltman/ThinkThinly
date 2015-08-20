@@ -6,10 +6,13 @@ function Add_EWD_FEUP_User( $User_Data_Array )
 {
     global $wpdb;
     global $ewd_feup_user_table_name;
-
-    $wpdb->insert($ewd_feup_user_table_name, $User_Data_Array);
-    $update = __("User has been successfully created.", 'EWD_FEUP');
-
+    $res = $wpdb->insert($ewd_feup_user_table_name, $User_Data_Array);
+    if ($res === false){
+        $update = "Something wrong adding new user";
+    }
+    else{
+        $update = __("User has been successfully created.", 'EWD_FEUP');
+    }
     return $update;
 }
 

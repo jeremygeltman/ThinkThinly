@@ -98,3 +98,4 @@ add_filter( 'auto_update_theme', '__return_true' );
 //Brian3t
 define('WP_POST_REVISIONS', false );
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
+define('DISABLE_WP_CRON', 'true');

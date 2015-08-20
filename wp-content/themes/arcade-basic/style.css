@@ -5257,7 +5257,6 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 
 @media only screen and (max-width: 684px) and (min-width: 590px){
   #layout1-main-section .subscribe-form input{width:140px;}
-    width:
 }
 
 
@@ -5355,7 +5354,7 @@ div.pure-control-group input[type="radio"]{
 }
 
 
-////  BLOG  /////
+/*  BLOG  */
 
 @media (min-width: 992px){
   .blog .col-md-6 {
@@ -5392,13 +5391,8 @@ div.pure-control-group input[type="radio"]{
   color:black;
   margin:0;
 }
-
-
-
-
-
-
-
-
-
-
+/** Brian added
+*/
+.form_text{    vertical-align: middle}
+/** //Brian added
+*/

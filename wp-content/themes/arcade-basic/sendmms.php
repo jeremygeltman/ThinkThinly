@@ -2,9 +2,11 @@
 /* Template Name: sms*/
 /** @var $wpdb */
 
+echo "Request from " .  json_encode($_SERVER). " POST is ". json_encode($_POST);
 //check magic word
 if (!array_key_exists("secret_key",$_GET) || ($_GET['secret_key'] != 'e2e697afc5ebee779eb383238b95b92e') ){
-    mail('someids@gmail.com', "Improper request from thinkthinly.com", "Request from " .  json_encode($_SERVER));
+//    mail('someids@gmail.com', "Improper request from thinkthinly.com", "Request from " .  json_encode($_SERVER). " POST is ". json_encode($_POST));
+    echo "Improper request from thinkthinly.com", "Request from " .  json_encode($_SERVER). " POST is ". json_encode($_POST);
     return;
 }
 
