@@ -25,8 +25,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 // Replace these values by entering your own ClientId and Secret by visiting https://developer.paypal.com/webapps/developer/applications/myapps
-$clientId = 'AdpL_r75o2aPiN36_q-N00bHysXd_kciEqBC1fk6wJScCooh_H_c3yiQtslCtBrdOHxcCMp1wWrEgKq3';
-$clientSecret = 'EJUta11-1or7CxrEmbG0JuGLRk8TFbYSA9rqrLwACUoNtHo1eo4AJlEnDQcOc2GRYs3v1vlSy7LpRuSC';
+$clientId = 'AY7rStyj9hsTxKmRaNF33qil4RFvDzLD_ovULHhqGrOWOWuy9b-kkNNGfWg5eT4YsuEgZh7V4vSluypE';
+$clientSecret = 'EJSZ8J9mjaRJaob77W4Fs5rhSiyI-c2nAP2_lYLZFmxwT_im0y-mXRwCE_NQBSe7sdkw2ZPPh9Qi-pgk';
 
 /** @var \Paypal\Rest\ApiContext $apiContext */
 $apiContext = getApiContext($clientId, $clientSecret);
@@ -70,7 +70,7 @@ function getApiContext($clientId, $clientSecret)
 
     $apiContext->setConfig(
         array(
-            'mode' => 'sandbox',
+            'mode' => 'live',
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS

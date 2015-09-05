@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8296913744570a71cb9f18c96e21b279",
+    "hash": "12aae421792263211388e0c5225c374a",
     "packages": [
         {
             "name": "paypal/rest-api-sdk-php",
@@ -100,20 +100,20 @@
         },
         {
             "name": "superbappsolutions/array_helpers",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brian3t/superbapp_array_helpers.git",
-                "reference": "69c590992510bf9453798d1a780990653433650f"
+                "reference": "0cc969cc4e47e9b916e2d84e45c647b5800b9490"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brian3t/superbapp_array_helpers/zipball/69c590992510bf9453798d1a780990653433650f",
-                "reference": "69c590992510bf9453798d1a780990653433650f",
+                "url": "https://api.github.com/repos/brian3t/superbapp_array_helpers/zipball/0cc969cc4e47e9b916e2d84e45c647b5800b9490",
+                "reference": "0cc969cc4e47e9b916e2d84e45c647b5800b9490",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "autoload": {
@@ -139,7 +139,7 @@
                 "array helper",
                 "multi-dimensional array"
             ],
-            "time": "2015-08-20 16:38:31"
+            "time": "2015-08-20 22:59:14"
         }
     ],
     "packages-dev": [],

@@ -4,6 +4,6 @@
     "ext-curl": "*",
     "ext-json": "*",
     "paypal/rest-api-sdk-php": "0.5.*",
-    "superbappsolutions/array_helpers": "^1.0"
+    "superbappsolutions/array_helpers": "*"
   }
 }

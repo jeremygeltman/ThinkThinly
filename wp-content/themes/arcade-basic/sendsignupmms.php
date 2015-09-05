@@ -5,6 +5,8 @@ $AccountSid = "ACddcce2ed6943c1bd04b0642fab6b2f3f";
 $AuthToken  = "1542d1f8621777361d4d0332d1f8ec4c";
 $client     = new Services_Twilio($AccountSid, $AuthToken);
 
+$error_file_name = dirname(dirname(dirname(__DIR__))).DIRECTORY_SEPARATOR."error_log";
+
 define('DEBUG_DONT_SEND_SMS', false);
 
 date_default_timezone_set('UTC');
@@ -14,13 +16,13 @@ global $uid;
 $userId    = $uid;
 $userPhone = $wpdb->get_results("SELECT Field_Value,User_ID FROM `wp_ewd_feup_user_fields` where Field_Name = 'Phone' and User_ID = $userId");
 if (count($userPhone) != 1) {
-    echo "No user phone found";
+    error_log("No user phone found", 3, $error_file_name);
     die;
 }
 $userPhone = $userPhone[0]->Field_Value;
 $gender    = $wpdb->get_results("SELECT Field_Value,User_ID FROM `wp_ewd_feup_user_fields` where Field_Name = 'Gender' and User_ID = $userId");
 if (count($gender) != 1) {
-    echo "No gender found";
+    error_log("No gender found", 3, $error_file_name);
     die;
 }
 $gender = $gender[0]->Field_Value;
@@ -28,7 +30,7 @@ $gender = strtolower($gender);
 
 $msg = $wpdb->get_results("SELECT `ID`, post_excerpt  FROM `wp_posts` WHERE `post_type`= 'mms-template' and `post_name` = 'sign-up-$gender' ");
 if (count($msg) != 1) {
-    echo "Missing mms template";
+    error_log("Missing mms template", 3, $error_file_name);
     die;
 }
 
@@ -57,7 +59,7 @@ try {
     $_SESSION['first_sms_sent_to'] = $userPhone;
     $_SESSION['message_count']     = 2;
 } catch (Services_Twilio_RestException $e) {
-    echo $e->getMessage();
+    error_log($e->getMessage(), 3, $error_file_name);
 }
 
 $args = array(
@@ -78,7 +80,7 @@ $template_expired_welcome = $query->post;
 
 //MMS
 if (DEBUG_DONT_SEND_SMS) {
-    echo "\nSending above message" . var_dump($template_expired_welcome) . " to this user:";
+    error_log("\nSending above message" . json_encode($template_expired_welcome) . " to this user:", 3, $error_file_name);
     var_dump($userPhone);
 } else {
     try {
@@ -88,10 +90,8 @@ if (DEBUG_DONT_SEND_SMS) {
             $template_expired_welcome->post_content,
             array()
         );
-        echo "Message Sent: ID- {$sms->sid}";
-        error_log("Message ". json_encode($template_expired_welcome) . " sent to $userPhone\n", 3);
     } catch (Services_Twilio_RestException $e) {
-        echo $e->getMessage();
+        error_log($e->getMessage(),3 ,$error_file_name);
     }
 }
 
