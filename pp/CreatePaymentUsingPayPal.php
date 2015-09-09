@@ -65,6 +65,7 @@ $amount->setCurrency("USD")
 // payment - what is the payment for and who
 // is fulfilling it. 
 $transaction = new Transaction();
+//$transaction->setPaymentOptions(new (\))
 $transaction->setAmount($amount)
     ->setItemList($itemList)
     ->setDescription("Payment description")

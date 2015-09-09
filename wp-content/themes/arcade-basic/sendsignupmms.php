@@ -62,37 +62,4 @@ try {
     error_log($e->getMessage(), 3, $error_file_name);
 }
 
-$args = array(
-    'posts_per_page' => -1,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'post_tag',
-            'field'    => 'name',
-            'terms'    => 'welcome',
-        ),
-    ),
-    'category_name' => 'expired'
-);
-$query = new WP_Query( $args );
-$template_expired_welcome = $query->post;
-
-/** @var WP_POST $template_expired_welcome */
-
-//MMS
-if (DEBUG_DONT_SEND_SMS) {
-    error_log("\nSending above message" . json_encode($template_expired_welcome) . " to this user:", 3, $error_file_name);
-    var_dump($userPhone);
-} else {
-    try {
-        $sms = $client->account->messages->sendMessage(
-            "+16194190679",
-            $userPhone,
-            $template_expired_welcome->post_content,
-            array()
-        );
-    } catch (Services_Twilio_RestException $e) {
-        error_log($e->getMessage(),3 ,$error_file_name);
-    }
-}
-
 wp_reset_postdata();

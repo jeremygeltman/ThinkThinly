@@ -11,11 +11,17 @@
 
 // Retrieving the Plan object from Create Plan Sample to demonstrate the List
 /** @var Plan $createdPlan */
-$plan_id = 'P-42H24137XS035340AVY2SXJY';
+$plan_id = 'P-3S275011LM709860PV3M2VQA';
 
+require_once('../bootstrap.php');
+
+use PayPal\Api\ChargeModel;
+use PayPal\Api\Currency;
+use PayPal\Api\MerchantPreferences;
+use PayPal\Api\PaymentDefinition;
+use PayPal\Api\Plan;
 use PayPal\Api\Patch;
 use PayPal\Api\PatchRequest;
-use PayPal\Api\Plan;
 use PayPal\Common\PayPalModel;
 
 try {
@@ -26,22 +32,24 @@ try {
 	     }');
 
     $patch->setOp('replace')
-        ->setPath('/')
-        ->setValue($value);
+          ->setPath('/')
+          ->setValue($value);
     $patchRequest = new PatchRequest();
     $patchRequest->addPatch($patch);
 
+    $createdPlan = new \PayPal\Api\Plan();
+    $createdPlan = $createdPlan->get($plan_id, $apiContext);
     $createdPlan->update($patchRequest, $apiContext);
 
-    $plan = Plan::get($plan_id, $apiContext);
+    $plan = Plan::get($createdPlan->getId(), $apiContext);
 
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Updated the Plan to Active State", "Plan", null, $patchRequest, $ex);
+    ResultPrinter::printError("Updated the Plan to Active State", "Plan", null, $patchRequest, $ex);
     exit(1);
 }
 
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("Updated the Plan to Active State", "Plan", $plan->getId(), $patchRequest, $plan);
+ResultPrinter::printResult("Updated the Plan to Active State", "Plan", $plan->getId(), $patchRequest, $plan);
 
 return $plan;

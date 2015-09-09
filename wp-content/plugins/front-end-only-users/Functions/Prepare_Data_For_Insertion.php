@@ -67,6 +67,11 @@ function Add_Edit_User()
     if (isset($_POST['user_email'])) {
         $User_Fields['user_email'] = $_POST['user_email'];
     }
+    if (isset($_POST['subscription'])) {
+        $User_Fields['subscription'] = $_POST['subscription'];
+    }
+
+
     // check if the password is empty - so we won't try to update it if it is empty
     if (empty($_POST['User_Password'])) {
         unset($_POST['User_Password']);

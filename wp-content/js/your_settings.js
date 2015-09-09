@@ -7,13 +7,13 @@ jQuery(document).ready(function ($) {
     email = $('input[name="Username"]');
     var $add_membership = $('#add_membership');
 
-    phone.parent().hide();
+    //phone.parent().hide();
 
     email.attr('placeholder', '_@_');
     //email after timezone
     var $email = $('input[name="user_email"]').parent('div.pure-control-group');
     var $time_zone = $(':input[name="Time zone"]').parent('div.pure-control-group');
-    $time_zone.after($email);
+    //$time_zone.after($email);
 
     //brian3t paypal extend life
     //redirect here
@@ -25,7 +25,13 @@ jQuery(document).ready(function ($) {
             console.log("no user id");
             return;
         }
-        var $qty = $(this).parent().find('input[name="qty"]').val();
-        location.href = sprintf("/pp/CreatePaymentUsingPayPal.php?qty=%d&user_id=%d", $qty, $user_id);
+        var agreement_xhr = $.get('/pp/billing/CreateBillingAgreementWithPayPal.php', {user_id:$user_id});
+        agreement_xhr.done(function($agreement){
+            console.log($agreement);
+            if ($agreement.plan.state == "ACTIVE"){
+                location.href = $agreement.links[0].href;
+            }
+        })
+
     });
 });

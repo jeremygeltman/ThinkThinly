@@ -30,6 +30,13 @@
 						<input type='radio' class='ewd-feup-text-input' name='Admin_Approved' value='Yes' <?php if ($UserAdmin->User_Admin_Approved == "Yes"){echo "checked";} ?>>Yes<br />
 						<input type='radio' class='ewd-feup-text-input' name='Admin_Approved' value='No' <?php if ($UserAdmin->User_Admin_Approved == "No"){echo "checked";} ?>>No<br />
 				<?php } ?>
+                <label for="subscription">Paypal Subscription:</label> <select id="subscription" name="subscription">
+                    <option value="active">Active</option>
+                    <option value="none">Inactive</option>
+                </select>
+                <script>
+                    jQuery('#subscription').val("<?= $UserAdmin->subscription ?>");
+                </script>
 				<?php foreach ($Fields as $Field) {
 						$Value = "";
 						foreach ($UserDetails as $UserField) { 

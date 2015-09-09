@@ -1,16 +1,12 @@
 <?php
-/*
- * Sample bootstrap file.
- */
-
 // Include the composer Autoloader
 // The location of your project's vendor autoloader.
 $composerAutoload = dirname(dirname(dirname(__DIR__))) . '/autoload.php';
-if (!file_exists($composerAutoload)) {
+if (! file_exists($composerAutoload)) {
     //If the project is used as its own project, it would use rest-api-sdk-php composer autoloader.
     $composerAutoload = dirname(__DIR__) . '/vendor/autoload.php';
 
-    if (!file_exists($composerAutoload)) {
+    if (! file_exists($composerAutoload)) {
         echo "The 'vendor' folder is missing. You must run 'composer update' to resolve application dependencies.\nPlease see the README for more information.\n";
         exit(1);
     }
@@ -24,21 +20,36 @@ use PayPal\Rest\ApiContext;
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+//CONST
+define('IS_SANDBOX', false);
+
+$mode = 'live';
+if (IS_SANDBOX) {
+    $mode         = 'sandbox';
+    $clientId     = 'AdpL_r75o2aPiN36_q-N00bHysXd_kciEqBC1fk6wJScCooh_H_c3yiQtslCtBrdOHxcCMp1wWrEgKq3';
+    $clientSecret = 'EJUta11-1or7CxrEmbG0JuGLRk8TFbYSA9rqrLwACUoNtHo1eo4AJlEnDQcOc2GRYs3v1vlSy7LpRuSC';
+} else {
 // Replace these values by entering your own ClientId and Secret by visiting https://developer.paypal.com/webapps/developer/applications/myapps
-$clientId = 'AY7rStyj9hsTxKmRaNF33qil4RFvDzLD_ovULHhqGrOWOWuy9b-kkNNGfWg5eT4YsuEgZh7V4vSluypE';
-$clientSecret = 'EJSZ8J9mjaRJaob77W4Fs5rhSiyI-c2nAP2_lYLZFmxwT_im0y-mXRwCE_NQBSe7sdkw2ZPPh9Qi-pgk';
+//live cred
+    $clientId     = 'AY7rStyj9hsTxKmRaNF33qil4RFvDzLD_ovULHhqGrOWOWuy9b-kkNNGfWg5eT4YsuEgZh7V4vSluypE';
+    $clientSecret = 'EJSZ8J9mjaRJaob77W4Fs5rhSiyI-c2nAP2_lYLZFmxwT_im0y-mXRwCE_NQBSe7sdkw2ZPPh9Qi-pgk';
+////live cred
+}
+
 
 /** @var \Paypal\Rest\ApiContext $apiContext */
-$apiContext = getApiContext($clientId, $clientSecret);
+$apiContext = getApiContext($clientId, $clientSecret, $mode);
 
 return $apiContext;
 /**
  * Helper method for getting an APIContext for all calls
+ *
  * @param string $clientId Client ID
  * @param string $clientSecret Client Secret
+ *
  * @return PayPal\Rest\ApiContext
  */
-function getApiContext($clientId, $clientSecret)
+function getApiContext($clientId, $clientSecret, $mode)
 {
 
     // #### SDK configuration
@@ -70,7 +81,7 @@ function getApiContext($clientId, $clientSecret)
 
     $apiContext->setConfig(
         array(
-            'mode' => 'live',
+            'mode' => $mode,
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
