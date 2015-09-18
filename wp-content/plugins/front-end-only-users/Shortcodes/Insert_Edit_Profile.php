@@ -344,6 +344,21 @@ That\'s the cost of one cup of coffee.
 
     $ReturnString .= '    </div>
 </div>';
+    //determine tab
+    $tab = 2;
+    //0: Breakfast; 1: Lunch; 2: Dinner; 3: I need the most help...; 4: Select your time zone; 5: First Name; 6:Last Name; 7: Gender; 8: OK to receive texts?; 9: Phone;
+    if (empty($UserData[10]->Field_Value)){
+        $tab = 1;
+    }
+    if ($User->subscription == "active"){
+        $tab = 4;
+    }
+    if (!empty($UserData[0]->Field_Value)){
+        if (strtotime($UserData[0]->Field_Value) < time()){
+            $tab = 3;
+        }
+    }
+    $ReturnString.= "<script>var \$tab = '$tab';</script>";
 
     return $ReturnString;
 }

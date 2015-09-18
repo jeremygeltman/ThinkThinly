@@ -12,7 +12,7 @@
 
 require_once '../bootstrap.php';
 
-$plan_id = 'P-57V38520G74040029VY7DG6A';
+$plan_id = 'P-2XM09435HG6440939WL5BD4A';
 
 use PayPal\Api\Agreement;
 use PayPal\Api\Payer;
@@ -24,7 +24,7 @@ extract($_GET);
 $agreement = new Agreement();
 
 $now = new DateTime();
-$now->add(DateInterval::createFromDateString('3 minute'));
+$now->add(DateInterval::createFromDateString('10 hour'));
 $agreement->setName('Base Agreement')
     ->setDescription('ThinkThinly monthly subscription')
     ->setStartDate($now->format('Y-m-d'). 'T' . $now->format('G:i:s'). 'Z');
@@ -33,7 +33,7 @@ $agreement->setName('Base Agreement')
 // Add Plan ID
 // Please note that the plan Id should be only set in this case.
 $plan = new Plan();
-$plan->setId('P-3S275011LM709860PV3M2VQA');
+$plan->setId($plan_id);
 $agreement->setPlan($plan);
 
 // Add Payer

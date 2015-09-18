@@ -14,7 +14,7 @@ use PayPal\Api\Plan;
 
 // Retrieving the Plan object from Create Plan Sample
 /** @var Plan $createdPlan */
-$plan_id = 'P-57V38520G74040029VY7DG6A';
+$plan_id = 'P-2XM09435HG6440939WL5BD4A';
 
 try {
     $plan = Plan::get($plan_id, $apiContext);

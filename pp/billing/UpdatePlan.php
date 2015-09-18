@@ -11,7 +11,7 @@
 
 // Retrieving the Plan object from Create Plan Sample to demonstrate the List
 /** @var Plan $createdPlan */
-$plan_id = 'P-3S275011LM709860PV3M2VQA';
+$plan_id = 'P-2XM09435HG6440939WL5BD4A';
 
 require_once('../bootstrap.php');
 

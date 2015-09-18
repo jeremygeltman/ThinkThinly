@@ -40,6 +40,14 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         if ($num_row === false){
             error_log("Failed to execute query $query \n", 3, $error_file_name);
         }
+
+        $query = "UPDATE `wp_ewd_feup_user_fields` SET `Field_Value`=null WHERE `Field_Name` = 'Membership Expiry Date' AND User_ID = $user_id;";
+
+        $num_row = $wpdb->query($query);
+        if ($num_row === false){
+            error_log("Failed to execute query $query \n", 3, $error_file_name);
+        }
+
         session_start();
         $_SESSION['user_updated'] = "Thank you. Your subscription is active";
 
