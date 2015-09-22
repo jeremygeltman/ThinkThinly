@@ -316,7 +316,6 @@
 	</div>
 	
 	
-	<script src="<?php bloginfo('template_directory');?>/folia/js/jquery-2.1.0.min.js" type="text/javascript"></script>
     <script src="<?php bloginfo('template_directory');?>/folia/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="<?php bloginfo('template_directory');?>/folia/js/bootstrap-select.min.js" type="text/javascript"></script>
     <script src="<?php bloginfo('template_directory');?>/folia/js/jquery.magnific-popup.min.js"></script>

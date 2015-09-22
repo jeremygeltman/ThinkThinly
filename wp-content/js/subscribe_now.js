@@ -106,23 +106,8 @@
 }("undefined" == typeof window ? this : window);
 //# sourceMappingURL=sprintf.min.map
 jQuery(document).ready(function ($) {
-    phone = $('input[name="Phone"]');
-    email = $('input[name="Username"]');
     var $add_membership = $('#add_membership');
 
-    //phone.parent().hide();
-
-    email.attr('placeholder', '_@_');
-    //email after timezone
-    var $email = $('input[name="user_email"]').parent('div.pure-control-group');
-    //var $time_zone = $(':input[name="Time zone"]').parent('div.pure-control-group');
-    //$time_zone.after($email);
-
-    //brian3t paypal extend life
-    //redirect here
-    /*
-     @var int user_id
-     */
     $add_membership.click(function (event) {
         if (typeof $user_id == "undefined") {
             console.log("no user id");
@@ -136,33 +121,5 @@ jQuery(document).ready(function ($) {
             }
         })
 
-    });
-    var repeated_bf = $(':input[name="Breakfast"]');
-    var repeated_lunch = $(':input[name="Lunch"]');
-    var repeated_dinner = $(':input[name="Dinner"]');
-    var repeated_tz = $(':input[name="Time zone"]');
-    $(repeated_bf[0]).change(function (event) {
-        $(repeated_bf[1]).val((event.currentTarget.value));
-    });
-    $(repeated_bf[1]).change(function (event) {
-        $(repeated_bf[0]).val((event.currentTarget.value));
-    });
-    $(repeated_lunch[0]).change(function (event) {
-        $(repeated_lunch[1]).val((event.currentTarget.value));
-    });
-    $(repeated_lunch[1]).change(function (event) {
-        $(repeated_lunch[0]).val((event.currentTarget.value));
-    });
-    $(repeated_dinner[0]).change(function (event) {
-        $(repeated_dinner[1]).val((event.currentTarget.value));
-    });
-    $(repeated_dinner[1]).change(function (event) {
-        $(repeated_dinner[0]).val((event.currentTarget.value));
-    });
-    $(repeated_tz[0]).change(function (event) {
-        $(repeated_tz[1]).val((event.currentTarget.value));
-    });
-    $(repeated_tz[1]).change(function (event) {
-        $(repeated_tz[0]).val((event.currentTarget.value));
     });
 });

@@ -17,7 +17,7 @@ $bavotasan_theme_options = bavotasan_theme_options();
 <?php echo $uri = str_replace('/', '', $_SERVER['REQUEST_URI']);
 if ($uri == 'your-settings') {
     ?>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
     <script>
         function setCookie(c_name, value, exdays) {
             var exdate = new Date();

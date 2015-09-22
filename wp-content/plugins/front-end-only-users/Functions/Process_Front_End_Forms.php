@@ -12,6 +12,15 @@ function Process_EWD_FEUP_Front_End_Forms() {
             case "edit-profile":
                 $user_message = Add_Edit_User();
                 break;
+            case "edit_reminder_times":
+                $user_message = Edit_Reminder_Times_User();
+                break;
+            case "edit_your_settings":
+                $user_message = Edit_Your_Settings_User();
+                break;
+            case "edit_account_info":
+                $user_message = Edit_Account_Info_User();
+                break;
             case "edit-account":
                 $user_message = Add_Edit_User();
                 break;

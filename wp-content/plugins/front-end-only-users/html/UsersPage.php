@@ -205,6 +205,7 @@
 					}
 					echo substr($User_Info->Field_Value, 0, 60);
 					if (strlen($User_Info->Field_Value) > 60) {echo "...";}
+                    if (empty($User_Info->Field_Value)) {echo "N/A";}
 					if ($FieldCount == 0) {
 						echo "</a></strong>";
 						echo "<br />";

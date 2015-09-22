@@ -1,0 +1,19 @@
+.text_with_hr{
+    height: 1px; background-color: black;    display: block;
+    float: left;width: 100%;
+    clear: both;
+}
+.text_with_hr span{
+    background-color: white; position: relative; top: -0.65em;
+    font-weight: bold;
+}
+#user-form-container {float: left}
+#user-form-container .pure-control-group{width: 100%; float:left;}
+#user-form-container .pure-control-group label{margin: 0;line-height:42px;   float: left;width: 39%}
+#user-form-container .pure-control-group input,select{float: right;width: 60%}
+
+.break{float: left;width: 100%;clear: both;height: 20px}
+.break.big{
+    height: 60px;}
+#ewd-feup-edit-profile-form-div{
+    float: left;}

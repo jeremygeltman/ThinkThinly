@@ -16,7 +16,7 @@ function Determine_Redirect_Page($redirect_field, $redirect_array_string, $origi
 		
 		$Return_Redirect = $redirects[trim($Field->Field_Value)];
 		if ($Return_Redirect == "") {$Return_Redirect = $original_redirect;}
-		
+
 		return $Return_Redirect;
 }
 ?>

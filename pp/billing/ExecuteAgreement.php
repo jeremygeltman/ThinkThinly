@@ -51,7 +51,7 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         session_start();
         $_SESSION['user_updated'] = "Thank you. Your subscription is active";
 
-        if(!headers_sent()) header("Location: /your-settings");
+        if(!headers_sent()) header("Location: /you-did-it");
 
     } catch (Exception $ex) {
         json_encode(array('status'=>'error', 'agreement'=>$agreement->toJSON(128)));

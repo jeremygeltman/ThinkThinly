@@ -62,9 +62,6 @@ function Insert_Edit_Profile($atts)
         FEUPRedirect($redirect_page);
     }
 
-    $ReturnString .= "<h3>Update your ThinkThinly settings at any time.</h3><p><br/><br/><br/></p>";
-
-
     $ReturnString .= "<div id='ewd-feup-edit-profile-form-div'>";
     if (isset($user_message['Message'])) {
         $ReturnString .= "<div class='updated'><p>" . $user_message['Message'] . "</p></div>";
@@ -86,7 +83,7 @@ function Insert_Edit_Profile($atts)
 
     $ReturnString .= "<input type='hidden' name='ewd-feup-check' value='" . sha1(md5($Time . $Salt)) . "'>";
     $ReturnString .= "<input type='hidden' name='ewd-feup-time' value='" . $Time . "'>";
-    $ReturnString .= "<input type='hidden' name='ewd-feup-action' value='edit_your_settings'>";
+    $ReturnString .= "<input type='hidden' name='ewd-feup-action' value='edit-profile'>";
     $ReturnString .= "<input type='hidden' name='Omit_Fields' value='" . $omit_fields . "'>";
 
     $Omitted_Fields = explode(",", $omit_fields);
@@ -113,20 +110,22 @@ function Insert_Edit_Profile($atts)
         $ReturnString .= '</div>';
     }
     ////Brian added force new username
+    //fixing data before display
+    //5: First Name; 0: Breakfast; 1: Lunch; 2: Dinner; 3: I need the most help...; 4: Select your time zone; 5: First Name; 6:Last Name; 7: Gender; 8: OK to receive texts?; 9: Phone;
 
     $print_field = function ($Field) use ($Omitted_Fields, $UserData, &$ReturnString) {
         $display_label = $Field->Field_Name;
         if ($display_label == "Breakfast") {
-            $display_label = "Reminder 1";
+            $display_label = "Time 1";
         }
         if ($display_label == "Lunch") {
-            $display_label = "Reminder 2";
+            $display_label = "Time 2";
         }
         if ($display_label == "Dinner") {
-            $display_label = "Reminder 3";
+            $display_label = "Time 3";
         }
         if ($display_label == "Select your time zone") {
-            $display_label = "Time zone";
+            $display_label = "Time Zone";
         }
 
         if (! in_array($Field->Field_Name, $Omitted_Fields)) {
@@ -149,7 +148,7 @@ function Insert_Edit_Profile($atts)
             }
             $ReturnString .= "<div class='pure-control-group'>";
             $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-" . $Field->Field_ID . "' class='ewd-feup-field-label'>" . __($display_label,
-                                                                                                                                                      'EWD_FEUP') . "</label>";
+                                                                                                                                                      'EWD_FEUP') . ": </label>";
             if ($Field->Field_Type == "text" or $Field->Field_Type == "mediumint") {
                 $ReturnString .= "<input name='" . $Field->Field_Name . "' id='ewd-feup-register-input-" . $Field->Field_ID . "' class='ewd-feup-text-input pure-input-1-3' type='text' value='" . $Value . "' " . $Req_Text . "/>";
             } elseif ($Field->Field_Type == "tel") {
@@ -237,61 +236,67 @@ function Insert_Edit_Profile($atts)
     };
 
     //5: First Name; 0: Breakfast; 1: Lunch; 2: Dinner; 3: I need the most help...; 4: Select your time zone; 5: First Name; 6:Last Name; 7: Gender; 8: OK to receive texts?; 9: Phone;
-    $ReturnString .= '<div id="your_settings">';
+    $ReturnString .= '<div id="your_settings">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#tab_one" data-toggle="tab">Account</a></li>
+        <li><a href="#tab_two" data-toggle="tab">Reminder times</a></li>
+        <li '. (($User->subscription == "active")?' class="hidden" ':'') . '><a href="#tab_three" data-toggle="tab">Subscription</a></li>
+        <li><a href="#tab_four" data-toggle="tab">Summary</a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="tab_one">';
+    $ReturnString .= $print_field($Fields[5]);
+    $ReturnString .= $print_field($Fields[6]);
+    $ReturnString .= '<div class="pure-control-group">';
+    $ReturnString .= '<label for="user_email">Email: </label>';
+    $ReturnString .= '<input type="email" class="ewd-feup-text-input pure-input-1-3" name="user_email" value="' . $user_email . '" >';
+    $ReturnString .= '</div>';
 
+    $ReturnString .= '<div class="pure-control-group">';
+    $ReturnString .= '<label for ="User_Password">Set new password (leave this field empty if you don\'t want to change your password): </label>';
+    $ReturnString .= '<input type = "password" class="ewd-feup-text-input" name = "User_Password" value = "" >';
+    $ReturnString .= '</div>';
+    $ReturnString .= '<div class="pure-control-group">';
+    $ReturnString .= '<label for="Confirm_User_Password" > Repeat Password: </label>';
+    $ReturnString .= '<input type = "password" class="ewd-feup-text-input" name = "Confirm_User_Password" value = "" >';
+    $ReturnString .= '</div>';
     $ReturnString .= '
-    <div class="text_with_hr">
-    <span>
-        Reminder times &nbsp;&nbsp;
-    </span>
-</div>
-  <br/><br/><br/>';
+        </div>
+        <div class="tab-pane" id="tab_two">
+            Tell us what times you need motivational boost and we\'ll text you then.
+            <br/>Pick up to three times.  (Hint: You can choose meal times, workout times, late afternoon cravings or any time you need encouragement.)';
     $ReturnString .= $print_field($Fields[0]);
     $ReturnString .= $print_field($Fields[1]);
     $ReturnString .= $print_field($Fields[2]);
     $ReturnString .= $print_field($Fields[4]);
 
-    $ReturnString .= '<input type="submit" class="ewd-feup-submit pure-button pure-button-primary" name="Edit_Profile_Submit" value="Save">';
-    $ReturnString .= '<div class="break big"></div>
-    <div class="text_with_hr">
-    <span>
-        Your info &nbsp;&nbsp;
-    </span>
-</div>
-  <div class="break big"></div>';
-    $ReturnString .=
-        <<<HTML
-        <div class="pure-control-group"><label for="Phone" class="ewd-feup-field-label">Phone: </label>
-<input name="Phone" disabled class="ewd-feup-select pure-input-1-3" value="$username">
-</div>
-HTML;
+    $ReturnString .= '
+        </div>
+        <div class="tab-pane" id="tab_three">
+            <h3>Lasting change starts here.</h3>
+Get motivational texts every day up to three times a day daily for just $4.99 a month.<br/>
+That\'s the cost of one cup of coffee.
+                              Cancel any time.<br/>
+                              <br/>
+                              <button id="add_membership" type="button"> Yes, please send me messages! </button>
+        </div>
+        <div class="tab-pane" id="tab_four">
+            <h3>You did it!</h3>
+            The new you is on its way, one motivational message at a time.
+            <h4>Settings</h4>
+            ';
 
-
+    $ReturnString .= $print_field($Fields[0]);
+    $ReturnString .= $print_field($Fields[1]);
+    $ReturnString .= $print_field($Fields[2]);
+    $ReturnString .= $print_field($Fields[4]);
     $ReturnString .= '<div class="pure-control-group">';
-    $ReturnString .= '<label for="user_email">Email: </label>';
-    $ReturnString .= '<input type="email" class="ewd-feup-text-input pure-input-1-3" name="user_email" value="' . $user_email . '" >';
+    $ReturnString .= '<label for="Username">Phone number: </label>';
+    $ReturnString .= '<input type="text" disabled="disabled" class="ewd-feup-text-input" name="Username" value="' . $username . '" required>';
     $ReturnString .= '</div>';
-    $ReturnString .= $print_field($Fields[5]);
-    $ReturnString .= $print_field($Fields[6]);
+            $ReturnString .= '</div>        ';
 
-    $ReturnString .= '<input type="submit" class="ewd-feup-submit pure-button pure-button-primary" name="Edit_Profile_Submit" value="Save">';
-    $ReturnString .= '<div class="break big"></div>
-    <div class="text_with_hr">
-    <span>
-        Password &nbsp;&nbsp;
-    </span>
-</div>
-  <div class="break big"></div>';
-
-
-    $ReturnString .= '<div class="pure-control-group">';
-    $ReturnString .= '<label for ="User_Password" style="    font-size: 82%;">New password</label>';
-    $ReturnString .= '<input type = "password" class="ewd-feup-text-input" name = "User_Password" value = "" >';
-    $ReturnString .= '</div>';
-    $ReturnString .= '<div class="pure-control-group">';
-    $ReturnString .= '<label for="Confirm_User_Password"  style="    font-size: 82%;line-height:21px"> Retype password</label>';
-    $ReturnString .= '<input type = "password" class="ewd-feup-text-input" name = "Confirm_User_Password" value = "" >';
-    $ReturnString .= '</div>';
+//    print_field($Field, $Omitted_Fields, $UserData, $ReturnString);
 
     //brian3t extract $FIELDS here
     //insert form for paypal
@@ -301,13 +306,27 @@ HTML;
     }
     $expiry_date = $user_data_["Membership Expiry Date"]->Field_Value;
     $output      = "";
+//    $output      = '<hr/>';
+//    $output .= <<<HTML
+//    <div class="pure-control-group"><label for="Membership Expiry Date" id="ewd-feup-edit-16" class="ewd-feup-field-label">Expires:
+//        </label><span class="form_text">$expiry_date
+//        </span><input name="Membership Expiry Date" value="$expiry_date" id="ewd-feup-register-input-16" type="hidden">
+//        <label>
+//        </label><span class="form_text">Extend membership by <input name="qty" size=1 value=1> months
+//        </span>
+//        <label>
+//        </label><button type="button" id="add_membership">Go</button>
+//
+//    </div>
+//HTML;
+//    $output .= '<hr/>';
     $output .= "<script> var \$user_id= $User->User_ID ; </script>";
     $ReturnString .= ($output);
 
     ////brian3t extract form field add paypal
 
     /** @var string $submit_text */
-    $ReturnString .= '<input type="submit" class="ewd-feup-submit pure-button pure-button-primary" name="Edit_Profile_Submit" value="Save">';
+    $ReturnString .= "<div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Edit_Profile_Submit' value='" . $submit_text . "'></div>";
 
 
     $ReturnString .= "</form>";
@@ -322,6 +341,24 @@ HTML;
         array('jquery')
     );
     wp_enqueue_script('timezone', "/wp-content/js/jstz-1.0.4.min.js", "jquery", false, true);
+
+    $ReturnString .= '    </div>
+</div>';
+    //determine tab
+    $tab = 2;
+    //0: Breakfast; 1: Lunch; 2: Dinner; 3: I need the most help...; 4: Select your time zone; 5: First Name; 6:Last Name; 7: Gender; 8: OK to receive texts?; 9: Phone;
+    if (empty($UserData[10]->Field_Value)){
+        $tab = 1;
+    }
+    if ($User->subscription == "active"){
+        $tab = 4;
+    }
+    if (!empty($UserData[0]->Field_Value)){
+        if (strtotime($UserData[0]->Field_Value) < time()){
+            $tab = 3;
+        }
+    }
+    $ReturnString.= "<script>var \$tab = '$tab';</script>";
 
     return $ReturnString;
 }

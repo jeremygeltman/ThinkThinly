@@ -7,6 +7,8 @@ function Try_Now( $atts )
     global $wpdb, $post, $user_message, $feup_success;
     global $ewd_feup_fields_table_name;
 
+    global $redirect_field, $redirect_array_string, $redirect_page;
+
     $Custom_CSS        = get_option("EWD_FEUP_Custom_CSS");
     $Salt              = get_option("EWD_FEUP_Hash_Salt");
     $Username_Is_Email = get_option("EWD_FEUP_Username_Is_Email");
@@ -55,6 +57,12 @@ function Try_Now( $atts )
 
     if ( ! isset($ConfirmationSuccess) ) {
         $ReturnString .= "<div id='ewd-feup-register-form-div'>";
+        $ReturnString .=
+<<<HTML
+<p class="terms_cond"><i>Send me a free
+text right now.</i></p>
+HTML;
+
         if ( isset($user_message['Message']) ) {
             $ReturnString .= "<span id='signup_error_message' class='error-message'>" . $user_message['Message'] . "</span>";
         }
@@ -125,10 +133,10 @@ function Try_Now( $atts )
 
 
         <?php
-        $ReturnString .= "<div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Register_Submit' value='" . "Try It Now" . "'></div>";
+        $ReturnString .= "<span class='ipad_fix'></span><div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Register_Submit' value='" . "Try It Now" . "'></div>";
         $ReturnString .= "</form>";
         $ReturnString .= '                        <div class="terms_cond">
-                            By signing up I accept the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
+                            I accept the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
                         </div>';
         $ReturnString .= "</div>";
     } else {

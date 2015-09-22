@@ -5,7 +5,7 @@
  */
 ?>
 <?php get_header(); ?>
-
+    <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/folia/css/inner.css"
     <header id="layout1-header">
         <nav class="navbar main-navigation-header top-nav navbar-fixed-top">
             <div class="container">
@@ -18,7 +18,7 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                </button>
-                    <a href="http://www.thinkthinly.com" class="navbar-brand logo"><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/06/ThinkThinlyLogo.png" alt="ThinkThinly Logo"></a>
+                    <a href="<?php bloginfo('url');?>" class="navbar-brand logo"><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/06/ThinkThinlyLogo.png" alt="ThinkThinly Logo"></a>
                 </div><!-- Collect the nav links, forms, and other content for toggling -->
 
                 <div class="collapse navbar-collapse" id="header-navigation">
@@ -143,7 +143,6 @@
 	</div>
 	
 	
-	<script src="<?php bloginfo('template_directory');?>/folia/js/jquery-2.1.0.min.js" type="text/javascript"></script>
     <script src="<?php bloginfo('template_directory');?>/folia/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="<?php bloginfo('template_directory');?>/folia/js/bootstrap-select.min.js" type="text/javascript"></script>
     <script src="<?php bloginfo('template_directory');?>/folia/js/jquery.magnific-popup.min.js"></script>
