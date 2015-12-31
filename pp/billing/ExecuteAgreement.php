@@ -49,7 +49,7 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         }
 
         session_start();
-        $_SESSION['user_updated'] = "Thank you. Your subscription is active";
+        $_SESSION['user_updated'] = "Your subscription is now active.";
 
         if(!headers_sent()) header("Location: /you-did-it");
 

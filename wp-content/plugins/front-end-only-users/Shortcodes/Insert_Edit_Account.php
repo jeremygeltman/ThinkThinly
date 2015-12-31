@@ -172,7 +172,7 @@ function Insert_Edit_Account_Form($atts)
 
     $ReturnString .= "<div id='ewd-feup-edit-profile-form-div'>";
     if (isset($user_message['Message'])) {
-        $ReturnString .= $user_message['Message'];
+        $ReturnString .= "<div class='error-message'>" . $user_message['Message'] . "</div>";
     }
     $ReturnString .= "<form novalidate action='#' method='post' id='ewd-feup-edit-profile-form' class='pure-form pure-form-aligned'>";
     $ReturnString .= "<input type='hidden' name='ewd-feup-check' value='" . sha1(md5($Time . $Salt)) . "'>";
@@ -198,7 +198,7 @@ HTML;
     $ReturnString .= "<input type='password' class='ewd-feup-text-input pure-input-1-3' name='Confirm_User_Password' value=''>
     </div>";
     /** @var string $submit_text */
-    $ReturnString .= "<input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Edit_Profile_Submit' value='Get more messages'>";
+    $ReturnString .= "<input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Edit_Profile_Submit' value='Save'>";
 
     $ReturnString .= $print_field($Fields[0], true);
 

@@ -18,6 +18,8 @@ ul,li {
 	list-style:none;
 }
 
+p{font-size: 18px;}
+
 a:hover {
 	text-decoration:none!important;
 }
@@ -130,7 +132,7 @@ body.home .menu-main-menu-container .current-menu-item{
 #layout1-main-section {
 	position: relative;
 	text-align: center;
-	padding: 170px 0 170px;
+	
 	background: url('../img/main-bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -139,7 +141,9 @@ body.home .menu-main-menu-container .current-menu-item{
 
 }
 
-@media only screen and (max-width: 590px) {
+.home #layout1-main-section{padding: 80px 0 200px;}
+
+@media only screen and (max-width: 630px) {
     #layout1-main-section{
         background: url('../img/main-bg.jpg') no-repeat 50% 50%;
         background-size: 480%;
@@ -147,12 +151,16 @@ body.home .menu-main-menu-container .current-menu-item{
 }
 
 #layout1-main-section .overlay {
-  	background-color: rgba(0, 0, 0, 0.27);
+  	background-color: rgba(0, 14, 39, 0.63);
   	position: absolute;
   	top: 0;
   	left: 0;
   	width: 100%;
   	height: 100%;
+}
+
+body.home #layout1-main-section .overlay{
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 #layout1-main-section h1{
@@ -161,6 +169,16 @@ body.home .menu-main-menu-container .current-menu-item{
 	font-size: 43px;
 	font-weight: 400;
 }
+
+
+.page-template-folia-inner #layout1-main-section h1{margin-top:40px;}
+
+
+@media only screen and (max-width: 630px) {
+	.page-template-folia-inner #layout1-main-section h1{margin-top:110px !important;}
+	#layout1-main-section h1 {font-size: 32px !important;}
+}
+
 
 
 #layout1-main-section .main-text{
@@ -454,7 +472,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 }
 
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 630px) {
     #layout1-testimonials{
         background: url('/wp-content/uploads/2015/06/Screen-Capture-2015-04-15-at-8.102.png') no-repeat 50% 50%;
         background-size: 480%;
@@ -598,7 +616,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 
 
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 630px) {
     #layout1-subscribe-form{
         background: url('/wp-content/uploads/2015/06/Screen-Capture-2015-04-14-at-11.33.png') no-repeat 50% 50%;
         background-size: 480%;
@@ -618,6 +636,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
   	width: 100%;
   	height: 100%;
 }
+
+#parallax-scroll3 #layout1-subscribe-form .overlay {
+	background-color:rgba(0, 0, 0, 0.58);
+}
+
 
 #layout1-subscribe-form h2{
 	color: #fff;
@@ -661,10 +684,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
     font-size: 16px;
     width: 100%;
     height: 60px;
-    padding: 0 30px;
+    padding: 7px 0 0 25px;
     border: none;
     box-shadow: none;
-    border-radius: 4px;
+    border-radius: 5px;
     margin-top: 20px;
 }
 #layout1-subscribe-form form select{
@@ -682,6 +705,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 
 #layout1-subscribe-form .holder{
 	margin-top: 40px;	
+	text-align: center;
 }
 
 #layout1-subscribe-form .holder span{
@@ -1045,7 +1069,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 	h3{font-size: 20px !important;}
 	
 	#layout1-main-section{
-		padding: 180px 0 140px !important;
+		padding: 180px 0 140px ;/* !important */
 	}
 	
 	/* ---- layout1-features ---- */
@@ -1222,7 +1246,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 	
 }
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 630px) {
 	#layout1-main-section .subscribe-form{
 		width: 95% !important;
 	}

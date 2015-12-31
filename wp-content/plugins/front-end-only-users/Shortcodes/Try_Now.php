@@ -59,8 +59,7 @@ function Try_Now( $atts )
         $ReturnString .= "<div id='ewd-feup-register-form-div'>";
         $ReturnString .=
 <<<HTML
-<p class="terms_cond"><i>Send me a free
-text right now.</i></p>
+<p class="terms_cond"><i>Get 3 days of motivational messages free!</i></p>
 HTML;
 
         if ( isset($user_message['Message']) ) {

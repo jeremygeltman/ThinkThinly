@@ -1,0 +1,128 @@
+.inv-tweet{
+	display: inline !important;
+	text-decoration: none;
+	color: #333c4e !important;
+	margin-right: 5px;
+}
+
+.inv-tweet .copy {
+	border-bottom: 1px dotted rgba(64, 153, 255, .6);
+}
+
+.inv-tweet:hover .copy {
+	border-bottom: 1px solid #4099ff;
+}
+
+.inv-tweet:hover .copy {
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	-o-transition: color 0.3s;
+
+	color: #4099ff;
+}
+
+.inv-tweet .tweet-container {
+	position: relative;
+	display: inline-block;
+	width: 26px;
+	height: 23px;
+	vertical-align: middle;
+	margin: -3px -2px 0 5px;
+}
+
+.inv-tweet .inline-icon-twitter,
+.inv-tweet:visited .inline-icon-twitter {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 26px;
+	height: 23px;
+	background: url(img/twitter-sprite-inline.png) no-repeat left top;
+}
+
+.inv-tweet .inline-icon-twitter-hover {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 26px;
+	height: 23px;
+	background: url(img/twitter-sprite-inline.png) no-repeat -26px top;
+	opacity: 0;
+
+	-webkit-transition: opacity 0.3s;
+	-moz-transition: opacity 0.3s;
+	-o-transition: opacity 0.3s;
+}
+
+.inv-tweet:hover .inline-icon-twitter-hover{
+	opacity: 1;
+}
+
+.inv-tweet-sa,
+.inv-tweet-sa:visited{
+	display: block !important;
+	color: #fc3768 !important;
+	margin: 70px auto !important;
+	width: 100% !important;
+	font: italic 300 30px/50px "Open Sans", "open-sans", sans-serif !important;
+	text-align: center;
+	text-decoration: none;
+
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	-o-transition: color 0.3s;
+}
+
+.inv-tweet-sa:hover{
+	color: #33ccff !important;
+}
+
+.inv-tweet-sa .sa-twitter-container {
+	position: relative;
+}
+
+.inv-tweet-sa .sa-icon-twitter,
+.inv-tweet-sa:visited .sa-icon-twitter{
+	position: relative;
+	display: block;
+	width: 23px;
+	height: 26px;
+	background: url(img/twitter-sprite.png) no-repeat left top;
+	margin: 7px auto 0;
+}
+
+.inv-tweet-sa .sa-icon-twitter-hover{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	height: 26px;
+	width: 23px;
+	margin-left: -11.5px;
+	background: url(img/twitter-sprite.png) no-repeat -23px top;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s;
+	-moz-transition: opacity 0.3s;
+	-o-transition: opacity 0.3s;
+}
+
+.inv-tweet-sa:hover .sa-icon-twitter-hover {
+	opacity: 1;
+}
+
+@media (max-width: 1366px) {
+	.inv-tweet-sa,
+	.inv-tweet-sa:visited{
+		font: bold 20px/35px "brandon-grotesque", sans-serif;
+	}
+}
+
+@media (max-width: 640px) {
+	.inv-tweet-sa,
+	.inv-tweet-sa:visited{
+		font-size: 2.18em !important;
+		line-height: 1.6em !important;
+		padding-left: 30px !important;
+		padding-right: 30px !important;
+	}
+
+}

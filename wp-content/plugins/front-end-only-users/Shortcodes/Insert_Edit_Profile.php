@@ -62,8 +62,6 @@ function Insert_Edit_Profile($atts)
         FEUPRedirect($redirect_page);
     }
 
-    $ReturnString .= "<h3>Update your ThinkThinly settings at any time.</h3><p><br/><br/><br/></p>";
-
 
     $ReturnString .= "<div id='ewd-feup-edit-profile-form-div'>";
     if (isset($user_message['Message'])) {

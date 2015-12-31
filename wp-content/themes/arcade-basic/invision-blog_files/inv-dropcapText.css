@@ -1,0 +1,18 @@
+.dropcap {
+	float: left;
+	font-family: "brandon-grotesque", sans-serif;
+	font-size: 119.2px;
+	line-height: 90px;
+	font-weight: 400;
+	color: #fc3768;
+	padding-right: 10px;
+	margin-top: 10px;
+	margin-bottom: -1px;
+}
+
+@media (max-width: 1366px) {
+	.dropcap {
+		font-size: 100px;
+		margin-top: 1px;
+	}
+}

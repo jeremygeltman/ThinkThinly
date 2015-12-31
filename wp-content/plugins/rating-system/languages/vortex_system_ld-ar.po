@@ -1,0 +1,1122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Rating System\n"
+"POT-Creation-Date: 2015-11-02 00:27+0000\n"
+"PO-Revision-Date: 2015-11-02 05:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: rating-system.php\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/vortexlikedislike.php:11
+msgid "Style"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: admin/vortexlikedislike.php:25 admin/vortexlikedislike.php:26
+#: rating-system.php:41
+msgid "Rating System"
+msgstr "نظام التقيم"
+
+#: admin/vortexlikedislike.php:162
+msgid "Settings for posts and pages"
+msgstr "إعدادات المواضيع و الصفحات"
+
+#: admin/vortexlikedislike.php:164
+msgid ""
+"Here you can customize the settings only for posts and pages.For comments go "
+"to Settings for Comments."
+msgstr ""
+"من هنا يمكنك تخصيص إعدادات التقييم في المواضيع و الصفحات. لتخصيص التقييم في "
+"التعليقات توجه الى إعدادات التعليقات."
+
+#: admin/vortexlikedislike.php:169
+msgid "Turn on like or dislike for posts or pages"
+msgstr "تعطيل أو تفعيل التقييم في المواضيع و الصفحات."
+
+#: admin/vortexlikedislike.php:175 admin/vortexlikedislike.php:503
+msgid "Buttons position"
+msgstr "ظهور الإيقونة"
+
+#: admin/vortexlikedislike.php:176 admin/vortexlikedislike.php:504
+msgid "Where should the buttons appear?"
+msgstr "أين تريد أن تظهر أيقونة التقيم؟"
+
+#: admin/vortexlikedislike.php:177 admin/vortexlikedislike.php:505
+#: admin/vortexlikedislike.php:772
+msgid "You can check them both if you want."
+msgstr "يمكنك تحديد جميع الخيارات إن كنت ترغب في ذالك."
+
+#: admin/vortexlikedislike.php:181
+msgid "Before content"
+msgstr "قبل المحتوي"
+
+#: admin/vortexlikedislike.php:182
+msgid "After content"
+msgstr "بعد المحتوى"
+
+#: admin/vortexlikedislike.php:194 admin/vortexlikedislike.php:522
+msgid "Buttons alignment"
+msgstr "محاذاة الأيقونة"
+
+#: admin/vortexlikedislike.php:196 admin/vortexlikedislike.php:524
+msgid "Left"
+msgstr "يسار"
+
+#: admin/vortexlikedislike.php:197 admin/vortexlikedislike.php:525
+msgid "Center"
+msgstr "الوسط"
+
+#: admin/vortexlikedislike.php:198 admin/vortexlikedislike.php:526
+msgid "Right"
+msgstr "يمين"
+
+#: admin/vortexlikedislike.php:205
+msgid "Display buttons on:"
+msgstr "عرض الأيقونات في:"
+
+#: admin/vortexlikedislike.php:206
+msgid "Select where the buttons should be displayed."
+msgstr "قم بتحديد حيث يجب أن يتم عرض الأيقونات."
+
+#: admin/vortexlikedislike.php:207
+msgid ""
+"Custom post type single must be checked for bbPress support.Posts Index "
+"refers to that page where your post(s) show up with an excerpt and a read "
+"more button."
+msgstr "يجب التحقق من أذا كان نوع الموضوع في إضافة bbPress يدعم هذه الخاصية."
+
+#: admin/vortexlikedislike.php:211
+msgid "Pages"
+msgstr "الصفحات"
+
+#: admin/vortexlikedislike.php:212
+msgid "Posts Index"
+msgstr "فهرس المشاركات"
+
+#: admin/vortexlikedislike.php:213
+msgid "Single post"
+msgstr "المواضيع"
+
+#: admin/vortexlikedislike.php:214
+msgid "Custom post type Index"
+msgstr "المواضيع المخصصة"
+
+#: admin/vortexlikedislike.php:215
+msgid "Custom post type single"
+msgstr "الموضوع المخصص"
+
+#: admin/vortexlikedislike.php:230 admin/vortexlikedislike.php:533
+msgid "Buttons style"
+msgstr "شكل الأيقونة"
+
+#: admin/vortexlikedislike.php:231 admin/vortexlikedislike.php:534
+msgid "Here you can change the icons of the buttons."
+msgstr "من هنا يمكنك إختيار شكل الأيقونة."
+
+#: admin/vortexlikedislike.php:295 admin/vortexlikedislike.php:598
+msgid "Likes & Dislikes in columns"
+msgstr "عرض الأيقونة في نظام الإعمدة"
+
+#: admin/vortexlikedislike.php:296
+msgid ""
+"Show the number of likes and dislikes at \"All Posts\" in custom columns."
+msgstr "عرض أيقونات الإعجاب و عدم الإعجاب في نظام الأعمدة ( في المواضيع)"
+
+#: admin/vortexlikedislike.php:302 admin/vortexlikedislike.php:612
+msgid "Disable dislike"
+msgstr "تعطيل أيقونة عدم الإعجاب"
+
+#: admin/vortexlikedislike.php:303 admin/vortexlikedislike.php:613
+msgid "Turn on this if you want like button only."
+msgstr "خيار تعطيل عرض أيقونة عدم الإعجاب"
+
+#: admin/vortexlikedislike.php:315 admin/vortexlikedislike.php:619
+msgid "Anonymous users"
+msgstr "الزوار"
+
+#: admin/vortexlikedislike.php:316 admin/vortexlikedislike.php:620
+msgid "If you want to allow anonymous users to vote turn this on."
+msgstr "السماح او عدم السماح للزوار بالتقييم."
+
+#: admin/vortexlikedislike.php:317 admin/vortexlikedislike.php:621
+msgid ""
+"If you allow anonymous users to like or dislike , results may not be 100% "
+"accurate meaning that a person could like or dislike twice or more because "
+"it's impossible for this plugin to track anonymous users over the internet."
+"The IP of the user is stored so if he changes the IP he can vote again."
+msgstr ""
+"إذا قمت بالسماح للزوار بالتقييم, النتائج لن تكون دقيقة 100% , بمعنى أن أي "
+"شخص يمكنه التقييم عدة مرأة لأن الإضافة لا يمكنها تعقب الزوار عبر الأنترنت. "
+"رغم أن عنوان IP الخاص بالزائر يكون مسجل لاكن يكفيه تغيره ليستطيع إعادة "
+"التقييم."
+
+#: admin/vortexlikedislike.php:323 admin/vortexlikedislike.php:627
+msgid "Anonymous counter"
+msgstr "عداد التقييم للزوار"
+
+#: admin/vortexlikedislike.php:324 admin/vortexlikedislike.php:628
+msgid "Hide the counter(number of likes or dislikes) for anonymous users."
+msgstr "إخفاء أو عرض عداد التقييم للزوار"
+
+#: admin/vortexlikedislike.php:330 admin/vortexlikedislike.php:634
+msgid "Buttons size"
+msgstr "حجم الأيقونة"
+
+#: admin/vortexlikedislike.php:342 admin/vortexlikedislike.php:645
+msgid "Here you can change the buttons size with a preview."
+msgstr "هنا يمكنك تغيير حجم الأيقونة مع معاينة."
+
+#: admin/vortexlikedislike.php:347 admin/vortexlikedislike.php:650
+msgid ""
+"The buttons will have the same size as this text.You can use this as a "
+"preview for the size."
+msgstr "ستكون الإيقونات بنفس حجم هذا النص. يمكنك استخدام هذه كمعاينة للحجم."
+
+#: admin/vortexlikedislike.php:354 admin/vortexlikedislike.php:656
+msgid "Default color"
+msgstr "اللون الافتراضي"
+
+#: admin/vortexlikedislike.php:355 admin/vortexlikedislike.php:657
+msgid "Default color of buttons"
+msgstr "اللون الافتراضي للأيقونة"
+
+#: admin/vortexlikedislike.php:362 admin/vortexlikedislike.php:372
+#: admin/vortexlikedislike.php:664 admin/vortexlikedislike.php:672
+msgid "Like button "
+msgstr "أيقونة الاعجاب"
+
+#: admin/vortexlikedislike.php:364 admin/vortexlikedislike.php:665
+msgid "Like button mouse over color"
+msgstr "لون أيقونة الإعجاب عند مرور الفأرة"
+
+#: admin/vortexlikedislike.php:373 admin/vortexlikedislike.php:673
+msgid "Like button active color"
+msgstr "لون أقونة الإعجاب المفعل"
+
+#: admin/vortexlikedislike.php:381 admin/vortexlikedislike.php:390
+#: admin/vortexlikedislike.php:680 admin/vortexlikedislike.php:688
+msgid "Dislike button "
+msgstr "أيقونة عدم الإعجاب"
+
+#: admin/vortexlikedislike.php:382 admin/vortexlikedislike.php:681
+msgid "Dislike button mouse over color"
+msgstr "لون أيقونة عدم الإعجاب عند مرور الفأرة"
+
+#: admin/vortexlikedislike.php:391 admin/vortexlikedislike.php:689
+msgid "Dislike button active color"
+msgstr "لون أيقونة عدم الإعجاب المفعلة"
+
+#: admin/vortexlikedislike.php:399 admin/vortexlikedislike.php:697
+msgid "Exclude categories"
+msgstr "إستبعاد التصميفات"
+
+#: admin/vortexlikedislike.php:400 admin/vortexlikedislike.php:698
+msgid ""
+"Here you can exclude categories where you DON'T want the buttons to show. "
+msgstr "يمكن إستبعاد التصنيفات التي لا تريد عرض أيقونة التقييم بداخلها."
+
+#: admin/vortexlikedislike.php:401 admin/vortexlikedislike.php:699
+msgid "Only categories that have at least 1 post will be shown."
+msgstr " يجب على التصنيف أن يحتوي على موضوع واحد على الأقل."
+
+#: admin/vortexlikedislike.php:408 admin/vortexlikedislike.php:706
+msgid "Exclude post types"
+msgstr "إستبعاد النوع"
+
+#: admin/vortexlikedislike.php:409 admin/vortexlikedislike.php:707
+msgid ""
+"Here you can exclude post types where you DON'T want the buttons to show. "
+msgstr ""
+"يمكنك إختيار عدم ضهور أيقونة التقيم في الصفحات التي تريد او في المقالات."
+
+#: admin/vortexlikedislike.php:415 admin/vortexlikedislike.php:713
+msgid "Number of likes by default"
+msgstr "عدد الإعجابات الإفتراضية"
+
+#: admin/vortexlikedislike.php:416
+msgid "Number of likes by default to new post."
+msgstr "عدد الإعجابات الافتراضية التي ستظهر في المواضيع الجديدة ( غش يعني هه)"
+
+#: admin/vortexlikedislike.php:423 admin/vortexlikedislike.php:721
+msgid "Number of dislikes by default"
+msgstr "عدد عدم الإعجاب الإفتراضي"
+
+#: admin/vortexlikedislike.php:424
+msgid "Number of dislikes by default to new post."
+msgstr "عدد عدم الإعجاب الافتراضي الذي سيظهر في المواضيع الجديدة"
+
+#: admin/vortexlikedislike.php:431 admin/vortexlikedislike.php:729
+msgid "Custom text"
+msgstr "نص مخصص"
+
+#: admin/vortexlikedislike.php:432 admin/vortexlikedislike.php:730
+msgid "Display custom text when user is voting"
+msgstr "عرض نص مخصص عند تقيم الموضوع"
+
+#: admin/vortexlikedislike.php:439 admin/vortexlikedislike.php:737
+msgid "Custom text for like"
+msgstr "نص مخصص عند الإعجاب"
+
+#: admin/vortexlikedislike.php:446 admin/vortexlikedislike.php:744
+msgid "Custom text for dislike"
+msgstr "نص مخصص عند عدم الإعجاب"
+
+#: admin/vortexlikedislike.php:452 admin/vortexlikedislike.php:750
+msgid "Keep custom text"
+msgstr "الاحتفاظ بالنص المخصص"
+
+#: admin/vortexlikedislike.php:453 admin/vortexlikedislike.php:751
+msgid ""
+"When a user voted and refreshes the page keep showing the custom text for "
+"the vote and don't display the counter"
+msgstr ""
+"في حال تفيعل هذا الخيار وعند قيام المستخدم بتقييم الموضوع و تحديث الصفحة "
+"سيتم الاحتفاظ بالنص المخصص و لايظهر عدد التقييمات."
+
+#: admin/vortexlikedislike.php:459
+msgid "Enable bbPress support"
+msgstr "تفعيل دعم bbPress"
+
+#: admin/vortexlikedislike.php:460
+msgid "Custom post type single must be checked for bbPress support."
+msgstr "يتطلب تفعيل الموضوع المخصص."
+
+#: admin/vortexlikedislike.php:466
+msgid "Enable buddyPress support"
+msgstr "تفعيل دعم bbPress"
+
+#: admin/vortexlikedislike.php:467
+msgid "Enable support for buddyPress activities."
+msgstr "تفعيل دعم bbPress"
+
+#: admin/vortexlikedislike.php:473
+msgid "Enable Auto delete post"
+msgstr "تفعيل الحذف التلقائي"
+
+#: admin/vortexlikedislike.php:479
+msgid "Number of dislikes:"
+msgstr "عدد عدم الإعجاب"
+
+#: admin/vortexlikedislike.php:480
+msgid "Auto delete post at a given number of dislikes"
+msgstr "الحذف التلقائي للموضوع الذي يحصل على عدد معين من عدم الإعجاب"
+
+#: admin/vortexlikedislike.php:490
+msgid "Settings for comments"
+msgstr " إعدادات التعليقات"
+
+#: admin/vortexlikedislike.php:492
+msgid ""
+"Here you can customize the settings only for comments.For posts and pages go "
+"to Settings for Posts and Pages."
+msgstr ""
+"من هنا يمكنك تخصيص إعدادات التقييم في التعليقات. لتخصيص التقييم في المواضيع "
+"و الصفحات توجه الى إعدادات المواضيع و الصفحات."
+
+#: admin/vortexlikedislike.php:497
+msgid "Turn on like or dislike for comments"
+msgstr "تعطيل أو تفعيل التقييم في التعليقات."
+
+#: admin/vortexlikedislike.php:509
+msgid "Before comment"
+msgstr "قبل التعليق"
+
+#: admin/vortexlikedislike.php:510
+msgid "After comment"
+msgstr "بعد التعليق"
+
+#: admin/vortexlikedislike.php:599
+msgid ""
+"Show the number of likes and dislikes at \"Comments\" in custom columns."
+msgstr "عرض عدد التقييمات في التعليقات"
+
+#: admin/vortexlikedislike.php:605
+msgid "Order comments"
+msgstr "ترتيب التعليقات"
+
+#: admin/vortexlikedislike.php:606
+msgid "Order comments by the number of likes they have.No Epoch support."
+msgstr "ترتيب التعليقات حسب التقيم. لاتدعم Epoch"
+
+#: admin/vortexlikedislike.php:714
+msgid "Number of likes by default to new comment."
+msgstr "عدد الإعجابات الإفتراضية للتعليقات الجديدة"
+
+#: admin/vortexlikedislike.php:722
+msgid "Number of dislikes by default to new comment."
+msgstr "عدد عدم الإعجاب الافتراضي الذي سيظهر في التعليقات الجديدة الجديدة"
+
+#: admin/vortexlikedislike.php:757
+msgid "Enable Epoch Support"
+msgstr "تفعيل دعم Epoch"
+
+#: admin/vortexlikedislike.php:764
+msgid "Statistic Dashboard"
+msgstr "لوحة الإحصائيات"
+
+#: admin/vortexlikedislike.php:770
+msgid "Statistics for:"
+msgstr "إحصائيات:"
+
+#: admin/vortexlikedislike.php:771
+msgid "The statistics will show up in WordPress Dashboard Widget"
+msgstr "سوف تظهر الإحصائيات في رئيسية لوحة التحكم."
+
+#: admin/vortexlikedislike.php:776
+msgid "Posts"
+msgstr "المواضيع و الصفحات"
+
+#: admin/vortexlikedislike.php:777
+msgid "Comments"
+msgstr "التعليقات"
+
+#: admin/vortexlikedislike.php:789
+msgid "Translation"
+msgstr "الترجمة"
+
+#: admin/vortexlikedislike.php:791
+msgid "Here you can translate some basic text."
+msgstr "هنا يمكنك ترجمة بعض الكلمات الأساسية."
+
+#: admin/vortexlikedislike.php:797
+msgid "Singular like  for widget"
+msgstr "الصيغة المفرد  في المربع الجانبي ( ودجات)"
+
+#: admin/vortexlikedislike.php:798
+msgid ""
+"This appers next to the number of likes in the widget only when the likes "
+"equals to 1."
+msgstr ""
+"تظهر بعد عدد التعقيمات في المربع الجانبية. فقط عند توفر الموضوع على تقيم واحد"
+
+#: admin/vortexlikedislike.php:804
+msgid "Plural like  for widget"
+msgstr "صيغة الجمع في المربع الجانبي"
+
+#: admin/vortexlikedislike.php:805
+msgid ""
+"This appers next to the number of likes in the widget only when the likes is "
+"equals to 2 or bigger."
+msgstr ""
+"تظهر بعد عدد التعقيمات في المربع الجانبية. فقط عند توفر الموضوع على تقيم "
+"تقيمين او أكثر"
+
+#: comments.php:750 posts-pages.php:633
+msgid "Likes"
+msgstr "إعجابات"
+
+#: comments.php:753 posts-pages.php:636
+msgid "Dislikes"
+msgstr "عدم إعجاب"
+
+#: mycredcomments.php:158 mycredposts.php:162
+msgid "Like"
+msgstr "إعجاب"
+
+#: mycredcomments.php:161 mycredposts.php:165
+msgid "Like Author"
+msgstr "إعجابات الكاتب"
+
+#: mycredcomments.php:165 mycredcomments.php:182
+msgid "Comment Author"
+msgstr "تعليقات الكاتب"
+
+#: mycredcomments.php:170 mycredcomments.php:187 mycredposts.php:174
+#: mycredposts.php:191
+msgid "Log template"
+msgstr "قالب Log"
+
+#: mycredcomments.php:175 mycredposts.php:179
+msgid "Dislike"
+msgstr "عدم الإعجاب"
+
+#: mycredcomments.php:178 mycredposts.php:182
+msgid "Dislike Author"
+msgstr "عدم إعجابات الكاتب"
+
+#: mycredcomments.php:192 mycredposts.php:196
+msgid "Log for canceled vote"
+msgstr "سجل التصويت تم إلغاؤها"
+
+#: mycredcomments.php:219
+msgid "Points for like/dislike comments"
+msgstr "نقاط للتعليقات like/dislike"
+
+#: mycredcomments.php:220 mycredposts.php:224
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: mycredposts.php:169 mycredposts.php:186
+msgid "Content Author"
+msgstr "محتوى الكاتب"
+
+#: mycredposts.php:223
+msgid "Points for like/dislike posts"
+msgstr "النقاط للإعجاب و عدم الإعجاب"
+
+#: rating-system.php:47 tgmpa/class-tgm-plugin-activation.php:289
+msgid "Install Required Plugins"
+msgstr "تثبيت الإضافات المطلوبة"
+
+#: rating-system.php:48 tgmpa/class-tgm-plugin-activation.php:290
+msgid "Install Plugins"
+msgstr "تثبيت الإضافات"
+
+#: rating-system.php:49 tgmpa/class-tgm-plugin-activation.php:291
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "تثبيت الإضافة %s"
+
+#: rating-system.php:50 tgmpa/class-tgm-plugin-activation.php:292
+msgid "Something went wrong with the plugin API."
+msgstr "حصل خطأ في الـ API الخاص بالاضافة."
+
+#: rating-system.php:52
+#, php-format
+msgid "This plugin requires the following plugin: %1$s."
+msgid_plural "This plugin requires the following plugins: %1$s."
+msgstr[0] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[1] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[2] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[3] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[4] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[5] "هذه الإضافة تتطلب الإضافة : %1$s."
+
+#: rating-system.php:57
+#, php-format
+msgid "This plugin recommends the following plugin: %1$s."
+msgid_plural "This plugin recommends the following plugins: %1$s."
+msgstr[0] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[1] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[2] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[3] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[4] "هذه الإضافة تتطلب الإضافة : %1$s."
+msgstr[5] "هذه الإضافة تتطلب الإضافة : %1$s."
+
+#: rating-system.php:62 tgmpa/class-tgm-plugin-activation.php:304
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugins."
+msgstr[0] "ليست لدسك الصلاحيات الكافية لتثبيت إضافة %1$s "
+msgstr[1] "ليست لدسك الصلاحيات الكافية لتثبيت إضافة %1$s "
+msgstr[2] "ليست لدسك الصلاحيات الكافية لتثبيت إضافة %1$s "
+msgstr[3] "ليست لدسك الصلاحيات الكافية لتثبيت إضافة %1$s "
+msgstr[4] "ليست لدسك الصلاحيات الكافية لتثبيت إضافة %1$s "
+msgstr[5] "ليست لدسك الصلاحيات الكافية لتثبيت إضافة %1$s "
+
+#: rating-system.php:67
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgstr[0] ""
+"تحتاج الإضافة لتحديث إلى الإصدار الأحدث لضمان أقصى قدر من التوافق مع هذه "
+"الإضافة: %1$s."
+msgstr[1] ""
+"تحتاج الإضافة لتحديث إلى الإصدار الأحدث لضمان أقصى قدر من التوافق مع هذه "
+"الإضافة: %1$s."
+msgstr[2] ""
+"تحتاج الإضافة لتحديث إلى الإصدار الأحدث لضمان أقصى قدر من التوافق مع هذه "
+"الإضافة: %1$s."
+msgstr[3] ""
+"تحتاج الإضافة لتحديث إلى الإصدار الأحدث لضمان أقصى قدر من التوافق مع هذه "
+"الإضافة: %1$s."
+msgstr[4] ""
+"تحتاج الإضافة لتحديث إلى الإصدار الأحدث لضمان أقصى قدر من التوافق مع هذه "
+"الإضافة: %1$s."
+msgstr[5] ""
+"تحتاج الإضافة لتحديث إلى الإصدار الأحدث لضمان أقصى قدر من التوافق مع هذه "
+"الإضافة: %1$s."
+
+#: rating-system.php:72 tgmpa/class-tgm-plugin-activation.php:314
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "هناك تحديث متوفر لـ:  %1$s."
+msgstr[1] "هناك تحديث متوفر لـ:  %1$s."
+msgstr[2] "هناك تحديث متوفر لـ:  %1$s."
+msgstr[3] "هناك تحديث متوفر لـ:  %1$s."
+msgstr[4] "هناك تحديث متوفر لـ:  %1$s."
+msgstr[5] "هناك تحديث متوفر لـ:  %1$s."
+
+#: rating-system.php:77 tgmpa/class-tgm-plugin-activation.php:319
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %1$s plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugins."
+msgstr[0] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[1] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[2] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[3] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[4] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[5] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+
+#: rating-system.php:82 tgmpa/class-tgm-plugin-activation.php:324
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[1] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[2] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[3] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[4] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[5] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+
+#: rating-system.php:87 tgmpa/class-tgm-plugin-activation.php:329
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[1] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[2] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[3] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[4] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+msgstr[5] "الإضافة المطلوبة التالية غير مفعلة حاليا: %1$s."
+
+#: rating-system.php:92 tgmpa/class-tgm-plugin-activation.php:334
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugins."
+msgstr[0] "ليست لدسك الصلاحيات الكافية لتفعيل إضافة %1$s "
+msgstr[1] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[2] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[3] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[4] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+msgstr[5] "ليست لدسك الصلاحيات الكافية لتحديث إضافة %1$s "
+
+#: rating-system.php:97 tgmpa/class-tgm-plugin-activation.php:339
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "بدأ تنصيب الاضافة"
+msgstr[1] "بدأ تنصيب الاضافة"
+msgstr[2] "بدأ تنصيب الاضافة"
+msgstr[3] "بدأ تنصيب الاضافة"
+msgstr[4] "بدأ تنصيب الاضافة"
+msgstr[5] "بدأ تنصيب الاضافة"
+
+#: rating-system.php:102 tgmpa/class-tgm-plugin-activation.php:344
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "البدء في تحديث الإضافة"
+msgstr[1] "البدء في تحديث الإضافة"
+msgstr[2] "البدء في تحديث الإضافة"
+msgstr[3] "البدء في تحديث الإضافة"
+msgstr[4] "البدء في تحديث الإضافة"
+msgstr[5] "البدء في تحديث الإضافة"
+
+#: rating-system.php:107 tgmpa/class-tgm-plugin-activation.php:349
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "بدء تفعيل الإضافة"
+msgstr[1] "بدء تفعيل الإضافة"
+msgstr[2] "بدء تفعيل الإضافة"
+msgstr[3] "بدء تفعيل الإضافة"
+msgstr[4] "بدء تفعيل الإضافة"
+msgstr[5] "بدء تفعيل الإضافة"
+
+#: rating-system.php:130
+msgid "Receive like for posts(content author)"
+msgstr "عدد الإعجابات بالمواضيع"
+
+#: rating-system.php:131
+msgid "Receive like for posts(like author)"
+msgstr "عدد الإعجابات بالمواضيع"
+
+#: rating-system.php:132
+msgid "Receive like for comments(content author)"
+msgstr "عدد الإعجابات بالتعليقات"
+
+#: rating-system.php:133
+msgid "Receive like for comments(like author)"
+msgstr "عدد الإعجابات بالتعليقات"
+
+#: tgmpa/class-tgm-plugin-activation.php:294
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[1] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[2] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[3] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[4] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[5] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+
+#: tgmpa/class-tgm-plugin-activation.php:299
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[1] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[2] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[3] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[4] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+msgstr[5] "هذا القالب يوصل بتركيب الإضافة التالية: %1$s."
+
+#: tgmpa/class-tgm-plugin-activation.php:309
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] "تحتاج هذه الإضافة إلى تحديث لتكون متوافقة مع الموضوع الخاص بك %1$s."
+msgstr[1] "تحتاج هذه الإضافة إلى تحديث لتكون متوافقة مع الموضوع الخاص بك %1$s."
+msgstr[2] "تحتاج هذه الإضافة إلى تحديث لتكون متوافقة مع الموضوع الخاص بك %1$s."
+msgstr[3] "تحتاج هذه الإضافة إلى تحديث لتكون متوافقة مع الموضوع الخاص بك %1$s."
+msgstr[4] "تحتاج هذه الإضافة إلى تحديث لتكون متوافقة مع الموضوع الخاص بك %1$s."
+msgstr[5] "تحتاج هذه الإضافة إلى تحديث لتكون متوافقة مع الموضوع الخاص بك %1$s."
+
+#: tgmpa/class-tgm-plugin-activation.php:353
+msgid "Return to Required Plugins Installer"
+msgstr "العودة إلى مثبت الإضافات المطلوبة"
+
+#: tgmpa/class-tgm-plugin-activation.php:354
+msgid "Return to the dashboard"
+msgstr "العودة إلى لوحة القيادة"
+
+#: tgmpa/class-tgm-plugin-activation.php:355
+#: tgmpa/class-tgm-plugin-activation.php:2990
+msgid "Plugin activated successfully."
+msgstr "تم تفعيل الاضافة بنجاح"
+
+#: tgmpa/class-tgm-plugin-activation.php:356
+#: tgmpa/class-tgm-plugin-activation.php:2793
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "الإضافة التالية تم تفعيلها بنجاح"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: tgmpa/class-tgm-plugin-activation.php:357
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "لم يتخذ أي إجراء. الإضافة %1$s مفعلة فالاساس."
+
+#: tgmpa/class-tgm-plugin-activation.php:358
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"لم يتم تفعيل الإضافة. وإصدار أعلى من %s مطلوب لهذا القالب. يرجى تحديث "
+"الإضافة."
+
+#: tgmpa/class-tgm-plugin-activation.php:359
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "جميع الإضافات تم تثبيتها وتفعيلها بنجاح. %1$s"
+
+#: tgmpa/class-tgm-plugin-activation.php:360
+msgid "Dismiss this notice"
+msgstr "تجاهل هذه الرسالة"
+
+#: tgmpa/class-tgm-plugin-activation.php:361
+msgid "Please contact the administrator of this site for help."
+msgstr "الرجاء الاتصال بمدير الموقع للحصول على المساعدة."
+
+#: tgmpa/class-tgm-plugin-activation.php:480
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "تحتاج هذه الإضافة إلى تحديث لتكون متوافقة مع القالب الخاص بك."
+
+#: tgmpa/class-tgm-plugin-activation.php:481
+msgid "Update Required"
+msgstr "مطلوب التحديث"
+
+#: tgmpa/class-tgm-plugin-activation.php:595
+msgid "Set the parent_slug config variable instead."
+msgstr "تعيين parent_slug كتكوين متغير بدلا من ذلك."
+
+#: tgmpa/class-tgm-plugin-activation.php:789
+#: tgmpa/class-tgm-plugin-activation.php:3399
+msgid "Return to the Dashboard"
+msgstr "العودة إلى لوحة التحكم الرئيسية"
+
+#: tgmpa/class-tgm-plugin-activation.php:896
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+"حزمة الإضافة لا تحتوي على ملف بالكلمة المطلوبة وإعادة تسمية الملف لم يعمل."
+
+#: tgmpa/class-tgm-plugin-activation.php:896
+#: tgmpa/class-tgm-plugin-activation.php:899
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+"يرجى الاتصال بموفر الإضافات والطلب منه حزم الإضافات وفقاً لمبادئ وورد برس "
+"التوجيهية."
+
+#: tgmpa/class-tgm-plugin-activation.php:899
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+"تتكون حزمة التحكم بالإضافات على أكثر من ملف, لاكن لم يتم جمع الملفات في مجلد "
+"واحد."
+
+#: tgmpa/class-tgm-plugin-activation.php:1077
+#: tgmpa/class-tgm-plugin-activation.php:2789
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "و"
+
+#: tgmpa/class-tgm-plugin-activation.php:1842
+#, php-format
+msgctxt "%s = version number"
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: tgmpa/class-tgm-plugin-activation.php:2128
+msgid "Required"
+msgstr "مطلوب"
+
+#: tgmpa/class-tgm-plugin-activation.php:2131
+msgid "Recommended"
+msgstr "موصى به"
+
+#: tgmpa/class-tgm-plugin-activation.php:2147
+msgid "WordPress Repository"
+msgstr "مستودع WordPress"
+
+#: tgmpa/class-tgm-plugin-activation.php:2150
+msgid "External Source"
+msgstr "مصدر خارجي"
+
+#: tgmpa/class-tgm-plugin-activation.php:2153
+msgid "Pre-Packaged"
+msgstr "تم تعبئته مسبقاً"
+
+#: tgmpa/class-tgm-plugin-activation.php:2170
+msgid "Not Installed"
+msgstr "غير مثبت"
+
+#: tgmpa/class-tgm-plugin-activation.php:2174
+msgid "Installed But Not Activated"
+msgstr "مثبت ولكن غير مفعل"
+
+#: tgmpa/class-tgm-plugin-activation.php:2176
+msgid "Active"
+msgstr "مفعل"
+
+#: tgmpa/class-tgm-plugin-activation.php:2182
+msgid "Required Update not Available"
+msgstr "التحديث المطلوب غير متاح"
+
+#: tgmpa/class-tgm-plugin-activation.php:2185
+msgid "Requires Update"
+msgstr "يتطلب تحديث"
+
+#: tgmpa/class-tgm-plugin-activation.php:2188
+msgid "Update recommended"
+msgstr "يفضل التحديث"
+
+#: tgmpa/class-tgm-plugin-activation.php:2196
+#, php-format
+msgctxt "%1$s = install status, %2$s = update status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: tgmpa/class-tgm-plugin-activation.php:2241
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "جميع <span class=\"count\">(%s)</span>"
+msgstr[1] "جميع <span class=\"count\">(%s)</span>"
+msgstr[2] "جميع <span class=\"count\">(%s)</span>"
+msgstr[3] "جميع <span class=\"count\">(%s)</span>"
+msgstr[4] "جميع <span class=\"count\">(%s)</span>"
+msgstr[5] "جميع <span class=\"count\">(%s)</span>"
+
+#: tgmpa/class-tgm-plugin-activation.php:2244
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "للتثبيت <span class=\"count\">(%s)</span>"
+msgstr[1] "للتثبيت <span class=\"count\">(%s)</span>"
+msgstr[2] "للتثبيت <span class=\"count\">(%s)</span>"
+msgstr[3] "للتثبيت <span class=\"count\">(%s)</span>"
+msgstr[4] "للتثبيت <span class=\"count\">(%s)</span>"
+msgstr[5] "للتثبيت <span class=\"count\">(%s)</span>"
+
+#: tgmpa/class-tgm-plugin-activation.php:2247
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "التحديث متوفر <span class=\"count\">(%s)</span>"
+msgstr[1] "التحديث متوفر <span class=\"count\">(%s)</span>"
+msgstr[2] "التحديث متوفر <span class=\"count\">(%s)</span>"
+msgstr[3] "التحديث متوفر <span class=\"count\">(%s)</span>"
+msgstr[4] "التحديث متوفر <span class=\"count\">(%s)</span>"
+msgstr[5] "التحديث متوفر <span class=\"count\">(%s)</span>"
+
+#: tgmpa/class-tgm-plugin-activation.php:2250
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "لتفعيل <span class=\"count\">(%s)</span>"
+msgstr[1] "لتفعيل <span class=\"count\">(%s)</span>"
+msgstr[2] "لتفعيل <span class=\"count\">(%s)</span>"
+msgstr[3] "لتفعيل <span class=\"count\">(%s)</span>"
+msgstr[4] "لتفعيل <span class=\"count\">(%s)</span>"
+msgstr[5] "لتفعيل <span class=\"count\">(%s)</span>"
+
+#: tgmpa/class-tgm-plugin-activation.php:2332
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "غير معروف"
+
+#: tgmpa/class-tgm-plugin-activation.php:2340
+msgid "Installed version:"
+msgstr "الإصدار المثبت:"
+
+#: tgmpa/class-tgm-plugin-activation.php:2348
+msgid "Minimum required version:"
+msgstr "أقل إصدار مطلوب:"
+
+#: tgmpa/class-tgm-plugin-activation.php:2360
+msgid "Available version:"
+msgstr "النسخة المتوفرة:"
+
+#: tgmpa/class-tgm-plugin-activation.php:2383
+#, php-format
+msgid ""
+"No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
+"Dashboard</a>"
+msgstr ""
+"لا توجد إضافات للتثبيت ,للتفعيل أو التنشيط <a href=\"%1$s\">العودة للصفحة "
+"الرئيسية</a>"
+
+#: tgmpa/class-tgm-plugin-activation.php:2397
+msgid "Plugin"
+msgstr "اضافة"
+
+#: tgmpa/class-tgm-plugin-activation.php:2398
+msgid "Source"
+msgstr "المصدر"
+
+#: tgmpa/class-tgm-plugin-activation.php:2399
+msgid "Type"
+msgstr "النوع"
+
+#: tgmpa/class-tgm-plugin-activation.php:2403
+msgid "Version"
+msgstr "الإصدار"
+
+#: tgmpa/class-tgm-plugin-activation.php:2404
+msgid "Status"
+msgstr "الحالة"
+
+#: tgmpa/class-tgm-plugin-activation.php:2452
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr "تثبيت %2$s"
+
+#: tgmpa/class-tgm-plugin-activation.php:2456
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Update %2$s"
+msgstr "تحديث %2$s"
+
+#: tgmpa/class-tgm-plugin-activation.php:2461
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr "تفعيل %2$s"
+
+#: tgmpa/class-tgm-plugin-activation.php:2531
+msgid "Upgrade message from the plugin author:"
+msgstr "تحديث الرسالة من مبرمج الاضافة:"
+
+#: tgmpa/class-tgm-plugin-activation.php:2564
+msgid "Install"
+msgstr "تثبيت"
+
+#: tgmpa/class-tgm-plugin-activation.php:2570
+msgid "Update"
+msgstr "تحديث"
+
+#: tgmpa/class-tgm-plugin-activation.php:2573
+msgid "Activate"
+msgstr "تفعيل"
+
+#: tgmpa/class-tgm-plugin-activation.php:2604
+msgid "No plugins were selected to be installed. No action taken."
+msgstr "لم يتم تحديد أي إضافات للتحديث. بناءاً على ذلك لم يتم إتخاذ أي إجراء."
+
+#: tgmpa/class-tgm-plugin-activation.php:2606
+msgid "No plugins were selected to be updated. No action taken."
+msgstr "لم يتم تحديد أي إضافات للتحديث. بناءاً على ذلك لم يتم إتخاذ أي إجراء."
+
+#: tgmpa/class-tgm-plugin-activation.php:2642
+msgid "No plugins are available to be installed at this time."
+msgstr "لا توجد متوفرة ليتم تثبيتها هذه المرة."
+
+#: tgmpa/class-tgm-plugin-activation.php:2644
+msgid "No plugins are available to be updated at this time."
+msgstr "لا توجد إضافات متوفرة ليتم تحديثها هذه المرة."
+
+#: tgmpa/class-tgm-plugin-activation.php:2749
+msgid "No plugins were selected to be activated. No action taken."
+msgstr "لم يتم تحديد أي إضافات للتحديث. بناءاً على ذلك لم يتم إتخاذ أي إجراء."
+
+#: tgmpa/class-tgm-plugin-activation.php:2775
+msgid "No plugins are available to be activated at this time."
+msgstr "لا توجد برنامج مساعد متوفرة ليتم تثبيتها هذه المرة."
+
+#: tgmpa/class-tgm-plugin-activation.php:2989
+msgid "Plugin activation failed."
+msgstr "فشل في تثبيت الإضافة ."
+
+#: tgmpa/class-tgm-plugin-activation.php:3323
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "تحديث الإضافة %1$s (%2$d/%3$d)"
+
+#: tgmpa/class-tgm-plugin-activation.php:3325
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "حدث خطأ أثناء عملية التثبيت %1$s: <strong>%2$s</strong>."
+
+#: tgmpa/class-tgm-plugin-activation.php:3326
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "عملية تثبيت %1$s فشلت."
+
+#: tgmpa/class-tgm-plugin-activation.php:3330
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"بدأت عملية التثبيت والتفعيل. قد تتطلب هذه العملية بعض الوقت لذا يرجى "
+"الانتظار."
+
+#: tgmpa/class-tgm-plugin-activation.php:3331
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s  تم التثبيت والتفعيل بنجاح."
+
+#: tgmpa/class-tgm-plugin-activation.php:3331
+#: tgmpa/class-tgm-plugin-activation.php:3337
+msgid "Show Details"
+msgstr "إظهار التفاصيل"
+
+#: tgmpa/class-tgm-plugin-activation.php:3331
+#: tgmpa/class-tgm-plugin-activation.php:3337
+msgid "Hide Details"
+msgstr "إخفاء التفاصيل"
+
+#: tgmpa/class-tgm-plugin-activation.php:3332
+msgid "All installations and activations have been completed."
+msgstr "تم الإنتهاء من جميع التثبيتات والتفعيلات."
+
+#: tgmpa/class-tgm-plugin-activation.php:3333
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "تثبيت وتفعيل الإضافة %1$s (%2$d/%3$d)"
+
+#: tgmpa/class-tgm-plugin-activation.php:3336
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr "بدءت عملية التثبيت. قد تستغرق هذه العملية بعض الوقت. يرجى الانتظار."
+
+#: tgmpa/class-tgm-plugin-activation.php:3337
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s تم التثبيت بنجاح."
+
+#: tgmpa/class-tgm-plugin-activation.php:3338
+msgid "All installations have been completed."
+msgstr "تم الإنتهاء من جميع التثبيتات."
+
+#: tgmpa/class-tgm-plugin-activation.php:3339
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "تثبيت الإضافة %1$s (%2$d/%3$d)"
+
+#: widget/dashboard-widget.php:92 widget/dashboard-widget.php:99
+msgid "No data for posts."
+msgstr "لا توجد بيانات للمواضيع"
+
+#: widget/dashboard-widget.php:95 widget/dashboard-widget.php:103
+msgid "No data for comments."
+msgstr "لا توجد بيانات للتعليقات"
+
+#: widget/widget.php:12 widget/widget.php:33
+msgid "Most liked posts"
+msgstr "المواضيع الأكثر تقييم"
+
+#: widget/widget.php:15
+msgid "Displays a list with the most licked posts."
+msgstr "عرض المواضيع الأكثر تقيم"
+
+#: widget/widget.php:120
+msgid "Title:"
+msgstr "العنوان"
+
+#: widget/widget.php:122
+msgid "Number of posts to show:"
+msgstr "عدد المشاركات التي سيتم عرضها"
+
+#: widget/widget.php:125
+msgid "Display the thumbnail for each post?"
+msgstr "عرض الصورة المصغرة ؟"
+
+#: widget/widget.php:127
+msgid "Display the likes(counter) for each post?"
+msgstr "عرض عداد التقييم "
+
+#: widget/widget.php:129
+msgid "Display sticky posts?"
+msgstr "عرض المواضيع المثبتة"
+
+#. Plugin URI of the plugin/theme
+msgid "http://github.com/VortexThemes/rating-system"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "The simple way to add like or dislike buttons."
+msgstr ""
+"إضافة أيقونة التقييم الى مواضيع الموقع. تم التعريب من طرف مدونة فكرة تطوير."
+
+#. Author of the plugin/theme
+msgid "VortexThemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://github.com/VortexThemes"
+msgstr ""

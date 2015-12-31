@@ -5,31 +5,7 @@
  */
 ?>
 <?php get_header(); ?>
-    <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/folia/css/inner.css"
-    <header id="layout1-header">
-        <nav class="navbar main-navigation-header top-nav navbar-fixed-top">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navigation">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-                    <a href="<?php bloginfo('url');?>" class="navbar-brand logo"><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/06/ThinkThinlyLogo.png" alt="ThinkThinly Logo"></a>
-                </div><!-- Collect the nav links, forms, and other content for toggling -->
-
-                <div class="collapse navbar-collapse" id="header-navigation">
-                	<ul class="nav navbar-nav main-navigation navbar-right">
-                   		<?php wp_nav_menu( array( 'items_wrap' => '%3$s' ));?> 
-                   	</ul>
-
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-    </header><!-- Navigation -->
+    
     
     
     <section id="layout1-main-section">
@@ -57,73 +33,6 @@
     
     
     
-	
-	
-	
-	
-	<section id="layout1-prefooter">
-    	<div class="container">
-    		<div class="row">
-    			
-    			<div class="col-md-4 col-sm-12 about">
-	    			<a href="http://www.thinkthinly.com" title=""><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/06/ThinkThinly-logo-v4-inverse-text.png" alt="logo" /></a>
-	    			<p>ThinkThinly makes losing weight as easy as getting a text.</p>
-	    			<ul class="social">
-	    				<li><a href="https://www.facebook.com/thinkthinly" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-	    				<li><a href="https://twitter.com/think_thinly" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-	    				<li><a href="https://www.pinterest.com/thinkthinly/" title="pinterest" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-	    				<!-- <li><a href="" title="instagram"><i class="fa fa-instagram"></i></a></li> -->
-	    			</ul>
-    			</div>
-    			
-    			<div class="col-md-2 col-sm-4 col-xs-6 col-md-offset-2 col-sm-offset-0 features">
-	    			<h4>Partners</h4>
-	    			<ul>
-	    				<li><a href="https://www.myfooddiary.com/?aID=1722" title="distributors">MyFoodDiary.com</a></li>
-	    				<li><a href="https://www.myfooddiary.com/?aID=1722&amp;source=lnk">Calorie Counter</a></li>
-	    			</ul>
-    			</div>
-    			
-    			<div class="col-md-2 col-sm-4 col-xs-6 company">
-	    			<h4>Company</h4>
-	    			<ul>
-	    				<li><a href="" title="about us">About us</a></li>
-	    				<li><a href="" title="contact">Features</a></li>
-	    				<li><a href="" title="resources">Resources</a></li>
-	    			</ul>	
-    			</div>
-    			
-    			<div class="col-md-2 col-sm-4 col-xs-6 company">
-	    			<p class="contact">
-	    				<i class="fa fa-envelope-o"></i><a href="mailto:thinkthinly@gmail.com">Get in touch</a>
-	    			</p>
-    			</div>
-    			
-    		</div>
-    		
-    	</div>
-	</section>
-	
-	
-	<footer id="layout1-footer">
-		<div class="container">
-			<div class="row bottom-footer">
-			    			
-    			<div class="col-sm-6 col-xs-12">
-	    			<p>Copyright © 2015 ThinkThinly.com. All rights are reserved.</p>
-    			</div>
-    			
-    			<div class="col-sm-6 col-xs-12">
-	    			<ul class="pull-right">
-	    				<li><a href="" title="terms and conditions">Privacy and conditions</a></li>
-	    				<li><a href="" title="privacy">Terms of use</a></li>
-	    			</ul>
-    			</div>
-    			
-    		</div>
-    		
-		</div>
-	</footer>
 	
 	
 	<div id="contact-popup" class="mfp-hide">

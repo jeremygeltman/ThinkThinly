@@ -75,13 +75,13 @@ function Insert_Edit_Times($atts)
                 if (empty($Value)) {
                     switch ($Field->Field_Name) {
                         case 'Breakfast':
-                            $Value = '12:00pm';
+                            $Value = '9:00am';
                             break;
                         case 'Lunch':
                             $Value = 'None set';
                             break;
                         case 'Dinner':
-                            $Value = 'None set';
+                            $Value = '6:00pm';
                             break;
                         default:
                             break;

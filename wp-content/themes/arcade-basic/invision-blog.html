@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/ -->
+<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths wf-brandongrotesque-n4-active wf-brandongrotesque-n5-active wf-brandongrotesque-n7-active wf-brandongrotesque-n3-active wf-opensans-i4-active wf-opensans-n4-active wf-opensans-n6-active wf-opensans-n7-active wf-active" lang="en-US" prefix="og: http://ogp.me/ns#" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./invision-blog_files/425470.js" id="hs-analytics"></script><script type="text/javascript" async="" src="./invision-blog_files/linkid.js"></script><script async="" src="./invision-blog_files/count.json"></script>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>5 prototyping tips that will improve your process - InVision Blog</title>
+
+		<!-- <meta name="viewport" content="width=1024" /> -->
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+
+		<meta name="google-site-verification" content="oBu-TxX5LMTLtwCywqfW-cLq8laLkCn3MS4JqmJ3Dho">
+
+		<!-- typekit -->
+		<script id="facebook-jssdk" src="./invision-blog_files/sdk.js"></script><script async="" src="./invision-blog_files/analytics.js"></script><script type="text/javascript" async="" src="./invision-blog_files/analytics.min.js"></script><script src="./invision-blog_files/lax7dyv.js" async=""></script><script type="text/javascript">
+			(function(d) {
+				var config = {
+				kitId: 'lax7dyv',
+				scriptTimeout: 3000
+			},
+			h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)})(document);
+		</script>
+
+		<!-- theme directory for use in js -->
+		<script type="text/javascript">
+			var themeDir = "http://blog.invisionapp.com/wp-content/themes/invisionBlogV4";
+		</script>
+
+					
+			<link href="./invision-blog_files/invision-blog.html" rel="canonical">
+		
+		<link href="./invision-blog_files/css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="./invision-blog_files/screen.css">
+
+		<link rel="pingback" href="http://blog.invisionapp.com/xmlrpc.php">
+
+		<!-- if page is content page -->
+		
+		
+		
+<!-- This site is optimized with the Yoast WordPress SEO plugin v2.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Stop me if you’ve heard this one: In the middle of a design presentation, a puzzled audience member raises their hand and asks, Why is all the copy in a fo">
+<link rel="canonical" href="./invision-blog_files/invision-blog.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5 prototyping tips that will improve your process - InVision Blog">
+<meta property="og:description" content="Stop me if you’ve heard this one: In the middle of a design presentation, a puzzled audience member raises their hand and asks, Why is all the copy in a fo">
+<meta property="og:url" content="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/">
+<meta property="og:site_name" content="InVision Blog">
+<meta property="article:publisher" content="https://www.facebook.com/invisionapp">
+<meta property="article:section" content="The new design process">
+<meta property="article:published_time" content="2015-06-15T08:31:41+00:00">
+<meta property="article:modified_time" content="2015-06-18T10:16:16+00:00">
+<meta property="og:updated_time" content="2015-06-18T10:16:16+00:00">
+<meta property="og:image" content="http://blog.invisionapp.com/wp-content/uploads/2015/06/dot-grid-book1.jpg">
+<meta property="og:image" content="http://blog.invisionapp.com/wp-content/uploads/2015/06/be-good-enough.png">
+<meta property="og:image" content="http://blog.invisionapp.com/wp-content/uploads/2015/06/avoid-linear-work.png">
+<meta property="og:image" content="http://blog.invisionapp.com/wp-content/uploads/2015/06/reusable-symbols.png">
+<meta property="og:image" content="http://blog.invisionapp.com/wp-content/uploads/2015/06/use-real-assets.png">
+<meta property="og:image" content="http://blog.invisionapp.com/wp-content/uploads/2015/06/use-real-devices.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Stop me if you’ve heard this one: In the middle of a design presentation, a puzzled audience member raises their hand and asks, Why is all the copy in a fo">
+<meta name="twitter:title" content="5 prototyping tips that will improve your process - InVision Blog">
+<meta name="twitter:site" content="@invisionapp">
+<meta name="twitter:domain" content="InVision Blog">
+<meta name="twitter:image:src" content="http://blog.invisionapp.com/wp-content/uploads/2015/06/dot-grid-book1.jpg">
+<meta name="twitter:creator" content="@clarklab">
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"http:\/\/blog.invisionapp.com\/","name":"InVision Blog"}</script>
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="InVision Blog » Feed" href="http://blog.invisionapp.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="InVision Blog » Comments Feed" href="http://blog.invisionapp.com/comments/feed/">
+		<style type="text/css">.tk-open-sans{font-family:"open-sans",sans-serif;}.tk-brandon-grotesque{font-family:"brandon-grotesque",sans-serif;}</style><link rel="stylesheet" href="./invision-blog_files/d"><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/blog.invisionapp.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.5"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./invision-blog_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="tweetable-frontend-css" href="./invision-blog_files/main_css.css" type="text/css" media="all">
+<link rel="stylesheet" id="inv-tweetableStyle-css" href="./invision-blog_files/inv-tweetableText.css" type="text/css" media="all">
+<link rel="stylesheet" id="inv-dropcapStyle-css" href="./invision-blog_files/inv-dropcapText.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./invision-blog_files/jetpack.css" type="text/css" media="all">
+<link rel="stylesheet" id="lightboxStyle-css" href="./invision-blog_files/colorbox.min.css" type="text/css" media="screen">
+<script type="text/javascript" src="./invision-blog_files/jquery.js"></script>
+<script type="text/javascript" src="./invision-blog_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./invision-blog_files/modernizr-2.6.2.min.js"></script>
+<script type="text/javascript" src="./invision-blog_files/imagesloaded.min.js"></script>
+<script type="text/javascript" src="./invision-blog_files/isotope.min.js"></script>
+<script type="text/javascript" src="./invision-blog_files/external-tracking.min.js"></script>
+<script type="text/javascript">
+	!function(){var analytics=window.analytics=window.analytics||[];if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.0";
+		window.analytics.load("prxbvxesv0");
+	window.analytics.page();
+	  }}();
+</script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.invisionapp.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.invisionapp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="http://wp.me/p2OqRt-3a4">
+<!-- <meta name="NextGEN" version="2.1.0" /> -->
+<!-- Begin Alex Favicon --><link rel="icon" href="http://blog.invisionapp.com/wp-content/uploads/2014/03/favicon.png"><!-- End Alex Favicon --><!-- Google Analytics Tracking by Google Analyticator 6.4.9: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">
+    var analyticsFileTypes = [''];
+    var analyticsSnippet = 'disabled';
+    var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-24306919-4', 'auto');
+	ga('require', 'linkid', 'linkid.js');
+ 
+	ga('create', 'UA-24306919-1', 'invisionapp.com', {'name': 'rollupTracker'} );
+	ga('send', 'pageview');
+	// Set metric 1 for screen density
+invCustomVarsForGoogleAnalyticsMetric1 = (function( pixelRatio ){
+
+	return pixelRatio ? pixelRatio : 1;
+
+})( window.devicePixelRatio );
+ga('require', 'displayfeatures');
+ga( 'rollupTracker.send', 'pageview',  { 'metric1': invCustomVarsForGoogleAnalyticsMetric1 } );
+</script>
+
+	<script async="true" type="text/javascript" src="./invision-blog_files/roundtrip.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow-x:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script async="true" type="text/javascript" src="./invision-blog_files/DAQGTTZ7ZJHGPOEP7OIKFP"></script><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/out" scale="0">
+<img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/out(1)" scale="0">
+<img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/out(2)" scale="0">
+<img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/out(3)" scale="0">
+<img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/out(4)" scale="0">
+<img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/out(5)" scale="0">
+<img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/out(6)" scale="0">
+<img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/out(7)" scale="0">
+<img height="1" width="1" alt="" style="display:none" src="./invision-blog_files/tr" scale="0"><img height="1" width="1" style="border-style:none;" alt="" src="./invision-blog_files/saved_resource" scale="0">
+<img src="./invision-blog_files/seg" width="1" height="1" scale="0">
+</div></head>
+
+	<body class="single single-post postid-12156 single-format-standard blog simple-nav fixed-nav offset" itemscope="" itemtype="http://schema.org/WebPage" data-image-ver="1" data-pinterest-extension-installed="cr1.39.1">
+
+		<script>
+		/* Facebook SDK */
+		/********************************************************/
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '670618486337618',
+				xfbml      : false,
+				status	   : false,
+				version    : 'v2.0'
+			});
+		};
+
+		(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
+	    </script>
+
+
+		<div id="nav-anchor"></div>
+		<div id="fixed-ad-mobile" class="">
+			<div class="inside">
+				<div class="fixed-ad-content" style="display: none;">
+	                <span>Design better experiences</span>
+	                <a href="http://www.invisionapp.com/"><span class="pink">Get started free</span></a>
+	            </div>
+				<div class="fixed-ad-content enterprise" style="display: block;">
+	                <span>InVision Enterprise</span>
+	                <a href="http://www.invisionapp.com/enterprise"><span class="blue">Learn more</span></a>
+	            </div>
+			</div>
+		</div>
+		<div id="fixed-ad" class="container">
+			<div class="inside">
+				<a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" rel="nofollow" class="close"></a>
+				<div class="fixed-ad-content" style="display: none;">
+					<!--<a href="http://www.invisionapp.com" target="_blank">
+						<div class="logo"></div>
+						<div class="logo-hover"></div>
+					</a>-->
+					<span>The world's smartest companies use InVision</span>
+	                <p class="button outline"><span></span><input type="submit" class="sticky-play" value="See why"></p>
+	                <p class="button"><input type="submit" class="signup-btn" data-url="http://www.invisionapp.com" value="Get Started Free"></p>
+	                <div class="clear"></div>
+	            </div>
+				<div class="fixed-ad-content enterprise" style="display: block;">
+					<!--<a href="http://www.invisionapp.com" target="_blank">
+						<div class="logo"></div>
+						<div class="logo-hover"></div>
+					</a>-->
+					<span>The world's smartest companies use InVision Enterprise Edition</span>
+	                <p class="button outline"><span></span><input type="submit" class="sticky-play" value="See why"></p>
+	                <p class="button"><input type="submit" class="signup-btn enterprise" data-url="http://www.invisionapp.com/enterprise" value="Learn more"></p>
+	                <div class="clear"></div>
+	            </div>
+				<div id="fixed-ad-bug"></div>
+			</div>
+		</div>
+		<div id="main-nav-wrapper" class="container single" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+			<nav class="static">
+				<a href="http://blog.invisionapp.com/">
+					<div class="logo"></div>
+					<div class="logo-hover"></div>
+					<span>Blog</span>
+				</a>
+				<ul>
+					<li class="signup" itemprop="url"><a href="" itemprop="name">Subscribe</a></li>
+				</ul>
+			</nav>
+		</div>
+
+<div class="container blog-content-wrapper" role="main" itemscope="" itemprop="mainContentOfPage" itemtype="http://schema.org/Article">
+
+	
+	<div class="">
+				
+			<div class="post-hero">
+				<div class="hero-bg" data-bg="http://s3.amazonaws.com/blog.invisionapp.com/uploads/2015/06/hero-hifi-3.jpg" style="position: absolute; z-index: 0; background: none;"><div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 770px; width: 2138px; z-index: -999998; position: absolute; opacity: 1; transform: translate3d(0px, 0px, 0px);"><img src="./invision-blog_files/hero-hifi-3.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 2138px; height: 801.75px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -15.875px;" scale="0"></div></div>
+				<div class="hero-overlay"></div>
+				<div class="header-content" style="margin-top: 0px; opacity: 1;">
+					<a class="category-link" href="http://blog.invisionapp.com/category/the-new-design-process"><h2>The new design process</h2></a>
+					<h1 itemprop="name" title="5 prototyping tips that will improve your process">5 prototyping tips that will improve your process</h1>
+				</div>
+				<div class="author-content">
+					<img alt="" src="./invision-blog_files/d6b10d5767d1e29006c11e1a2c590f3c" srcset="http://1.gravatar.com/avatar/d6b10d5767d1e29006c11e1a2c590f3c?s=468&amp;d=mm&amp;r=g 2x" class="avatar avatar-234 photo" height="234" width="234" originals="234" scale="2"><p>by <span itemprop="author"><a href="http://blog.invisionapp.com/author/clark-wimberly/">Clark Wimberly</a></span></p><p>on <time itemprop="dateCreated" datetime="2015-06-15T08:31:41+00:00">June 15, 2015</time></p>				</div>
+			</div>
+		
+		
+		
+		
+
+<!-- Social Media -->
+<div class="share-wrapper-mobile">
+
+	<div class="share-widget-container-fixed">
+		<ul>
+			<li class="in">
+				<a href="http://blog.invisionapp.com/"><div></div></a>
+			</li>
+
+			
+				<li class="twitter">
+					<a class="no-redirect" href="https://twitter.com/intent/tweet?url=http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/&text=5%20prototyping%20tips%20that%20will%20improve%20your%20process%20@invisionapp" title="Tweet This Article" target="_blank"><div>&nbsp;</div></a>
+				</li>
+
+				<li class="facebook">
+					<a class="no-redirect" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/" title="Share This Article on Facebook" target="_blank"><div></div></a>
+				</li>
+
+				<li class="gplus">
+					<a class="no-redirect" href="https://plus.google.com/share?url=http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/" title="Share This Article on Google+" target="_blank"><div></div></a>
+				</li>
+
+
+				<li class="linkedin">
+					<a class="no-redirect" href="https://www.linkedin.com/shareArticle?mini=true&title=5+prototyping+tips+that+will+improve+your+process&url=http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/" title="Share This Article on LinkedIn" target="_blank"><div></div></a>
+				</li>
+
+					</ul>
+	</div>
+
+</div>
+
+<div class="share-wrapper">
+
+	<div class="share-widget-container-fixed">
+
+		<a href="http://blog.invisionapp.com/" class="logo" alt="InVision">
+			<div class="logo"></div>
+			<div class="logo-hover"></div>
+			<span>Blog</span>
+		</a>
+
+		<ul class="feature-share" data-url="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/">
+
+			
+				<a class="no-redirect" href="https://twitter.com/intent/tweet?url=http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/&text=5%20prototyping%20tips%20that%20will%20improve%20your%20process%20@invisionapp" title="Tweet This Article" target="_blank">
+					<li class="twitter">
+						<div class="social-container">
+							<span class="social-icon"></span>
+							<span class="social-icon-hover"></span>
+						</div>
+						<div class="count">0</div>
+					</li>
+				</a>
+
+				<a class="no-redirect" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/" title="Share This Article on Facebook" target="_blank">
+					<li class="facebook">
+						<div class="social-container">
+							<span class="social-icon"></span>
+							<span class="social-icon-hover"></span>
+						</div>
+						<div class="count">102</div>
+					</li>
+				</a>
+
+				<a class="no-redirect" href="https://plus.google.com/share?url=http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/" title="Share This Article on Google+" target="_blank">
+					<li class="gplus">
+						<div class="social-container">
+							<span class="social-icon"></span>
+							<span class="social-icon-hover"></span>
+						</div>
+						<div class="count">23</div>
+					</li>
+				</a>
+
+				<a class="no-redirect" href="https://www.linkedin.com/shareArticle?mini=true&title=5+prototyping+tips+that+will+improve+your+process&url=http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/" title="Share This Article on LinkedIn" target="_blank">
+					<li class="linkedin">
+						<div class="social-container">
+							<span class="social-icon"></span>
+							<span class="social-icon-hover"></span>
+						</div>
+						<div class="count">102</div>
+					</li>
+				</a>
+
+			
+		</ul>
+
+		<div class="social-offer invision-user" style="display: block;"><p>Love InVision?</p> <a href="https://projects.invisionapp.com/d/main#/projects?hasRedeemedTellAFriendPromo">Give your friends 3 months free.</a></div>
+		<div class="social-offer invision-subscriber"><p>Loyal readers like you</p> <a href="http://www.invisionapp.com/signup/threemonths">get 3 months of InVision Starter — free</a></div>
+	    <form data-url="http://www.invisionapp.com/api/designDisruptorsMailingList" class="signup-form invision-anonymous" novalidate="novalidate">
+		    <p>
+		        <label for="signup_email">Email Address...</label>
+		        <input type="text" name="email" id="signup_email" value="">
+		    </p>
+	        <p class="button"><input type="submit" name="" value="Subscribe"></p>
+	    </form>
+	</div>
+
+</div>
+
+		<div class="column-articles">
+
+			<a class="backHome" href="http://blog.invisionapp.com/">View all posts</a>
+
+			<article class="single-post">
+				<header>
+
+					
+				</header>
+	
+				<div class="entry">
+
+					<!-- article content -->
+					<p><span class="dropcap">S</span>top me if you’ve heard this one: In the middle of a design presentation, a puzzled audience member raises their hand and asks, <em>Why is all the copy in a foreign language?</em></p>
+
+<p>It’s not a joke—but I can’t help but laugh at the countless times I’ve used <em>lorem ipsum</em> in a prototype, only to have it confuse someone on our team.</p>
+
+<p>Visual thinkers, such as designers, can easily visualize an image placeholder box as a striking photograph. In our minds, we can convert a grayscale wireframe into a beautiful website layout that has a well-crafted visual hierarchy.</p>
+
+<p>But for others, placeholders, low-fidelity wireframes, and temporary styling can present a real challenge. If a person can’t picture the final product, how can they be comfortable during the design process?</p>
+
+<p>So before we talk about specific prototyping strategies, let’s first go over the topic of design fidelity in order to set the stage for our later discussion.</p>
+
+<h2>First things first: dealing with prototype fidelity</h2>
+
+<p>In order to make the prototyping process go as smoothly as possible, the first thing that needs to be addressed is the level of fidelity that will be used throughout the process.</p>
+
+<p>To learn more about this topic, read this <a href="http://sixrevisions.com/user-interface/design-mockup-fidelity/">prototype fidelity guide</a>.</p>
+
+<p>The trick is knowing when to use a high-fidelity prototype presentation. Introduce it too soon, and the flow or experience might seem unrefined. Present it too late in the process, and your client might get hung up on finer design details, like why the logos aren’t in place yet.</p>
+
+<p>The secret to better high-fidelity prototyping? Even better low-fidelity planning.</p>
+
+<p>Nailing down the general flow with <a href="http://sixrevisions.com/user-interface/website-wireframing/">sketches and wireframes</a> is what lets you move faster during the later, high-fidelity rounds.</p>
+
+<a href="http://blog.invisionapp.com/wp-content/uploads/2015/06/dot-grid-book1.jpg" rel="lightbox[12156]" title="5 prototyping tips that will improve your process" class="anchorImage cboxElement"><img src="./invision-blog_files/dot-grid-book1.jpg" alt="dot-grid-book" width="800" height="534" class="alignnone size-full wp-image-12167" scale="0"></a>
+
+<p>Good wireframes and paper prototypes will help later down the line.</p>
+
+<p>That’s why when you share prototypes with a large, diverse team it’s important to set expectations about how closely the prototype reflects the final product. You have to inform the audience about prototype’s level of fidelity, and also what they should be focusing on when evaluating the prototype.</p>
+
+<h2>Who should see your prototypes?</h2>
+
+<p>Share your wireframes early and often. But consider who you include in the process. Constant collaboration during the design process is the key to launching a great product.</p>
+
+<p>It can be tricky to navigate exactly who sees a design mockup at what time, but presenting things when you’re comfortable with them is a big part of convincing others on your progress.</p>
+
+<p>If you think a team member might struggle to grasp the low-fidelity versions, consider asking them to hold their feedback until you’ve reached a higher fidelity stage. Collecting opinions at various stages of the process is a lot simpler now because of modern tools like Slack, Trello, and of course my company’s app, <a href="http://www.invisionapp.com/">InVision</a>.</p>
+
+<h2>Prototyping tips and tricks</h2>
+
+<p>Here are a few tips and strategies for making the prototyping process go smoothly.</p>
+
+
+<p><strong>Strive for “good enough”</strong><br>
+
+<a href="http://blog.invisionapp.com/wp-content/uploads/2015/06/be-good-enough.png" rel="lightbox[12156]" title="5 prototyping tips that will improve your process" class="anchorImage cboxElement"><img src="./invision-blog_files/be-good-enough.png" alt="be-good-enough" width="800" height="450" class="alignnone size-full wp-image-12168" scale="0"></a>
+
+A great high-fidelity prototype doesn’t have to be pixel-perfect and production-ready. It just has to be good enough to remove distractions from the process.</p>
+
+<p>A wise man once said, “Investment is the enemy of creativity.” Getting from prototype to production is going to take enough work to begin with, and <a class="inv-tweet no-redirect" target="_blank" href="https://twitter.com/intent/tweet?text=%22putting+excessive+effort+into+your+mockups+will+steal+time+away+from+other+important+tasks%22+http%3A%2F%2Fblog.invisionapp.com%2F5-prototyping-tips-that-will-improve-your-process%2F+via+%40InVisionApp"><span class="copy">putting excessive effort into your mockups will steal time away from other important tasks</span><span class="tweet-container"><i class="inline-icon-twitter"></i><i class="inline-icon-twitter-hover"></i></span></a>.</p>
+
+<p>A solid way to determine when a prototype is “good enough”: Predict what questions you’ll be asked when you present the prototype. Start by identifying the questions you can squash with a simple visual solution and don’t stop until you’re out of questions.</p>
+
+<p>Get things looking good enough and move forward.</p>
+
+<p><strong>Avoid linear work</strong><br>
+
+<a href="http://blog.invisionapp.com/wp-content/uploads/2015/06/avoid-linear-work.png" rel="lightbox[12156]" title="5 prototyping tips that will improve your process" class="anchorImage cboxElement"><img src="./invision-blog_files/avoid-linear-work.png" alt="avoid-linear-work" width="800" height="450" class="alignnone size-full wp-image-12170" scale="0"></a>
+
+Like a computer, your design process needs to be multi-threaded.</p>
+
+<p>Work on creating a design system, not a single screen. This way, a hiccup in any single area won’t leave you blocked. Always have a plan B (and C) ready. Dead-ends are not an option.</p>
+
+<p class="pull-quote">Take a break on a tough problem to rack up a design win elsewhere.</p>
+
+<p>Just changing your focus to another task can lead to a breakthrough in the original area.</p>
+
+<p><a class="inv-tweet no-redirect" target="_blank" href="https://twitter.com/intent/tweet?text=%22Take+a+break+on+a+tough+problem+to+rack+up+a+design+win+elsewhere%22+http%3A%2F%2Fblog.invisionapp.com%2F5-prototyping-tips-that-will-improve-your-process%2F+via+%40InVisionApp"><span class="copy">Take a break on a tough problem to rack up a design win elsewhere</span><span class="tweet-container"><i class="inline-icon-twitter"></i><i class="inline-icon-twitter-hover"></i></span></a>.</p>
+
+<p><strong>Create reusable styles and symbols</strong><br>
+
+<a href="http://blog.invisionapp.com/wp-content/uploads/2015/06/reusable-symbols.png" rel="lightbox[12156]" title="5 prototyping tips that will improve your process" class="anchorImage cboxElement"><img src="./invision-blog_files/reusable-symbols.png" alt="reusable-symbols" width="800" height="450" class="alignnone size-full wp-image-12171" scale="0"></a>
+
+The quickest way to change the background color on those 20 cards in your design: do it all at once.</p>
+
+<p>The major design tools boast reusable styles and symbols that can save you tons of time making edits and let you quickly try wild stuff to see what sticks.</p>
+
+<p>For example, in Sketch, creating a Symbol is as simple as selecting a group of elements and choosing <em>Convert to Symbol</em>. Keep things organized by creating a folder system and naming things with a slash, like “Mobile / Header.” Then, when you need to insert the symbol in a design, you’ll have a nested menu such as: <em>Insert &gt; Symbol &gt; Mobile &gt; Header</em>.</p>
+
+<p>Check out more <a href="http://blog.invisionapp.com/11-tips-for-prototyping-with-sketch/">prototyping tips for Sketch</a>.</p>
+
+<p>Using <a href="https://helpx.adobe.com/photoshop/using/create-smart-objects.html">Smart Objects</a> in Photoshop or the <a href="http://bohemiancoding.com/sketch/support/documentation/07-symbols/">Symbols</a> and <a href="http://bohemiancoding.com/sketch/support/documentation/08-styling/8-shared-styles.html">Shared Styles</a> in Sketch is equivalent to developers using boilerplate code and JavaScript frameworks for stuff they have to code all the time.</p>
+
+<p>Things you need again and again—buttons, content sliders, media objects, etc.—can be modularized and reused. You wouldn’t want to code the same CSS style rules 14 times, so why do the same with Photoshop layers?</p>
+
+<p><a class="inv-tweet no-redirect" target="_blank" href="https://twitter.com/intent/tweet?text=%22Repetitive+work+is+the+scourge+of+a+productive+team%22+http%3A%2F%2Fblog.invisionapp.com%2F5-prototyping-tips-that-will-improve-your-process%2F+via+%40InVisionApp"><span class="copy">Repetitive work is the scourge of a productive team</span><span class="tweet-container"><i class="inline-icon-twitter"></i><i class="inline-icon-twitter-hover"></i></span></a>. Those 15-minute design tweaks become a lot more time-consuming the fourth time you do them.</p>
+
+<p>Organized styles and symbols help keep the nooks and crannies of your design document in sync, cutting down on costly surprises.</p>
+
+<p><strong>Use realistic assets</strong><br>
+
+<a href="http://blog.invisionapp.com/wp-content/uploads/2015/06/use-real-assets.png" rel="lightbox[12156]" title="5 prototyping tips that will improve your process" class="anchorImage cboxElement"><img src="./invision-blog_files/use-real-assets.png" alt="use-real-assets" width="800" height="450" class="alignnone size-full wp-image-12172" scale="0"></a>
+
+</p><p>The right photo or illustration can take a wireframe to a high-fidelity design in seconds. Look at the examples above from Google’s <a href="http://www.google.com/design/spec/style/imagery.html#imagery-principles">material design spec</a>. Minus the single art asset, each screen is little more than a wireframe. Adding some engaging imagery made all the difference. Also, using realistic assets can help avoid confusion when presenting your prototypes.</p>
+
+<p class="pull-quote">The right photo or illustration can take a wireframe to a high-fidelity design in seconds.</p>
+
+<p>But you don’t need custom photography or finished illustrations just to present. Stock or existing assets can help you quickly fill out lo-fi layouts. If you need help sourcing things, work with your content team—they’ve likely got a deep archive of on-brand images.</p>
+
+<p><strong>Use real devices</strong><br>
+
+<a href="http://blog.invisionapp.com/wp-content/uploads/2015/06/use-real-devices.png" rel="lightbox[12156]" title="5 prototyping tips that will improve your process" class="anchorImage cboxElement"><img src="./invision-blog_files/use-real-devices.png" alt="use-real-devices" width="800" height="450" class="alignnone size-full wp-image-12173" scale="0"></a>
+
+The launch of the Apple Watch brought a flood of new apps just for wrist wearables.</p>
+
+<p>One airline company even deployed mobile boarding passes, only to discover that most <a href="http://www.brisbanetimes.com.au/digital-life/wearables/qantas-suffers-apple-watch-fail-20150429-1mvrx6.html">people’s arms don’t fit into the QR scanner</a> at most airports.</p>
+
+<p>The lesson? While an emulator on your desktop might make something look native, nothing can replace actually experiencing designs on a real device, in a real environment.</p>
+
+<p class="pull-quote">Nothing can replace actually experiencing designs on a real device, in a real environment.</p>
+
+<p>Prototypes should be tested in real devices as much as possible before considerable amounts of time and resources are spent developing it into the final product.</p>
+
+<p><strong>Move fast and fix things</strong><br>
+
+Create a solid foundation with your wireframes and you’ll iterate much more quickly in high-fidelity phases.</p>
+
+<p>Separating the structure and functionality from the look and feel keeps you focused on what’s important: making a killer product.</p>
+					
+						<div class="newsletter-signup">
+							<div class="newsletter-content">
+							    <h2>Design tips, tricks, and freebies. Delivered weekly.</h2>
+
+							    <p>Join over 1 million designers who get our content first.
+
+							    </p><form class="signup-form" data-url="http://www.invisionapp.com/api/designDisruptorsMailingList" novalidate="novalidate">
+								    <p>
+								        <label for="news_signup_email">Email Address...</label>
+								        <input type="text" name="email" id="news_signup_email" value="">
+								    </p>
+							        <p class="button"><input type="submit" name="" value="Subscribe"></p>
+							    </form>
+
+							    <p class="footnote">Give it a try. It only takes a click to unsubscribe.</p>
+							</div>   
+						</div>
+
+					
+					<!-- author -->
+					
+	<div class="author-card">
+		<div class="divider"><div class="copy">Author</div><div class="line"></div></div>
+
+						<div class="author-block" itemscope="" itemptype="http://schema.org/Person">
+		<span itemprop="image"><img alt="" src="./invision-blog_files/d6b10d5767d1e29006c11e1a2c590f3c" srcset="http://1.gravatar.com/avatar/d6b10d5767d1e29006c11e1a2c590f3c?s=468&amp;d=mm&amp;r=g 2x" class="avatar avatar-234 photo" height="234" width="234" originals="234" scale="2"></span>
+		<div class="author-details">
+			<p><span itemprop="name"><a href="http://blog.invisionapp.com/author/clark-wimberly/">Clark Wimberly</a></span><br>Clark is a UX designer in Austin, TX. Equal parts freelance, startup, and agency, he’s been rebuilt into a content producer with a designer-friendly interface.</p>
+			<p class="author-social-media"><a class="social-link no-redirect" target="_blank" rel="nofollow" href="http://twitter.com/clarklab">Follow me on Twitter</a></p>
+		</div>
+	</div>
+		
+	</div>
+
+				</div>
+
+			</article>
+
+			<!-- related -->
+			
+	<div class="related-articles">
+
+		<h2>You might also like...</h2>
+
+		
+			<div class="related-content tile1">
+				
+									
+					<a class="related-thumb" href="http://blog.invisionapp.com/embrace-inconsistency/"><div class="preview-bg" data-bg="http://s3.amazonaws.com/blog.invisionapp.com/uploads/2015/01/Embrace-inconsistency.png" style="position: absolute; z-index: 0; background: none;"><div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 187px; width: 299px; z-index: -999998; position: absolute;"><img src="./invision-blog_files/Embrace-inconsistency.png" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 299.2px; height: 187px; max-height: none; max-width: none; z-index: -999999; left: -0.1px; top: 0px;" scale="0"></div></div></a>
+
+				
+				<a class="post-content" href="http://blog.invisionapp.com/embrace-inconsistency/">
+
+					<h2>The new design process</h2>
+
+					<h1>Embrace (in)consistency</h1>
+
+				</a>
+
+			</div>
+
+			
+		
+			<div class="related-content tile2">
+				
+									
+					<a class="related-thumb" href="http://blog.invisionapp.com/whats-your-morning-ritual/"><div class="preview-bg" data-bg="http://s3.amazonaws.com/blog.invisionapp.com/uploads/2015/04/morning-ritual-thumb.jpg" style="position: absolute; z-index: 0; background: none;"><div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 187px; width: 299px; z-index: -999998; position: absolute;"><img src="./invision-blog_files/morning-ritual-thumb.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 299.2px; height: 187px; max-height: none; max-width: none; z-index: -999999; left: -0.1px; top: 0px;" scale="0"></div></div></a>
+
+				
+				<a class="post-content" href="http://blog.invisionapp.com/whats-your-morning-ritual/">
+
+					<h2>Design Inspiration</h2>
+
+					<h1>What’s your morning ritual?</h1>
+
+				</a>
+
+			</div>
+
+			
+		
+			<div class="related-content tile3">
+				
+									
+					<a class="related-thumb" href="http://blog.invisionapp.com/insights-on-ux-design/"><div class="preview-bg" data-bg="http://s3.amazonaws.com/blog.invisionapp.com/uploads/2015/10/insight-thumb.jpg" style="position: absolute; z-index: 0; background: none;"><div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 187px; width: 299px; z-index: -999998; position: absolute;"><img src="./invision-blog_files/insight-thumb.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 299.2px; height: 187px; max-height: none; max-width: none; z-index: -999999; left: -0.1px; top: 0px;" scale="0"></div></div></a>
+
+				
+				<a class="post-content" href="http://blog.invisionapp.com/insights-on-ux-design/">
+
+					<h2>UI/UX</h2>
+
+					<h1>6 key insights on UX design</h1>
+
+				</a>
+
+			</div>
+
+			
+		
+			<div class="related-content tile1">
+				
+									
+					<a class="related-thumb" href="http://blog.invisionapp.com/inside-design-school-risd/"><div class="preview-bg" data-bg="http://s3.amazonaws.com/blog.invisionapp.com/uploads/2015/05/inside-design-school-risd-thumb-1.jpg" style="position: absolute; z-index: 0; background: none;"><div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 187px; width: 299px; z-index: -999998; position: absolute;"><img src="./invision-blog_files/inside-design-school-risd-thumb-1.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 299.279px; height: 187px; max-height: none; max-width: none; z-index: -999999; left: -0.139396px; top: 0px;" scale="0"></div></div></a>
+
+				
+				<a class="post-content" href="http://blog.invisionapp.com/inside-design-school-risd/">
+
+					<h2>Inside Design School</h2>
+
+					<h1>Inside Design School: RISD</h1>
+
+				</a>
+
+			</div>
+
+			
+		
+			<div class="related-content tile2">
+				
+									
+					<a class="related-thumb" href="http://blog.invisionapp.com/reimagining-email/"><div class="preview-bg" data-bg="http://s3.amazonaws.com/blog.invisionapp.com/uploads/2015/07/index-thumb1280x800.jpg" style="position: absolute; z-index: 0; background: none;"><div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 187px; width: 299px; z-index: -999998; position: absolute;"><img src="./invision-blog_files/index-thumb1280x800.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 299.2px; height: 187px; max-height: none; max-width: none; z-index: -999999; left: -0.1px; top: 0px;" scale="0"></div></div></a>
+
+				
+				<a class="post-content" href="http://blog.invisionapp.com/reimagining-email/">
+
+					<h2>Design Teardown</h2>
+
+					<h1>Design teardown: reimagining email</h1>
+
+				</a>
+
+			</div>
+
+			
+		
+			<div class="related-content tile3">
+				
+									
+					<a class="related-thumb" href="http://blog.invisionapp.com/win-this-beautiful-mike-kus-print/"><div class="preview-bg" data-bg="http://s3.amazonaws.com/blog.invisionapp.com/uploads/2015/04/thumb.jpg" style="position: absolute; z-index: 0; background: none;"><div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 187px; width: 299px; z-index: -999998; position: absolute;"><img src="./invision-blog_files/thumb.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 299.2px; height: 187px; max-height: none; max-width: none; z-index: -999999; left: -0.1px; top: 0px;" scale="0"></div></div></a>
+
+				
+				<a class="post-content" href="http://blog.invisionapp.com/win-this-beautiful-mike-kus-print/">
+
+					<h2>Freebies</h2>
+
+					<h1>Win this beautiful Mike Kus print</h1>
+
+				</a>
+
+			</div>
+
+			
+		
+
+	</div>
+
+
+		</div>
+
+	</div>
+
+</div>
+
+    <div class="container near-black footer-signup">
+        <div class="inside" style="display: none;">
+
+            <div class="logo"></div>
+
+            <h1>Design better experiences<br>for web &amp; mobile</h1>
+
+            <h2>A Prototyping, Collaboration &amp; Workflow Platform</h2>
+
+            <p class="button outline"><a href="http://www.invisionapp.com/">Visit Invisionapp.com</a></p>
+
+            <p class="trust">Trusted by some of the world's smartest companies</p>
+
+            <ul>
+                <li class="adobe"><a href="http://www.invisionapp.com/customers">Adobe</a></li>
+                <li class="shopify"><a href="http://www.invisionapp.com/customers">Shopify</a></li>
+                <li class="salesforce"><a href="http://www.invisionapp.com/customers">Salesforce</a></li>
+                <li class="twitter"><a href="http://www.invisionapp.com/customers">Twitter</a></li>
+                <li class="evernote"><a href="http://www.invisionapp.com/customers">Evernote</a></li>
+                <li class="adidas"><a href="http://www.invisionapp.com/customers">Adidas</a></li>
+                <li class="huge"><a href="http://www.invisionapp.com/customers">Huge</a></li>
+                <li class="stretch"></li>
+            </ul>
+
+        </div>
+
+        <div class="inside enterprise">
+
+            <div class="logo"></div>
+
+            <div>Enterprise</div>
+
+            <h1>The design collaboration cloud</h1>
+
+            <h2>Unlimited team members. Unlimited projects. Unlimited creativity.</h2>
+
+            <p class="button outline"><a href="http://www.invisionapp.com/enterprise">Learn more</a></p>
+
+            <p class="trust">Trusted by some of the world's smartest companies</p>
+
+            <ul>
+                <li class="adobe"><a href="http://www.invisionapp.com/customers">Adobe</a></li>
+                <li class="sony"><a href="http://www.invisionapp.com/customers">Sony</a></li>
+                <li class="salesforce"><a href="http://www.invisionapp.com/customers">Salesforce</a></li>
+                <li class="twitter"><a href="http://www.invisionapp.com/customers">Twitter</a></li>
+                <li class="uber"><a href="http://www.invisionapp.com/customers">Uber</a></li>
+                <li class="evernote"><a href="http://www.invisionapp.com/customers">evernote</a></li>
+                <li class="huge"><a href="http://www.invisionapp.com/customers">Huge</a></li>
+                <li class="stretch"></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- Ads and subscribe modal -->
+
+    <div class="slide-ad one">
+        <div class="content">
+            <h2>Join over 1 million designers</h2>
+            <p>Who get our content first.</p>
+            <form>
+                <p>
+                    <label for="ad_1_signup_email" style="opacity: 1;">Email Address...</label>
+                    <input type="text" name="email" id="ad_1_signup_email" value="">
+                </p>
+                <p class="button"><input type="submit" name="" value="Subscribe"></p>
+            </form>
+            <p class="footnote">No sales pitches, no games, and one-click unsubscribe.</p>
+        </div>
+    </div>
+
+    <div class="slide-ad two">
+        <a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" class="close"></a>
+        <div class="content">
+            <h2>Over 1 million designers<br>get our newsletter<br>every Thursday</h2>
+            <p>Find out why</p>
+        </div>
+    </div>
+
+    <div class="sticky-ad-modal" aria-hidden="true" id="sticky_ad_modal">
+
+        <a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" class="sticky-ad-modal-close" rel="nofollow"></a>
+
+        <iframe id="ad" src="./invision-blog_files/118640180.html" width="100%" height="100%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
+    </div>
+
+    <div class="subscribe-modal">
+        <a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" class="subscribe-modal-close" rel="nofollow"></a>
+        <h2>Get awesome design content in your inbox every Thursday</h2>
+        <p>Just like over 1 million of your fellow designers do.</p>
+        <p>Plus get 3 free downloads, just for signing up.</p>
+        <form data-url="http://www.invisionapp.com/api/designDisruptorsMailingList" class="signup-form" novalidate="novalidate">
+            <p>
+                <label for="subscribe_modal_signup_email" style="opacity: 1;">Email Address...</label>
+                <input type="text" name="email" id="subscribe_modal_signup_email" value="">
+            </p>
+            <p class="button"><input type="submit" name="" value="Subscribe"></p>
+        </form>
+        <p class="footnote">Give it a try—it only takes a click to unsubscribe.</p>
+    </div>
+    <div class="subscribe-modal-confirm">
+        <a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" class="subscribe-modal-close" rel="nofollow"></a>
+        <h2>Thanks for signing up!</h2>
+        <p>You should have a thank you gift in your inbox now—and you'll hear from us again soon!</p>
+    </div>
+    <div class="modal-overlay"></div>
+
+    <div class="signup-modal">
+        <a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" class="subscribe-modal-close" rel="nofollow"></a>
+        <h2>Prototype better experiences with InVision</h2>
+        <p>Just like over 1 million of your fellow designers do.</p>
+
+        <form method="POST" id="signup_form" action="https://projects.invisionapp.com/d/signup/process" class="signup-form" novalidate="novalidate">
+
+            <input type="hidden" name="uploadDemoID" value="">
+            <input type="hidden" name="source" value="blog">
+            <input type="hidden" name="referer" value="">
+            <input type="hidden" name="keywords" value="">
+            <input type="hidden" name="xsrfFormToken" value="IcVcukMBCNaE1Gzn">
+            <input type="hidden" name="submissionForm" value="Thoughts on users experience and design from the folks at InVision">
+
+            <p><label for="signup_modal_name">Your Name</label><input type="text" name="name" id="signup_modal_name" value="" autocomplete="off" spellcheck="false"></p>
+            <p><label for="signup_modal_email">Your Email</label><input type="text" name="email" id="signup_modal_email" value="" autocomplete="off" spellcheck="false"></p>
+            <p><label for="signup_modal_password">Create your password</label><input type="password" name="password" id="signup_modal_password" value="" autocomplete="off" spellcheck="false"></p>
+            <p class="button"><input type="submit" name="" value="Create a free account"></p>
+
+        </form>
+
+        <p class="terms">I agree to InVision's <a href="http://www.invisionapp.com/terms">Terms of Service</a>.</p>
+    </div>
+
+    <div id="tshirt_modal">
+        <a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" class="tshirt-modal-close" rel="nofollow"></a>
+        <div class="text">
+            <h2>Want a <span>free t-shirt?</span></h2>
+            <p>Join the 1 million+ designers who get our newsletter weekly for your chance to win!</p>
+
+            <form class="tshirt_form" data-url="http://www.invisionapp.com/api/tshirtSubmission" novalidate="novalidate">
+                <input type="hidden" name="xsrfFormToken" value="&lt;cfoutput&gt;#htmlEditFormat( rc.formToken )#&lt;/cfoutput&gt;">
+                <p>
+                    <label for="tshirt_email">Email Address...</label>
+                    <input type="text" name="tshirt_email" id="tshirt_email" value="" autocomplete="off" spellcheck="false">
+                </p>
+                <p class="button"><input type="submit" name="" value="Enter to win"></p>
+            </form>
+            <small>We hate spam as much as you do, and you can unsubscribe anytime.</small>
+        </div>
+    </div>
+
+    <div id="tshirt_tweet">
+        <a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" class="tshirt-modal-close" rel="nofollow"></a>
+        <i class="icon icon-twitter"></i>
+        <h3>Double your chances to win!</h3>
+        <p>Tweet and automatically get a second entry</p>
+        <p class="button outline"><a class="tshirt_tweet_link" href="https://twitter.com/home?status=Want%20a%20free%20t-shirt%20from%20%40InVisionApp?%20Sure%20you%20do.%20Enter%20for%20your%20chance%20to%20win:%20http://bit.ly/1ablN0v%20pic.twitter.com/Kh6vchxF1W">Tweet Now</a></p>
+
+        <p class="opt-out"><a rel="nofollow">No Thanks</a></p>
+    </div>
+
+    <div id="tshirt_follow">
+        <a href="http://blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/#" class="tshirt-modal-close" rel="nofollow"></a>
+        <i class="icon icon-twitter"></i>
+        <h3>Stay in touch!</h3>
+        <p>We share news, freebies, and more on Twitter.</p>
+        <cfoutput>
+            <p class="button outline global-share"><a href="https://twitter.com/intent/user?screen_name=@InVisionApp" data-name="Follow @InVisionApp on Twitter" data-width="600" data-height="548">Follow us</a></p>
+        </cfoutput>
+    </div>
+
+    <script src="./invision-blog_files/main.min.js"></script>
+
+    <script src="./invision-blog_files/CSSPlugin.min.js"></script>
+
+    <!-- ngg_resource_manager_marker --><script type="text/javascript">
+/* <![CDATA[ */
+var infinite_scroll = "{\"loading\":{\"msgText\":\"Loading more\",\"finishedMsg\":\"No Additional Posts.\",\"img\":\"http:\\\/\\\/blog.invisionapp.com\\\/wp-content\\\/uploads\\\/2014\\\/03\\\/loader.gif\"},\"nextSelector\":\".nav-previous a\",\"navSelector\":\".pagination\",\"itemSelector\":\".inv-scroll-item\",\"contentSelector\":\".add-scroll-content\",\"debug\":false,\"behavior\":\"twitter\",\"callback\":\"jQuery(document).trigger('addedContent');\"}";
+/* ]]> */
+</script>
+<script type="text/javascript" src="./invision-blog_files/jquery.infinitescroll.js"></script>
+<script type="text/javascript" src="./invision-blog_files/manual-trigger.js"></script>
+<script type="text/javascript" src="./invision-blog_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./invision-blog_files/inv-tweetableText.js"></script>
+<script type="text/javascript" src="./invision-blog_files/jquery.colorbox.1.5.9-min.js"></script>
+	<div style="display:none">
+	<div class="grofile-hash-map-d6b10d5767d1e29006c11e1a2c590f3c">
+	</div>
+	</div>
+<!-- Lightbox Plus Colorbox v2.7.2/1.5.9 - 2013.01.24 - Message: -->
+<script type="text/javascript">
+jQuery(document).ready(function($){
+  $("a[rel*=lightbox]").colorbox({speed:350,initialWidth:"300",initialHeight:"100",opacity:0.8,loop:false,scrolling:false,escKey:false,arrowKey:false,top:false,right:false,bottom:false,left:false});
+});
+</script>
+<script type="text/javascript">
+	// Because the `wp_localize_script` method makes everything a string
+	infinite_scroll = jQuery.parseJSON(infinite_scroll);
+
+	infinite_scroll = jQuery.extend(true, infinite_scroll, { behavior: 'masonry' });
+
+	var page = 1;
+	var $container = jQuery( infinite_scroll.contentSelector );
+
+	jQuery( infinite_scroll.navSelector ).hide();
+
+	$container.infinitescroll( infinite_scroll, function(newElements, data, url) {
+		eval(infinite_scroll.callback);
+		page++;
+
+		if (page == 3) {
+
+			infinite_scroll = jQuery.extend(true, infinite_scroll, {
+				behavior: 'twitter',
+				state: {
+					currPage: page
+				}
+			});
+
+			$container.infinitescroll('destroy');
+			$container.data('infinitescroll', null);
+
+			jQuery( infinite_scroll.navSelector ).show();
+
+			$container.infinitescroll( infinite_scroll, function(newElements, data, url) {
+				eval(infinite_scroll.callback);
+			});
+
+		}
+
+	});
+</script>
+<script type="text/javascript" src="./invision-blog_files/e-201549.js" async="" defer=""></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.5.3',blog:'41572331',post:'12156',tz:'-5',srv:'blog.invisionapp.com'} ]);
+	_stq.push([ 'clickTrackerInit', '41572331', '12156' ]);
+</script>
+
+
+    <script type="text/javascript">
+        // AdRoll
+        adroll_adv_id = "7JV7V4DJSZH2VLTYJSS7XD";
+        adroll_pix_id = "DAQGTTZ7ZJHGPOEP7OIKFP";
+        (function () {
+        var oldonload = window.onload;
+        window.onload = function(){
+           __adroll_loaded=true;
+           var scr = document.createElement("script");
+           var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+           scr.setAttribute('async', 'true');
+           scr.type = "text/javascript";
+           scr.src = host + "/j/roundtrip.js";
+           ((document.getElementsByTagName('head') || [null])[0] ||
+            document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+           if(oldonload){oldonload()}};
+        }());
+
+        </script>
+
+        <!-- Google Code for Remarketing Tag -->
+        <!--
+        Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+        -->
+        <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 1008273247;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+        </script>
+        <script type="text/javascript" src="./invision-blog_files/conversion.js">
+        </script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./invision-blog_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/1008273247/?frame=0&amp;random=1448904922535&amp;cv=8&amp;fst=1448904922535&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=1440&amp;u_w=2560&amp;u_ah=1324&amp;u_aw=2560&amp;u_cd=24&amp;u_his=1&amp;u_tz=-480&amp;u_java=true&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A//blog.invisionapp.com/5-prototyping-tips-that-will-improve-your-process/%3Futm_medium%3Demail%26utm_source%3Dflipboard&amp;tiba=5%20prototyping%20tips%20that%20will%20improve%20your%20process%20-%20InVision%20Blog" /&gt;</iframe>
+        <noscript>
+        &lt;div style="display:inline;"&gt;
+        &lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1008273247/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+        &lt;/div&gt;
+        </noscript>
+
+  
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><img src="./invision-blog_files/g.gif" id="wpstats" scale="0"><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_http" src="./invision-blog_files/TlA_zCeMkxl.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_https" src="./invision-blog_files/TlA_zCeMkxl(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><span style="height: 20px; width: 40px; position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAoCAYAAABpYH0BAAAHjElEQVR4Ae1bBXAbvRLO0GNmpv+VmflnZmZmZi4zMzMzM4Y58ZwTz4SZnZzpjLWzBa38Zs8aO332pdy7ma9JPmml1XfSaqXacfgYjRIcPrwP9u7dqSMKHDq0D5hmiLi4vDwJEH6/H86dOxcFdAQCfq5ZQUEexOHM8/l8cPbsWR0xADVD7eJwSuqCaANqpwt4MQTU9uiPLuDFErC1tVUDdFw0AV0l5VA1dS4Y7n4SUv7VD+J/0QHif3YT/1168Dmonb8MfBbr9StgIBDQBE9DE+Q//zYX69QP/3NBJP6pO1TPXgwBvx9trwu0S0BblgFSOwwigRJ+1xnyn3wVqqfNh6aVG6Fu7mIofudzSL1poCCk6aX3wO/1XV8C4ikkFjgKSiD5b71IlIIX3oHTbDayR5ji/GEdVU+dK8zS0m8mYDvXPLQJyDLw7CH3khjlTAx8LmSDYtbOXEg28b/sAPb8Qir3ebxg3ncY5MTUiz5Ir80BTTv2UX+R4KyownraBcRjSbRo3LaHhDDc8Ri0BgKcd5lboOTL0ZDPZqOclBpmh/XSuwwj2+IPv+a81+2B3DsfI75+/VbkLwpczTKkdx+B7fKNzSblCeVl42dA8j/78PLaZWtjbl+TgManXqPBWk4mBXmvF7KH3U98CnOKCRNmW/zul1QnvdfNnDMfPkEcomzklIsmYOWMBULbTdv3Ik8+J/+9N5UpRSXaBfR6vVEj5d99sUMeA/3/4xp3H0ROgFJbF2ZbMW66uun8thPnbAaJ4mMKG5CztAL5i4LGDduov6w+t4FPUahMzjJQWep/B6EgMbdPAno8nqhx6sfBTrMH3k1c6feTwlIW1kGYbdk3E9U4+PMOyPF69uQMqF+8Gk43y2R3MYBxSt5zCJpWb4ZWl1AmzM6CF9/V0r42AZP/3CP4RgfcRVzozEIYH3kxom3Bqx+qb/3f/ThXtXAlSI+9xPAytJxIpLp2FtilJ14F6dGXoPCT78AqmcDI4mtqx8Ec+S+/D0pdwwV9Lfl6QrDtJ14BW1Ep5/JZGpVz+6NsJfUnX9I6D+WcxMKTJgHdbnfUyBn+QHAJ/rojOOobOGfef0QQsHbBioi2Wf3vFDYgxqHzxDEBqW7l3MWq2DcNYEu+c1iYMDz0XJt+Kk1mnOU0251sk7MyEck+AnKDPkULbQJWz1LTEdNbn3FOzsolDpe4s7I6zM5aXAanfqrmgpVs1lpNheqy/2M38DjV+sYnXxUHd/ODUP7VeBbLbicOd9a2/KzbskuwRc7O/Cr7gmUKT71OZXjcLPt8JIclMUWbgE6nM2p4HQ4ekPlO2n045yoox2Nct+HYeJid6d0vQuLff3nuVTl/GXHSwy+o9RVFSNSL3vqMck1bcoa6Ef2+c5t+Fryj9lf+7STOoV/YRtWUuVRW+PrHyCFwWcakBQmoKEpM8LHlYHrmDXSM/y09qaY2mBo4mmWhfgNb4vE/+68QtNEBSZ1lbGYvovpNKapIyX/thUkuldWG7KzZg+9p08eMPreGhgahzHDvU2reuW4LcpqgWUAcfCCYQOPfbBn0FWMTu4FpZstaLiyCEpasJvymkxrP/jOAX0IoDgfmi8RbDRK1XzZ5NvGm594W+i54T51ZpZ+PiuifpbwCQwmd0d0O9QU4rFZI/EMXCjeYbrVbQIfDoRnNBkm4UMD8LkKApnzLXVwanGWpmULizV4KtRk6Q+qWrRX6ywiGDw7zgWMRfapavl59mXc/IZQ1HDlJZRhP0RetY78oAlYuWK7GMTZw64nE0CMbxaoSFgNPt8gkVPm0+VRufPwVag9nT8KvO1CZrbhMLauqoY0Iz9NOiyWiT/mvfED2FSOnCGWYCtFxkvmEXLsFtNvtmmF87i11Z500BwXCKxlQciSQ9x0BR1oWtHr4sQ47JTvp6deF2xniX3qPePYiBJvaXQeoLKPXzW36lNlX3anrWMwkexaLQzOBavbyeRl7EebMnJjHTgJarVbNSOs0hBySU7OQQ1CsxJ+R7LIG3k12Eku8G1nMzHv9I+IQhW98LNhUhOSGiSyhrz8eDzVMVF6uAlMiqpfDLipq2Xm7YulqtBETfnYZ3HAqCQwsiY9ns95skGIae7sFtDQ20hvFkwVuDNHaSvc/g3YC8EysxlC+Qwo2dZt2Ih+G8oUrhXrGR1+KWA83Ddq4RODlL852bQJaLBZNMEt56i0KW4ax2MrH4zE2CsvVcugEJP6e75Bs5+4ItqoawUaxWjEpFs7TRW9+CoosC/W8DCUffsN2224hu39/MG/cCbb4FDyrE48XGHhXiSEm1vG3W8Bmo4kuD5Sa2phscWkHZAvfdFySCeMmcvgf1vj5E/yJbznMLoCpU7YB7EyIQIscceBoh5cSGHudBiO4C0rwZpxCSiuDkmXAfpHHBBvttAsoy7I2VFUHA/WC5dhgrPZoQ5tEDHZYH+3+b59YjnVR0Eg89asR2gVUHaFTBfHXPy6egAhcQtrtdQERuoAtLS06NEAX8GIJaDabdWgAFxA/ptrQUBejsQ7UDLXjHzLPzExjREOUxjpQK9SsoMAIcewf/jWHQ4e0fM1B/5rDebD10oZZukwlAAAAAElFTkSuQmCC); background-color: transparent; background-size: 40px 20px;"></span></body></html>

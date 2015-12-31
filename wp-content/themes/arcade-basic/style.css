@@ -40,6 +40,19 @@ summary {
     display: block;
 }
 
+
+
+
+.title-card-wrapper{display: none;}
+body.single .title-card-wrapper{/*display: block;*/display: none;}
+body.page .title-card-wrapper{/*display: block;*/display: none;}
+
+body.page .title-card-wrapper{/*display: block;*/display: none;}
+
+body.home .title-card-wrapper{display: none;}
+
+body.single #layout1-testimonials{display: none;}
+
 audio,
 canvas,
 progress,
@@ -920,8 +933,7 @@ pre code {
 }
 
 .row {
-    margin-left: -20px;
-    margin-right: -20px;
+    margin:30px -20px;
 }
 
 .row:before, .row:after {
@@ -5173,7 +5185,9 @@ input, textarea {
 }
 
 .basic #site-title a {
-    font-family: 'Megrim', cursive;
+    font-family: Raleway, sans-serif;
+    font-size: 53px;
+    font-weight: 400;
 }
 
 .only-on-home.no-fittext .basic #site-title a {
@@ -5703,13 +5717,17 @@ body.custom-background {
 }
 
 #primary {
-    margin: 50px auto;
-    float: none;
+    margin: auto;
+    background:#fff;
+   /* padding:40px; */
+    border:2px solid #E8E8E8;
 }
 
-body.page-template-default #primary {
-    margin-top: 150px;
+body.page-template-default.page #primary {
+    margin-top: 0px;
 }
+
+body.page-template-default #primary
 
 #primary.centered {
     float: none !important;
@@ -5732,7 +5750,6 @@ body.page-template-default #primary {
 article {
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 5px solid #eee;
 }
 
 .from-the-blog article {
@@ -5786,6 +5803,9 @@ article .time {
     color: #777;
 }
 
+
+
+
 .entry-meta {
     line-height: 1;
     margin: 10px 0 30px;
@@ -5799,6 +5819,20 @@ article .time {
     margin-bottom: 30px;
 }
 
+
+#layout1-testimonials{
+    padding:130px 0;
+
+}
+
+
+
+
+
+#header .entry-meta{display: none;}
+
+
+
 .post-category,
 .post-format {
     text-transform: uppercase;
@@ -5809,6 +5843,12 @@ article .time {
 .entry-content {
     line-height: 1.6;
 }
+
+
+#primary article .entry-content img{
+    width:100%;
+}
+
 
 .entry-attachment {
     margin-top: 20px;
@@ -6179,6 +6219,8 @@ iframe {
     text-align: right;
 }
 
+#posts-pagination {display: none;}
+
 /* =Comments
 -------------------------------------------------------------- */
 .comments-area .commentlist,
@@ -6370,18 +6412,20 @@ iframe {
 -------------------------------------------------------------- */
 
 #secondary {
-    display: none;
+   /* display: none; */
+
 }
 
-/* #secondary, */
 #tertiary {
     margin: 50px 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 992px) {
     #secondary,
     #tertiary {
         margin-top: 0;
+        padding:0;
+        border: 2px solid #E8E8E8;
     }
 }
 
@@ -7026,9 +7070,9 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 }
 
 .page-template-folia-inner #layout1-main-section {
-    padding-top: 100px !important;
+    padding: 15px 0 50px 0;
     background: #ccc;
-    background: url('http://thinkthinly.com/wp-content/uploads/2015/07/photo-1428954376791-d9ae785dfb2d-1.jpeg') no-repeat center center fixed;
+    background: url('http://thinkthinly.com/wp-content/uploads/2015/07/fitnessjog-blur.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7061,12 +7105,25 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 }
 
 #user-form-container {
-    padding: 30px 20px 30px 20px;
+    padding: 30px 50px;
     margin: auto;
-    background-color: white;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .6);
+    color: white;
+}
+
+@media only screen and (max-width: 630px) {
+#user-form-container {
+    padding: 30px 0;
+}
+}
+
+
+#user-form-container h3{
+    color: #fff;
+    font-family: Raleway, sans-serif;
+    font-size: 43px;
+    font-weight: 400;
 }
 
 #user-form-container label[for=Submit] {
@@ -7075,7 +7132,7 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 
 #user-form-container input[type=submit] {
     display: block;
-    padding: 15px 40px;
+    padding: 15px 60px;
     margin: 25px auto 0px auto;
 }
 
@@ -7136,12 +7193,13 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 .page-id-12 label[for=Username],
 #user-form-container p {
     text-align: center;
+    font-size: 20px;
 }
 
 .error-message {
-    color: #FFF;
+    color: #D85600;
     padding: 7px 24px;
-    background-color: rgba(255, 0, 0, 0.85);
+    background-color: rgba(255, 255, 255, 1);
     display: block;
     margin: -4px 0 6px 0;
     border-radius: 4px;
@@ -7213,6 +7271,27 @@ div.pure-control-group input[type="radio"] {
 .greyed {
     color: #aaa;
 }
+
+#user-form-container p.greyed{font-size: 11px;}
+
+
+button#add_membership{
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #FFF;
+    padding: 15px 35px;
+    border-radius: 100px;
+}
+
+button#add_membership:hover{
+        background-color: rgba(255, 255, 255, .3);
+        transition:.3s;
+}
+
+button#add_membership img{
+    float:left;
+    width:100px;
+}
+
 
 .pure-control-group.center * {
     margin: 0 auto;

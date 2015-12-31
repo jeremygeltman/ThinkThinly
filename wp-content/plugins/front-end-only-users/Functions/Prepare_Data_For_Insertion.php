@@ -109,7 +109,7 @@ function Add_Edit_User()
         if (empty($_POST['User_Password'])) {
             $user_update = array(
                 "Message_Type" => "Error",
-                "Message" => __("The phone number must be your 10 digit number.", "EWD_FEUP")
+                "Message" => __("Please enter your 10-digit phone number.", "EWD_FEUP")
             );
 
             return $user_update;
@@ -119,7 +119,7 @@ function Add_Edit_User()
         if ($wpdb->num_rows > 0) {
             $user_update = array(
                 "Message_Type" => "Error",
-                "Message" => __("Doppelgänger alert! There is already a user with that phone number. Please try a different one.",
+                "Message" => __("There is already a user with that phone number. Please try a different one.",
                                 "EWD_FEUP")
             );
 
@@ -130,7 +130,7 @@ function Add_Edit_User()
         if (strlen($newUsername) < 10) {
             $user_update = array(
                 "Message_Type" => "Error",
-                "Message" => __("Phone must be at least 10 characters.", "EWD_FEUP")
+                "Message" => __("Your phone number must be 10 numbers.", "EWD_FEUP")
             );
 
             return $user_update;

@@ -580,6 +580,36 @@ function bavotasan_header_images() {
 	}
 }
 
+
+
+
+/**
+ * Display custom header image
+ *
+ * @since 1.0.0
+ */
+function post_header_image() {
+	global $post;
+	$post_id = ( is_attachment() && isset( $post->post_parent ) ) ? $post->post_parent : get_queried_object_id();
+	$custom_image = ( is_singular() || get_option( 'page_for_posts' ) == $post_id || is_attachment() ) ? get_post_meta( $post_id, 'arcade_basic_custom_image', true ) : '';
+
+	if ( $custom_image ) {
+		echo esc_url( $custom_image );
+	} else {
+		if ( $header_image = get_header_image() ) :
+			header_image(); 
+		endif;
+	}
+}
+
+
+
+
+
+
+
+
+
 /**
  * Gathers icons from Font Awesome stylesheet
  *

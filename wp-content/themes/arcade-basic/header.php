@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The Header for our theme.
@@ -13,16 +14,16 @@
 <!--[if IE 8]><html class="no-js lt-ie9" <?php language_attributes(); ?>><![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 
 
 
 <!-- folia includes start -->
-	
+    
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Hind:400,300,500,600,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700,900,400italic,300italic,700italic,900italic' rel='stylesheet' type='text/css'>
@@ -43,8 +44,8 @@
 
 
 
-	<!--[if IE]><script src="<?php echo BAVOTASAN_THEME_URL; ?>/library/js/html5.js"></script><![endif]-->
-	<?php
+    <!--[if IE]><script src="<?php echo BAVOTASAN_THEME_URL; ?>/library/js/html5.js"></script><![endif]-->
+    <?php
     wp_head(); ?>
 
 
@@ -65,12 +66,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NQBB2F');</script>
 <!-- End Google Tag Manager -->    
 
-	<div id="page">
+    <div id="page">
+
+    <header id="header">
+
+ <header id="layout1-header">
+        <nav class="navbar main-navigation-header top-nav navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="<?php bloginfo('url');?>" class="navbar-brand logo"><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/06/ThinkThinlyLogo.png" alt="ThinkThinly Logo"></a>
+                </div><!-- Collect the nav links, forms, and other content for toggling -->
+
+                <div class="collapse navbar-collapse" id="header-navigation">
+                    <ul class="nav navbar-nav main-navigation navbar-right">
+                        <?php wp_nav_menu( array( 'items_wrap' => '%3$s' ));?> 
+
+                    </ul>
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header><!-- Navigation -->
 
 
+<!-- start header for arcade basic -->
+             <div class="title-card-wrapper">
+                <div class="title-card">
+                    <div id="site-meta">
+                        <h1 id="site-title">
+                            <a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+                        </h1>
 
-		<main>
+                        <?php if ( $bavotasan_theme_options['header_icon'] ) { ?>
+                        <i class="fa <?php echo $bavotasan_theme_options['header_icon']; ?>"></i>
+                        <?php } else {
+                            $space_class = ' class="margin-top"';
+                        } ?>
+
+                        <h2 id="site-description"<?php echo $space_class; ?>>
+                            <?php bloginfo( 'description' ); ?>
+                        </h2>
+                        <?php
+                        /**
+                         * You can overwrite the defeault 'See More' text by defining the 'BAVOTASAN_SEE_MORE'
+                         * constant in your child theme's function.php file.
+                         */
+                        if ( ! defined( 'BAVOTASAN_SEE_MORE' ) )
+                            define( 'BAVOTASAN_SEE_MORE', __( 'See More', 'arcade' ) );
+                        ?>
+                        <a href="#" id="more-site" class="btn btn-default btn-lg"><?php echo BAVOTASAN_SEE_MORE; ?></a>
+                    </div>
+
+                    <?php
+                    // Header image section
+                    bavotasan_header_images();
+                    ?>
+                </div>
+            </div>
+
+        </header>
+
+<!-- end header for arcade basic -->
+
+        <main>
             <?php
 //            global $shortcode_tags;
 //            echo "<pre>"; print_r($shortcode_tags); echo "</pre>";
             ?>
+
+

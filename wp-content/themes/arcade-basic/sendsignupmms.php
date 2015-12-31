@@ -46,7 +46,7 @@ $image         = str_replace("10.0.0.134", "thinkthinly.com", $image);
 $image         = str_replace("localhost", "thinkthinly.com", $image);
 $msg_to_send   = $msg[0]->post_excerpt;
 $user_password = base64_encode(substr($userPhone, 5, 6));
-$msg_to_send .= ". Your password is " . $user_password;
+//$msg_to_send .= ". Your password is " . $user_password;
 //MMS
 try {
     $sms = $client->account->messages->sendMessage(
