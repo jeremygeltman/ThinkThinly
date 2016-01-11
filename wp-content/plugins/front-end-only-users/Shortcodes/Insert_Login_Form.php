@@ -46,7 +46,14 @@ function Insert_Login_Form($atts)
         else{
             $UserData = $wpdb->get_results($wpdb->prepare("SELECT * FROM $ewd_feup_user_fields_table_name WHERE User_ID='%d'",
                                                           $User->User_ID));
-            $expiry_date = $UserData[10]->Field_Value;
+            $expiry_date = null;
+            foreach ($UserData as $u){
+                if ($u->Field_Name == "Membership Expiry Date"){
+                    $expiry_date = $u->Field_Value;
+                }
+            };
+
+                //$UserData[10]->Field_Value;
             //compare date here
             if (time() - strtotime($expiry_date) > (-3600*24)){
                 $redirect_page = '/account-expired';

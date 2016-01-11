@@ -49,7 +49,7 @@ function Insert_Edit_Times($atts)
                 }
             }
             if ($Field->Field_Name == "I need the most help...") {
-                $ReturnString .= '<hr/>';
+//                $ReturnString .= '<hr/>';
             }
             $ReturnString .= "<div class='pure-control-group " . ($hidden?"hidden":"") . "'>";
             $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-" . $Field->Field_ID . "' class='ewd-feup-field-label'>" . __($display_label,
@@ -75,13 +75,13 @@ function Insert_Edit_Times($atts)
                 if (empty($Value)) {
                     switch ($Field->Field_Name) {
                         case 'Breakfast':
-                            $Value = '9:00am';
+                            $Value = '09:00am';
                             break;
                         case 'Lunch':
                             $Value = 'None set';
                             break;
                         case 'Dinner':
-                            $Value = '6:00pm';
+                            $Value = '06:00pm';
                             break;
                         default:
                             break;
@@ -134,7 +134,7 @@ function Insert_Edit_Times($atts)
             unset($Req_Text);
 
             if ($Field->Field_Name == "I need the most help...") {
-                $ReturnString .= '<hr/>';
+//                $ReturnString .= '<hr/>';
             }
 
         }

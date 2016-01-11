@@ -151,7 +151,7 @@ body.home .menu-main-menu-container .current-menu-item{
 }
 
 #layout1-main-section .overlay {
-  	background-color: rgba(0, 14, 39, 0.63);
+  	background-color: rgba(0, 0, 0, 0.57);
   	position: absolute;
   	top: 0;
   	left: 0;
@@ -160,7 +160,7 @@ body.home .menu-main-menu-container .current-menu-item{
 }
 
 body.home #layout1-main-section .overlay{
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 #layout1-main-section h1{
@@ -175,7 +175,7 @@ body.home #layout1-main-section .overlay{
 
 
 @media only screen and (max-width: 630px) {
-	.page-template-folia-inner #layout1-main-section h1{margin-top:110px !important;}
+	/*.page-template-folia-inner #layout1-main-section h1{margin-top:110px !important;}*/
 	#layout1-main-section h1 {font-size: 32px !important;}
 }
 

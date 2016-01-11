@@ -5718,16 +5718,21 @@ body.custom-background {
 
 #primary {
     margin: auto;
-    background:#fff;
+    /* background:#fff;*/
    /* padding:40px; */
-    border:2px solid #E8E8E8;
+    /*border:2px solid #E8E8E8;*/
 }
+
+#primary article {
+    background:#fff;
+    border:2px solid #E8E8E8;
+    }
 
 body.page-template-default.page #primary {
     margin-top: 0px;
 }
 
-body.page-template-default #primary
+
 
 #primary.centered {
     float: none !important;
@@ -6429,6 +6434,10 @@ iframe {
     }
 }
 
+
+body.logged-in aside#text-6{}
+
+
 .widget {
     width: 100%;
     font-size: 90%;
@@ -7072,7 +7081,10 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 .page-template-folia-inner #layout1-main-section {
     padding: 15px 0 50px 0;
     background: #ccc;
-    background: url('http://thinkthinly.com/wp-content/uploads/2015/07/fitnessjog-blur.png') no-repeat center center fixed;
+    /*background: url('http://thinkthinly.com/wp-content/uploads/2015/07/fitnessjog-blur.png') no-repeat center center fixed;*/
+   background: url('http://thinkthinly.com/wp-content/uploads/2015/06/cropped-Screen-Capture-2015-04-15-at-8.092.png') no-repeat center center fixed;
+    
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7100,7 +7112,7 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 }
 
 .page-template-folia-inner form {
-    color: black;
+    /*color: black;*/
     padding: inherit;
 }
 
@@ -7111,6 +7123,40 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
     max-width: 600px;
     color: white;
 }
+
+.pure-form-aligned .pure-control-group label{
+    width: 6em;
+}
+
+#ewd-feup-edit-profile-form-div .pure-form-aligned .pure-control-group label{
+    width: 9em;
+}
+
+#user-form-container .pure-form select#ewd-feup-register-input-14 {
+    background-color: transparent;
+    font-size: 11px;
+    border: none;
+    width: 130px;
+}
+
+.pure-form input{
+    border: 0px solid #FFF;
+    background: rgba(255,255,255,0.24);
+    color: #FFF;
+}
+
+.pure-form input[type=submit]{
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #FFF;
+    padding: 15px 35px;
+    border-radius: 100px;
+}
+
+.pure-form input:hover[type=submit]{
+        background-color: rgba(255, 255, 255, .3);
+        transition:.3s;
+}
+
 
 @media only screen and (max-width: 630px) {
 #user-form-container {
