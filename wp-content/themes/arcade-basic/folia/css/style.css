@@ -133,7 +133,9 @@ body.home .menu-main-menu-container .current-menu-item{
 	position: relative;
 	text-align: center;
 	
-	background: url('../img/main-bg.jpg') no-repeat center center fixed;
+	/* background: url('http://thinkthinly.com/wp-content/uploads/2016/01/woman-using-smartphone2.png') no-repeat center center fixed;*/
+	background: url('http://thinkthinly.com/wp-content/uploads/2016/01/Woman-Exercising-Abs-770x355.jpg') no-repeat center center fixed;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -145,13 +147,13 @@ body.home .menu-main-menu-container .current-menu-item{
 
 @media only screen and (max-width: 630px) {
     #layout1-main-section{
-        background: url('../img/main-bg.jpg') no-repeat 50% 50%;
-        background-size: 480%;
+       /* background: url('http://thinkthinly.com/wp-content/uploads/2016/01/woman-using-smartphone2.png') no-repeat 50% 50%;
+        background-size: 480%; */
     }
 }
 
 #layout1-main-section .overlay {
-  	background-color: rgba(0, 0, 0, 0.57);
+  	background-color: rgba(0, 23, 53, 0.16);
   	position: absolute;
   	top: 0;
   	left: 0;
@@ -160,7 +162,7 @@ body.home .menu-main-menu-container .current-menu-item{
 }
 
 body.home #layout1-main-section .overlay{
-	background-color: rgba(0, 0, 0, 0.5);
+  	background-color: rgba(0, 23, 53, 0.16);
 }
 
 #layout1-main-section h1{
@@ -204,7 +206,7 @@ body.home #layout1-main-section .overlay{
 }
 
 #layout1-main-section .subscribe-form form{
-	background-color: rgba(255,255,255,0.24);
+	background-color: rgba(255,255,255,0.44);
 	padding: 2px;
 	border-radius: 4px;
 }
@@ -461,7 +463,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 /*		  layout1-testimonials section    */
 /* ============================== */
 #layout1-testimonials {
-  	background: url("/wp-content/uploads/2015/06/Screen-Capture-2015-04-15-at-8.102.png")  no-repeat center center fixed;
+  	/* background: url("/wp-content/uploads/2015/06/Screen-Capture-2015-04-15-at-8.102.png")  no-repeat center center fixed;*/
+  	background: url(/wp-content/uploads/2016/01/kaboompics.com_Smart-phone-in-girls-hands-md1.png)  no-repeat center center fixed;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -472,13 +476,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 }
 
 
+/*
 @media only screen and (max-width: 630px) {
     #layout1-testimonials{
         background: url('/wp-content/uploads/2015/06/Screen-Capture-2015-04-15-at-8.102.png') no-repeat 50% 50%;
         background-size: 480%;
     }
 }
-
+*/
 
 
 
@@ -604,7 +609,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 /* ============================== */
 
 #layout1-subscribe-form{
-	background: url("/wp-content/uploads/2015/06/Screen-Capture-2015-04-14-at-11.33.png")  no-repeat center center fixed;
+	/*background: url("/wp-content/uploads/2015/06/Screen-Capture-2015-04-14-at-11.33.png")  no-repeat center center fixed;*/
+	background: url("http://thinkthinly.com/wp-content/uploads/2016/01/121.jpg")  no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -615,14 +621,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 }
 
 
-
+/*
 @media only screen and (max-width: 630px) {
     #layout1-subscribe-form{
-        background: url('/wp-content/uploads/2015/06/Screen-Capture-2015-04-14-at-11.33.png') no-repeat 50% 50%;
+	background: url("/wp-content/uploads/2016/01/kaboompics.com_Smart-phone-in-girls-hands-md1.png")  no-repeat center center fixed;
         background-size: 480%;
     }
 }
-
+*/
 
 
 
@@ -666,7 +672,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 }
 
 #layout1-subscribe-form form{
-	background-color: #3b3e40;
+	background-color: rgba(0, 0, 0, 0.43);
 	padding: 30px 30px 40px;
 	border-radius: 5px;
 }
@@ -717,7 +723,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 
 #layout1-subscribe-form .holder button{
 	color: #fff;
-	font-weight: 700;
 	font-size: 15px;
 	width: 167px;
 	height: 50px;

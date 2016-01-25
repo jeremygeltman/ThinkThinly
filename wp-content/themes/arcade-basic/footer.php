@@ -29,19 +29,20 @@ $bavotasan_theme_options = bavotasan_theme_options();
                 </div>
                 
                 <div class="col-md-2 col-sm-4 col-xs-6 col-md-offset-2 col-sm-offset-0 features">
-                    <h4>Partners</h4>
+                    <h4>Resources</h4>
                     <ul>
                         <li><a href="https://www.myfooddiary.com/?aID=1722" title="distributors">MyFoodDiary.com</a></li>
                         <li><a href="https://www.myfooddiary.com/?aID=1722&amp;source=lnk">Calorie Counter</a></li>
+                        <li><a href="/attributions">Attributions</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-md-2 col-sm-4 col-xs-6 company">
-                    <h4>Company</h4>
+                    <h4>ThinkThinly</h4>
                     <ul>
-                        <li><a href="" title="about us">About us</a></li>
-                        <li><a href="" title="contact">Features</a></li>
-                        <li><a href="" title="resources">Resources</a></li>
+                        <li><a href="" title="not-logged-in-jag" >Sign in</a></li>
+                        <li><a href="" title="nogged-in-jag">Sign out</a></li>
+                        <li><a href="" title="logged-in-jag">Settings</a></li>
                     </ul>   
                 </div>
                 
@@ -67,7 +68,7 @@ $bavotasan_theme_options = bavotasan_theme_options();
                 
                 <div class="col-sm-6 col-xs-12">
                     <ul class="pull-right">
-                        <li><a href="/attributions" title="attributions">Attributions</a></li>
+                        <li><a href="terms-and-conditions/">Terms and conditions</a></li>
                     </ul>
                 </div>
                 

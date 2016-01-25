@@ -242,8 +242,7 @@ function Insert_Edit_Profile($atts)
     <span>
         Reminder times &nbsp;&nbsp;
     </span>
-</div>
-  <br/><br/><br/>';
+</div>';
     $ReturnString .= $print_field($Fields[0]);
     $ReturnString .= $print_field($Fields[1]);
     $ReturnString .= $print_field($Fields[2]);
@@ -283,11 +282,11 @@ HTML;
 
 
     $ReturnString .= '<div class="pure-control-group">';
-    $ReturnString .= '<label for ="User_Password" style="    font-size: 82%;">New password</label>';
+    $ReturnString .= '<label for ="User_Password">New password</label>';
     $ReturnString .= '<input type = "password" class="ewd-feup-text-input" name = "User_Password" value = "" >';
     $ReturnString .= '</div>';
     $ReturnString .= '<div class="pure-control-group">';
-    $ReturnString .= '<label for="Confirm_User_Password"  style="    font-size: 82%;line-height:21px"> Retype password</label>';
+    $ReturnString .= '<label for="Confirm_User_Password"> Retype password</label>';
     $ReturnString .= '<input type = "password" class="ewd-feup-text-input" name = "Confirm_User_Password" value = "" >';
     $ReturnString .= '</div>';
 

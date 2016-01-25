@@ -601,6 +601,7 @@ a.text-primary:hover {
 
 .text-success {
     color: #3c763d;
+    display: none;
 }
 
 a.text-success:hover {
@@ -5713,20 +5714,25 @@ body.custom-background {
 
 #page {
     overflow: hidden;
-    color: black;
+    color: white;
+}
+
+body.blog{
+    background-color: white;
+}
+
+body.blog #page{
+    color:#333;
+}
+
+body.home #page{
+    color:#333;
 }
 
 #primary {
     margin: auto;
-    /* background:#fff;*/
-   /* padding:40px; */
-    /*border:2px solid #E8E8E8;*/
 }
 
-#primary article {
-    background:#fff;
-    border:2px solid #E8E8E8;
-    }
 
 body.page-template-default.page #primary {
     margin-top: 0px;
@@ -7046,7 +7052,6 @@ label#ewd-feup-register-11 {
 
 #layout1-main-section .subscribe-form input.ewd-feup-submit {
     color: #FFF;
-    font-weight: 900;
     font-size: 16px;
     width: 170px;
     height: 60px;
@@ -7081,9 +7086,12 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 .page-template-folia-inner #layout1-main-section {
     padding: 15px 0 50px 0;
     background: #ccc;
-    /*background: url('http://thinkthinly.com/wp-content/uploads/2015/07/fitnessjog-blur.png') no-repeat center center fixed;*/
-   background: url('http://thinkthinly.com/wp-content/uploads/2015/06/cropped-Screen-Capture-2015-04-15-at-8.092.png') no-repeat center center fixed;
-    
+   /*ackground: url('http://thinkthinly.com/wp-content/uploads/2015/06/cropped-Screen-Capture-2015-04-15-at-8.092.png') no-repeat center center fixed;
+   background: url('http://thinkthinly.com/wp-content/uploads/2016/01/woman-using-smartphone2.png ') no-repeat center center fixed;*/
+   background: url('http://thinkthinly.com/wp-content/uploads/2016/01/Woman-Exercising-Abs-770x355.jpg ') no-repeat center center fixed;
+
+
+   
 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -7126,11 +7134,43 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 
 .pure-form-aligned .pure-control-group label{
     width: 6em;
+    color:white;
 }
 
-#ewd-feup-edit-profile-form-div .pure-form-aligned .pure-control-group label{
-    width: 9em;
+#ewd-feup-forgot-password-form-div{color:#FF6060;}
+
+#ewd-feup-forgot-password-form-div .pure-form-aligned .pure-control-group {
+    display: block;
 }
+
+#ewd-feup-forgot-password-form-div .pure-form-aligned .pure-control-group label{
+    display: none;
+}
+
+#ewd-feup-forgot-password-form-div .pure-form-aligned .pure-control-group label#ewd-feup-reset-password{
+    width: 9em;
+    display: inline-block;
+}
+
+#ewd-feup-forgot-password-form-div .pure-form-aligned .pure-control-group .pure-input-1-3[name=user_name]{
+    width: 23%;
+}
+
+
+
+
+.text_with_hr{
+    color: #FFF;
+    font-size: 19px;
+    border-bottom: 1px solid #FFF;
+    padding: 10px;
+    margin: 30px 0 15px 0;
+}
+
+
+
+
+
 
 #user-form-container .pure-form select#ewd-feup-register-input-14 {
     background-color: transparent;
@@ -7139,10 +7179,34 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
     width: 130px;
 }
 
+
+body.page-id-12 #user-form-container .pure-form select#ewd-feup-register-input-14 {
+    background-color: rgba(255,255,255,0.44);   
+    font-size: 16px;
+    border: none;
+    width: 33%;
+}
+
+@media only screen and (max-width: 480px) {
+    body.page-id-12 #user-form-container .pure-form select#ewd-feup-register-input-14 {
+        width: 60%;
+    }
+}
+
+
+
+
 .pure-form input{
     border: 0px solid #FFF;
     background: rgba(255,255,255,0.24);
     color: #FFF;
+}
+
+
+.pure-form select{
+    border: 0;
+    height: 39px;
+    width:;
 }
 
 .pure-form input[type=submit]{
@@ -7163,6 +7227,23 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
     padding: 30px 0;
 }
 }
+
+
+.pure-form input:not([type])[disabled]{
+    border: 0px solid #FFF;
+    background: rgba(255,255,255,0.24);
+    color: #FFF;
+    margin-left: -5px;
+}
+
+.pure-form input:not([type]){
+    border: 0px solid #FFF;
+    background: rgba(255,255,255,0.24);
+    color: #FFF;
+    box-shadow: none;
+}
+
+
 
 
 #user-form-container h3{
@@ -7192,6 +7273,7 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 
 #user-form-container .pure-control-group {
     display: block;
+    text-align: center;
 }
 
 @media only screen and (max-width: 684px) {
@@ -7233,6 +7315,10 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
     }
 }
 
+
+ewd-feup-text-input
+
+
 .home .main-navigation li#menu-item-382,
 .page-id-12 .ewd-feup-edit-4,
 .page-id-12 .ewd-feup-register-input-4,
@@ -7241,6 +7327,13 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
     text-align: center;
     font-size: 20px;
 }
+
+
+
+
+
+
+
 
 .error-message {
     color: #D85600;
@@ -7255,6 +7348,13 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 .terms_cond {
     color: #fff;
     margin-top: 12px;
+    display: none;
+}
+
+p.terms_cond{font-size: }
+
+div.terms_cond {
+    display: none;
 }
 
 .updated {
@@ -7281,12 +7381,8 @@ div.pure-control-group input[type="radio"] {
 }
 
 .blog article {
-    margin: 20px;
-    padding: 40px;
-    border: 1px solid #FFA100;
-    background-color: #FFF;
-    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.19);
-    border-width: 0 0px 6px 0;
+    margin: 0 0 20px 0;
+    
 }
 
 .blog article h1 a,
@@ -7318,9 +7414,18 @@ div.pure-control-group input[type="radio"] {
     color: #aaa;
 }
 
+
+#user-form-container p.post-cta-info{
+    font-size:11px;
+}
+
+
 #user-form-container p.greyed{font-size: 11px;}
 
 
+
+
+/*
 button#add_membership{
     background-color: rgba(255, 255, 255, 0);
     border: 1px solid #FFF;
@@ -7328,10 +7433,44 @@ button#add_membership{
     border-radius: 100px;
 }
 
+
 button#add_membership:hover{
         background-color: rgba(255, 255, 255, .3);
         transition:.3s;
+
 }
+*/
+
+
+
+button#add_membership{
+    padding: 18px 30px;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    color: #FFF;
+    font-size: 16px;
+    background: #EE8B36;
+    background: -moz-linear-gradient(top, #ee8b36 0%, #e46d2b 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EE8B36), color-stop(100%, #E46D2B));
+    background: -webkit-linear-gradient(top, #EE8B36 0%, #E46D2B 100%);
+    background: -o-linear-gradient(top, #ee8b36 0%, #e46d2b 100%);
+    background: -ms-linear-gradient(top, #ee8b36 0%, #e46d2b 100%);
+    background: linear-gradient(to bottom, #EE8B36 0%, #E46D2B 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee8b36', endColorstr='#e46d2b', GradientType=0);
+}
+
+button#add_membership:hover{
+    background: -moz-linear-gradient(top, #FF8A26 0%, #DE773D 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FF8A26), color-stop(100%, #DE773D));
+    background: -webkit-linear-gradient(top, #FF8A26 0%, #DE773D 100%);
+    background: -o-linear-gradient(top, #FF8A26 0%, #DE773D 100%);
+    background: -ms-linear-gradient(top, #FF8A26 0%, #DE773D 100%);
+    background: linear-gradient(to bottom, #FF8A26 0%, #DE773D 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF8A26', endColorstr='#DE773D', GradientType=0);
+    transition:.3s;
+}
+
+
 
 button#add_membership img{
     float:left;

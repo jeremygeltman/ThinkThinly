@@ -60,8 +60,7 @@
 						<div class="feature-icon"><img src="<?php bloginfo('template_directory');?>/folia/img/feature-icon-alarm.png" /></div>
 						<div class="text-container pull-left">
 							<h3><span class="number">1.</span> Pick your reminder times</h3>
-							<p>Tell us your mealtimes or moments of weakness when you want help staying on track 
-</p>
+							<p>Tell us when you need a boost.</p>
 						</div>
 					</div>
 				</div>
@@ -77,7 +76,7 @@
 
 						<div class="text-container pull-left">
 							<h3><span class="number">2.</span> Get motivational picture texts</h3>
-							<p>We’ll text you photos that will make you want to choose carrots over cupcakes.</p>
+							<p>We’ll text you photos that will make you want to choose to sweat instead of sit.</p>
 						</div>
 					</div>
 				</div>
@@ -86,8 +85,8 @@
 					<div class="feature-wrapper clearfix">
 						<div class="feature-icon"><img src="<?php bloginfo('template_directory');?>/folia/img/feature-icon-happy.png" /></div>
 						<div class="text-container pull-left">
-							<h3><span class="number">3.</span> Lose weight finally</h3>
-							<p>Watch the pounds melt off and make your friends jealous. Seriously this time. No take backs.</p>
+							<h3><span class="number">3.</span> Get fit finally</h3>
+							<p>Get buff and make your friends jealous. For real this time.</p>
 						</div>
 					</div>
 				</div>
@@ -112,13 +111,13 @@
 							
 							<li class="testi-slide">
 								<a href=""><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/05/Steph-round-headshot-pic.png" alt="" /></a>
-								<p> “I finally lost that last 10 pounds of baby weight with Think Thinly. It kept my eye on the prize by reminding me what I don’t want to look like.”</p>
+								<p> “I finally lost that last 10 pounds of baby weight with ThinkThinly. It was like a motivational coach with me all day.”</p>
 								<span>Sara, 34, San Diego</span>
 							</li>
 							
 							<li class="testi-slide">
 								<a href=""><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/05/Anna-Long-headshot-round.png" alt="" /></a>
-								<p> “Think Thinly is better than the skinny pic of myself I put on the fridge to stop me from eating crap because it’s in my pocket all of the time.”</p>
+								<p> “ThinkThinly is often the boost I need to get me to the gym.  It probably makes the difference a few times a week.”</p>
 								<span>Molly, 42, Albuquerque</span>
 							</li>
 							
@@ -141,10 +140,9 @@
 					
 					<!-- <span class="subtitle">Just o make your brand with he latest trends</span> -->
 					
-					<p>You're great sticking to your no-carb-Mediterranean-vegan-paleo-real-food diet until about 3:30 when that peanut butter brownie in the break room starts calling to you. Brownies are persuasive.  We get it.</p>
+					<p>You're great sticking to your no-carb-Mediterranean-vegan-paleo-real-food diet but when 5:30 hits and you can head home or to the gym, you want to just go easy.  We get it.</p>
 
-                    <p>Imagine if right at the moment you were about to cave you got a text with a photo reminding you what you want to look like.  Would it make you back away from the ledge of death by brownie?  Science says it will.  And science knows everything.  Give it a try for free.  
-</p>
+                    <p>Imagine if right at the moment you were about to cave you got a text with a photo reminding you of how you can choose to feel.  Would it push you off the ledge of the couch?  Science says it will.  And science knows everything.</p>
 					
 					<a href="" id="more-site" class="button btn btn-default btn-lg" data-scroll-to="0">Free sign up</a>
 					
@@ -171,17 +169,17 @@
 				
 				<div class="col-sm-6">
 					
-					<h2>Try it out for free</h2>
-					<span class="subtitle">There's no cost to sign up and give it a try.</span>
-					<p>You don't need to enter any payment information.  Get a test message now to see what this is all about.</p>
+					<h2>Get motivated to go further</h2>
+					<span class="subtitle">Get a test message right now so you can see if this is for you.</span>
+					<!-- <p>You don't need to enter any payment information.  Get a test message now to see what this is all about.</p> -->
 					
 				</div>
 				
 				<div class="col-sm-6 col-md-5 col-md-offset-1">
 					<form action="#" novalidate="novalidate">
 						
-						<h4>Subscribe now - Free Trial</h4>
-						<input type="text" name="subscribe_phone" class="form-control" placeholder="Mobile">
+						<h4>Try it now</h4>
+						<input type="text" name="subscribe_phone" class="form-control" placeholder="Phone">
                         <select id="ewd-feup-register-input-11" name="subscribe_gender" class="ewd-feup-select pure-input-1-3" required="">
                            <!-- <option value="">Gender</option>-->
                             <option value="Female" selected>Female</option>

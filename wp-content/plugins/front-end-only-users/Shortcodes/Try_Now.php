@@ -59,7 +59,7 @@ function Try_Now( $atts )
         $ReturnString .= "<div id='ewd-feup-register-form-div'>";
         $ReturnString .=
 <<<HTML
-<p class="terms_cond"><i>Get 3 days of motivational messages free!</i></p>
+<p class="terms_cond"><i>Get your 3-day free trial now.  No credit card required!</i></p>
 HTML;
 
         if ( isset($user_message['Message']) ) {
@@ -77,7 +77,7 @@ HTML;
                                                                                                   id="ewd-feup-register-input-4"
                                                                                                   class="ewd-feup-text-input pure-input-1-3"
                                                                                                   type="tel"
-                                                                                                  placeholder="Mobile"
+                                                                                                  placeholder="Phone"
                                                                                                   data-inputmask="\'mask\': \'9999999999\'"
                                                                                                   required=""></div>
         <div class="pure-control-group"><label for="Gender" id="ewd-feup-register-11" class="ewd-feup-field-label" required>Gender: </label><select
@@ -132,7 +132,7 @@ HTML;
 
 
         <?php
-        $ReturnString .= "<span class='ipad_fix'></span><div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Register_Submit' value='" . "Try It Now" . "'></div>";
+        $ReturnString .= "<span class='ipad_fix'></span><div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Register_Submit' value='" . "Try it now" . "'></div>";
         $ReturnString .= "</form>";
         $ReturnString .= '                        <div class="terms_cond">
                             I accept the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>
