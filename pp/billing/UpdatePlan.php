@@ -11,7 +11,8 @@
 
 // Retrieving the Plan object from Create Plan Sample to demonstrate the List
 /** @var Plan $createdPlan */
-$plan_id = 'P-2XM09435HG6440939WL5BD4A';
+//$plan_id = 'P-2XM09435HG6440939WL5BD4A';//regular monthly plan
+$plan_id = 'P-9HD4220805509340JP6WL4SI';//monthly plan with trial 0
 
 require_once('../bootstrap.php');
 

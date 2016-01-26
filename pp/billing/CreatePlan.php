@@ -18,8 +18,8 @@ $plan = new Plan();
 
 // # Basic Information
 // Fill up the basic information that is required for the plan
-$plan->setName('ThinkThinly monthly subscription')
-     ->setDescription('ThinkThinly monthly subscription')
+$plan->setName('ThinkThinly monthly subscription 0 dollar')
+     ->setDescription('ThinkThinly monthly subscription 0 dollar')
      ->setType('fixed');
 
 // # Payment definitions for this billing plan.
@@ -34,6 +34,19 @@ $paymentDefinition->setName('Regular Payments')
                   ->setFrequencyInterval("1")
                   ->setCycles("12")
                   ->setAmount(new Currency(array('value' => 4.99, 'currency' => 'USD')));
+
+// # Trial Payment definitions for this billing plan.
+$trialPaymentDefinition = new PaymentDefinition();
+
+// The possible values for such setters are mentioned in the setter method documentation.
+// Just open the class file. e.g. lib/PayPal/Api/PaymentDefinition.php and look for setFrequency method.
+// You should be able to see the acceptable values in the comments.
+$trialPaymentDefinition->setName('Regular Payments')
+                  ->setType('TRIAL')
+                  ->setFrequency('Month')
+                  ->setFrequencyInterval("1")
+                  ->setCycles("1200")
+                  ->setAmount(new Currency(array('value' => 0, 'currency' => 'USD')));
 
 // Charge Models
 //$chargeModel = new ChargeModel();
@@ -59,7 +72,7 @@ $merchantPreferences->setReturnUrl("$baseUrl/ExecuteAgreement.php?success=true")
 //             ->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
 
 
-$plan->setPaymentDefinitions(array($paymentDefinition));
+$plan->setPaymentDefinitions(array($trialPaymentDefinition, $paymentDefinition));
 $plan->setMerchantPreferences($merchantPreferences);
 
 // For Sample Purposes Only.

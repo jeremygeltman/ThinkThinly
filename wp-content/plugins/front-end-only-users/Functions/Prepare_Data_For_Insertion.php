@@ -269,6 +269,7 @@ function Add_Edit_User()
             }
 
             if ($_POST['ewd-feup-action'] == "register") {
+                $wpdb->replace("wp_user_mms_sent", ["user_id" => $User_ID]);
                 $user_update = __("Your account has been succesfully created.", "EWD_FEUP");
                 if ($Sign_Up_Email == "Yes") {
                     EWD_FEUP_Send_Email($User_Fields, $Additional_Fields_Array);

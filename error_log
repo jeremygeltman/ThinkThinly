@@ -3697,4 +3697,4 @@ Stack trace:
 #4 /home4/saramy/public_html/Thinkthinly.com/remind_membership_expired_after_30_min.php(128): Services_Twilio_Rest_Messages->sendMessage('+16194190679', '0773818987', NULL, Array)
 #5 {main}
   thrown in /home4/saramy/public_html/Thinkthinly.com/Services/Twilio.php on line 297
-Send mms called01-25 10:00:06Send mms called01-25 10:00:07Send mms called01-25 10:15:05Send mms called01-25 10:15:05Send mms called01-25 10:30:03Send mms called01-25 10:30:04Send mms called01-25 10:45:03Send mms called01-25 10:45:03
+Send mms called01-25 10:00:06Send mms called01-25 10:00:07Send mms called01-25 10:15:05Send mms called01-25 10:15:05Send mms called01-25 10:30:03Send mms called01-25 10:30:04Send mms called01-25 10:45:03Send mms called01-25 10:45:03Send mms called01-26 06:36:35Send mms called01-26 06:36:44Send mms called01-26 06:37:44Send mms called01-26 06:40:43Send mms called01-26 06:41:29Send mms called01-26 06:41:51Send mms called01-26 06:42:08

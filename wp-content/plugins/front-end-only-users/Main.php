@@ -182,6 +182,7 @@ include "Shortcodes/Try_Now.php";
 include "Shortcodes/Auto_Login.php";
 include "Shortcodes/Insert_Edit_Times.php";
 include "Shortcodes/Insert_Subscribe_Now.php";
+include "Shortcodes/Insert_Subscribe_Now_0_Dollar.php";
 
 // Updates the UPCP database when required
 if (get_option('EWD_FEUP_DB_Version') != $EWD_FEUP_db_version) {

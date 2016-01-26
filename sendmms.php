@@ -28,7 +28,7 @@ date_default_timezone_set('UTC');
 
 $current_time = (new DateTime())->modify('+15 minutes');
 
-define('DEBUG_DONT_SEND_SMS', false);
+define('DEBUG_DONT_SEND_SMS', true);
 
 if (DEBUG_DONT_SEND_SMS) {
 //    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(21, 2));
@@ -118,6 +118,7 @@ foreach ($users as $user) {
         'post_status' => 'publish',
         'posts_per_page' => - 1,
         'caller_get_posts' => 1,
+        'orderby' => 'name',
         'tax_query' => array(
             'relation' => 'AND',
             array(
@@ -134,8 +135,15 @@ foreach ($users as $user) {
     );
     $my_query = new WP_Query($args);
 
+    $meal = strtolower($meal);
     $num_of_posts = sizeof($my_query->posts);
-    $post_to_send = $my_query->posts[rand(0, $num_of_posts - 1)];
+    $post_index = -1;
+    $result = $wpdb->get_row("SELECT " . $meal. " FROM wp_user_mms_sent WHERE user_id = $user_id LIMIT 1", ARRAY_A);
+    if (isset($result[$meal])){
+        $post_index = $result[$meal];
+    }
+
+    $post_to_send = $my_query->posts[++$post_index];
     $image        = wp_get_attachment_image_src(get_post_thumbnail_id($post_to_send->ID), 'large');
     $image[0]     = str_replace("10.0.0.116", "thinkthinly.com", $image[0]);
     $image[0]     = str_replace("10.0.0.134", "thinkthinly.com", $image[0]);
@@ -155,8 +163,9 @@ foreach ($users as $user) {
     }
 
     wp_reset_postdata();
-    if (!empty($sms_sent->sid)){
+    if (!empty($sms_sent->sid) || DEBUG_DONT_SEND_SMS){
         echo "Message Sent By Twilio: ID- {$sms_sent->sid}";
+        $wpdb->update("wp_user_mms_sent", [$meal=>$post_index], ["user_id" => $user_id] );
     }
 }
 date_default_timezone_set($old_date_def_timezone);
