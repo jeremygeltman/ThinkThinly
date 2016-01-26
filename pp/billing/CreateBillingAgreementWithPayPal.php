@@ -18,11 +18,12 @@ extract($_GET);
 
 if (isset($is_0_dollar) && $is_0_dollar){
 //    $plan_id = 'P-42H24137XS035340AVY2SXJY';
-    $plan_id = 'P-9HD4220805509340JP6WL4SI';
+//    $plan_id = 'P-9HD4220805509340JP6WL4SI';//0 dollar local
+    $plan_id = 'P-0AV72437SF127301MP7PIPUI';
     $agree_desc = 'ThinkThinly monthly subscription 0 dollar';
 } else {
-//    $plan_id = 'P-6MK85846SS977993PVYZ55QA';
-    $plan_id = 'P-2XM09435HG6440939WL5BD4A';//old plan
+    $plan_id = 'P-2XM09435HG6440939WL5BD4A';
+//    $plan_id = 'P-2XM09435HG6440939WL5BD4A';//old plan
     $agree_desc = 'ThinkThinly monthly subscription';
 }
 
@@ -36,7 +37,7 @@ $agreement = new Agreement();
 $now = new DateTime();
 $now->add(DateInterval::createFromDateString('10 hour'));
 $agreement->setName('Base Agreement')
-    ->setDescription($agreement_desc)
+    ->setDescription($agree_desc)
     ->setStartDate($now->format('Y-m-d'). 'T' . $now->format('G:i:s'). 'Z');
 //    ->setStartDate('2019-06-17T9:45:04Z');
 
@@ -51,7 +52,7 @@ $payer = new Payer();
 $payer->setPaymentMethod('paypal');
 $agreement->setPayer($payer);
 
-$agreement->setDescription("ThinkThinly monthly subscription. ID: $user_id");
+$agreement->setDescription($agree_desc . ". ID: $user_id");
 
 // Add Shipping Address
 //$shippingAddress = new ShippingAddress();

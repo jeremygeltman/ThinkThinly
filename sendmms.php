@@ -28,7 +28,7 @@ date_default_timezone_set('UTC');
 
 $current_time = (new DateTime())->modify('+15 minutes');
 
-define('DEBUG_DONT_SEND_SMS', true);
+define('DEBUG_DONT_SEND_SMS', false);
 
 if (DEBUG_DONT_SEND_SMS) {
 //    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(21, 2));

@@ -12,7 +12,8 @@
 // Retrieving the Plan object from Create Plan Sample to demonstrate the List
 /** @var Plan $createdPlan */
 //$plan_id = 'P-2XM09435HG6440939WL5BD4A';//regular monthly plan
-$plan_id = 'P-9HD4220805509340JP6WL4SI';//monthly plan with trial 0
+//$plan_id = 'P-9HD4220805509340JP6WL4SI';//monthly plan with trial 0 local
+$plan_id = 'P-0AV72437SF127301MP7PIPUI';//monthly plan with trial 0 thinkthin
 
 require_once('../bootstrap.php');
 

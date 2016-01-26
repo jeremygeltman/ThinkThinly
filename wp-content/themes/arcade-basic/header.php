@@ -1,5 +1,20 @@
-
 <?php
+
+//Brian added to check for 0 dollar subscription
+global $wpdb;
+$login = CheckLoginCookie();
+$is_allowed_0_dollar_subscription = 0;
+if (isset($login['Username'])){
+    $result = $wpdb->get_row("SELECT `allow_0_dollar_subscription` FROM `wp_ewd_feup_users` WHERE Username = " . $login['Username'], ARRAY_A );
+    if (isset($result['allow_0_dollar_subscription'])){
+        $is_allowed_0_dollar_subscription = $result['allow_0_dollar_subscription'];
+    }
+}
+////end Brian added to check for 0 dollar subscription
+
+
+
+
 /**
  * The Header for our theme.
  *
@@ -25,12 +40,12 @@
 
 
 <!-- folia includes start -->
-    
+
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Hind:400,300,500,600,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700,900,400italic,300italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/folia/css/bootstrap.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/folia/css/fonts/flaticon.css" type="text/css" media="all">
     <link rel="stylesheet" href="<?php bloginfo('template_directory');?>/folia/css/magnific-popup.css" type="text/css" media="all">
@@ -66,7 +81,7 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NQBB2F');</script>
-<!-- End Google Tag Manager -->    
+<!-- End Google Tag Manager -->
 
     <div id="page">
 
@@ -89,7 +104,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                 <div class="collapse navbar-collapse" id="header-navigation">
                     <ul class="nav navbar-nav main-navigation navbar-right">
-                        <?php wp_nav_menu( array( 'items_wrap' => '%3$s' ));?> 
+                        <?php
+                        if ($is_allowed_0_dollar_subscription): ?>
+                        <div class="menu-footer-container">
+                            <li id="menu-item-9999" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9999"><a href="/subscribe-with-0-dollar-monthly">Go Premium For Free &gt;</a></li>
+                        </div>
+                        <?php else:
+                        wp_nav_menu( array( 'items_wrap' => '%3$s' ));
+
+                        endif;?>
+
 
                     </ul>
 

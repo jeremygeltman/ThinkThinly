@@ -30,9 +30,13 @@
 						<input type='radio' class='ewd-feup-text-input' name='Admin_Approved' value='Yes' <?php if ($UserAdmin->User_Admin_Approved == "Yes"){echo "checked";} ?>>Yes<br />
 						<input type='radio' class='ewd-feup-text-input' name='Admin_Approved' value='No' <?php if ($UserAdmin->User_Admin_Approved == "No"){echo "checked";} ?>>No<br />
 				<?php } ?>
+                <label for="allow_0_dollar_subscription">Allow 0 dollar Paypal subscription:</label> <select id="allow_0_dollar_subscription" name="allow_0_dollar_subscription">
+                    <option value="1" <?php if ($UserAdmin->allow_0_dollar_subscription == 1){ echo "selected";} ?>>Allow</option>
+                    <option value="0" <?php if ($UserAdmin->allow_0_dollar_subscription == 0){ echo "selected";} ?>>Don't allow</option>
+                    </select>
                 <label for="subscription">Paypal Subscription:</label> <select id="subscription" name="subscription">
-                    <option value="active">Active</option>
-                    <option value="none">Inactive</option>
+                    <option value="active" <?php if ($UserAdmin->subscription == "active"){ echo "checked";} ?>>Active</option>
+                    <option value="none" <?php if ($UserAdmin->subscription == "none"){ echo "checked";} ?>>Inactive</option>
                 </select>
                 <script>
                     jQuery('#subscription').val("<?= $UserAdmin->subscription ?>");
