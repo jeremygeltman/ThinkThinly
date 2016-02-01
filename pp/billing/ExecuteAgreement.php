@@ -5,7 +5,7 @@
 // Use this call to execute an agreement after the buyer approves it
 require __DIR__ . '/../bootstrap.php';
 require_once dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'wp-blog-header.php';
-
+$error_file_name = __DIR__ . DIRECTORY_SEPARATOR . "error_log";
 // ## Approval Status
 // Determine if the user accepted or denied the request
 if (isset($_GET['success']) && $_GET['success'] == 'true') {
@@ -31,9 +31,9 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         $agreement = \PayPal\Api\Agreement::get($agreement->getId(), $apiContext);
         $desc = $agreement->getDescription();
         //ThinkThinly monthly subscription. ID: 245
-        preg_match('/^[^\d]*(\d+)$/', $desc, $matches);
+        preg_match('/^.*ID:\s(\d+)$/', $desc, $matches);
         $user_id = $matches[1];
-
+        error_log("Success execute agreement with " . json_encode($agreement) . " desc $desc", 1, $error_file_name);
         /** @var  $query */
         $query = "UPDATE `wp_ewd_feup_users` SET `subscription`='active' WHERE User_ID = $user_id;";
         $num_row = $wpdb->query($query);

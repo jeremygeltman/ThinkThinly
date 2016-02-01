@@ -1,0 +1,2 @@
+Failed to execute query UPDATE `wp_ewd_feup_users` SET `subscription`='active' WHERE User_ID = ; 
+Failed to execute query UPDATE `wp_ewd_feup_user_fields` SET `Field_Value`=null WHERE `Field_Name` = 'Membership Expiry Date' AND User_ID = ; 

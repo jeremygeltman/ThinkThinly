@@ -118,7 +118,7 @@ foreach ($users as $user) {
         'post_status' => 'publish',
         'posts_per_page' => - 1,
         'caller_get_posts' => 1,
-        'orderby' => 'name',
+        'orderby' => 'title',
         'tax_query' => array(
             'relation' => 'AND',
             array(
@@ -142,8 +142,8 @@ foreach ($users as $user) {
     if (isset($result[$meal])){
         $post_index = $result[$meal];
     }
-
-    $post_to_send = $my_query->posts[++$post_index];
+    $post_index = (($post_index + 1) % $num_of_posts);
+    $post_to_send = $my_query->posts[$post_index];
     $image        = wp_get_attachment_image_src(get_post_thumbnail_id($post_to_send->ID), 'large');
     $image[0]     = str_replace("10.0.0.116", "thinkthinly.com", $image[0]);
     $image[0]     = str_replace("10.0.0.134", "thinkthinly.com", $image[0]);
@@ -165,7 +165,7 @@ foreach ($users as $user) {
     wp_reset_postdata();
     if (!empty($sms_sent->sid) || DEBUG_DONT_SEND_SMS){
         echo "Message Sent By Twilio: ID- {$sms_sent->sid}";
-        $wpdb->update("wp_user_mms_sent", [$meal=>$post_index], ["user_id" => $user_id] );
+        $wpdb->update("wp_user_mms_sent", [$meal => $post_index], ["user_id" => $user_id] );
     }
 }
 date_default_timezone_set($old_date_def_timezone);

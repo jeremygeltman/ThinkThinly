@@ -55,8 +55,10 @@ function Insert_Login_Form($atts)
 
                 //$UserData[10]->Field_Value;
             //compare date here
-            if (time() - strtotime($expiry_date) > (-3600*24)){
+            if (($expiry_date == "") || (time() - strtotime($expiry_date) > (-3600*24))){
                 $redirect_page = '/account-expired';
+            } elseif ($expiry_date == ""){
+                $redirect_page = '/you-did-it';
             } else {
                 $redirect_page = '/your-settings';
             }
