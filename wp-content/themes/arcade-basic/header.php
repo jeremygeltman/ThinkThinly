@@ -133,21 +133,30 @@ $space_class = '';
                     <div class="collapse navbar-collapse" id="header-navigation">
                         <ul class="nav navbar-nav main-navigation navbar-right">
                             <?php
-                            if ($is_subscription_active):?>
+                            if ($login == false):?>
                                 <div class="menu-footer-container">
-                                    <li id="menu-item-9998"
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9998">
-                                        <a href="/logout">Logout &gt;</a></li>
+                                    <li id="menu-item-9997"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9997">
+                                        <a href="/signin">Sign In </a></li>
                                 </div>
                             <?php else:
-                                if ($is_allowed_0_dollar_subscription): ?>
+                                if ($is_subscription_active):?>
                                     <div class="menu-footer-container">
-                                        <li id="menu-item-9999"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9999">
-                                            <a href="/subscribe-with-0-dollar-monthly">Go Premium For Free &gt;</a></li>
+                                        <li id="menu-item-9998"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9998">
+                                            <a href="/logout">Logout &gt;</a></li>
                                     </div>
                                 <?php else:
-                                    wp_nav_menu(array('items_wrap' => '%3$s'));
+                                    if ($is_allowed_0_dollar_subscription): ?>
+                                        <div class="menu-footer-container">
+                                            <li id="menu-item-9999"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9999">
+                                                <a href="/subscribe-with-0-dollar-monthly">Go Premium For Free &gt;</a>
+                                            </li>
+                                        </div>
+                                    <?php else:
+                                        wp_nav_menu(array('items_wrap' => '%3$s'));
+                                    endif;
                                 endif;
                             endif; ?>
 

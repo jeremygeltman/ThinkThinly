@@ -7,7 +7,10 @@ $CookieName = urlencode("EWD_FEUP_Login" . "%" . sha1(md5(get_site_url().$Salt))
 $CookieValue = $Username . "%" . time() . "%" . md5($_SERVER['REMOTE_ADDR'].$Salt);
 $ExpirySecond = time() + (1+$LoginTime)*60;
 
-if (setcookie($CookieName, $CookieValue, $ExpirySecond, '/')) {return true;}
+if (setcookie($CookieName, $CookieValue, $ExpirySecond, '/')) {
+    //also make it available for immediate access before page refresh
+    $_COOKIE[$CookieName] = $CookieValue;
+    return true;}
 else {return false;}
 }
 ?>
