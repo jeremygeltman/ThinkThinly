@@ -120,12 +120,24 @@ foreach ($users as $user) {
         echo "\nSending this message" . $template_expire_soon->ID . " " . $template_expire_soon->post_excerpt . " " . $image[0] . " to this user:";
         var_dump($user);
     } else {
-        $sms_sent = $client->account->messages->sendMessage(
-            "+16194190679",
-            $user_info['Phone'],
-            $template_expire_soon->post_excerpt,
-            array($image[0])
-        );
+        if (empty($template_expire_soon->post_excerpt)) {
+            error_log("\nPost without excerpt: " . $template_expire_soon->ID . " user_id: $user_id\n", 0, $error_file_name);
+        } else {
+            if (! empty($image[0])) {
+                $sms_sent = $client->account->messages->sendMessage(
+                    "+16194190679",
+                    $user_info['Phone'],
+                    $template_expire_soon->post_excerpt,
+                    array($image[0])
+                );
+            } else {
+                $sms_sent = $client->account->messages->sendMessage(
+                    "+16194190679",
+                    $user_info['Phone'],
+                    $template_expire_soon->post_excerpt
+                );
+            }
+        }
     }
 
     wp_reset_postdata();
