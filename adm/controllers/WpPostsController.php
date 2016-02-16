@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\WpPosts;
-use app\models\WpPostsSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -30,13 +30,13 @@ class WpPostsController extends Controller
      * Lists all WpPosts models.
      * @return mixed
      */
-    public function actionIndex($gender = "")
+    public function actionIndex()
     {
-        $searchModel = new WpPostsSearch(['post_type' => "mms-template", 'post_status' => 'publish', 'post_title' => ['contains' => $gender]]);
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => WpPosts::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -48,7 +48,6 @@ class WpPostsController extends Controller
      */
     public function actionView($id)
     {
-        $model = $this->findModel($id);
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -63,7 +62,7 @@ class WpPostsController extends Controller
     {
         $model = new WpPosts();
 
-        if ($model->loadAll(Yii::$app->request->post()) && $model->saveAll()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ID]);
         } else {
             return $this->render('create', [
@@ -82,8 +81,8 @@ class WpPostsController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->loadAll(Yii::$app->request->post()) && $model->saveAll()) {
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->ID]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -99,11 +98,11 @@ class WpPostsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->deleteWithRelated();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
-    
+
     /**
      * Finds the WpPosts model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
