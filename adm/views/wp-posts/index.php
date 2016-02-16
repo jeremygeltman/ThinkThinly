@@ -20,34 +20,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                ['attribute'=> 'post_title:ntext',
+                        'label' => 'Title',
+                        'format' => 'raw',
+                        'value' => function($model){
+                            return  Html::a($model->post_title, \yii\helpers\Url::to(['wp-posts/update', 'id'=>$model->ID]));
+                        }
 
-            'ID',
-            'post_author',
-            'post_date',
-            'post_date_gmt',
-            'post_content:ntext',
-            // 'post_title:ntext',
-            // 'mms_order',
-            // 'post_excerpt:ntext',
-            // 'post_status',
-            // 'comment_status',
-            // 'ping_status',
-            // 'post_password',
-            // 'post_name',
-            // 'to_ping:ntext',
-            // 'pinged:ntext',
-            // 'post_modified',
-            // 'post_modified_gmt',
-            // 'post_content_filtered:ntext',
-            // 'post_parent',
-            // 'guid',
-            // 'menu_order',
-            // 'post_type',
-            // 'post_mime_type',
-            // 'comment_count',
-
-            ['class' => 'yii\grid\ActionColumn'],
+                ],
+                'mms_order',
+                'post_excerpt:ntext',
+                'post_type',
+                'ID',
         ],
     ]); ?>
 

@@ -30,10 +30,14 @@ class WpPostsController extends Controller
      * Lists all WpPosts models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($gender = "")
     {
+        $query = WpPosts::find()->where(['post_type' => "mms-template", 'post_status' => 'publish']);
+        if ($gender !== ""){
+            $query = $query->andWhere(['LIKE', 'post_title', $gender]);
+        }
         $dataProvider = new ActiveDataProvider([
-            'query' => WpPosts::find(),
+            'query' => $query,
         ]);
 
         return $this->render('index', [
@@ -82,7 +86,7 @@ class WpPostsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
