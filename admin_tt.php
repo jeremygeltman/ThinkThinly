@@ -7,7 +7,7 @@ require_once('vendor/autoload.php');
 
 $meals = ['breakfast', 'lunch', 'dinner'];
 $genders = ['male', 'female'];
-
+echo "<pre>";
 foreach ($genders as $gender){
     foreach ($meals as $meal){
         $args     = array(
@@ -31,8 +31,16 @@ foreach ($genders as $gender){
             ),
         );
         $my_query = new WP_Query($args);
-        echo "Posts for $meal - $gender: <br/>";
-        var_dump($my_query->posts);
+        echo "<br/>Posts for $meal - $gender: <br/>";
+        foreach ($my_query->posts as $post){
+            var_dump($post);
+            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large');
+            if (is_array($image)){
+                $image = $image[0];
+            }
+            echo "\nImage: $image \n";
+        }
 
     }
 }
+echo "</pre>";
