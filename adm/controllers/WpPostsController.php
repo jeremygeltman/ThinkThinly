@@ -32,7 +32,7 @@ class WpPostsController extends Controller
      */
     public function actionIndex($gender = "")
     {
-        $query = WpPosts::find()->where(['post_type' => "mms-template", 'post_status' => 'publish']);
+        $query = WpPosts::find()->where(['post_type' => "mms-template", 'post_status' => 'publish'])->orderBy('mms_order DESC');
         if ($gender !== ""){
             $query = $query->andWhere(['LIKE', 'post_title', $gender]);
         }
@@ -42,6 +42,7 @@ class WpPostsController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'gender' => $gender
         ]);
     }
 

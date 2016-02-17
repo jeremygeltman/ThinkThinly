@@ -3,9 +3,15 @@
 
 /**
  * Send sms to expired people
+ * This should trigger 1 day after membership expired.
  */
 
 require_once(dirname(__FILE__) . '/wp-blog-header.php');
+require_once ('config.php');
+/** @var string $bl_api_url
+ * @var string $bl_token
+ */
+$error_file_name = __DIR__ . DIRECTORY_SEPARATOR . "error_log";
 
 //check magic word
 if (! array_key_exists("secret_key", $_GET) || ($_GET['secret_key'] != 'e2e697afc5ebee779eb383238b95b92e')) {
@@ -25,10 +31,14 @@ date_default_timezone_set('UTC');
 //based on cronjob this should be 16:00
 $current_time = (new DateTime('now'))->sub(new DateInterval('P1D'));
 
-define('DEBUG_DONT_SEND_SMS', false);
+if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false){
+    define('DEBUG_DONT_SEND_SMS', true);
+} else {
+    define('DEBUG_DONT_SEND_SMS', false);
+}
 
 if (DEBUG_DONT_SEND_SMS) {
-    $current_time = (new DateTime('now'))->setTime(16, 0)->sub(new DateInterval('P1D'));
+    $current_time = (new DateTime('now'))->setDate(2016, 2, 12)->sub(new DateInterval('P1D'));
     // $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(16,0));
 }
 
@@ -88,6 +98,13 @@ if (!empty($user_ids_all_expired)) {
 
     /** @var WP_POST $template_expired_1_day */
     foreach ($users as $user) {
+        $bl_link = get_bit_ly_url($user->User_ID);
+        $content_to_send = $template_expired_1_day->post_content;
+        if (!empty($bl_link) && !is_array($bl_link)){
+            $content_to_send .= $bl_link;
+        } else {
+            error_log("Can not get bitly link. User id: ". $user->User_ID, 0, $error_file_name);
+        }
 
         $image    = wp_get_attachment_image_src(get_post_thumbnail_id($template_expired_1_day->ID), 'large');
         $image[0] = str_replace("10.0.0.116", "thinkthinly.com", $image[0]);
@@ -95,13 +112,13 @@ if (!empty($user_ids_all_expired)) {
         $image[0] = str_replace("localhost", "thinkthinly.com", $image[0]);
         //MMS
         if (DEBUG_DONT_SEND_SMS) {
-            echo "\nSending above message" . var_dump($template_expired_1_day) . " to this user:";
+            echo "\nSending above message" . var_dump($template_expired_1_day) . " content: $content_to_send to this user:";
             var_dump($user);
         } else {
             $sms = $client->account->messages->sendMessage(
                 "+16194190679",
                 $user->Field_Value,
-                $template_expired_1_day->post_content,
+                $content_to_send,
                 array($image[0])
             );
             echo "Message Sent: ID- {$sms->sid}";
@@ -174,6 +191,13 @@ $query = new WP_Query( $args );
 $template_expired_3_day = $query->post;
 /** @var WP_POST $template_expired_3_day */
 foreach ($users as $user) {
+    $bl_link = get_bit_ly_url($user->User_ID);
+    $content_to_send = $template_expired_3_day->post_content;
+    if (!empty($bl_link) && !is_array($bl_link)){
+        $content_to_send .= $bl_link;
+    } else {
+        error_log("Can not get bitly link. User id: ". $user->User_ID, 0, $error_file_name);
+    }
 
     $image    = wp_get_attachment_image_src(get_post_thumbnail_id($template_expired_3_day->ID), 'large');
     $image[0] = str_replace("10.0.0.116", "thinkthinly.com", $image[0]);
@@ -181,13 +205,13 @@ foreach ($users as $user) {
     $image[0] = str_replace("localhost", "thinkthinly.com", $image[0]);
     //MMS
     if (DEBUG_DONT_SEND_SMS) {
-        echo "\nSending above message" . var_dump($template_expired_3_day) . " to this user:";
+        echo "\nSending above message" . var_dump($template_expired_3_day) . "content: $content_to_send to this user:";
         var_dump($user);
     } else {
         $sms = $client->account->messages->sendMessage(
             "+16194190679",
             $user->Field_Value,
-            $template_expired_3_day->post_content,
+            $content_to_send,
             array($image[0])
         );
         echo "Message Sent: ID- {$sms->sid}";
