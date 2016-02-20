@@ -1,0 +1,1 @@
+[15-Feb-2016 22:28:45 America/Chicago] PHP Fatal error:  Class 'Composer\Semver\Constraint\MultiConstraint' not found in /home4/saramy/.composer/vendor/fxp/composer-asset-plugin/Repository/VcsPackageFilter.php on line 301

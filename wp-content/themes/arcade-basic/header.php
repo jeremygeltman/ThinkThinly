@@ -126,7 +126,7 @@ $space_class = '';
                             <span class="icon-bar"></span>
                         </button>
                         <a href="<?php bloginfo('url'); ?>" class="navbar-brand logo"><img
-                                    src="<?php bloginfo('url'); ?>/wp-content/uploads/2015/06/ThinkThinlyLogo.png"
+                                    src="<?php bloginfo('url'); ?>/wp-content/uploads/2016/02/ThinkThinlyLogo-retina.png"
                                     alt="ThinkThinly Logo"></a>
                     </div><!-- Collect the nav links, forms, and other content for toggling -->
 

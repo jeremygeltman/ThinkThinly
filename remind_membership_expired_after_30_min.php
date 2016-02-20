@@ -35,7 +35,7 @@ if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false){
 }
 
 if (DEBUG_DONT_SEND_SMS) {
-    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(16, 0));
+    $current_time->setTime(16, 0);
 //    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(16, 0));
 }
 
@@ -113,11 +113,12 @@ if (! empty($user_ids_pst)) {
 }
 $user_ids_all_30_from_last_sms = array_merge($user_ids_cst_30_from_last_sms, $user_ids_est_30_from_last_sms, $user_ids_mst_30_from_last_sms, $user_ids_pst_30_from_last_sms);
 $user_ids_all_30_from_last_sms_expired = array_intersect($user_ids_all_expired, $user_ids_all_30_from_last_sms);
+
+error_log("Sending mms expired 30 mins ago. Time pst: " . $time_pst . "All users expired: ". json_encode($user_ids_all_expired). " All users expired 30 mins ago: " . json_encode($user_ids_all_30_from_last_sms_expired) . "\n\n", 0, $error_file_name);
 if (empty($user_ids_all_30_from_last_sms_expired)) {
     return;
 }
 $user_ids_all_30_from_last_sms_expired = implode(',', $user_ids_all_30_from_last_sms_expired);
-
 $users = $wpdb->get_results("SELECT Field_Value,u.User_ID FROM `wp_ewd_feup_users` as u JOIN `wp_ewd_feup_user_fields` as uf on u.User_ID = uf.User_ID where uf.Field_Name = 'Phone' and u.User_ID in ($user_ids_all_30_from_last_sms_expired)");
 
 $args = array(

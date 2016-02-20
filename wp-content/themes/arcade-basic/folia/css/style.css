@@ -132,10 +132,7 @@ body.home .menu-main-menu-container .current-menu-item{
 #layout1-main-section {
 	position: relative;
 	text-align: center;
-	
-	/* background: url('http://thinkthinly.com/wp-content/uploads/2016/01/woman-using-smartphone2.png') no-repeat center center fixed;*/
-	background: url('http://thinkthinly.com/wp-content/uploads/2016/01/Woman-Exercising-Abs-770x355.jpg') no-repeat center center fixed;
-
+	background: url('http://thinkthinly.com/wp-content/uploads/2016/02/33733931_xl-cropped.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -144,16 +141,21 @@ body.home .menu-main-menu-container .current-menu-item{
 }
 
 .home #layout1-main-section{padding: 80px 0 200px;}
+.home p.main-text{display:none;}
 
 @media only screen and (max-width: 630px) {
     #layout1-main-section{
-       /* background: url('http://thinkthinly.com/wp-content/uploads/2016/01/woman-using-smartphone2.png') no-repeat 50% 50%;
-        background-size: 480%; */
+
+
+		background: url('http://thinkthinly.com/wp-content/uploads/2016/02/33733931_xl-cropped.png') no-repeat 57% 0;
+
+		/*background: url('http://thinkthinly.com/wp-content/uploads/2016/02/33733931_xl-cropped.png') no-repeat 50% 50%;
+         background-size: 128%;*/
     }
 }
 
 #layout1-main-section .overlay {
-  	background-color: rgba(0, 23, 53, 0.16);
+  	background-color: rgba(0, 23, 53, 0.50);
   	position: absolute;
   	top: 0;
   	left: 0;
@@ -162,7 +164,7 @@ body.home .menu-main-menu-container .current-menu-item{
 }
 
 body.home #layout1-main-section .overlay{
-  	background-color: rgba(0, 23, 53, 0.16);
+  	background-color: rgba(0, 23, 53, 0.50);
 }
 
 #layout1-main-section h1{
@@ -488,7 +490,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee8b36', end
 
 
 #layout1-testimonials .overlay {
-  	background-color: rgba(45, 48, 52, 0.35);
+  	background-color: rgba(0,0,0, 0.60);
   	position: absolute;
   	top: 0;
   	right: auto;

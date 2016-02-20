@@ -18,8 +18,8 @@ $bavotasan_theme_options = bavotasan_theme_options();
             <div class="row">
                 
                 <div class="col-md-4 col-sm-12 about">
-                    <a href="" title="instasent"><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/06/ThinkThinly-logo-v4-inverse-text.png" alt="logo" /></a>
-                    <p>ThinkThinly makes losing weight as easy as getting a text.</p>
+                    <a href="http://thinkthinly.com" class="footer-logo" title="instasent"><img src="<?php bloginfo('url');?>//wp-content/uploads/2016/02/ThinkThinly-logo-v4-inverse-text-retina.png" alt="logo" /></a>
+                    <p>Motivation to work out harder.</p>
                     <ul class="social">
                         <li><a href="https://www.facebook.com/thinkthinly" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="https://twitter.com/think_thinly" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
@@ -40,9 +40,9 @@ $bavotasan_theme_options = bavotasan_theme_options();
                 <div class="col-md-2 col-sm-4 col-xs-6 company">
                     <h4>ThinkThinly</h4>
                     <ul>
-                        <li><a href="" title="not-logged-in-jag" >Sign in</a></li>
-                        <li><a href="" title="nogged-in-jag">Sign out</a></li>
-                        <li><a href="" title="logged-in-jag">Settings</a></li>
+                        <li><a href="/signin" title="not-logged-in-jag" >Sign in</a></li>
+                        <li><a href="/account-expired" title="subscribe">Get ThinkThinly</a></li>
+                        <li><a href="/your-settings" title="logged-in-jag"> Settings</a></li>
                     </ul>   
                 </div>
                 

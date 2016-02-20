@@ -1,7 +1,12 @@
 <?php
 /** @var $wpdb */
-define('DEBUG_DONT_SEND_SMS', false);
-//define('DEBUG_DONT_SEND_SMS', true);//tri user: 372
+
+if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false){
+    define('DEBUG_DONT_SEND_SMS', true);
+} else {
+    define('DEBUG_DONT_SEND_SMS', false);
+}
+//tri user: 372
 
 require_once(dirname(__FILE__) . '/wp-blog-header.php');
 $error_file_name = __DIR__ . DIRECTORY_SEPARATOR . "error_log";
@@ -27,12 +32,13 @@ $client = new Services_Twilio($AccountSid, $AuthToken);
 $old_date_def_timezone = date_default_timezone_get();
 date_default_timezone_set('UTC');
 
-$current_time = (new DateTime())->modify('+15 minutes');
+$current_time = (new DateTime());
 
 
 if (DEBUG_DONT_SEND_SMS) {
 //    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(21, 2));
-    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(16, 0));
+    $current_time = (new DateTime())->setTimezone((new DateTimeZone('UTC')));
+    $current_time->setTime(12, 0);
 }
 
 $time_cst = clone $current_time;
@@ -51,14 +57,14 @@ array_map(function (&$v) {
 
 $today = (new DateTime())->format('Y-m-d');
 
-$user_expired = $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Membership Expiry Date' and uf.Field_Value != '' and uf.Field_Value < '$today'");
+$user_expired = $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Membership Expiry Date' and uf.Field_Value != '' and uf.Field_Value < '$today' ORDER BY u.User_ID DESC");
 
 $user_ids_cst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'CST'"));
 $user_ids_est = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'EST'"));
 $user_ids_mst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'MST'"));
 $user_ids_pst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'PST'"));
 
-$test_time = "04:30pm";
+$test_time = "12:00pm";
 if (DEBUG_DONT_SEND_SMS) {
     $time_cst = $test_time;
     $time_est = $test_time;
@@ -136,7 +142,7 @@ foreach ($users as $user) {
     $my_query = new WP_Query($args);
     $posts = $my_query->posts;
     usort($posts, function($a, $b){
-        return $a < $b;
+        return $a->mms_order < $b->mms_order;
     });
     $num_of_posts = sizeof($posts);
     $post_index = - 1;
