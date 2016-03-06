@@ -16,6 +16,11 @@ Arcade WordPress Theme, Copyright 2015 c.bavota
 Arcade is distributed under the terms of the GNU GPL
 */
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+
+
+/*jag 2*/
+
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -3839,11 +3844,17 @@ article.page .navbar {
 
 .navbar-brand {
     float: left;
-    padding: 15px 20px;
+    padding: 12px 20px;
     font-size: 18px;
     line-height: 20px;
     height: 50px;
 }
+
+.navbar-brand img,
+.footer-logo img{
+    max-width: 180px;
+}
+
 
 .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none;
@@ -3875,12 +3886,13 @@ article.page .navbar {
 .navbar-toggle .icon-bar {
     display: block;
     width: 22px;
-    height: 2px;
+    height: 1px;
     border-radius: 1px;
+    margin: 2px 0 0 0;
 }
 
 .navbar-toggle .icon-bar + .icon-bar {
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 @media (min-width: 768px) {
@@ -5169,6 +5181,9 @@ input, textarea {
     -webkit-animation: dropHeader 1 0.75s ease-in;
     animation: dropHeader 1 0.75s ease-in;
 }
+
+
+
 
 #site-title {
     margin: 0;
@@ -7086,9 +7101,7 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 .page-template-folia-inner #layout1-main-section {
     padding: 15px 0 50px 0;
     background: #ccc;
-   /*ackground: url('http://thinkthinly.com/wp-content/uploads/2015/06/cropped-Screen-Capture-2015-04-15-at-8.092.png') no-repeat center center fixed;
-   background: url('http://thinkthinly.com/wp-content/uploads/2016/01/woman-using-smartphone2.png ') no-repeat center center fixed;*/
-   background: url('http://thinkthinly.com/wp-content/uploads/2016/01/Woman-Exercising-Abs-770x355.jpg ') no-repeat center center fixed;
+   background: url('http://thinkthinly.com/wp-content/uploads/2016/02/33733931_xl-cropped.png') no-repeat center center fixed;
 
 
    
@@ -7425,30 +7438,18 @@ div.pure-control-group input[type="radio"] {
 
 
 
-/*
-button#add_membership{
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid #FFF;
-    padding: 15px 35px;
-    border-radius: 100px;
-}
-
-
-button#add_membership:hover{
-        background-color: rgba(255, 255, 255, .3);
-        transition:.3s;
-
-}
-*/
 
 
 
 button#add_membership{
-    padding: 18px 30px;
+    padding: 18px 30px 20px 30px;
     border-radius: 100px;
     border: 1px solid rgba(0, 0, 0, 0.07);
     color: #FFF;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight:bold;
+    display: inline-block;
+    margin: 25px 0 0 0;
     background: #EE8B36;
     background: -moz-linear-gradient(top, #ee8b36 0%, #e46d2b 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EE8B36), color-stop(100%, #E46D2B));
@@ -7474,7 +7475,8 @@ button#add_membership:hover{
 
 button#add_membership img{
     float:left;
-    width:100px;
+    width:86px;
+    margin: 2px 0 0 0;
 }
 
 
