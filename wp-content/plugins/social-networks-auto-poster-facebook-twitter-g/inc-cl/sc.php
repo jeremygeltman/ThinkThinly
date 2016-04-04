@@ -36,7 +36,7 @@ if (!class_exists("nxs_snapClassSC")) { class nxs_snapClassSC { var $ntInfo = ar
               if (is_array($uinfo) && isset($uinfo['user'])) { $options['appAppUserName'] = $uinfo['user']['name']."(".$uinfo['user']['shortName'].")";                            
                 $options['appAppUserID'] = $uinfo['user']['id']; $optionsG = get_option('NS_SNAutoPoster'); $optionsG[$ntInfo['lcode']][$_GET['acc']] = $options;  update_option('NS_SNAutoPoster', $optionsG);
               } //die();
-              if (!empty($options['appAppUserID'])) {  echo '<br/><br/>All good?! Redirecting ..... <script type="text/javascript">window.location = "'.$nxs_snapSetPgURL.'"</script>'; break;  die();}
+              if (!empty($options['appAppUserID'])) {  echo '<br/><br/>All good?! Redirecting ..... <script type="text/javascript">window.location = "'.$nxs_snapSetPgURL.'"</script>'; die();}
                 else die("<span style='color:red;'>ERROR: Authorization Error: <span style='color:darkred; font-weight: bold;'>".print_r($uinfo, true)."</span></span>");              
             }
     

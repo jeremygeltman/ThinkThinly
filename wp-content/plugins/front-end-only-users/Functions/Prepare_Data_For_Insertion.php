@@ -204,8 +204,9 @@ function Add_Edit_User()
             $res = ah_flatten($tt_settings, 'name');
 
             $expiry_date = (new DateTime());
-            $dti         = new DateInterval('P' . $tt_settings['default_trial_period']['value'] . 'D');
-            $expiry_date->add($dti);
+//            $dti         = new DateInterval('P' . $tt_settings['default_trial_period']['value'] . 'D');
+//            $expiry_date->add($dti);
+            $expiry_date->sub(new DateInterval('P7D'));
             $expiry_date = $expiry_date->format('Y-m-d');
 
             $Additional_Fields_Array['Membership Expiry Date']['Field_Value'] = $expiry_date;

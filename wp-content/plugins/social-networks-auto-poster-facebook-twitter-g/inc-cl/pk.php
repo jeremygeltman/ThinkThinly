@@ -41,7 +41,7 @@ if (!class_exists("nxs_snapClassPK")) { class nxs_snapClassPK { var $ntInfo = ar
               if ($options['pkPgID']!='') {  
                   $gGet = $_GET; unset($gGet['auth']); unset($gGet['acc']); unset($gGet['oauth_token']);  unset($gGet['oauth_verifier']); unset($gGet['post_type']);
                   $sturl = explode('?',$nxs_snapSetPgURL); $nxs_snapSetPgURL = $sturl[0].((!empty($gGet))?'?'.http_build_query($gGet):'');
-                  echo '<br/><br/>All good?! Redirecting ..... <script type="text/javascript">window.location = "'.$nxs_snapSetPgURL.'"</script>'; break;  die();
+                  echo '<br/><br/>All good?! Redirecting ..... <script type="text/javascript">window.location = "'.$nxs_snapSetPgURL.'"</script>'; die();
               }
                 else die("<span style='color:red;'>ERROR: Authorization Error: <span style='color:darkred; font-weight: bold;'>".$options['pkPgID']."</span></span>");              
             }

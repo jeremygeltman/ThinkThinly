@@ -167,7 +167,12 @@ function Insert_Edit_Account_Form($atts)
     }
 
     if ($feup_success and $redirect_page != '#') {
-        FEUPRedirect($redirect_page);
+        $paypal_sub = $User->subscription;
+        if ($paypal_sub == "none") {
+            FEUPRedirect($redirect_page);
+        } else {
+            FEUPRedirect('/your-settings');
+        }
     }
 
     $ReturnString .= "<div id='ewd-feup-edit-profile-form-div'>";

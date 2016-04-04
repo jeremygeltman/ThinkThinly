@@ -24,6 +24,13 @@ function Insert_Edit_Profile($atts)
     $UserData = $wpdb->get_results($wpdb->prepare("SELECT * FROM $ewd_feup_user_fields_table_name WHERE User_ID='%d'",
                                                   $User->User_ID));
 
+    //If user doesn't have First name last name, send to first-time-sign-in
+    $first_name = array_pop(array_filter($UserData, function ($v){return $v->Field_Name == "First Name";}));
+    $last_name = array_pop(array_filter($UserData, function ($v){return $v->Field_Name == "Last Name";}));
+    if (is_object($first_name) && empty($first_name->Field_Value) && is_object($last_name) && empty($last_name->Field_Value)){
+        FEUPRedirect('/first-time-sign-in');
+    }
+
     $ReturnString = "";
 
     // Get the attributes passed by the shortcode, and store them in new variables for processing

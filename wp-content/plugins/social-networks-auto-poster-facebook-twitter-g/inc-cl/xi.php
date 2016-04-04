@@ -42,7 +42,7 @@ if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI { var $ntInfo = ar
                 $options['appAppUserName'] = $uinfo['display_name']."(".$uinfo['page_name'].")"; $options['appAppUserID'] = $uinfo['id']; 
                 if (function_exists('get_option')) $nxs_gOptions = get_option('NS_SNAutoPoster'); if(!empty($nxs_gOptions)){$nxs_gOptions[$ntInfo['lcode']][$_GET['acc']] = $options; nxs_settings_save($nxs_gOptions);}               
               } //prr($options); die();
-              if (!empty($options['appAppUserID'])) {  echo '<br/><br/>All good?! Redirecting ..... <script type="text/javascript">window.location = "'.$nxs_snapSetPgURL.'"</script>'; break;  die();}
+              if (!empty($options['appAppUserID'])) {  echo '<br/><br/>All good?! Redirecting ..... <script type="text/javascript">window.location = "'.$nxs_snapSetPgURL.'"</script>'; die();}
                 else die("<span style='color:red;'>ERROR: Authorization Error: <span style='color:darkred; font-weight: bold;'>".print_r($uinfo, true)."</span></span>");              
             }
     

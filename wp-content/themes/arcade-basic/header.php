@@ -41,7 +41,7 @@ if (isset($login['Username'])) {
     <meta name="viewport" content="width=device-width">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
+    <meta name="p:domain_verify" content="f8b68011e74053dac999bc87931a87da"/>
 
     <!-- folia includes start -->
 
