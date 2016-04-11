@@ -122,7 +122,7 @@ function Insert_Edit_Profile($atts)
     $print_field = function ($Field) use ($Omitted_Fields, $UserData, &$ReturnString) {
         $display_label = $Field->Field_Name;
         if ($display_label == "Breakfast") {
-            $display_label = "Reminder 1";
+            $display_label = "Reminder time";
         }
         if ($display_label == "Lunch") {
             $display_label = "Reminder 2";
