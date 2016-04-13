@@ -41,7 +41,7 @@ function Insert_Login_Form($atts)
         $User        = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE Username='%s'",
                                                      $CheckCookie['Username']));
         if ($User->subscription == "active"){
-            $redirect_page = "/you-did-it";
+            $redirect_page = "/your-settings";
         }
         else{
             $UserData = $wpdb->get_results($wpdb->prepare("SELECT * FROM $ewd_feup_user_fields_table_name WHERE User_ID='%d'",
