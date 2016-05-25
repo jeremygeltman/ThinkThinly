@@ -18,7 +18,7 @@ $bavotasan_theme_options = bavotasan_theme_options();
             <div class="row">
                 
                 <div class="col-md-4 col-sm-12 about">
-                    <a href="http://thinkthinly.com" class="footer-logo" title="instasent"><img src="<?php bloginfo('url');?>//wp-content/uploads/2016/02/ThinkThinly-logo-v4-inverse-text-retina.png" alt="logo" /></a>
+                    <a href="https://thinkthinly.com" class="footer-logo" title="instasent"><img src="<?php bloginfo('url');?>//wp-content/uploads/2016/02/ThinkThinly-logo-v4-inverse-text-retina.png" alt="logo" /></a>
                     <p>Motivation to work out harder.</p>
                     <ul class="social">
                         <li><a href="https://www.facebook.com/thinkthinly" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -41,8 +41,9 @@ $bavotasan_theme_options = bavotasan_theme_options();
                     <h4>ThinkThinly</h4>
                     <ul>
                         <li><a href="/signin" title="not-logged-in-jag" >Sign in</a></li>
+                        <li><a href="/logout" title="logged-in-jag" >Sign out</a></li>
                         <li><a href="/account-expired" title="subscribe">Get ThinkThinly</a></li>
-                        <li><a href="/your-settings" title="logged-in-jag"> Settings</a></li>
+                       <!-- <li><a href="/your-settings" title="logged-in-jag"> Settings</a></li> -->
                     </ul>   
                 </div>
                 

@@ -1,6 +1,20 @@
 <?php
 /* The function that creates the HTML on the front-end, based on the parameters
 * supplied in the product-catalog shortcode */
+require_once dirname(__FILE__) . '/../../../../vendor/braintree/braintree_php/lib/Braintree.php';
+
+Braintree\Configuration::environment('production');
+Braintree\Configuration::merchantId('n548vrvhgb7ff3jm');
+Braintree\Configuration::publicKey('t639rjppfmt8ncmn');
+Braintree\Configuration::privateKey('0b1344f7ceb652389173603af7b682c1');
+define('SUBSCRIPTION_PLAN_ID', '4376');
+
+// Braintree\Configuration::environment('sandbox');
+// Braintree\Configuration::merchantId('n887h3wthpjvcqjh');
+// Braintree\Configuration::publicKey('dvjrk8sy53mmq2p5');
+// Braintree\Configuration::privateKey('3eefe6e70118b8bf1912e6b438fab9c8');
+// define('SUBSCRIPTION_PLAN_ID', '7yc6');
+
 function Insert_Subscribe_Now_0_Dollar($atts)
 {
     /** @var string $redirect_page
@@ -24,11 +38,85 @@ function Insert_Subscribe_Now_0_Dollar($atts)
     $UserData = $wpdb->get_results($wpdb->prepare("SELECT * FROM $ewd_feup_user_fields_table_name WHERE User_ID='%d'",
                                                   $User->User_ID));
 
-    $ReturnString = "";
+    $user_id= $User->User_ID;
+    $email = $User->user_email;
+    $phone = $User->Username;
+    $first_name = '';
+    $last_name = '';
+    if (is_object($UserData)){
+        $userdata = get_object_vars($UserData);
+        $first_name = $userdata["First Name"];
+        $last_name = $userdata["Last Name"];
+    }
 
-    $output      = "";
+    $output = '';
+    //If payment/subscription submitted
+    if (isset($_POST["payment_method_nonce"])) {
+        $nonce = $_POST["payment_method_nonce"];
+        $payment_method = Braintree\Customer::create([
+            'firstName' => $first_name,
+            'lastName' => $last_name,
+            'email' => $email,
+            'phone' => $phone,
+            'paymentMethodNonce' => $nonce
+        ]);
+
+        $result = Braintree\Subscription::create([
+            'paymentMethodToken' => $payment_method->customer->defaultPaymentMethod()->token,
+            'planId' => SUBSCRIPTION_PLAN_ID
+        ]);
+        if ($result->success) {
+            $query = "UPDATE `wp_ewd_feup_users` SET `subscription`='active' WHERE User_ID = $user_id;";
+            $num_row = $wpdb->query($query);
+            if ($num_row === false){
+                error_log("Failed to execute query $query \n", 3);
+            }
+
+            $query = "UPDATE `wp_ewd_feup_user_fields` SET `Field_Value`=null WHERE `Field_Name` = 'Membership Expiry Date' AND User_ID = $user_id;";
+
+            $num_row = $wpdb->query($query);
+            if ($num_row === false){
+                error_log("Failed to execute query $query \n", 3);
+            }
+
+            session_start();
+            $_SESSION['user_updated'] = "Your subscription is now active.";
+
+            if(!headers_sent()) header("Location: /you-did-it");
+            error_log("success!: " . $result->transaction->id);
+        } else if ($result->transaction) {
+            $output .= print_r("Error processing transaction:", true);
+            $output .= print_r("\n  code: " . $result->transaction->processorResponseCode, true);
+            $output .= print_r("\n  text: " . $result->transaction->processorResponseText, true);
+        } else {
+            $output .= print_r("Validation errors: \n", true);
+            $output .= print_r($result->errors->deepAll(), true);
+        }
+
+        return $output;
+    }
+    //else, render payment form
+    $clientToken = \Braintree\ClientToken::generate();
+
+    $output = '<form id="checkout" method="post" action="/subscribe-with-0-dollar-monthly">
+                  <div id="payment-form"></div>
+                  <input type="submit" value="Try It Now">
+                </form>
+
+<script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
+<script>
+
+var clientToken = "' . $clientToken . '";
+
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+</script>
+';
+
+
     $output .= "<script> var \$user_id= $User->User_ID ; </script>";
-    $ReturnString .= ($output);
+    $ReturnString = $output;
 
     wp_enqueue_script(
         'your_settings',

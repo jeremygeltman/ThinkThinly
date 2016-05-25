@@ -53,7 +53,7 @@ function Insert_Edit_Account_Form($atts)
             if ($Field->Field_Name == "I need the most help...") {
                 $ReturnString .= '<hr/>';
             }
-            $ReturnString .= "<div class='pure-control-group " . ($hidden?"hidden":"") . "'>";
+            $ReturnString .= "<div class='pure-control-group>";
             $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-" . $Field->Field_ID . "' class='ewd-feup-field-label'>" . __($display_label,
                                                                                                                                                       'EWD_FEUP') . ": </label>";
             if ($Field->Field_Type == "text" or $Field->Field_Type == "mediumint") {

@@ -4,6 +4,13 @@ Braintree\Configuration::environment('production');
 Braintree\Configuration::merchantId('n548vrvhgb7ff3jm');
 Braintree\Configuration::publicKey('t639rjppfmt8ncmn');
 Braintree\Configuration::privateKey('0b1344f7ceb652389173603af7b682c1');
+define('SUBSCRIPTION_PLAN_ID', 'cwn6');
+
+// Braintree\Configuration::environment('sandbox');
+// Braintree\Configuration::merchantId('n887h3wthpjvcqjh');
+// Braintree\Configuration::publicKey('dvjrk8sy53mmq2p5');
+// Braintree\Configuration::privateKey('3eefe6e70118b8bf1912e6b438fab9c8');
+// define('SUBSCRIPTION_PLAN_ID', 'm2gm');
 
 /* The function that creates the HTML on the front-end, based on the parameters
 * supplied in the product-catalog shortcode */
@@ -28,14 +35,31 @@ function Insert_Subscribe_Now($atts) {
         $User->User_ID));
     
     $user_id= $User->User_ID;
-    
+    $email = $User->user_email;
+    $phone = $User->Username;
+    $first_name = '';
+    $last_name = '';
+    if (is_object($UserData)){
+        $userdata = get_object_vars($UserData);
+        $first_name = $userdata["First Name"];
+        $last_name = $userdata["Last Name"];
+    }
+
     $output = '';
+    //If payment/subscription submitted
     if (isset($_POST["payment_method_nonce"])) {
         $nonce = $_POST["payment_method_nonce"];
-        $result = Braintree\Transaction::sale([
-            'amount' => '5',
-            'paymentMethodNonce' => $nonce,
-            'options' => ['submitForSettlement' => true]
+        $payment_method = Braintree\Customer::create([
+            'firstName' => $first_name,
+            'lastName' => $last_name,
+            'email' => $email,
+            'phone' => $phone,
+            'paymentMethodNonce' => $nonce
+        ]);
+
+        $result = Braintree\Subscription::create([
+            'paymentMethodToken' => $payment_method->customer->defaultPaymentMethod()->token,
+            'planId' => SUBSCRIPTION_PLAN_ID
         ]);
         if ($result->success) {
             $query = "UPDATE `wp_ewd_feup_users` SET `subscription`='active' WHERE User_ID = $user_id;";
@@ -72,7 +96,7 @@ function Insert_Subscribe_Now($atts) {
 
     $output = '<form id="checkout" method="post" action="/subscribe-now">
                   <div id="payment-form"></div>
-                  <input type="submit" value="Pay $5 Now">
+                  <input type="submit" value="Try It Now">
                 </form>
 
 <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
@@ -87,9 +111,7 @@ braintree.setup(clientToken, "dropin", {
 ';
 
 
-    echo $output;
-
-    return;
+    return  $output;
 
     $Custom_CSS = get_option("EWD_FEUP_Custom_CSS");
 

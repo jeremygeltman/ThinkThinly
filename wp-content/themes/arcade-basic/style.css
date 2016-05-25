@@ -4868,6 +4868,11 @@ button.close {
     visibility: hidden !important;
 }
 
+.page-id-64 .hidden{
+    display: inline-block !important;
+    visibility: visible !important; 
+}
+
 .affix {
     position: fixed;
 }
@@ -7146,8 +7151,9 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 }
 
 .pure-form-aligned .pure-control-group label{
-    width: 6em;
+    /* width: 6em;*/
     color:white;
+    font-weight: 200;
 }
 
 #ewd-feup-forgot-password-form-div{color:#FF6060;}
@@ -7167,6 +7173,16 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
 
 #ewd-feup-forgot-password-form-div .pure-form-aligned .pure-control-group .pure-input-1-3[name=user_name]{
     width: 23%;
+}
+
+
+
+.row-num-7 .pure-form select#ewd-feup-register-input-7{
+    border: 0;
+    height: 107px;
+    width: 300px;
+    font-size: 56px;
+    background: transparent;
 }
 
 
@@ -7219,7 +7235,8 @@ body.page-id-12 #user-form-container .pure-form select#ewd-feup-register-input-1
 .pure-form select{
     border: 0;
     height: 39px;
-    width:;
+    width:160px;
+    margin:0 0 0 10px;
 }
 
 .pure-form input[type=submit]{
@@ -7287,6 +7304,7 @@ body.page-id-12 #user-form-container .pure-form select#ewd-feup-register-input-1
 #user-form-container .pure-control-group {
     display: block;
     text-align: center;
+    margin:10px 0;
 }
 
 @media only screen and (max-width: 684px) {
@@ -7485,6 +7503,13 @@ button#add_membership img{
     float: none;
     display: block;
 }
+
+body.page-id-64 #ewd-feup-edit-profile-form{
+
+
+}
+
+
 
 /** //Brian added
 */

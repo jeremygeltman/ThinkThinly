@@ -21,14 +21,9 @@ function Insert_Edit_Times($atts)
     $print_field = function ($Field, $hidden = false) use ($Omitted_Fields, $UserData, &$ReturnString) {
         $display_label = $Field->Field_Name;
         if ($display_label == "Breakfast") {
-            $display_label = "Reminder 1";
+            $display_label = "Time you want a motivation boost";
         }
-        if ($display_label == "Lunch") {
-            $display_label = "Reminder 2";
-        }
-        if ($display_label == "Dinner") {
-            $display_label = "Reminder 3";
-        }
+
         if ($display_label == "Select your time zone") {
             $display_label = "Time Zone";
         }
@@ -51,7 +46,7 @@ function Insert_Edit_Times($atts)
             if ($Field->Field_Name == "I need the most help...") {
 //                $ReturnString .= '<hr/>';
             }
-            $ReturnString .= "<div class='pure-control-group " . ($hidden?"hidden":"") . "'>";
+            $ReturnString .= "<div class='row-num-" . $Field->Field_ID . " pure-control-group" . ($hidden?" hidden":"") . "'>";
             $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-" . $Field->Field_ID . "' class='ewd-feup-field-label'>" . __($display_label,
                                                                                                                                                       'EWD_FEUP') . ": </label>";
             if ($Field->Field_Type == "text" or $Field->Field_Type == "mediumint") {
@@ -105,7 +100,7 @@ function Insert_Edit_Times($atts)
                 $Options = explode(",", $Field->Field_Options);
                 foreach ($Options as $Option) {
                     if ($Counter != 0) {
-                        $ReturnString .= "</div><div class='pure-control-group ewd-feup-negative-top  " . ($hidden?"hidden":"") . "'><label class='pure-radio'></label>";
+                        $ReturnString .= "</div><div class='pure-control-group ewd-feup-negative-top  " . ($hidden?" hidden":"") . "'><label class='pure-radio'></label>";
                     }
                     $ReturnString .= "<input type='radio' name='" . $Field->Field_Name . "' value='" . $Option . "' class='ewd-feup-radio' " . $Req_Text . " ";
                     if (trim($Option) == trim($Value)) {
@@ -120,7 +115,7 @@ function Insert_Edit_Times($atts)
                 $Values  = explode(",", $Value);
                 foreach ($Options as $Option) {
                     if ($Counter != 0) {
-                        $ReturnString .= "</div><div class='pure-control-group ewd-feup-negative-top  " . ($hidden?"hidden":"") . "'><label class='pure-radio'></label>";
+                        $ReturnString .= "</div><div class='pure-control-group ewd-feup-negative-top  " . ($hidden?" hidden":"") . "'><label class='pure-radio'></label>";
                     }
                     $ReturnString .= "<input type='checkbox' name='" . $Field->Field_Name . "[]' value='" . $Option . "' class='ewd-feup-checkbox' " . $Req_Text . " ";
                     if (in_array($Option, $Values)) {
@@ -179,8 +174,8 @@ function Insert_Edit_Times($atts)
         $ReturnString .= $user_message['Message'];
     }
     $ReturnString .= "<form novalidate action='#' method='post' id='ewd-feup-edit-profile-form' class='pure-form pure-form-aligned' enctype='multipart/form-data'>";
-    $ReturnString .= "<input type='hidden' name='ewd-feup-check' value='" . sha1(md5($Time . $Salt)) . "'>";
-    $ReturnString .= "<input type='hidden' name='ewd-feup-time' value='" . $Time . "'>";
+  //  $ReturnString .= "<input type='hidden' name='ewd-feup-check' value='" . sha1(md5($Time . $Salt)) . "'>";
+  //  $ReturnString .= "<input type='hidden' name='ewd-feup-time' value='" . $Time . "'>";
     $ReturnString .= "<input type='hidden' name='ewd-feup-action' value='edit_reminder_times'>";
     //UserData: 0: Time zone; 1: OK to receive texts?; 2: Dinner; 3: Lunch; 4: Breakfast; 5: Phone; 6:Gender; 7: Last Name; 8 First Name: ; 9: I need the most help...; 10: Membership Expiry Date
     //Fields: 5: First Name; 0: Breakfast; 1: Lunch; 2: Dinner; 3: I need the most help...; 4: Select your time zone; 5: First Name; 6:Last Name; 7: Gender; 8: OK to receive texts?; 9: Phone;

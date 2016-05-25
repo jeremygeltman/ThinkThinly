@@ -152,8 +152,8 @@ function Insert_Edit_Profile($atts)
             if ($Field->Field_Name == "I need the most help...") {
                 $ReturnString .= '<hr/>';
             }
-            $ReturnString .= "<div class='pure-control-group'>";
-            $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-" . $Field->Field_ID . "' class='ewd-feup-field-label'>" . __($display_label,
+            $ReturnString .= "<div class='pure-control-group row-id-". $Field->Field_ID . "'>";
+            $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-. $Field->Field_IDclass='ewd-feup-field-label'>" . __($display_label,
                                                                                                                                                       'EWD_FEUP') . "</label>";
             if ($Field->Field_Type == "text" or $Field->Field_Type == "mediumint") {
                 $ReturnString .= "<input name='" . $Field->Field_Name . "' id='ewd-feup-register-input-" . $Field->Field_ID . "' class='ewd-feup-text-input pure-input-1-3' type='text' value='" . $Value . "' " . $Req_Text . "/>";

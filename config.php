@@ -13,7 +13,7 @@ function get_pay_with_paypal_url($user_id)
     $ch = curl_init();
 
 // set URL and other appropriate options
-    curl_setopt($ch, CURLOPT_URL, "http://thinkthinly.com/pp/billing/CreateBillingAgreementWithPayPal.php?user_id=" . $user_id);
+    curl_setopt($ch, CURLOPT_URL, "https://thinkthinly.com/pp/billing/CreateBillingAgreementWithPayPal.php?user_id=" . $user_id);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
@@ -37,7 +37,7 @@ function get_bit_ly_url($user_id)
     $ch = curl_init();
 
     curl_setopt($ch, CURLOPT_URL, BL_API_URL . "/v3/shorten" . "?" . http_build_query(['access_token' => BL_TOKEN,
-            'longUrl' => "http://thinkthinly.com/pp/pay_with_paypal.php?user_id=$user_id", 'format' => 'txt']));
+            'longUrl' => "https://thinkthinly.com/pp/pay_with_paypal.php?user_id=$user_id", 'format' => 'txt']));
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 

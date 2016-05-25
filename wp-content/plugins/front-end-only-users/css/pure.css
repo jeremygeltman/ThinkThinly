@@ -678,7 +678,7 @@ a.pure-button-selected {
     height: auto
 }
 .pure-form label {
-    margin: .5em 0 .2em
+    margin: .5em 0;
 }
 .pure-form fieldset {
     margin: 0;
@@ -730,15 +730,19 @@ a.pure-button-selected {
 .pure-form-aligned textarea {
     vertical-align: top
 }
+
+#ewd-feup-register-input-20{width:170px;}
+
+
 .pure-form-aligned .pure-control-group {
     margin-bottom: .5em
+    text-align: left;
 }
 .pure-form-aligned .pure-control-group label {
-    text-align: right;
+    text-align: left;
     display: inline-block;
     vertical-align: middle;
-    width: 10em;
-    margin: 0 1em 0 0
+    width: 17em; 
 }
 .pure-form-aligned .pure-controls {
     margin: 1.5em 0 0 10em
@@ -1133,7 +1137,4 @@ a.pure-button-selected {
 }
 
 
-#ewd-feup-edit-profile-form-div{
-
-
-}
+.page-id-588 #ewd-feup-edit-24{display: none;}

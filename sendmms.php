@@ -1,7 +1,7 @@
 <?php
 /** @var $wpdb */
 
-if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false){
+if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
     define('DEBUG_DONT_SEND_SMS', true);
 } else {
     define('DEBUG_DONT_SEND_SMS', false);
@@ -14,7 +14,7 @@ require_once('vendor/autoload.php');
 
 
 //check magic word
-if (! array_key_exists("secret_key", $_GET) || ($_GET['secret_key'] != 'e2e697afc5ebee779eb383238b95b92e')) {
+if (!array_key_exists("secret_key", $_GET) || ($_GET['secret_key'] != 'e2e697afc5ebee779eb383238b95b92e')) {
     mail('someids@gmail.com', "Improper request from thinkthinly.com", "Request from " . json_encode($_SERVER) . " POST is " . json_encode($_POST));
 
 //    echo "Improper request from thinkthinly.com", "Request from " . json_encode($_SERVER) . " GET is " . json_encode($_GET);
@@ -46,6 +46,8 @@ $time_est = clone $current_time;
 $time_mst = clone $current_time;
 $time_pst = clone $current_time;
 
+error_log("\nSendMMS being called at" . $time_pst->format('Y-m-d H:i:s') . " pst \n");
+
 $time_pst->setTimezone(new DateTimeZone('America/Los_Angeles'));
 $time_mst->setTimezone(new DateTimeZone('America/Denver'));
 $time_cst->setTimezone(new DateTimeZone('America/Chicago'));
@@ -59,10 +61,10 @@ $today = (new DateTime())->format('Y-m-d');
 
 $user_expired = $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Membership Expiry Date' and uf.Field_Value != '' and uf.Field_Value < '$today' ORDER BY u.User_ID DESC");
 
-$user_ids_cst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'CST'"));
-$user_ids_est = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'EST'"));
-$user_ids_mst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'MST'"));
-$user_ids_pst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` as u, `wp_ewd_feup_user_fields` as uf where u.User_ID = uf.User_ID and uf.Field_Name='Time zone' and uf.Field_Value = 'PST'"));
+$user_ids_cst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` AS u, `wp_ewd_feup_user_fields` AS uf WHERE u.User_ID = uf.User_ID AND uf.Field_Name='Time zone' AND uf.Field_Value = 'CST'"));
+$user_ids_est = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` AS u, `wp_ewd_feup_user_fields` AS uf WHERE u.User_ID = uf.User_ID AND uf.Field_Name='Time zone' AND uf.Field_Value = 'EST'"));
+$user_ids_mst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` AS u, `wp_ewd_feup_user_fields` AS uf WHERE u.User_ID = uf.User_ID AND uf.Field_Name='Time zone' AND uf.Field_Value = 'MST'"));
+$user_ids_pst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` AS u, `wp_ewd_feup_user_fields` AS uf WHERE u.User_ID = uf.User_ID AND uf.Field_Name='Time zone' AND uf.Field_Value = 'PST'"));
 
 $test_time = "12:00pm";
 if (DEBUG_DONT_SEND_SMS) {
@@ -73,24 +75,24 @@ if (DEBUG_DONT_SEND_SMS) {
 }
 
 $user_ids_cst_current = array();
-if (! empty($user_ids_cst)) {
+if (!empty($user_ids_cst)) {
     $user_ids_cst_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_cst) AND Field_Value = '$time_cst'");
 }
 $user_ids_est_current = array();
-if (! empty($user_ids_est)) {
+if (!empty($user_ids_est)) {
     $user_ids_est_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_est) AND Field_Value = '$time_est'");
 }
 $user_ids_mst_current = array();
-if (! empty($user_ids_mst)) {
+if (!empty($user_ids_mst)) {
     $user_ids_mst_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_mst) AND Field_Value = '$time_mst'");
 }
 $user_ids_pst_current = array();
-if (! empty($user_ids_pst)) {
+if (!empty($user_ids_pst)) {
     $user_ids_pst_current = $wpdb->get_col("SELECT User_ID FROM `wp_ewd_feup_user_fields` WHERE User_ID IN ($user_ids_pst) AND Field_Value = '$time_pst'");
 }
 $user_ids_all_current = array_merge($user_ids_cst_current, $user_ids_est_current, $user_ids_mst_current, $user_ids_pst_current);
 $user_ids_all_current = array_diff($user_ids_all_current, $user_expired);
-error_log("Pst cur:" . json_encode($user_ids_pst_current) . "Cst cur:" . json_encode($user_ids_cst_current) . "Est cur:" . json_encode($user_ids_est_current) . "Mst cur:" . json_encode($user_ids_mst_current) . ". Expired: ". json_encode($user_expired) . " \n", 0, $error_file_name);
+error_log("Pst cur:" . json_encode($user_ids_pst_current) . "Cst cur:" . json_encode($user_ids_cst_current) . "Est cur:" . json_encode($user_ids_est_current) . "Mst cur:" . json_encode($user_ids_mst_current) . ". Expired: " . json_encode($user_expired) . " \n", 0, $error_file_name);
 error_log("Sending mms. Time pst: " . $time_pst . " All users current: " . json_encode($user_ids_all_current) . "\n\n", 0, $error_file_name);
 
 if (empty($user_ids_all_current)) {
@@ -128,7 +130,7 @@ foreach ($users as $user) {
     $args = array(
         'post_type' => 'mms-template',
         'post_status' => 'publish',
-        'posts_per_page' => - 1,
+        'posts_per_page' => -1,
         'caller_get_posts' => 1,
         'tax_query' => array(
             'relation' => 'AND',
@@ -141,11 +143,11 @@ foreach ($users as $user) {
     );
     $my_query = new WP_Query($args);
     $posts = $my_query->posts;
-    usort($posts, function($a, $b){
+    usort($posts, function ($a, $b) {
         return $a->mms_order < $b->mms_order;
     });
     $num_of_posts = sizeof($posts);
-    $post_index = - 1;
+    $post_index = -1;
     $result = $wpdb->get_row("SELECT `message_index_sent` FROM wp_user_mms_sent WHERE user_id = $user_id LIMIT 1", ARRAY_A);
     if (isset($result['message_index_sent'])) {
         $post_index = $result['message_index_sent'];
@@ -165,19 +167,27 @@ foreach ($users as $user) {
         if (empty($post_to_send->post_excerpt)) {
             error_log("\nPost without excerpt: " . $post_to_send->ID . " user_id: $user_id\n", 0, $error_file_name);
         } else {
-            if (! empty($image[0])) {
-                $sms_sent = $client->account->messages->sendMessage(
-                    "+16194190679",
-                    $user_info['Phone'],
-                    $post_to_send->post_excerpt,
-                    array($image[0])
-                );
+            if (!empty($image[0])) {
+                try {
+                    $sms_sent = $client->account->messages->sendMessage(
+                        "+16194190679",
+                        $user_info['Phone'],
+                        $post_to_send->post_excerpt,
+                        array($image[0])
+                    );
+                } catch (Exception $e) {
+                    error_log("\nError sending mms through Twilio: " . $e->getMessage() . "\n");
+                }
             } else {
-                $sms_sent = $client->account->messages->sendMessage(
-                    "+16194190679",
-                    $user_info['Phone'],
-                    $post_to_send->post_excerpt
-                );
+                try {
+                    $sms_sent = $client->account->messages->sendMessage(
+                        "+16194190679",
+                        $user_info['Phone'],
+                        $post_to_send->post_excerpt
+                    );
+                } catch (Exception $e) {
+                    error_log("\nError sending mms through Twilio: " . $e->getMessage() . "\n");
+                }
             }
         }
     }
