@@ -1,7 +1,5 @@
-/vendor
-/error_log
-# Created by .ignore support plugin (hsz.mobi)
-### WordPress template
+vendor
+error_log
 *.log
 .htaccess
 sitemap.xml
@@ -16,8 +14,8 @@ wp-content/upgrade/
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 
-/readme.html
-/license.txt
+readme.html
+license.txt
 
 .idea
 

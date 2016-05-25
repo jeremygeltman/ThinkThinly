@@ -1,287 +1,191 @@
-<?php
+<?php 
 
 namespace PayPal\Api;
-
-use PayPal\Common\PayPalResourceModel;
+use PayPal\Rest\IResource;
+use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PayPalRestCall;
-use PayPal\Validation\ArgumentValidator;
 
 /**
- * Class Refund
- *
- * A refund transaction.
- *
- * @package PayPal\Api
- *
- * @property string id
- * @property string create_time
- * @property string update_time
- * @property \PayPal\Api\Amount amount
- * @property string state
- * @property string reason
- * @property string sale_id
- * @property string capture_id
- * @property string parent_payment
- * @property string description
- * @property \PayPal\Api\Links[] links
+ * 
  */
-class Refund extends PayPalResourceModel
-{
-    /**
-     * Identifier of the refund transaction in UTC ISO8601 format.
-     *
-     * @param string $id
-     * 
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
+class Refund extends Resource implements IResource {
 
-    /**
-     * Identifier of the refund transaction in UTC ISO8601 format.
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+	private static $credential;
+	
+	public static function setCredential($credential) {
+		self::$credential = $credential;
+	}
+	
+	/**
+	 * Setter for id
+	 * @param string $id
+	 */ 
+	public function setId($id) {
+		$this->id = $id;
+	}
 
-    /**
-     * Details including both refunded amount (to Payer) and refunded fee (to Payee).If amount is not specified, it's assumed to be full refund.
-     *
-     * @param \PayPal\Api\Amount $amount
-     * 
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-        return $this;
-    }
+	/**
+	 * Getter for id
+	 */ 
+	public function getId() {
+		return $this->id;
+	}
 
-    /**
-     * Details including both refunded amount (to Payer) and refunded fee (to Payee).If amount is not specified, it's assumed to be full refund.
-     *
-     * @return \PayPal\Api\Amount
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
+	/**
+	 * Setter for create_time
+	 * @param string $create_time
+	 */ 
+	public function setCreate_time($create_time) {
+		$this->create_time = $create_time;
+	}
 
-    /**
-     * State of the refund transaction.
-     * Valid Values: ["pending", "completed", "failed"]
-     *
-     * @param string $state
-     * 
-     * @return $this
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-        return $this;
-    }
+	/**
+	 * Getter for create_time
+	 */ 
+	public function getCreate_time() {
+		return $this->create_time;
+	}
 
-    /**
-     * State of the refund transaction.
-     *
-     * @return string
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
+	/**
+	 * Setter for update_time
+	 * @param string $update_time
+	 */ 
+	public function setUpdate_time($update_time) {
+		$this->update_time = $update_time;
+	}
 
-    /**
-     * Reason description for the Sale transaction being refunded.
-     *
-     * @param string $reason
-     * 
-     * @return $this
-     */
-    public function setReason($reason)
-    {
-        $this->reason = $reason;
-        return $this;
-    }
+	/**
+	 * Getter for update_time
+	 */ 
+	public function getUpdate_time() {
+		return $this->update_time;
+	}
 
-    /**
-     * Reason description for the Sale transaction being refunded.
-     *
-     * @return string
-     */
-    public function getReason()
-    {
-        return $this->reason;
-    }
+	/**
+	 * Setter for state
+	 * @param string $state
+	 */ 
+	public function setState($state) {
+		$this->state = $state;
+	}
 
-    /**
-     * ID of the Sale transaction being refunded. 
-     *
-     * @param string $sale_id
-     * 
-     * @return $this
-     */
-    public function setSaleId($sale_id)
-    {
-        $this->sale_id = $sale_id;
-        return $this;
-    }
+	/**
+	 * Getter for state
+	 */ 
+	public function getState() {
+		return $this->state;
+	}
 
-    /**
-     * ID of the Sale transaction being refunded. 
-     *
-     * @return string
-     */
-    public function getSaleId()
-    {
-        return $this->sale_id;
-    }
+	/**
+	 * Setter for amount
+	 * @param PayPal\Api\Amount $amount
+	 */ 
+	public function setAmount($amount) {
+		$this->amount = $amount;
+	}
 
-    /**
-     * ID of the Capture transaction being refunded. 
-     *
-     * @param string $capture_id
-     * 
-     * @return $this
-     */
-    public function setCaptureId($capture_id)
-    {
-        $this->capture_id = $capture_id;
-        return $this;
-    }
+	/**
+	 * Getter for amount
+	 */ 
+	public function getAmount() {
+		return $this->amount;
+	}
 
-    /**
-     * ID of the Capture transaction being refunded. 
-     *
-     * @return string
-     */
-    public function getCaptureId()
-    {
-        return $this->capture_id;
-    }
+	/**
+	 * Setter for sale_id
+	 * @param string $sale_id
+	 */ 
+	public function setSale_id($sale_id) {
+		$this->sale_id = $sale_id;
+	}
 
-    /**
-     * ID of the Payment resource that this transaction is based on.
-     *
-     * @param string $parent_payment
-     * 
-     * @return $this
-     */
-    public function setParentPayment($parent_payment)
-    {
-        $this->parent_payment = $parent_payment;
-        return $this;
-    }
+	/**
+	 * Getter for sale_id
+	 */ 
+	public function getSale_id() {
+		return $this->sale_id;
+	}
 
-    /**
-     * ID of the Payment resource that this transaction is based on.
-     *
-     * @return string
-     */
-    public function getParentPayment()
-    {
-        return $this->parent_payment;
-    }
+	/**
+	 * Setter for capture_id
+	 * @param string $capture_id
+	 */ 
+	public function setCapture_id($capture_id) {
+		$this->capture_id = $capture_id;
+	}
 
-    /**
-     * Description of what is being refunded for.
-     *
-     * @param string $description
-     * 
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-        return $this;
-    }
+	/**
+	 * Getter for capture_id
+	 */ 
+	public function getCapture_id() {
+		return $this->capture_id;
+	}
 
-    /**
-     * Description of what is being refunded for.
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+	/**
+	 * Setter for parent_payment
+	 * @param string $parent_payment
+	 */ 
+	public function setParent_payment($parent_payment) {
+		$this->parent_payment = $parent_payment;
+	}
 
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @param string $create_time
-     * 
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
+	/**
+	 * Getter for parent_payment
+	 */ 
+	public function getParent_payment() {
+		return $this->parent_payment;
+	}
 
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @return string
-     */
-    public function getCreateTime()
-    {
-        return $this->create_time;
-    }
+	/**
+	 * Setter for description
+	 * @param string $description
+	 */ 
+	public function setDescription($description) {
+		$this->description = $description;
+	}
 
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     *
-     * @param string $update_time
-     * 
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
+	/**
+	 * Getter for description
+	 */ 
+	public function getDescription() {
+		return $this->description;
+	}
 
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
+	/**
+	 * Setter for links
+	 * @param PayPal\Api\Link $links
+	 */ 
+	public function setLinks($links) {
+		$this->links = $links;
+	}
 
-    /**
-     * Retrieve details about a specific refund by passing the refund_id in the request URI.
-     *
-     * @param string $refundId
-     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
-     * @return Refund
-     */
-    public static function get($refundId, $apiContext = null, $restCall = null)
-    {
-        ArgumentValidator::validate($refundId, 'refundId');
-        $payLoad = "";
-        $json = self::executeCall(
-            "/v1/payments/refund/$refundId",
-            "GET",
-            $payLoad,
-            null,
-            $apiContext,
-            $restCall
-        );
-        $ret = new Refund();
-        $ret->fromJson($json);
-        return $ret;
-    }
+	/**
+	 * Getter for links
+	 */ 
+	public function getLinks() {
+		return $this->links;
+	}
+
+	
+	
+	/**
+	 * @path /v1/payments/refund/:refund-id
+	 * @method GET
+	 * @param string $refundid	  	 
+	 */
+	public static function get( $refundid) {
+		if (($refundid == null) || (strlen($refundid) <= 0)) {
+			throw new \InvalidArgumentException("refundid cannot be null or empty");
+		}
+		$payLoad = "";
+		
+		$apiContext = new ApiContext(self::$credential);		$call = new Call();		
+		$json = $call->execute("/v1/payments/refund/$refundid", "GET", $payLoad, $apiContext);
+		$ret = new Refund();
+		$ret->fromJson($json);
+		return $ret;
+ 		 		
+ 	}
+	
 
 }

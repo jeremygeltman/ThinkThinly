@@ -3,66 +3,34 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\FundingInstrument;
+use PayPal\Test\Constants;
 
-/**
- * Class FundingInstrument
- *
- * @package PayPal\Test\Api
- */
-class FundingInstrumentTest extends \PHPUnit_Framework_TestCase
-{
-    /**
-     * Gets Json String of Object FundingInstrument
-     * @return string
-     */
-    public static function getJson()
-    {
-        return '{"credit_card":' .CreditCardTest::getJson() . ',"credit_card_token":' .CreditCardTokenTest::getJson() . ',"payment_card":' .PaymentCardTest::getJson() . ',"payment_card_token":' .PaymentCardTokenTest::getJson() . ',"bank_account":' .ExtendedBankAccountTest::getJson() . ',"bank_account_token":' .BankTokenTest::getJson() . ',"credit":' .CreditTest::getJson() . '}';
-    }
+class FundingInstrumentTest extends \PHPUnit_Framework_TestCase {
 
-    /**
-     * Gets Object Instance with Json data filled in
-     * @return FundingInstrument
-     */
-    public static function getObject()
-    {
-        return new FundingInstrument(self::getJson());
-    }
+	private $fi;
 
+	public static function createFundingInstrument() {
+		$fi = new FundingInstrument();
+		$fi->setCredit_card(CreditCardTest::createCreditCard());
+		$fi->setCredit_card_token(CreditCardTokenTest::createCreditCardToken());
+		return $fi;
+	}
+	
+	public function setup() {
+		$this->fi = self::createFundingInstrument();
+	}
 
-    /**
-     * Tests for Serialization and Deserialization Issues
-     * @return FundingInstrument
-     */
-    public function testSerializationDeserialization()
-    {
-        $obj = new FundingInstrument(self::getJson());
-        $this->assertNotNull($obj);
-        $this->assertNotNull($obj->getCreditCard());
-        $this->assertNotNull($obj->getCreditCardToken());
-        $this->assertNotNull($obj->getPaymentCard());
-        $this->assertNotNull($obj->getPaymentCardToken());
-        $this->assertNotNull($obj->getBankAccount());
-        $this->assertNotNull($obj->getBankAccountToken());
-        $this->assertNotNull($obj->getCredit());
-        $this->assertEquals(self::getJson(), $obj->toJson());
-        return $obj;
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param FundingInstrument $obj
-     */
-    public function testGetters($obj)
-    {
-        $this->assertEquals($obj->getCreditCard(), CreditCardTest::getObject());
-        $this->assertEquals($obj->getCreditCardToken(), CreditCardTokenTest::getObject());
-        $this->assertEquals($obj->getPaymentCard(), PaymentCardTest::getObject());
-        $this->assertEquals($obj->getPaymentCardToken(), PaymentCardTokenTest::getObject());
-        $this->assertEquals($obj->getBankAccount(), ExtendedBankAccountTest::getObject());
-        $this->assertEquals($obj->getBankAccountToken(), BankTokenTest::getObject());
-        $this->assertEquals($obj->getCredit(), CreditTest::getObject());
-    }
-
-
+	public function testGetterSetter() {
+		$this->assertEquals(CreditCardTest::$cardNumber, $this->fi->getCredit_card()->getNumber());
+		$this->assertEquals(CreditCardTokenTest::$creditCardId, 
+				$this->fi->getCredit_card_token()->getCredit_card_id());
+	}
+	
+	public function testSerializeDeserialize() {
+		$fi1 = $this->fi;
+		
+		$fi2 = new FundingInstrument();
+		$fi2->fromJson($fi1->toJson());		
+		$this->assertEquals($fi1, $fi2);
+	}
 }

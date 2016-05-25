@@ -2,114 +2,95 @@
 
 // # Create payment using a saved credit card
 // This sample code demonstrates how you can process a 
-// Payment using a previously stored credit card token.
+// Payment using a previously saved credit card.
 // API used: /v1/payments/payment
 
-/** @var CreditCard $card */
-$card = require __DIR__ . '/../vault/CreateCreditCard.php';
+require __DIR__ . '/../bootstrap.php';
+use PayPal\Api\Address;
 use PayPal\Api\Amount;
 use PayPal\Api\CreditCard;
 use PayPal\Api\CreditCardToken;
-use PayPal\Api\Details;
-use PayPal\Api\FundingInstrument;
-use PayPal\Api\Item;
-use PayPal\Api\ItemList;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
+use PayPal\Api\FundingInstrument;
+use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
+use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Rest\ApiContext;
 
 // ### Credit card token
 // Saved credit card id from a previous call to
 // CreateCreditCard.php
+$creditCardId = 'CARD-5BT058015C739554AKE2GCEI';
 $creditCardToken = new CreditCardToken();
-$creditCardToken->setCreditCardId($card->getId());
+$creditCardToken->setCredit_card_id($creditCardId);
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
-// For stored credit card payments, set the CreditCardToken
-// field on this object.
+// Use a Payer ID (A unique identifier of the payer generated
+// and provided by the facilitator. This is required when
+// creating or using a tokenized funding instrument)
+// and the `CreditCardDetails`
 $fi = new FundingInstrument();
-$fi->setCreditCardToken($creditCardToken);
+$fi->setCredit_card_token($creditCardToken);
 
 // ### Payer
 // A resource representing a Payer that funds a payment
-// For stored credit card payments, set payment method
-// to 'credit_card'.
+// Use the List of `FundingInstrument` and the Payment Method
+// as 'credit_card'
 $payer = new Payer();
-$payer->setPaymentMethod("credit_card")
-    ->setFundingInstruments(array($fi));
-
-// ### Itemized information
-// (Optional) Lets you specify item wise
-// information
-$item1 = new Item();
-$item1->setName('Ground Coffee 40 oz')
-    ->setCurrency('USD')
-    ->setQuantity(1)
-    ->setPrice(7.5);
-$item2 = new Item();
-$item2->setName('Granola bars')
-    ->setCurrency('USD')
-    ->setQuantity(5)
-    ->setPrice(2);
-
-$itemList = new ItemList();
-$itemList->setItems(array($item1, $item2));
-
-// ### Additional payment details
-// Use this optional field to set additional
-// payment information such as tax, shipping
-// charges etc.
-$details = new Details();
-$details->setShipping(1.2)
-    ->setTax(1.3)
-    ->setSubtotal(17.5);
+$payer->setPayment_method("credit_card");
+$payer->setFunding_instruments(array($fi));
 
 // ### Amount
-// Lets you specify a payment amount.
-// You can also specify additional details
-// such as shipping, tax.
+// Let's you specify a payment amount.
 $amount = new Amount();
-$amount->setCurrency("USD")
-    ->setTotal(20)
-    ->setDetails($details);
+$amount->setCurrency("USD");
+$amount->setTotal("1.00");
 
 // ### Transaction
 // A transaction defines the contract of a
 // payment - what is the payment for and who
-// is fulfilling it. 
+// is fulfilling it. Transaction is created with
+// a `Payee` and `Amount` types
 $transaction = new Transaction();
-$transaction->setAmount($amount)
-    ->setItemList($itemList)
-    ->setDescription("Payment description")
-    ->setInvoiceNumber(uniqid());
+$transaction->setAmount($amount);
+$transaction->setDescription("This is the payment description.");
 
 // ### Payment
 // A Payment Resource; create one using
-// the above types and intent set to 'sale'
+// the above types and intent as 'sale'
 $payment = new Payment();
-$payment->setIntent("sale")
-    ->setPayer($payer)
-    ->setTransactions(array($transaction));
+$payment->setIntent("sale");
+$payment->setPayer($payer);
+$payment->setTransactions(array($transaction));
 
-
-// For Sample Purposes Only.
-$request = clone $payment;
+// ### Api Context
+// Pass in a `ApiContext` object to authenticate
+// the call and to send a unique request id
+// (that ensures idempotency). The SDK generates
+// a request id if you do not pass one explicitly.
+$apiContext = new ApiContext($cred, 'Request' . time());
 
 // ###Create Payment
-// Create a payment by calling the 'create' method
-// passing it a valid apiContext.
-// (See bootstrap.php for more on `ApiContext`)
-// The return object contains the state.
+// Create a payment by posting to the APIService
+// using a valid apiContext
+// The return object contains the status;
 try {
-    $payment->create($apiContext);
-} catch (Exception $ex) {
-    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Create Payment using Saved Card", "Payment", null, $request, $ex);
-    exit(1);
+	$payment->create($apiContext);
+} catch (\PPConnectionException $ex) {
+	echo "Exception: " . $ex->getMessage() . PHP_EOL;
+	var_dump($ex->getData());	
+	exit(1);
 }
-
-// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("Create Payment using Saved Card", "Payment", $payment->getId(), $request, $payment);
-
-return $card;
+?>
+<html>
+<body>
+	<div>
+		Created payment:
+		<?php echo $payment->getId();?>
+	</div>
+	<pre><?php var_dump($payment->toArray());?></pre>
+	<a href='../index.html'>Back</a>
+</body>
+</html>

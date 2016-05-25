@@ -1,71 +1,56 @@
 <?php
-
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Address;
+use PayPal\Test\Constants;
 
-/**
- * Class Address
- *
- * @package PayPal\Test\Api
- */
-class AddressTest extends \PHPUnit_Framework_TestCase
-{
-    /**
-     * Gets Json String of Object Address
-     * @return string
-     */
-    public static function getJson()
-    {
-        return '{"line1":"TestSample","line2":"TestSample","city":"TestSample","country_code":"TestSample","postal_code":"TestSample","state":"TestSample","phone":"TestSample","normalization_status":"TestSample","status":"TestSample"}';
-    }
+class AddressTest extends \PHPUnit_Framework_TestCase {
 
-    /**
-     * Gets Object Instance with Json data filled in
-     * @return Address
-     */
-    public static function getObject()
-    {
-        return new Address(self::getJson());
-    }
+	private $address;
 
+	public static $line1 = "3909 Witmer Road";
+	public static $line2 = "Niagara Falls";	
+	public static $city = "Niagara Falls";
+	public static $state = "NY";
+	public static $postalCode = "14305";
+	public static $countryCode = "US";
+	public static $phone = "716-298-1822";
+	public static $type = "Billing";
 
-    /**
-     * Tests for Serialization and Deserialization Issues
-     * @return Address
-     */
-    public function testSerializationDeserialization()
-    {
-        $obj = new Address(self::getJson());
-        $this->assertNotNull($obj);
-        $this->assertNotNull($obj->getLine1());
-        $this->assertNotNull($obj->getLine2());
-        $this->assertNotNull($obj->getCity());
-        $this->assertNotNull($obj->getCountryCode());
-        $this->assertNotNull($obj->getPostalCode());
-        $this->assertNotNull($obj->getState());
-        $this->assertNotNull($obj->getPhone());
-        $this->assertNotNull($obj->getNormalizationStatus());
-        $this->assertNotNull($obj->getStatus());
-        $this->assertEquals(self::getJson(), $obj->toJson());
-        return $obj;
-    }
+	public static function createAddress() {
+		$addr = new Address();
+		$addr->setLine1(self::$line1);
+		$addr->setLine2(self::$line2);
+		$addr->setCity(self::$city);
+		$addr->setState(self::$state);
+		$addr->setPostal_code(self::$postalCode);
+		$addr->setCountry_code(self::$countryCode);
+		$addr->setPhone(self::$phone);
+		$addr->setType(self::$type);
+		return $addr;
+	}
+	
+	public function setup() {
+		$this->address = self::createAddress();
+	}
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param Address $obj
-     */
-    public function testGetters($obj)
-    {
-        $this->assertEquals($obj->getLine1(), "TestSample");
-        $this->assertEquals($obj->getLine2(), "TestSample");
-        $this->assertEquals($obj->getCity(), "TestSample");
-        $this->assertEquals($obj->getCountryCode(), "TestSample");
-        $this->assertEquals($obj->getPostalCode(), "TestSample");
-        $this->assertEquals($obj->getState(), "TestSample");
-        $this->assertEquals($obj->getPhone(), "TestSample");
-        $this->assertEquals($obj->getNormalizationStatus(), "TestSample");
-        $this->assertEquals($obj->getStatus(), "TestSample");
-    }
-
+	public function testGetterSetter() {
+		$this->assertEquals(self::$line1, $this->address->getLine1());
+		$this->assertEquals(self::$line2, $this->address->getLine2());
+		$this->assertEquals(self::$city, $this->address->getCity());
+		$this->assertEquals(self::$state, $this->address->getState());
+		$this->assertEquals(self::$postalCode, $this->address->getPostal_code());
+		$this->assertEquals(self::$countryCode, $this->address->getCountry_code());
+		$this->assertEquals(self::$phone, $this->address->getPhone());
+		$this->assertEquals(self::$type, $this->address->getType());
+	}
+	
+	public function testSerializeDeserialize() {
+		$a1 = $this->address;
+		
+		$a2 = new Address();
+		$a2->fromJson($a1->toJson());
+		
+		$this->assertEquals($a1, $a2);
+	}
 }

@@ -6,25 +6,23 @@
 // using the Payments API.
 // API used: /v1/payments/sale/{sale-id}/refund
 
-/** @var Sale $sale */
-$sale = require 'GetSale.php';
-$saleId = $sale->getId();
-
+require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
 use PayPal\Api\Refund;
 use PayPal\Api\Sale;
+use PayPal\Rest\ApiContext;
 
-// ### Refund amount
-// Includes both the refunded amount (to Payer) 
-// and refunded fee (to Payee). Use the $amt->details
-// field to mention fees refund details.
+// ### Refund
+// Create a refund object indicating 
+// refund amount
 $amt = new Amount();
-$amt->setCurrency('USD')
-    ->setTotal(0.01);
+$amt->setCurrency('USD');
+$amt->setTotal('0.01');
 
-// ### Refund object
 $refund = new Refund();
 $refund->setAmount($amt);
+
+$saleId = '3RM92092UW5126232';
 
 // ###Sale
 // A sale transaction.
@@ -32,21 +30,26 @@ $refund->setAmount($amt);
 // given sale transaction id.
 $sale = new Sale();
 $sale->setId($saleId);
-try {
-    // Create a new apiContext object so we send a new
-    // PayPal-Request-Id (idempotency) header for this resource
-    $apiContext = getApiContext($clientId, $clientSecret);
 
-    // Refund the sale
-    // (See bootstrap.php for more on `ApiContext`)
-    $refundedSale = $sale->refund($refund, $apiContext);
-} catch (Exception $ex) {
-    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Refund Sale", "Sale", $refundedSale->getId(), $refund, $ex);
-    exit(1);
+// ### Api Context
+// Pass in a `ApiContext` object to authenticate 
+// the call and to send a unique request id 
+// (that ensures idempotency). The SDK generates
+// a request id if you do not pass one explicitly. 
+$apiContext = new ApiContext($cred, 'Request' . time());
+try {	
+	// Refund the sale
+	$sale->refund($refund, $apiContext);
+} catch (\PPConnectionException $ex) {
+	echo "Exception:" . $ex->getMessage() . PHP_EOL;
+	var_dump($ex->getData());
+	exit(1);
 }
-
-// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("Refund Sale", "Sale", $refundedSale->getId(), $refund, $refundedSale);
-
-return $refundedSale;
+?>
+<html>
+<body>
+	<div>Refunding sale id: <?php echo $saleId;?></div>
+	<pre><?php var_dump($sale);?></pre>
+	<a href='../index.html'>Back</a>
+</body>
+</html>

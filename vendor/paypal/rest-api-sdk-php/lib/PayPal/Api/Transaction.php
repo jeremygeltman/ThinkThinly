@@ -1,64 +1,87 @@
-<?php
+<?php 
 
 namespace PayPal\Api;
 
 /**
- * Class Transaction
- *
- * A transaction defines the contract of a payment - what is the payment for and who is fulfilling it.
- *
- * @package PayPal\Api
- *
- * @property string purchase_unit_reference_id
- * @property Transaction transactions
+ * 
  */
-class Transaction extends TransactionBase
-{
-    /**
-     * Additional transactions for complex payment scenarios.
-     *
-     *
-     * @param self $transactions
-     *
-     * @return $this
-     */
-    public function setTransactions($transactions)
-    {
-        $this->transactions = $transactions;
-        return $this;
-    }
+class Transaction extends Resource {
 
-    /**
-     * Additional transactions for complex payment scenarios.
-     *
-     * @return self[]
-     */
-    public function getTransactions()
-    {
-        return $this->transactions;
-    }
 
-    /**
-     * Identifier to the purchase unit corresponding to this sale transaction
-     *
-     * @param string $purchase_unit_reference_id
-     *
-     * @return $this
-     */
-    public function setPurchaseUnitReferenceId($purchase_unit_reference_id)
-    {
-        $this->purchase_unit_reference_id = $purchase_unit_reference_id;
-        return $this;
-    }
+	/**
+	 * Setter for amount
+	 * @param PayPal\Api\Amount $amount
+	 */ 
+	public function setAmount($amount) {
+		$this->amount = $amount;
+	}
 
-    /**
-     * Identifier to the purchase unit corresponding to this sale transaction
-     *
-     * @return string
-     */
-    public function getPurchaseUnitReferenceId()
-    {
-        return $this->purchase_unit_reference_id;
-    }
+	/**
+	 * Getter for amount
+	 */ 
+	public function getAmount() {
+		return $this->amount;
+	}
+
+	/**
+	 * Setter for payee
+	 * @param PayPal\Api\Payee $payee
+	 */ 
+	public function setPayee($payee) {
+		$this->payee = $payee;
+	}
+
+	/**
+	 * Getter for payee
+	 */ 
+	public function getPayee() {
+		return $this->payee;
+	}
+
+	/**
+	 * Setter for description
+	 * @param string $description
+	 */ 
+	public function setDescription($description) {
+		$this->description = $description;
+	}
+
+	/**
+	 * Getter for description
+	 */ 
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * Setter for item_list
+	 * @param PayPal\Api\ItemList $item_list
+	 */ 
+	public function setItem_list($item_list) {
+		$this->item_list = $item_list;
+	}
+
+	/**
+	 * Getter for item_list
+	 */ 
+	public function getItem_list() {
+		return $this->item_list;
+	}
+
+	/**
+	 * Setter for related_resources
+	 * @param PayPal\Api\SubTransaction $related_resources
+	 */ 
+	public function setRelated_resources($related_resources) {
+		$this->related_resources = $related_resources;
+	}
+
+	/**
+	 * Getter for related_resources
+	 */ 
+	public function getRelated_resources() {
+		return $this->related_resources;
+	}
+
 
 }
