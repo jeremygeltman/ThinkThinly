@@ -184,8 +184,25 @@ function Insert_Edit_Account_Form($atts)
     $ReturnString .= "<input type='hidden' name='ewd-feup-time' value='" . $Time . "'>";
     $ReturnString .= "<input type='hidden' name='ewd-feup-action' value='edit_account_info'>";
     //UserDate: 0: Time zone; 1: OK to receive texts?; 2: Dinner; 3: Lunch; 4: Breakfast; 5: Phone; 6:Gender; 7: Last Name; 8 First Name: ; 9: I need the most help...; 10: Membership Expiry Date
-    $first_name = $UserData[10]->Field_Value;
-    $last_name = $UserData[9]->Field_Value;
+
+    $first_name = array_filter($UserData, function ($v) {
+        return $v->Field_Name == "First Name";
+    });
+    if (count($first_name) == 1){
+        $first_name = array_pop($first_name);
+        $first_name = $first_name->Field_Value;
+    } else {
+        $first_name = '';
+    }
+    $last_name = array_filter($UserData, function ($v) {
+        return $v->Field_Name == "Last Name";
+    });
+    if (count($last_name) == 1){
+        $last_name = array_pop($last_name);
+        $last_name = $last_name->Field_Value;
+    } else {
+        $last_name = '';
+    }
     $email = $User->user_email;
     $ReturnString .=
 <<<HTML

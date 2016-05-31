@@ -7347,7 +7347,7 @@ body.page-id-12 #user-form-container .pure-form select#ewd-feup-register-input-1
 }
 
 
-ewd-feup-text-input
+/* ewd-feup-text-input */
 
 
 .home .main-navigation li#menu-item-382,
@@ -7504,9 +7504,8 @@ button#add_membership img{
     display: block;
 }
 
-body.page-id-64 #ewd-feup-edit-profile-form{
-
-
+body.page-id-588 #ewd-feup-edit-21{
+    display: none !important;
 }
 
 

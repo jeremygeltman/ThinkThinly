@@ -759,8 +759,11 @@ function Edit_Your_Settings_User()
             }
             //Custom code end
 
-            //only update needed fields:
-            $Additional_Fields_Array = array_intersect_key($Additional_Fields_Array, array_flip(array('Breakfast', 'Lunch', 'Dinner', 'Time zone', 'First Name', 'Last Name')));
+            //don't allow user to update:
+            foreach (array('Membership Expiry Date', 'Time zone', 'OK to receive texts?', 'Gender', 'First Name', 'Last Name', 'Phone') as $key){
+                unset($Additional_Fields_Array[$key]);
+            }
+            // $Additional_Fields_Array = array_intersect_key($Additional_Fields_Array, array_flip(array('Breakfast', 'Lunch', 'Dinner', 'Time zone', 'First Name', 'Last Name')));
 
             foreach ($Additional_Fields_Array as $Field) {
                 $CurrentField = $wpdb->get_row($wpdb->prepare("SELECT User_Field_ID FROM $ewd_feup_user_fields_table_name WHERE Field_ID='%d' AND User_ID='%d'",
