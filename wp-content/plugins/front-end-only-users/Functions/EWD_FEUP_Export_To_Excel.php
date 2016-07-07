@@ -17,8 +17,9 @@ function EWD_FEUP_Export_To_Excel() {
 	$objPHPExcel->getActiveSheet()->setCellValue("A1", "Username");
 	$objPHPExcel->getActiveSheet()->setCellValue("B1", "Date Created");
 	$objPHPExcel->getActiveSheet()->setCellValue("C1", "Last Login");
-		
-	$column = 'D';
+	$objPHPExcel->getActiveSheet()->setCellValue("D1", "Email");
+
+	$column = 'E';
 
 	if ($Admin_Approval == "Yes") {
 		$objPHPExcel->getActiveSheet()->setCellValue($column . "1", "Admin Approved");
@@ -45,8 +46,9 @@ function EWD_FEUP_Export_To_Excel() {
     	$objPHPExcel->getActiveSheet()->setCellValue("A" . $rowCount, $User->Username);
 		$objPHPExcel->getActiveSheet()->setCellValue("B" . $rowCount, $User->User_Date_Created);
 		$objPHPExcel->getActiveSheet()->setCellValue("C" . $rowCount, $User->User_Last_Login);
+		$objPHPExcel->getActiveSheet()->setCellValue("D" . $rowCount, $User->user_email);
 
-		$column = 'D';
+		$column = 'E';
 
 		if ($Admin_Approval == "Yes") {
 			$objPHPExcel->getActiveSheet()->setCellValue($column . $rowCount, $User->User_Admin_Approved);
@@ -66,7 +68,7 @@ function EWD_FEUP_Export_To_Excel() {
 	} 
 
 
-	// Redirect output to a client’s web browser (Excel5) 
+	// Redirect output to a clientï¿½s web browser (Excel5) 
 	header('Content-Type: application/vnd.ms-excel'); 
 	header('Content-Disposition: attachment;filename="FEUP_Users_Export.xls"'); 
 	header('Cache-Control: max-age=0'); 

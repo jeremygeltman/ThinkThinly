@@ -2,6 +2,10 @@
 
 require_once(dirname(dirname(dirname(dirname(__DIR__)))) . DIRECTORY_SEPARATOR . "vendor/autoload.php");
 
+function call_send_signup_mms($uid){
+    error_log("uid: $uid, file: ". __FILE__. "line: ". __LINE__. "function: ". __FUNCTION__);
+    exec("nohup php-cli -f /home/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendsignupmms.php $uid >/dev/null 2>/dev/null &");
+}
 
 function Generate_Password($plainPassword = null)
 {
@@ -19,6 +23,7 @@ function Generate_Password($plainPassword = null)
 /* Prepare the data to add or edit a single product */
 function Add_Edit_User()
 {
+
     global $wpdb, $feup_success, $ewd_feup_fields_table_name, $ewd_feup_user_fields_table_name, $ewd_feup_user_table_name;
     $Salt               = get_option("EWD_FEUP_Hash_Salt");
     $Sign_Up_Email      = get_option("EWD_FEUP_Sign_Up_Email");
@@ -368,7 +373,7 @@ function Add_Edit_User()
             if (isset($result[0]->User_ID)) {
                 global $uid;
                 $uid = $result[0]->User_ID;
-                include_once(dirname(dirname(dirname(dirname(__FILE__)))) . '/themes/arcade-basic/sendsignupmms.php');
+                call_send_signup_mms($uid);
             }
         } else {
             session_start();
@@ -571,7 +576,7 @@ function Edit_Reminder_Times_User()
             if (isset($result[0]->User_ID)) {
                 global $uid;
                 $uid = $result[0]->User_ID;
-                include_once(dirname(dirname(dirname(dirname(__FILE__)))) . '/themes/arcade-basic/sendsignupmms.php');
+                call_send_signup_mms($uid);
             }
         } else {
             session_start();
@@ -792,7 +797,7 @@ function Edit_Your_Settings_User()
             if (isset($result[0]->User_ID)) {
                 global $uid;
                 $uid = $result[0]->User_ID;
-                include_once(dirname(dirname(dirname(dirname(__FILE__)))) . '/themes/arcade-basic/sendsignupmms.php');
+                call_send_signup_mms($uid);
             }
         } else {
             session_start();
@@ -1159,7 +1164,7 @@ function Edit_Account_Info_User()
             if (isset($result[0]->User_ID)) {
                 global $uid;
                 $uid = $result[0]->User_ID;
-                include_once(dirname(dirname(dirname(dirname(__FILE__)))) . '/themes/arcade-basic/sendsignupmms.php');
+                call_send_signup_mms($uid);
             }
         } else {
             session_start();
@@ -1265,6 +1270,8 @@ function EWD_FEUP_Send_Email($User_Fields, $Additional_Fields_Array, $User_ID = 
 
 function Handle_File_Upload($Field_Name)
 {
+    $error = '';
+    $msg = '';
 
     /* Test if there is an error with the uploaded file and return that error if there is */
     if (! empty($_FILES[$Field_Name]['error'])) {

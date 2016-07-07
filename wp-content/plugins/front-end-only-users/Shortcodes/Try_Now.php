@@ -82,8 +82,8 @@ HTML;
                                                                                                   required=""></div>
         <div class="pure-control-group"><label for="Gender" id="ewd-feup-register-11" class="ewd-feup-field-label" required>Gender: </label><select
                 name="Gender" id="ewd-feup-register-input-11" class="ewd-feup-select pure-input-1-3" required>
-                <!--<option value="">Gender</option> -->
-                <option value="Female" selected>Female</option>
+                <option value="Female" selected>- Gender -</option> 
+                <option value="Female" >Female</option>
                 <option value="Male">Male</option>
                 <!--<option value="Other">Other</option>-->
             </select></div>
@@ -132,7 +132,7 @@ HTML;
 
 
         <?php
-        $ReturnString .= "<span class='ipad_fix'></span><div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Register_Submit' value='" . "Try it now" . "'></div>";
+        $ReturnString .= "<span class='ipad_fix'></span><div class='pure-control-group'><label for='submit'></label><input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Register_Submit' value='" . "Send" . "'></div>";
         $ReturnString .= "</form>";
         $ReturnString .= '                        <div class="terms_cond">
                             I accept the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>

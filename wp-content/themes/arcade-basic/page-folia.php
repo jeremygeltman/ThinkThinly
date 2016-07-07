@@ -51,49 +51,49 @@
     </section>
     
     
-    <section id="layout1-features">
-    	<div class="container">
-    		<div class="row">
-    			
-    			<div class="col-sm-4 feature-item">
-					<div class="feature-wrapper clearfix">
-						<div class="feature-icon"><img src="<?php bloginfo('template_directory');?>/folia/img/feature-icon-alarm.png" /></div>
-						<div class="text-container pull-left">
-							<h3><span class="number">1.</span> Pick your reminder times</h3>
-							<p>Tell us when you need a boost.</p>
+   
+    <section id="layout1-z-layout1">
+		<div class="container">
+			<div class="row">
+
+
+					<h1>Pictures Worth 1,000 Calories</h1>
+
+				<div class="col-lg-6 col-sm-6 clearfix">
+					<div class="iphone-container">
+						<div class="iphone-screen">
+							<div id="animated-gif"></div>
+							<div class="clear"></div>
+							<div class="from-them">
+								<p>You can do this!!  Get the body you want, one crunch at a time.</p>
+							</div>
+								<div class="clear"></div>
+							</div>
 						</div>
-					</div>
-				</div>
+					</div>		
+
+				
+				<div class="col-lg-6 col-sm-6 text-wrapper">
+					
 			
-    			<div class="col-sm-4 feature-item">
-					<div class="feature-wrapper clearfix">
-						
+					
+                    <p><strong>You want to get fit.</strong> You join a gym and even go for a few weeks.  But then the drive to get fit fades.</p>
+
+                    <p><strong>Sound familiar?</strong> ThinkThinly can help motivate you  - to stay present, to keep going, to get fit and to feel amazing.  By sending you text message motivation exactly when you need it, we help you choose getting fit over making excuses.</p>
+
+                    <p><strong>Many studies</strong>, including <a href="http://www.sciencedirect.com/science/article/pii/S1469029211001427" target="_blank">this one</a> and <a href="http://psp.sagepub.com/content/31/5/610.short" target="_blank">this one</a>, show how seeing imagery of exercising can help motivate you to exercise.</p>
+			
+					<a href="" id="more-site" class="button btn btn-default btn-lg" data-scroll-to="0">Free sign up</a>
+					
+				</div>
+				
 
 
-						<div class="feature-icon"><img src="<?php bloginfo('template_directory');?>/folia/img/feature-icon-heart-message.png" /></div>
 
-
-
-						<div class="text-container pull-left">
-							<h3><span class="number">2.</span> Get motivational picture texts</h3>
-							<p>We’ll text you photos that will make you want to choose to sweat instead of sit.</p>
-						</div>
 					</div>
 				</div>
+</section>
 
-				<div class="col-sm-4 feature-item">
-					<div class="feature-wrapper clearfix">
-						<div class="feature-icon"><img src="<?php bloginfo('template_directory');?>/folia/img/feature-icon-happy.png" /></div>
-						<div class="text-container pull-left">
-							<h3><span class="number">3.</span> Get fit finally</h3>
-							<p>Get buff and make your friends jealous. For real this time.</p>
-						</div>
-					</div>
-				</div>
-    			
-    		</div>
-    	</div>
-    </section>
     
 
 
@@ -111,13 +111,13 @@
 							
 							<li class="testi-slide">
 								<a href=""><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/05/Steph-round-headshot-pic.png" alt="" /></a>
-								<p> “I finally lost that last 10 pounds of baby weight with ThinkThinly. It was like a motivational coach with me all day.”</p>
+								<p> “ThinkThinly is often the boost I need to get me to the gym.  It probably makes the difference a few times a week.”</p>
 								<span>Sara, 34, San Diego</span>
 							</li>
 							
 							<li class="testi-slide">
 								<a href=""><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/05/Anna-Long-headshot-round.png" alt="" /></a>
-								<p> “ThinkThinly is often the boost I need to get me to the gym.  It probably makes the difference a few times a week.”</p>
+								<p> “I finally lost that last 10 pounds of baby weight with ThinkThinly. It's motivation, in my pocket, exactly when I need it!.”</p>
 								<span>Molly, 42, Albuquerque</span>
 							</li>
 							
@@ -128,34 +128,50 @@
 			</div>
 		</div>
 
-
-    
-    <section id="layout1-z-layout1">
-		<div class="container">
-			<div class="row">
-				
-				<div class="col-lg-6 col-sm-6 text-wrapper">
-					
-					<h2>Pictures Worth 1,000 Calories</h2>
-					
-					<!-- <span class="subtitle">Just o make your brand with he latest trends</span> -->
-					
-					<p>You're great sticking to your no-carb-Mediterranean-vegan-paleo-real-food diet but when 5:30 hits and you can head home or to the gym, you want to just go easy.  We get it.</p>
-
-                    <p>Imagine if right at the moment you were about to cave you got a text with a photo reminding you of how you can choose to feel.  Would it push you off the ledge of the couch?  Science says it will.  And science knows everything.</p>
-					
-					<a href="" id="more-site" class="button btn btn-default btn-lg" data-scroll-to="0">Free sign up</a>
-					
+  <section id="layout1-features">
+    	<div class="container">
+    		<div class="row">
+    			
+    			<div class="col-sm-4 feature-item">
+					<div class="feature-wrapper clearfix">
+						<div class="feature-icon"><img src="<?php bloginfo('template_directory');?>/folia/img/feature-icon-alarm.png" /></div>
+						<div class="text-container pull-left">
+							<h3><span class="number">1.</span> Pick your reminder times</h3>
+							<p>Tell us what time you'll need a boost.</p>
+						</div>
+					</div>
 				</div>
-				
-				<div class="col-lg-6 col-sm-6 clearfix">
-					<a href=""><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/06/1000-calories-pic.png" class="img-responsive pull-right" alt="" /></a>	
-				</div>
-				
-			</div>
-		</div>
-	</section>
+			
+    			<div class="col-sm-4 feature-item">
+					<div class="feature-wrapper clearfix">
+						
 
+
+						<div class="feature-icon"><img src="<?php bloginfo('template_directory');?>/folia/img/feature-icon-heart-message.png" /></div>
+
+
+
+						<div class="text-container pull-left">
+							<h3><span class="number">2.</span> Get motivational picture texts</h3>
+							<p>We’ll send motivation by text message so you can stay focused your fitness goals.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4 feature-item">
+					<div class="feature-wrapper clearfix">
+						<div class="feature-icon"><img src="<?php bloginfo('template_directory');?>/folia/img/feature-icon-happy.png" /></div>
+						<div class="text-container pull-left">
+							<h3><span class="number">3.</span> Get motivated to get fit</h3>
+							<p>Look and feel amazing.  Rinse and repeat.</p>
+						</div>
+					</div>
+				</div>
+    			
+    		</div>
+    	</div>
+    </section>
+   
 
 	
 		
@@ -170,18 +186,17 @@
 				<div class="col-sm-6">
 					
 					<h2>Get motivated to go further</h2>
-					<span class="subtitle">Get a test message right now so you can see if this is for you.</span>
-					<!-- <p>You don't need to enter any payment information.  Get a test message now to see what this is all about.</p> -->
+					<span class="subtitle">Motivational text messages sent at your workout times</span>
 					
 				</div>
 				
 				<div class="col-sm-6 col-md-5 col-md-offset-1">
 					<form action="#" novalidate="novalidate">
 						
-						<h4>Try it now</h4>
+						<h4>Get a free message now</h4>
 						<input type="text" name="subscribe_phone" class="form-control" placeholder="Phone">
                         <select id="ewd-feup-register-input-11" name="subscribe_gender" class="ewd-feup-select pure-input-1-3" required="">
-                           <!-- <option value="">Gender</option>-->
+                            <option value="">Your Gender</option>
                             <option value="Female" selected>Female</option>
                             <option value="Male">Male</option>
                             <!--<option value="Other">Other</option> -->
@@ -192,7 +207,7 @@
 
 						<div class="holder clearfix">
 							<!-- <span class="pull-left">* we are note spammers <br>Read Privacy for more information</span> -->
-							<button class="btn btn-default" id="subscribe_btn" type="button">Try it out</button>
+							<button class="btn btn-default" id="subscribe_btn" type="button">Send</button>
 						</div>
 						
 					</form>

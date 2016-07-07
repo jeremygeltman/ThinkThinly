@@ -1,4 +1,4 @@
-<?php 
+<?php
 		$Admin_Approval = get_option("EWD_FEUP_Admin_Approval");
 		$Username_Is_Email = get_option("EWD_FEUP_Username_Is_Email");
 ?>
@@ -9,13 +9,13 @@
 <?php wp_nonce_field(); ?>
 <?php wp_referer_field(); ?>
 
-<?php 
+<?php
 	if (isset($_GET['Page'])) {$Page = $_GET['Page'];}
 	else {$Page = 1;}
-			
+
 	$Fields = $wpdb->get_results("SELECT * FROM $ewd_feup_fields_table_name WHERE Field_Show_In_Admin='Yes'");
-	$AllFields = $wpdb->get_results("SELECT * FROM $ewd_feup_fields_table_name"); 
-			
+	$AllFields = $wpdb->get_results("SELECT * FROM $ewd_feup_fields_table_name");
+
 	$Sql = "SELECT * FROM $ewd_feup_user_table_name ";
 	if (isset($_POST['UserSearchValue']) and $_POST['UserSearchField'] == "Username") {
 		$Sql .= "WHERE " . $_POST['UserSearchField'] . " ";
@@ -39,12 +39,12 @@
 	$UserCount = $wpdb->num_rows;
 ?>
 
-<form action="admin.php?page=EWD-FEUP-options&Action=EWD_FEUP_MassUserAction&DisplayPage=Users" method="post"> 
+<form action="admin.php?page=EWD-FEUP-options&Action=EWD_FEUP_MassUserAction&DisplayPage=Users" method="post">
 <p class="search-box">
 	<label class="screen-reader-text" for="post-search-input">Search Users:</label>
 	<select name='UserSearchField' class='ewd-admin-select-search'>
 		<option value='Username'>Username</option>
-		<?php 
+		<?php
 			foreach ($AllFields as $Field) {
 				echo "<option value='" . $Field->Field_ID . "'>" . $Field->Field_Name . "</option>";
 			}
@@ -56,7 +56,7 @@
 	</select>
 	<input type="search" id="post-search-input" name="UserSearchValue" value="">
 	<input type="submit" name="" id="search-submit" class="button" value="Search Users">
-</p>   
+</p>
 <div class="tablenav top">
 	<div class="alignleft actions">
 		<select name='action'>
@@ -64,11 +64,11 @@
 			<option value='delete'><?php _e("Delete", 'EWD_FEUP') ?></option>
 			<option value='approve'><?php _e("Approve", 'EWD_FEUP') ?></option>
 			<option value='0'>Level: None (0)</option>
-			<?php 
+			<?php
 				$Levels = $wpdb->get_results("SELECT * FROM $ewd_feup_levels_table_name");
 				if (is_array($Levels)) {
 					foreach ($Levels as $Level) {
-						echo "<option value='" . $Level->Level_ID . "'>Level: " . $Level->Level_Name . " (" . $Level->Level_Privilege . ")</option>"; 
+						echo "<option value='" . $Level->Level_ID . "'>Level: " . $Level->Level_Name . " (" . $Level->Level_Privilege . ")</option>";
 					}
 				}
 			?>
@@ -96,6 +96,9 @@
 			</th>
 			<th scope='col' class='manage-column column-cb check-column'  style="">
 				<span>Username</span>
+			</th>
+			<th  style="">
+				<span>Email</span>
 			</th>
 			<?php if ($Admin_Approval == "Yes") { ?>
 				<?php if ($_GET['OrderBy'] == "User_Admin_Approved" and $_GET['Order'] == "ASC") {$Order = "DESC";}
@@ -142,6 +145,9 @@
 			<th scope='col' class='manage-column column-cb check-column'  style="">
 				<span>Username</span>
 			</th>
+			<th scope='col' class=''  style="">
+				<span>Email  </span>
+			</th>
 			<?php if ($Admin_Approval == "Yes") { ?>
 				<?php if ($_GET['OrderBy'] == "User_Admin_Approved" and $_GET['Order'] == "ASC") {$Order = "DESC";}
 					  else {$Order = "ASC";} ?>
@@ -180,9 +186,9 @@
 	</tfoot>
 
 	<tbody id="the-list" class='list:tag'>
-		
+
 	<?php
-		if ($myrows) { 
+		if ($myrows) {
 	  		foreach ($myrows as $User) {
 				$FieldCount = 0;
 				echo "<tr id='User" . $User->User_ID ."'>";
@@ -191,12 +197,13 @@
 				echo "</th>";
 				$Username = $wpdb->get_var("SELECT Username FROM $ewd_feup_user_table_name WHERE User_ID='" . $User->User_ID . "'");
 				echo "<td class='username column-name'>" . $Username . "</td>";
+				echo "<td class='email'>" . $User->user_email . "</td>";
 				if ($Admin_Approval == "Yes") {
 					echo "<td class='name column-name'>";
 					echo $User->User_Admin_Approved;
 					echo "</td>";
 				}
-				foreach ($Fields as $Field) { 
+				foreach ($Fields as $Field) {
 					$User_Info = $wpdb->get_row($wpdb->prepare("SELECT Field_Value FROM $ewd_feup_user_fields_table_name WHERE User_ID='%d' and Field_Name='%s'", $User->User_ID, $Field->Field_Name));
 					echo "<td class='name column-name'>";
 					if ($FieldCount == 0) {
@@ -215,7 +222,7 @@
 		 				echo "</span>";
 						echo "</div>";
 						echo "<div class='hidden' id='inline_" . $User->User_ID ."'>";
-					}												
+					}
 					echo "</td>";
 					$FieldCount++;
 				}
@@ -261,7 +268,7 @@
 
 <div class="form-wrap">
 <h2><?php _e("Add New User", 'EWD_FEUP') ?></h2>
-<?php 
+<?php
 $Fields = $AllFields;
 $Levels = $wpdb->get_results("SELECT * FROM $ewd_feup_levels_table_name ORDER BY Level_Privilege ASC");
 ?>
@@ -286,7 +293,7 @@ $Levels = $wpdb->get_results("SELECT * FROM $ewd_feup_levels_table_name ORDER BY
 <option value='0'>None (0)</option>
 <?php foreach ($Levels as $Level) {
 		echo "<option value='" . $Level->Level_ID . "'>" . $Level->Level_Name . " (" . $Level->Level_Privilege . ")</option>";
-}?> 
+}?>
 </select>
 <?php if ($Admin_Approval == "Yes") { ?>
 	<label for='Admin Approved' id='ewd-feup-register-admin-approved-div' class='ewd-feup-field-label'><?php _e('Admin Approved', 'EWD_FEUP');?>: </label>
@@ -345,4 +352,4 @@ $Levels = $wpdb->get_results("SELECT * FROM $ewd_feup_levels_table_name ORDER BY
 <?php } ?>
 
 </div>
-</div>		
+</div>

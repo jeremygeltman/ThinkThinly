@@ -20,7 +20,7 @@ function Insert_Edit_Times($atts)
     $print_field = function ($Field, $hidden = false) use ($Omitted_Fields, $UserData, &$ReturnString) {
         $display_label = $Field->Field_Name;
         if ($display_label == "Breakfast") {
-            $display_label = "Time you want a motivation boost";
+            $display_label = "What time do you want a motivation boost?";
         }
         if ($display_label == "Select your time zone") {
             $display_label = "Time Zone";

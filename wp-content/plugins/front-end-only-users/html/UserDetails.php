@@ -11,13 +11,14 @@
 			<a href="admin.php?page=EWD-FEUP-options&DisplayPage=Users" class="NoUnderline">&#171; <?php _e("Back", 'EWD_FEUP') ?></a>
 			<h2><?php _e("Edit User", 'EWD_FEUP'); ?>: <?php echo($UserAdmin->Username); ?></h2>
 			<?php $Fields = $wpdb->get_results("SELECT * FROM $ewd_feup_fields_table_name"); ?>
+			<label for="user_email">Email</label><input name="user_email" disabled="disabled" value="<?= $UserAdmin->user_email ?>">
 			<!-- Form to update a user -->
 			<form id="addtag" method="post" action="admin.php?page=EWD-FEUP-options&Action=EWD_FEUP_EditUser&DisplayPage=Users" class="validate" enctype="multipart/form-data">
 				<input type="hidden" name="action" value="Edit_User" />
 				<input type="hidden" name="User_ID" value="<?php echo $_GET['User_ID']; ?>" />
 				<?php wp_nonce_field(); ?>
 				<?php wp_referer_field(); ?>
-				<select name='Level_ID'>
+				<label for="Level_ID">Level</label><select name='Level_ID'>
 				<option value='0'>None (0)</option>
 				<?php foreach ($Levels as $Level) {
 						echo "<option value='" . $Level->Level_ID . "' ";

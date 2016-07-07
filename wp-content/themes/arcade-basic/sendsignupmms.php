@@ -1,5 +1,12 @@
 <?php
 /* Template Name: sendsignupmms*/
+
+// $f = fopen('out.txt', "a+");
+// fwrite($f, 'hello');
+// fclose($f);
+// exit();
+require_once(dirname(dirname(dirname(dirname(__FILE__)))) . '/wp-blog-header.php');
+
 require "Services/Twilio.php";
 $AccountSid = "ACddcce2ed6943c1bd04b0642fab6b2f3f";
 $AuthToken  = "1542d1f8621777361d4d0332d1f8ec4c";
@@ -11,9 +18,13 @@ define('DEBUG_DONT_SEND_SMS', false);
 
 date_default_timezone_set('UTC');
 $current_time = date('H:ia', strtotime("+5 minutes"));
-
-global $uid;
+if (!isset($argv[1])){
+    error_log('uid not found; argv: '. json_encode($argv). "\r\n", 3, $error_file_name);
+    exit();
+}
+$uid = $argv[1];
 $userId    = $uid;
+error_log("Sending sms to user $uid \r\n", 3, $error_file_name);
 $userPhone = $wpdb->get_results("SELECT Field_Value,User_ID FROM `wp_ewd_feup_user_fields` where Field_Name = 'Phone' and User_ID = $userId");
 if (count($userPhone) != 1) {
     error_log("No user phone found", 3, $error_file_name);
@@ -48,6 +59,7 @@ $msg_to_send   = $msg[0]->post_excerpt;
 $user_password = base64_encode(substr($userPhone, 5, 6));
 //$msg_to_send .= ". Your password is " . $user_password;
 //MMS
+sleep(300);
 try {
     $sms = $client->account->messages->sendMessage(
         "+16194190679",

@@ -4,7 +4,8 @@ Braintree\Configuration::environment('production');
 Braintree\Configuration::merchantId('n548vrvhgb7ff3jm');
 Braintree\Configuration::publicKey('t639rjppfmt8ncmn');
 Braintree\Configuration::privateKey('0b1344f7ceb652389173603af7b682c1');
-define('SUBSCRIPTION_PLAN_ID', 'cwn6');
+//define('SUBSCRIPTION_PLAN_ID', 'cwn6');
+define('SUBSCRIPTION_PLAN_ID', '5tpb');
 
 // Braintree\Configuration::environment('sandbox');
 // Braintree\Configuration::merchantId('n887h3wthpjvcqjh');
@@ -96,7 +97,7 @@ function Insert_Subscribe_Now($atts) {
 
     $output = '<form id="checkout" method="post" action="/subscribe-now">
                   <div id="payment-form"></div>
-                  <input type="submit" value="Try It Now">
+                  <input type="submit" value="Get 3 Days Free">
                 </form>
 
 <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>

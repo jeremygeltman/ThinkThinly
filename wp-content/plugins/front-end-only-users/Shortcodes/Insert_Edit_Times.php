@@ -20,7 +20,7 @@ function Insert_Edit_Times($atts)
     $print_field = function ($Field, $hidden = false) use ($Omitted_Fields, $UserData, &$ReturnString) {
         $display_label = $Field->Field_Name;
         if ($display_label == "Breakfast") {
-            $display_label = "What time do you want a motivation boost?";
+            $display_label = "What time do you like to work out?";
         }
         if ($display_label == "Select your time zone") {
             $display_label = "Time Zone";
@@ -43,7 +43,7 @@ function Insert_Edit_Times($atts)
             }
             $ReturnString .= "<div class='row-num-" . $Field->Field_ID . " pure-control-group" . ($hidden?" hidden":"") . "'>";
             $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-" . $Field->Field_ID . "' class='ewd-feup-field-label'>" . __($display_label,
-                                                                                                                                                      'EWD_FEUP') . ": </label>";
+                                                                                                                                                      'EWD_FEUP') . "</label>";
             if ($Field->Field_Type == "text" or $Field->Field_Type == "mediumint") {
                 $ReturnString .= "<input name='" . $Field->Field_Name . "' id='ewd-feup-register-input-" . $Field->Field_ID . "' class='ewd-feup-text-input  ' type='text' value='" . $Value . "' " . $Req_Text . "/>";
             } elseif ($Field->Field_Type == "tel") {

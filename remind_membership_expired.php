@@ -1,9 +1,11 @@
 <?php
 /** @var $wpdb */
 
+define('NUM_OF_DAYS', 1);
+
 /**
  * Send sms to expired people
- * This should trigger 1 day after membership expired.
+ * This should trigger NUM_OF_DAYS day after membership expired.
  */
 
 require_once(dirname(__FILE__) . '/wp-blog-header.php');
@@ -29,7 +31,7 @@ $old_date_def_timezone = date_default_timezone_get();
 date_default_timezone_set('UTC');
 
 //based on cronjob this should be 16:00
-$current_time = (new DateTime('now'))->sub(new DateInterval('P1D'));
+$current_time = (new DateTime('now'))->add(new DateInterval('P' . NUM_OF_DAYS. 'D'));
 
 if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
     define('DEBUG_DONT_SEND_SMS', true);

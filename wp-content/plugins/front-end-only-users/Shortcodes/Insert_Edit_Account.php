@@ -55,7 +55,7 @@ function Insert_Edit_Account_Form($atts)
             }
             $ReturnString .= "<div class='pure-control-group>";
             $ReturnString .= "<label for='" . $Field->Field_Name . "' id='ewd-feup-edit-" . $Field->Field_ID . "' class='ewd-feup-field-label'>" . __($display_label,
-                                                                                                                                                      'EWD_FEUP') . ": </label>";
+                                                                                                                                                      'EWD_FEUP') . " </label>";
             if ($Field->Field_Type == "text" or $Field->Field_Type == "mediumint") {
                 $ReturnString .= "<input name='" . $Field->Field_Name . "' id='ewd-feup-register-input-" . $Field->Field_ID . "' class='ewd-feup-text-input  ' type='text' value='" . $Value . "' " . $Req_Text . "/>";
             } elseif ($Field->Field_Type == "tel") {
@@ -206,17 +206,17 @@ function Insert_Edit_Account_Form($atts)
     $email = $User->user_email;
     $ReturnString .=
 <<<HTML
-<div class="pure-control-group"><label for="First Name" id="ewd-feup-edit-1" class="ewd-feup-field-label">First Name: </label><input name="First Name" id="ewd-feup-register-input-1" class="ewd-feup-text-input pure-input-1-3" type="text" value="$first_name" required=""></div>
-<div class="pure-control-group"><label for="Last Name" id="ewd-feup-edit-2" class="ewd-feup-field-label">Last Name: </label><input name="Last Name" id="ewd-feup-register-input-2" class="ewd-feup-text-input pure-input-1-3" type="text" value="$last_name" required=""></div>
-<div class="pure-control-group"><label for="user_email">Email: </label><input type="email" class="ewd-feup-text-input pure-input-1-3" name="user_email" value="$email"></div>
+<div class="pure-control-group"><label for="First Name" id="ewd-feup-edit-1" class="ewd-feup-field-label">First Name </label><input name="First Name" id="ewd-feup-register-input-1" class="ewd-feup-text-input pure-input-1-3" type="text" value="$first_name" required=""></div>
+<div class="pure-control-group"><label for="Last Name" id="ewd-feup-edit-2" class="ewd-feup-field-label">Last Name </label><input name="Last Name" id="ewd-feup-register-input-2" class="ewd-feup-text-input pure-input-1-3" type="text" value="$last_name" required=""></div>
+<div class="pure-control-group"><label for="user_email">Email </label><input type="email" class="ewd-feup-text-input pure-input-1-3" name="user_email" value="$email"></div>
 HTML;
 
     $ReturnString .= "<div class='pure-control-group'>
-    <label class='ewd-feup-field-label'>" . __('Create Password', 'EWD_FEUP') . ": </label>";
+    <label class='ewd-feup-field-label'>" . __('Create Password', 'EWD_FEUP') . " </label>";
     $ReturnString .= "<input type='password' class='ewd-feup-text-input pure-input-1-3' name='User_Password' value=''>
     </div>";
     $ReturnString .= "<div class='pure-control-group'>
-    <label class='ewd-feup-field-label'>" . __('Retype Password', 'EWD_FEUP') . ": </label>";
+    <label class='ewd-feup-field-label'>" . __('Retype Password', 'EWD_FEUP') . " </label>";
     $ReturnString .= "<input type='password' class='ewd-feup-text-input pure-input-1-3' name='Confirm_User_Password' value=''>
     </div>";
     /** @var string $submit_text */
