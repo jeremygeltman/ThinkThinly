@@ -37,7 +37,7 @@ if (property_exists($payment_amount, 'value')):
 
             <div class="form-group">
                 <label for="payment_amount">Payment Amount</label><br/>
-                <input name="payment_amount" value="<?= $payment_amount->value ?>">
+                <input disabled="disabled" name="payment_amount" value="<?= $payment_amount->value ?>">
             </div>
             <div class="form-group">
                 <label for="default_trial_period">Default Trial Period (days)</label><br/>

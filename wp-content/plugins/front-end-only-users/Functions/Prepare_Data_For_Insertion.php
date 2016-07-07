@@ -2,20 +2,21 @@
 
 require_once(dirname(dirname(dirname(dirname(__DIR__)))) . DIRECTORY_SEPARATOR . "vendor/autoload.php");
 
-function call_send_signup_mms($uid){
-    error_log("uid: $uid, file: ". __FILE__. "line: ". __LINE__. "function: ". __FUNCTION__);
+function call_send_signup_mms($uid)
+{
+    error_log("uid: $uid, file: " . __FILE__ . "line: " . __LINE__ . "function: " . __FUNCTION__);
     exec("nohup php-cli -f /home/saramy/public_html/Thinkthinly.com/wp-content/themes/arcade-basic/sendsignupmms.php $uid >/dev/null 2>/dev/null &");
 }
 
 function Generate_Password($plainPassword = null)
 {
-    if (! $plainPassword) {
+    if (!$plainPassword) {
         return false;
     }
     $intermediateSalt = bin2hex(openssl_random_pseudo_bytes(30));
     $intermediateSalt = substr($intermediateSalt, 0, 22);
-    $finalSalt        = '$2y$13$' . $intermediateSalt . '$';
-    $hashedPassword   = crypt($plainPassword, $finalSalt);
+    $finalSalt = '$2y$13$' . $intermediateSalt . '$';
+    $hashedPassword = crypt($plainPassword, $finalSalt);
 
     return $hashedPassword;
 }
@@ -25,34 +26,34 @@ function Add_Edit_User()
 {
 
     global $wpdb, $feup_success, $ewd_feup_fields_table_name, $ewd_feup_user_fields_table_name, $ewd_feup_user_table_name;
-    $Salt               = get_option("EWD_FEUP_Hash_Salt");
-    $Sign_Up_Email      = get_option("EWD_FEUP_Sign_Up_Email");
+    $Salt = get_option("EWD_FEUP_Hash_Salt");
+    $Sign_Up_Email = get_option("EWD_FEUP_Sign_Up_Email");
     $Default_User_Level = get_option("EWD_Default_User_Level");
-    $Use_Crypt          = get_option("EWD_FEUP_Use_Crypt");
+    $Use_Crypt = get_option("EWD_FEUP_Use_Crypt");
     $Email_Confirmation = get_option("EWD_FEUP_Email_Confirmation");
-    $Admin_Approval     = get_option("EWD_FEUP_Admin_Approval");
-    $tt_settings        = $wpdb->get_results("SELECT * FROM tt_settings");
-    $res                = ah_flatten($tt_settings, 'name');
+    $Admin_Approval = get_option("EWD_FEUP_Admin_Approval");
+    $tt_settings = $wpdb->get_results("SELECT * FROM saramy_wrdp4.tt_settings");
+    $res = ah_flatten($tt_settings, 'name');
 
-    $Sql    = "SELECT * FROM $ewd_feup_fields_table_name ";
+    $Sql = "SELECT * FROM $ewd_feup_fields_table_name ";
     $Fields = $wpdb->get_results($Sql);
 
     $date = date("Y-m-d H:i:s");
 
     $UserCookie = CheckLoginCookie();
 
-    if (! isset($_POST['Admin_Approved'])) {
+    if (!isset($_POST['Admin_Approved'])) {
         $_POST['Admin_Approved'] = null;
     }
-    if (! isset($_POST['action'])) {
+    if (!isset($_POST['action'])) {
         $_POST['action'] = null;
     }
-    if (! isset($_POST['ewd-feup-action'])) {
+    if (!isset($_POST['ewd-feup-action'])) {
         $_POST['ewd-feup-action'] = null;
     }
 
     $User = $wpdb->get_row($wpdb->prepare("SELECT User_ID FROM $ewd_feup_user_table_name WHERE Username='%s'",
-                                          $UserCookie['Username']));
+        $UserCookie['Username']));
     if (is_object($User)) {
         $User_ID = $User->User_ID;
     }
@@ -123,12 +124,12 @@ function Add_Edit_User()
             return $user_update;
         }
         $wpdb->get_results($wpdb->prepare("SELECT User_ID FROM $ewd_feup_user_table_name WHERE Username='%s'",
-                                          $_POST['Username']));
+            $_POST['Username']));
         if ($wpdb->num_rows > 0) {
             $user_update = array(
                 "Message_Type" => "Error",
                 "Message" => __("There is already a user with that phone number. Please try a different one.",
-                                "EWD_FEUP")
+                    "EWD_FEUP")
             );
 
             return $user_update;
@@ -147,10 +148,10 @@ function Add_Edit_User()
 
     if ($_POST['ewd-feup-action'] != "edit-account") {
         foreach ($Fields as $Field) {
-            if (! in_array($Field->Field_Name, $Omitted_Fields)) {
-                $Additional_Fields_Array[$Field->Field_Name]['Field_ID']   = $Field->Field_ID;
+            if (!in_array($Field->Field_Name, $Omitted_Fields)) {
+                $Additional_Fields_Array[$Field->Field_Name]['Field_ID'] = $Field->Field_ID;
                 $Additional_Fields_Array[$Field->Field_Name]['Field_Name'] = $Field->Field_Name;
-                $Field_Name                                                = str_replace(" ", "_", $Field->Field_Name);
+                $Field_Name = str_replace(" ", "_", $Field->Field_Name);
                 if ($Field->Field_Type == "file") {
                     $File_Upload_Return = Handle_File_Upload($Field_Name);
                     if ($File_Upload_Return['Success'] == "No") {
@@ -162,7 +163,7 @@ function Add_Edit_User()
                     }
                 } elseif (is_array($_POST[$Field_Name])) {
                     $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep(implode(",",
-                                                                                                            $_POST[str_replace("...", "___", $Field_Name)]));
+                        $_POST[str_replace("...", "___", $Field_Name)]));
                 } else {
                     $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep($_POST[str_replace("...", "___", $Field_Name)]);
                 }
@@ -170,7 +171,7 @@ function Add_Edit_User()
         }
     }
 
-    if (! isset($error)) {
+    if (!isset($error)) {
         /* Pass the data to the appropriate function in Update_Admin_Databases.php to create the user */
         if ($_POST['action'] == "Add_User" or $_POST['ewd-feup-action'] == "register") {
 
@@ -179,52 +180,52 @@ function Add_Edit_User()
             print_r($Additional_Fields_Array);
             echo "</pre>"; */
             $bf_date1 = $Additional_Fields_Array['Breakfast']['Field_Value'];
-            $bf_date  = date('H:ia ', strtotime($bf_date1));
+            $bf_date = date('H:ia ', strtotime($bf_date1));
             //echo $bf_date;
 
             $lnh_date1 = $Additional_Fields_Array['Lunch']['Field_Value'];
-            $lnh_date  = date('H:ia ', strtotime($lnh_date1));
+            $lnh_date = date('H:ia ', strtotime($lnh_date1));
             //echo $lnh_date;
 
             $dnr_date1 = $Additional_Fields_Array['Dinner']['Field_Value'];
-            $dnr_date  = date('H:ia ', strtotime($dnr_date1));
+            $dnr_date = date('H:ia ', strtotime($dnr_date1));
             //echo $dnr_date;
 
 
             if ($User->User_ID != "") {
                 $user_update = __("There is already an account with that Username. Please select a different one.",
-                                  "EWD_FEUP");
+                    "EWD_FEUP");
 
                 return $user_update;
             }
-            if (! isset($User_Fields['User_Admin_Approved'])) {
+            if (!isset($User_Fields['User_Admin_Approved'])) {
                 $User_Fields['User_Admin_Approved'] = "No";
             }
-            if (! isset($User_Fields['User_Email_Confirmed'])) {
+            if (!isset($User_Fields['User_Email_Confirmed'])) {
                 $User_Fields['User_Email_Confirmed'] = "No";
             }
             $User_Fields['User_Date_Created'] = $date;
-            $User_Fields['User_Last_Login']   = $date;
+            $User_Fields['User_Last_Login'] = $date;
 
             $res = ah_flatten($tt_settings, 'name');
 
             $expiry_date = (new DateTime());
-//            $dti         = new DateInterval('P' . $tt_settings['default_trial_period']['value'] . 'D');
-//            $expiry_date->add($dti);
-            $expiry_date->sub(new DateInterval('P7D'));
+            $dti = new DateInterval('P' . $tt_settings['default_trial_period']['value'] . 'D');
+            $expiry_date->add($dti);
+            // $expiry_date->sub(new DateInterval('P7D'));
             $expiry_date = $expiry_date->format('Y-m-d');
 
             $Additional_Fields_Array['Membership Expiry Date']['Field_Value'] = $expiry_date;
 
 
             $user_update = Add_EWD_FEUP_User($User_Fields);
-            $User_ID     = $wpdb->insert_id;
+            $User_ID = $wpdb->insert_id;
 
             //Custom code
             if ($Additional_Fields_Array['Time zone']) {
-                $offset   = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
+                $offset = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
                 $operator = preg_replace('/[0-9]/', '', $offset);
-                $vals     = preg_replace('/[-+]/', '', $offset);
+                $vals = preg_replace('/[-+]/', '', $offset);
 
                 $b = preg_replace('/[A-Za-z]/', '', $bf_date);
                 $l = preg_replace('/[A-Za-z]/', '', $lnh_date);
@@ -244,24 +245,24 @@ function Add_Edit_User()
 
 
                     if (trim($operator) == '-') {
-                        $brk    = date('H:ia', strtotime($b) + $vals * 60 * 60);
-                        $lunch  = date('H:ia', strtotime($l) + $vals * 60 * 60);
+                        $brk = date('H:ia', strtotime($b) + $vals * 60 * 60);
+                        $lunch = date('H:ia', strtotime($l) + $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) + $vals * 60 * 60);
 
                     } elseif (trim($operator) == '+') {
-                        $brk    = date('H:ia', strtotime($b) - $vals * 60 * 60);
-                        $lunch  = date('H:ia', strtotime($l) - $vals * 60 * 60);
+                        $brk = date('H:ia', strtotime($b) - $vals * 60 * 60);
+                        $lunch = date('H:ia', strtotime($l) - $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) - $vals * 60 * 60);
 
                     } else {
-                        $brk    = $bf_date;
-                        $lunch  = $lnh_date;
+                        $brk = $bf_date;
+                        $lunch = $lnh_date;
                         $dinner = $dnr_date;
                     }
 
                     $Additional_Fields_Array['Breakfast']['Field_Value'] = $brk;
-                    $Additional_Fields_Array['Lunch']['Field_Value']     = $lunch;
-                    $Additional_Fields_Array['Dinner']['Field_Value']    = $dinner;
+                    $Additional_Fields_Array['Lunch']['Field_Value'] = $lunch;
+                    $Additional_Fields_Array['Dinner']['Field_Value'] = $dinner;
                 }
             }
 
@@ -274,7 +275,7 @@ function Add_Edit_User()
             //Custom code end
             foreach ($Additional_Fields_Array as $Field) {
                 $user_update = Add_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                       $Field['Field_Value'], $date);
+                    $Field['Field_Value'], $date);
             }
 
             if ($_POST['ewd-feup-action'] == "register") {
@@ -292,15 +293,15 @@ function Add_Edit_User()
         else {
 
             $bf_date1 = $Additional_Fields_Array['Breakfast']['Field_Value'];
-            $bf_date  = date('H:ia ', strtotime($bf_date1));
+            $bf_date = date('H:ia ', strtotime($bf_date1));
             //echo $bf_date;
 
             $lnh_date1 = $Additional_Fields_Array['Lunch']['Field_Value'];
-            $lnh_date  = date('H:ia ', strtotime($lnh_date1));
+            $lnh_date = date('H:ia ', strtotime($lnh_date1));
             //echo $lnh_date;
 
             $dnr_date1 = $Additional_Fields_Array['Dinner']['Field_Value'];
-            $dnr_date  = date('H:ia ', strtotime($dnr_date1));
+            $dnr_date = date('H:ia ', strtotime($dnr_date1));
             //echo $dnr_date;
 
             if (isset($User_Fields)) {
@@ -310,9 +311,9 @@ function Add_Edit_User()
                 //print_r($Additional_Fields_Array);die;
                 //Custom code
                 if ($Additional_Fields_Array['Time zone']) {
-                    $offset   = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
+                    $offset = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
                     $operator = preg_replace('/[0-9]/', '', $offset);
-                    $vals     = preg_replace('/[-+]/', '', $offset);
+                    $vals = preg_replace('/[-+]/', '', $offset);
 
                     $b = preg_replace('/[A-Za-z]/', '', $bf_date);
                     $l = preg_replace('/[A-Za-z]/', '', $lnh_date);
@@ -327,34 +328,34 @@ function Add_Edit_User()
 
 
                         if (trim($operator) == '-') {
-                            $brk    = date('H:ia', strtotime($b) + $vals * 60 * 60);
-                            $lunch  = date('H:ia', strtotime($l) + $vals * 60 * 60);
+                            $brk = date('H:ia', strtotime($b) + $vals * 60 * 60);
+                            $lunch = date('H:ia', strtotime($l) + $vals * 60 * 60);
                             $dinner = date('H:ia', strtotime($d) + $vals * 60 * 60);
                         } elseif (trim($operator) == '+') {
-                            $brk    = date('H:ia', strtotime($b) - $vals * 60 * 60);
-                            $lunch  = date('H:ia', strtotime($l) - $vals * 60 * 60);
+                            $brk = date('H:ia', strtotime($b) - $vals * 60 * 60);
+                            $lunch = date('H:ia', strtotime($l) - $vals * 60 * 60);
                             $dinner = date('H:ia', strtotime($d) - $vals * 60 * 60);
                         } else {
-                            $brk    = $bf_date;
-                            $lunch  = $lnh_date;
+                            $brk = $bf_date;
+                            $lunch = $lnh_date;
                             $dinner = $dnr_date;
                         }
 
                         $Additional_Fields_Array['Breakfast']['Field_Value'] = $brk;
-                        $Additional_Fields_Array['Lunch']['Field_Value']     = $lunch;
-                        $Additional_Fields_Array['Dinner']['Field_Value']    = $dinner;
+                        $Additional_Fields_Array['Lunch']['Field_Value'] = $lunch;
+                        $Additional_Fields_Array['Dinner']['Field_Value'] = $dinner;
                     }
                 }
                 //Custom code end
                 foreach ($Additional_Fields_Array as $Field) {
                     $CurrentField = $wpdb->get_row($wpdb->prepare("SELECT User_Field_ID FROM $ewd_feup_user_fields_table_name WHERE Field_ID='%d' AND User_ID='%d'",
-                                                                  $Field['Field_ID'], $User_ID));
+                        $Field['Field_ID'], $User_ID));
                     if ($CurrentField->User_Field_ID != "") {
                         $user_update = Edit_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                                $Field['Field_Value']);
+                            $Field['Field_Value']);
                     } else {
                         $user_update = Add_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                               $Field['Field_Value'], $date);
+                            $Field['Field_Value'], $date);
                     }
                 }
             }
@@ -362,12 +363,12 @@ function Add_Edit_User()
                 CreateLoginCookie($_POST['Username'], $_POST['User_Password']);
             }
         }
-        $user_update  = array("Message_Type" => "Update", "Message" => $user_update);
+        $user_update = array("Message_Type" => "Update", "Message" => $user_update);
         $feup_success = true;
         //        Brian3T sends sms here
         //find uid
         if ($_POST['ewd-feup-action'] == "register") {
-            $sql    = "SELECT `User_ID` FROM `wp_ewd_feup_users` order by User_ID DESC LIMIT 1";
+            $sql = "SELECT `User_ID` FROM `wp_ewd_feup_users` ORDER BY User_ID DESC LIMIT 1";
             $result = $wpdb->get_results($sql);
 
             if (isset($result[0]->User_ID)) {
@@ -392,34 +393,34 @@ function Add_Edit_User()
 function Edit_Reminder_Times_User()
 {
     global $wpdb, $feup_success, $ewd_feup_fields_table_name, $ewd_feup_user_fields_table_name, $ewd_feup_user_table_name;
-    $Salt               = get_option("EWD_FEUP_Hash_Salt");
-    $Sign_Up_Email      = get_option("EWD_FEUP_Sign_Up_Email");
+    $Salt = get_option("EWD_FEUP_Hash_Salt");
+    $Sign_Up_Email = get_option("EWD_FEUP_Sign_Up_Email");
     $Default_User_Level = get_option("EWD_Default_User_Level");
-    $Use_Crypt          = get_option("EWD_FEUP_Use_Crypt");
+    $Use_Crypt = get_option("EWD_FEUP_Use_Crypt");
     $Email_Confirmation = get_option("EWD_FEUP_Email_Confirmation");
-    $Admin_Approval     = get_option("EWD_FEUP_Admin_Approval");
-    $tt_settings        = $wpdb->get_results("SELECT * FROM tt_settings");
-    $res                = ah_flatten($tt_settings, 'name');
+    $Admin_Approval = get_option("EWD_FEUP_Admin_Approval");
+    $tt_settings = $wpdb->get_results("SELECT * FROM tt_settings");
+    $res = ah_flatten($tt_settings, 'name');
 
-    $Sql    = "SELECT * FROM $ewd_feup_fields_table_name ";
+    $Sql = "SELECT * FROM $ewd_feup_fields_table_name ";
     $Fields = $wpdb->get_results($Sql);
 
     $date = date("Y-m-d H:i:s");
 
     $UserCookie = CheckLoginCookie();
 
-    if (! isset($_POST['Admin_Approved'])) {
+    if (!isset($_POST['Admin_Approved'])) {
         $_POST['Admin_Approved'] = null;
     }
-    if (! isset($_POST['action'])) {
+    if (!isset($_POST['action'])) {
         $_POST['action'] = null;
     }
-    if (! isset($_POST['ewd-feup-action'])) {
+    if (!isset($_POST['ewd-feup-action'])) {
         $_POST['ewd-feup-action'] = null;
     }
 
     $User = $wpdb->get_row($wpdb->prepare("SELECT User_ID FROM $ewd_feup_user_table_name WHERE Username='%s'",
-                                          $UserCookie['Username']));
+        $UserCookie['Username']));
     if (is_object($User)) {
         $User_ID = $User->User_ID;
     }
@@ -464,42 +465,42 @@ function Edit_Reminder_Times_User()
         return $user_update;
     }
 
-        foreach ($Fields as $Field) {
-            if (! in_array($Field->Field_Name, $Omitted_Fields)) {
-                $Additional_Fields_Array[$Field->Field_Name]['Field_ID']   = $Field->Field_ID;
-                $Additional_Fields_Array[$Field->Field_Name]['Field_Name'] = $Field->Field_Name;
-                $Field_Name                                                = str_replace(" ", "_", $Field->Field_Name);
-                if ($Field->Field_Type == "file") {
-                    $File_Upload_Return = Handle_File_Upload($Field_Name);
-                    if ($File_Upload_Return['Success'] == "No") {
-                        return $File_Upload_Return['Data'];
-                    } elseif ($File_Upload_Return['Success'] == "N/A") {
-                        unset($Additional_Fields_Array[$Field->Field_Name]);
-                    } else {
-                        $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = $File_Upload_Return['Data'];
-                    }
-                } elseif (is_array($_POST[$Field_Name])) {
-                    $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep(implode(",",
-                                                                                                            $_POST[str_replace("...", "___", $Field_Name)]));
+    foreach ($Fields as $Field) {
+        if (!in_array($Field->Field_Name, $Omitted_Fields)) {
+            $Additional_Fields_Array[$Field->Field_Name]['Field_ID'] = $Field->Field_ID;
+            $Additional_Fields_Array[$Field->Field_Name]['Field_Name'] = $Field->Field_Name;
+            $Field_Name = str_replace(" ", "_", $Field->Field_Name);
+            if ($Field->Field_Type == "file") {
+                $File_Upload_Return = Handle_File_Upload($Field_Name);
+                if ($File_Upload_Return['Success'] == "No") {
+                    return $File_Upload_Return['Data'];
+                } elseif ($File_Upload_Return['Success'] == "N/A") {
+                    unset($Additional_Fields_Array[$Field->Field_Name]);
                 } else {
-                    $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep($_POST[str_replace("...", "___", $Field_Name)]);
+                    $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = $File_Upload_Return['Data'];
                 }
+            } elseif (is_array($_POST[$Field_Name])) {
+                $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep(implode(",",
+                    $_POST[str_replace("...", "___", $Field_Name)]));
+            } else {
+                $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep($_POST[str_replace("...", "___", $Field_Name)]);
             }
         }
+    }
 
-    if (! isset($error)) {
+    if (!isset($error)) {
         /* Pass the data to the appropriate function in Update_Admin_Databases.php to create the user */
 
         $bf_date1 = $Additional_Fields_Array['Breakfast']['Field_Value'];
-        $bf_date  = date('H:ia ', strtotime($bf_date1));
+        $bf_date = date('H:ia ', strtotime($bf_date1));
         //echo $bf_date;
 
         $lnh_date1 = $Additional_Fields_Array['Lunch']['Field_Value'];
-        $lnh_date  = date('H:ia ', strtotime($lnh_date1));
+        $lnh_date = date('H:ia ', strtotime($lnh_date1));
         //echo $lnh_date;
 
         $dnr_date1 = $Additional_Fields_Array['Dinner']['Field_Value'];
-        $dnr_date  = date('H:ia ', strtotime($dnr_date1));
+        $dnr_date = date('H:ia ', strtotime($dnr_date1));
         //echo $dnr_date;
 
         if (isset($User_Fields)) {
@@ -509,9 +510,9 @@ function Edit_Reminder_Times_User()
             //print_r($Additional_Fields_Array);die;
             //Custom code
             if ($Additional_Fields_Array['Time zone']) {
-                $offset   = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
+                $offset = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
                 $operator = preg_replace('/[0-9]/', '', $offset);
-                $vals     = preg_replace('/[-+]/', '', $offset);
+                $vals = preg_replace('/[-+]/', '', $offset);
 
                 $b = preg_replace('/[A-Za-z]/', '', $bf_date);
                 $l = preg_replace('/[A-Za-z]/', '', $lnh_date);
@@ -526,22 +527,22 @@ function Edit_Reminder_Times_User()
 
 
                     if (trim($operator) == '-') {
-                        $brk    = date('H:ia', strtotime($b) + $vals * 60 * 60);
-                        $lunch  = date('H:ia', strtotime($l) + $vals * 60 * 60);
+                        $brk = date('H:ia', strtotime($b) + $vals * 60 * 60);
+                        $lunch = date('H:ia', strtotime($l) + $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) + $vals * 60 * 60);
                     } elseif (trim($operator) == '+') {
-                        $brk    = date('H:ia', strtotime($b) - $vals * 60 * 60);
-                        $lunch  = date('H:ia', strtotime($l) - $vals * 60 * 60);
+                        $brk = date('H:ia', strtotime($b) - $vals * 60 * 60);
+                        $lunch = date('H:ia', strtotime($l) - $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) - $vals * 60 * 60);
                     } else {
-                        $brk    = $bf_date;
-                        $lunch  = $lnh_date;
+                        $brk = $bf_date;
+                        $lunch = $lnh_date;
                         $dinner = $dnr_date;
                     }
 
                     $Additional_Fields_Array['Breakfast']['Field_Value'] = $brk;
-                    $Additional_Fields_Array['Lunch']['Field_Value']     = $lunch;
-                    $Additional_Fields_Array['Dinner']['Field_Value']    = $dinner;
+                    $Additional_Fields_Array['Lunch']['Field_Value'] = $lunch;
+                    $Additional_Fields_Array['Dinner']['Field_Value'] = $dinner;
                 }
             }
             //Custom code end
@@ -551,13 +552,13 @@ function Edit_Reminder_Times_User()
 
             foreach ($Additional_Fields_Array as $Field) {
                 $CurrentField = $wpdb->get_row($wpdb->prepare("SELECT User_Field_ID FROM $ewd_feup_user_fields_table_name WHERE Field_ID='%d' AND User_ID='%d'",
-                                                              $Field['Field_ID'], $User_ID));
+                    $Field['Field_ID'], $User_ID));
                 if ($CurrentField->User_Field_ID != "") {
                     $user_update = Edit_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                            $Field['Field_Value']);
+                        $Field['Field_Value']);
                 } else {
                     $user_update = Add_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                           $Field['Field_Value'], $date);
+                        $Field['Field_Value'], $date);
                 }
             }
         }
@@ -565,12 +566,12 @@ function Edit_Reminder_Times_User()
             CreateLoginCookie($_POST['Username'], $_POST['User_Password']);
         }
 
-        $user_update  = array("Message_Type" => "Update", "Message" => $user_update);
+        $user_update = array("Message_Type" => "Update", "Message" => $user_update);
         $feup_success = true;
         //        Brian3T sends sms here
         //find uid
         if ($_POST['ewd-feup-action'] == "register") {
-            $sql    = "SELECT `User_ID` FROM `wp_ewd_feup_users` order by User_ID DESC LIMIT 1";
+            $sql = "SELECT `User_ID` FROM `wp_ewd_feup_users` ORDER BY User_ID DESC LIMIT 1";
             $result = $wpdb->get_results($sql);
 
             if (isset($result[0]->User_ID)) {
@@ -595,34 +596,34 @@ function Edit_Reminder_Times_User()
 function Edit_Your_Settings_User()
 {
     global $wpdb, $feup_success, $ewd_feup_fields_table_name, $ewd_feup_user_fields_table_name, $ewd_feup_user_table_name;
-    $Salt               = get_option("EWD_FEUP_Hash_Salt");
-    $Sign_Up_Email      = get_option("EWD_FEUP_Sign_Up_Email");
+    $Salt = get_option("EWD_FEUP_Hash_Salt");
+    $Sign_Up_Email = get_option("EWD_FEUP_Sign_Up_Email");
     $Default_User_Level = get_option("EWD_Default_User_Level");
-    $Use_Crypt          = get_option("EWD_FEUP_Use_Crypt");
+    $Use_Crypt = get_option("EWD_FEUP_Use_Crypt");
     $Email_Confirmation = get_option("EWD_FEUP_Email_Confirmation");
-    $Admin_Approval     = get_option("EWD_FEUP_Admin_Approval");
-    $tt_settings        = $wpdb->get_results("SELECT * FROM tt_settings");
-    $res                = ah_flatten($tt_settings, 'name');
+    $Admin_Approval = get_option("EWD_FEUP_Admin_Approval");
+    $tt_settings = $wpdb->get_results("SELECT * FROM tt_settings");
+    $res = ah_flatten($tt_settings, 'name');
 
-    $Sql    = "SELECT * FROM $ewd_feup_fields_table_name ";
+    $Sql = "SELECT * FROM $ewd_feup_fields_table_name ";
     $Fields = $wpdb->get_results($Sql);
 
     $date = date("Y-m-d H:i:s");
 
     $UserCookie = CheckLoginCookie();
 
-    if (! isset($_POST['Admin_Approved'])) {
+    if (!isset($_POST['Admin_Approved'])) {
         $_POST['Admin_Approved'] = null;
     }
-    if (! isset($_POST['action'])) {
+    if (!isset($_POST['action'])) {
         $_POST['action'] = null;
     }
-    if (! isset($_POST['ewd-feup-action'])) {
+    if (!isset($_POST['ewd-feup-action'])) {
         $_POST['ewd-feup-action'] = null;
     }
 
     $User = $wpdb->get_row($wpdb->prepare("SELECT User_ID FROM $ewd_feup_user_table_name WHERE Username='%s'",
-                                          $UserCookie['Username']));
+        $UserCookie['Username']));
     if (is_object($User)) {
         $User_ID = $User->User_ID;
     }
@@ -683,10 +684,10 @@ function Edit_Your_Settings_User()
 
 
     foreach ($Fields as $Field) {
-        if (! in_array($Field->Field_Name, $Omitted_Fields)) {
-            $Additional_Fields_Array[$Field->Field_Name]['Field_ID']   = $Field->Field_ID;
+        if (!in_array($Field->Field_Name, $Omitted_Fields)) {
+            $Additional_Fields_Array[$Field->Field_Name]['Field_ID'] = $Field->Field_ID;
             $Additional_Fields_Array[$Field->Field_Name]['Field_Name'] = $Field->Field_Name;
-            $Field_Name                                                = str_replace(" ", "_", $Field->Field_Name);
+            $Field_Name = str_replace(" ", "_", $Field->Field_Name);
             if ($Field->Field_Type == "file") {
                 $File_Upload_Return = Handle_File_Upload($Field_Name);
                 if ($File_Upload_Return['Success'] == "No") {
@@ -698,26 +699,26 @@ function Edit_Your_Settings_User()
                 }
             } elseif (is_array($_POST[$Field_Name])) {
                 $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep(implode(",",
-                                                                                                        $_POST[str_replace("...", "___", $Field_Name)]));
+                    $_POST[str_replace("...", "___", $Field_Name)]));
             } else {
                 $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep($_POST[str_replace("...", "___", $Field_Name)]);
             }
         }
     }
 
-    if (! isset($error)) {
+    if (!isset($error)) {
         /* Pass the data to the appropriate function in Update_Admin_Databases.php to create the user */
 
         $bf_date1 = $Additional_Fields_Array['Breakfast']['Field_Value'];
-        $bf_date  = date('H:ia ', strtotime($bf_date1));
+        $bf_date = date('H:ia ', strtotime($bf_date1));
         //echo $bf_date;
 
         $lnh_date1 = $Additional_Fields_Array['Lunch']['Field_Value'];
-        $lnh_date  = date('H:ia ', strtotime($lnh_date1));
+        $lnh_date = date('H:ia ', strtotime($lnh_date1));
         //echo $lnh_date;
 
         $dnr_date1 = $Additional_Fields_Array['Dinner']['Field_Value'];
-        $dnr_date  = date('H:ia ', strtotime($dnr_date1));
+        $dnr_date = date('H:ia ', strtotime($dnr_date1));
         //echo $dnr_date;
 
         if (isset($User_Fields)) {
@@ -727,9 +728,9 @@ function Edit_Your_Settings_User()
             //print_r($Additional_Fields_Array);die;
             //Custom code
             if ($Additional_Fields_Array['Time zone']) {
-                $offset   = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
+                $offset = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
                 $operator = preg_replace('/[0-9]/', '', $offset);
-                $vals     = preg_replace('/[-+]/', '', $offset);
+                $vals = preg_replace('/[-+]/', '', $offset);
 
                 $b = preg_replace('/[A-Za-z]/', '', $bf_date);
                 $l = preg_replace('/[A-Za-z]/', '', $lnh_date);
@@ -744,41 +745,41 @@ function Edit_Your_Settings_User()
 
 
                     if (trim($operator) == '-') {
-                        $brk    = date('H:ia', strtotime($b) + $vals * 60 * 60);
-                        $lunch  = date('H:ia', strtotime($l) + $vals * 60 * 60);
+                        $brk = date('H:ia', strtotime($b) + $vals * 60 * 60);
+                        $lunch = date('H:ia', strtotime($l) + $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) + $vals * 60 * 60);
                     } elseif (trim($operator) == '+') {
-                        $brk    = date('H:ia', strtotime($b) - $vals * 60 * 60);
-                        $lunch  = date('H:ia', strtotime($l) - $vals * 60 * 60);
+                        $brk = date('H:ia', strtotime($b) - $vals * 60 * 60);
+                        $lunch = date('H:ia', strtotime($l) - $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) - $vals * 60 * 60);
                     } else {
-                        $brk    = $bf_date;
-                        $lunch  = $lnh_date;
+                        $brk = $bf_date;
+                        $lunch = $lnh_date;
                         $dinner = $dnr_date;
                     }
 
                     $Additional_Fields_Array['Breakfast']['Field_Value'] = $brk;
-                    $Additional_Fields_Array['Lunch']['Field_Value']     = $lunch;
-                    $Additional_Fields_Array['Dinner']['Field_Value']    = $dinner;
+                    $Additional_Fields_Array['Lunch']['Field_Value'] = $lunch;
+                    $Additional_Fields_Array['Dinner']['Field_Value'] = $dinner;
                 }
             }
             //Custom code end
 
             //don't allow user to update:
-            foreach (array('Membership Expiry Date', 'Time zone', 'OK to receive texts?', 'Gender', 'First Name', 'Last Name', 'Phone') as $key){
+            foreach (array('Membership Expiry Date', 'Time zone', 'OK to receive texts?', 'Gender', 'First Name', 'Last Name', 'Phone') as $key) {
                 unset($Additional_Fields_Array[$key]);
             }
             // $Additional_Fields_Array = array_intersect_key($Additional_Fields_Array, array_flip(array('Breakfast', 'Lunch', 'Dinner', 'Time zone', 'First Name', 'Last Name')));
 
             foreach ($Additional_Fields_Array as $Field) {
                 $CurrentField = $wpdb->get_row($wpdb->prepare("SELECT User_Field_ID FROM $ewd_feup_user_fields_table_name WHERE Field_ID='%d' AND User_ID='%d'",
-                                                              $Field['Field_ID'], $User_ID));
+                    $Field['Field_ID'], $User_ID));
                 if ($CurrentField->User_Field_ID != "") {
                     $user_update = Edit_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                            $Field['Field_Value']);
+                        $Field['Field_Value']);
                 } else {
                     $user_update = Add_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                           $Field['Field_Value'], $date);
+                        $Field['Field_Value'], $date);
                 }
             }
         }
@@ -786,12 +787,12 @@ function Edit_Your_Settings_User()
             CreateLoginCookie($_POST['Username'], $_POST['User_Password']);
         }
 
-        $user_update  = array("Message_Type" => "Update", "Message" => $user_update);
+        $user_update = array("Message_Type" => "Update", "Message" => $user_update);
         $feup_success = true;
         //        Brian3T sends sms here
         //find uid
         if ($_POST['ewd-feup-action'] == "register") {
-            $sql    = "SELECT `User_ID` FROM `wp_ewd_feup_users` order by User_ID DESC LIMIT 1";
+            $sql = "SELECT `User_ID` FROM `wp_ewd_feup_users` ORDER BY User_ID DESC LIMIT 1";
             $result = $wpdb->get_results($sql);
 
             if (isset($result[0]->User_ID)) {
@@ -817,34 +818,34 @@ function Edit_Your_Settings_User()
 function Edit_Account_Info_User()
 {
     global $wpdb, $feup_success, $ewd_feup_fields_table_name, $ewd_feup_user_fields_table_name, $ewd_feup_user_table_name;
-    $Salt               = get_option("EWD_FEUP_Hash_Salt");
-    $Sign_Up_Email      = get_option("EWD_FEUP_Sign_Up_Email");
+    $Salt = get_option("EWD_FEUP_Hash_Salt");
+    $Sign_Up_Email = get_option("EWD_FEUP_Sign_Up_Email");
     $Default_User_Level = get_option("EWD_Default_User_Level");
-    $Use_Crypt          = get_option("EWD_FEUP_Use_Crypt");
+    $Use_Crypt = get_option("EWD_FEUP_Use_Crypt");
     $Email_Confirmation = get_option("EWD_FEUP_Email_Confirmation");
-    $Admin_Approval     = get_option("EWD_FEUP_Admin_Approval");
-    $tt_settings        = $wpdb->get_results("SELECT * FROM tt_settings");
-    $res                = ah_flatten($tt_settings, 'name');
+    $Admin_Approval = get_option("EWD_FEUP_Admin_Approval");
+    $tt_settings = $wpdb->get_results("SELECT * FROM tt_settings");
+    $res = ah_flatten($tt_settings, 'name');
 
-    $Sql    = "SELECT * FROM $ewd_feup_fields_table_name ";
+    $Sql = "SELECT * FROM $ewd_feup_fields_table_name ";
     $Fields = $wpdb->get_results($Sql);
 
     $date = date("Y-m-d H:i:s");
 
     $UserCookie = CheckLoginCookie();
 
-    if (! isset($_POST['Admin_Approved'])) {
+    if (!isset($_POST['Admin_Approved'])) {
         $_POST['Admin_Approved'] = null;
     }
-    if (! isset($_POST['action'])) {
+    if (!isset($_POST['action'])) {
         $_POST['action'] = null;
     }
-    if (! isset($_POST['ewd-feup-action'])) {
+    if (!isset($_POST['ewd-feup-action'])) {
         $_POST['ewd-feup-action'] = null;
     }
 
     $User = $wpdb->get_row($wpdb->prepare("SELECT User_ID FROM $ewd_feup_user_table_name WHERE Username='%s'",
-                                          $UserCookie['Username']));
+        $UserCookie['Username']));
     if (is_object($User)) {
         $User_ID = $User->User_ID;
     }
@@ -912,12 +913,12 @@ function Edit_Account_Info_User()
             return $user_update;
         }
         $wpdb->get_results($wpdb->prepare("SELECT User_ID FROM $ewd_feup_user_table_name WHERE Username='%s'",
-                                          $_POST['Username']));
+            $_POST['Username']));
         if ($wpdb->num_rows > 0) {
             $user_update = array(
                 "Message_Type" => "Error",
                 "Message" => __("Doppelgänger alert! There is already a user with that phone number. Please try a different one.",
-                                "EWD_FEUP")
+                    "EWD_FEUP")
             );
 
             return $user_update;
@@ -936,10 +937,10 @@ function Edit_Account_Info_User()
 
     if ($_POST['ewd-feup-action'] != "edit-account") {
         foreach ($Fields as $Field) {
-            if (! in_array($Field->Field_Name, $Omitted_Fields)) {
-                $Additional_Fields_Array[$Field->Field_Name]['Field_ID']   = $Field->Field_ID;
+            if (!in_array($Field->Field_Name, $Omitted_Fields)) {
+                $Additional_Fields_Array[$Field->Field_Name]['Field_ID'] = $Field->Field_ID;
                 $Additional_Fields_Array[$Field->Field_Name]['Field_Name'] = $Field->Field_Name;
-                $Field_Name                                                = str_replace(" ", "_", $Field->Field_Name);
+                $Field_Name = str_replace(" ", "_", $Field->Field_Name);
                 if ($Field->Field_Type == "file") {
                     $File_Upload_Return = Handle_File_Upload($Field_Name);
                     if ($File_Upload_Return['Success'] == "No") {
@@ -951,7 +952,7 @@ function Edit_Account_Info_User()
                     }
                 } elseif (is_array($_POST[$Field_Name])) {
                     $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep(implode(",",
-                                                                                                            $_POST[str_replace("...", "___", $Field_Name)]));
+                        $_POST[str_replace("...", "___", $Field_Name)]));
                 } else {
                     $Additional_Fields_Array[$Field->Field_Name]['Field_Value'] = stripslashes_deep($_POST[str_replace("...", "___", $Field_Name)]);
                 }
@@ -959,7 +960,7 @@ function Edit_Account_Info_User()
         }
     }
 
-    if (! isset($error)) {
+    if (!isset($error)) {
         /* Pass the data to the appropriate function in Update_Admin_Databases.php to create the user */
         if ($_POST['action'] == "Add_User" or $_POST['ewd-feup-action'] == "register") {
 
@@ -968,37 +969,37 @@ function Edit_Account_Info_User()
             print_r($Additional_Fields_Array);
             echo "</pre>"; */
             $bf_date1 = $Additional_Fields_Array['Breakfast']['Field_Value'];
-            $bf_date  = date('H:ia ', strtotime($bf_date1));
+            $bf_date = date('H:ia ', strtotime($bf_date1));
             //echo $bf_date;
 
             $lnh_date1 = $Additional_Fields_Array['Lunch']['Field_Value'];
-            $lnh_date  = date('H:ia ', strtotime($lnh_date1));
+            $lnh_date = date('H:ia ', strtotime($lnh_date1));
             //echo $lnh_date;
 
             $dnr_date1 = $Additional_Fields_Array['Dinner']['Field_Value'];
-            $dnr_date  = date('H:ia ', strtotime($dnr_date1));
+            $dnr_date = date('H:ia ', strtotime($dnr_date1));
             //echo $dnr_date;
 
 
             if ($User->User_ID != "") {
                 $user_update = __("There is already an account with that Username. Please select a different one.",
-                                  "EWD_FEUP");
+                    "EWD_FEUP");
 
                 return $user_update;
             }
-            if (! isset($User_Fields['User_Admin_Approved'])) {
+            if (!isset($User_Fields['User_Admin_Approved'])) {
                 $User_Fields['User_Admin_Approved'] = "No";
             }
-            if (! isset($User_Fields['User_Email_Confirmed'])) {
+            if (!isset($User_Fields['User_Email_Confirmed'])) {
                 $User_Fields['User_Email_Confirmed'] = "No";
             }
             $User_Fields['User_Date_Created'] = $date;
-            $User_Fields['User_Last_Login']   = $date;
+            $User_Fields['User_Last_Login'] = $date;
 
             $res = ah_flatten($tt_settings, 'name');
 
             $expiry_date = (new DateTime());
-            $dti         = new DateInterval('P' . $tt_settings['default_trial_period']['value'] . 'D');
+            $dti = new DateInterval('P' . $tt_settings['default_trial_period']['value'] . 'D');
             $expiry_date->add($dti);
             $expiry_date = $expiry_date->format('Y-m-d');
 
@@ -1006,13 +1007,13 @@ function Edit_Account_Info_User()
 
 
             $user_update = Add_EWD_FEUP_User($User_Fields);
-            $User_ID     = $wpdb->insert_id;
+            $User_ID = $wpdb->insert_id;
 
             //Custom code
             if ($Additional_Fields_Array['Time zone']) {
-                $offset   = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
+                $offset = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
                 $operator = preg_replace('/[0-9]/', '', $offset);
-                $vals     = preg_replace('/[-+]/', '', $offset);
+                $vals = preg_replace('/[-+]/', '', $offset);
 
                 $b = preg_replace('/[A-Za-z]/', '', $bf_date);
                 $l = preg_replace('/[A-Za-z]/', '', $lnh_date);
@@ -1032,24 +1033,24 @@ function Edit_Account_Info_User()
 
 
                     if (trim($operator) == '-') {
-                        $brk    = date('H:ia', strtotime($b) + $vals * 60 * 60);
-                        $lunch  = date('H:ia', strtotime($l) + $vals * 60 * 60);
+                        $brk = date('H:ia', strtotime($b) + $vals * 60 * 60);
+                        $lunch = date('H:ia', strtotime($l) + $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) + $vals * 60 * 60);
 
                     } elseif (trim($operator) == '+') {
-                        $brk    = date('H:ia', strtotime($b) - $vals * 60 * 60);
-                        $lunch  = date('H:ia', strtotime($l) - $vals * 60 * 60);
+                        $brk = date('H:ia', strtotime($b) - $vals * 60 * 60);
+                        $lunch = date('H:ia', strtotime($l) - $vals * 60 * 60);
                         $dinner = date('H:ia', strtotime($d) - $vals * 60 * 60);
 
                     } else {
-                        $brk    = $bf_date;
-                        $lunch  = $lnh_date;
+                        $brk = $bf_date;
+                        $lunch = $lnh_date;
                         $dinner = $dnr_date;
                     }
 
                     $Additional_Fields_Array['Breakfast']['Field_Value'] = $brk;
-                    $Additional_Fields_Array['Lunch']['Field_Value']     = $lunch;
-                    $Additional_Fields_Array['Dinner']['Field_Value']    = $dinner;
+                    $Additional_Fields_Array['Lunch']['Field_Value'] = $lunch;
+                    $Additional_Fields_Array['Dinner']['Field_Value'] = $dinner;
                 }
             }
 
@@ -1062,7 +1063,7 @@ function Edit_Account_Info_User()
             //Custom code end
             foreach ($Additional_Fields_Array as $Field) {
                 $user_update = Add_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                       $Field['Field_Value'], $date);
+                    $Field['Field_Value'], $date);
             }
 
             if ($_POST['ewd-feup-action'] == "register") {
@@ -1079,15 +1080,15 @@ function Edit_Account_Info_User()
         else {
 
             $bf_date1 = $Additional_Fields_Array['Breakfast']['Field_Value'];
-            $bf_date  = date('H:ia ', strtotime($bf_date1));
+            $bf_date = date('H:ia ', strtotime($bf_date1));
             //echo $bf_date;
 
             $lnh_date1 = $Additional_Fields_Array['Lunch']['Field_Value'];
-            $lnh_date  = date('H:ia ', strtotime($lnh_date1));
+            $lnh_date = date('H:ia ', strtotime($lnh_date1));
             //echo $lnh_date;
 
             $dnr_date1 = $Additional_Fields_Array['Dinner']['Field_Value'];
-            $dnr_date  = date('H:ia ', strtotime($dnr_date1));
+            $dnr_date = date('H:ia ', strtotime($dnr_date1));
             //echo $dnr_date;
 
             if (isset($User_Fields)) {
@@ -1097,9 +1098,9 @@ function Edit_Account_Info_User()
                 //print_r($Additional_Fields_Array);die;
                 //Custom code
                 if ($Additional_Fields_Array['Time zone']) {
-                    $offset   = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
+                    $offset = preg_replace('/[a-zA-Z()]/', '', $Additional_Fields_Array['Time zone']['Field_Value']);
                     $operator = preg_replace('/[0-9]/', '', $offset);
-                    $vals     = preg_replace('/[-+]/', '', $offset);
+                    $vals = preg_replace('/[-+]/', '', $offset);
 
                     $b = preg_replace('/[A-Za-z]/', '', $bf_date);
                     $l = preg_replace('/[A-Za-z]/', '', $lnh_date);
@@ -1114,22 +1115,22 @@ function Edit_Account_Info_User()
 
 
                         if (trim($operator) == '-') {
-                            $brk    = date('H:ia', strtotime($b) + $vals * 60 * 60);
-                            $lunch  = date('H:ia', strtotime($l) + $vals * 60 * 60);
+                            $brk = date('H:ia', strtotime($b) + $vals * 60 * 60);
+                            $lunch = date('H:ia', strtotime($l) + $vals * 60 * 60);
                             $dinner = date('H:ia', strtotime($d) + $vals * 60 * 60);
                         } elseif (trim($operator) == '+') {
-                            $brk    = date('H:ia', strtotime($b) - $vals * 60 * 60);
-                            $lunch  = date('H:ia', strtotime($l) - $vals * 60 * 60);
+                            $brk = date('H:ia', strtotime($b) - $vals * 60 * 60);
+                            $lunch = date('H:ia', strtotime($l) - $vals * 60 * 60);
                             $dinner = date('H:ia', strtotime($d) - $vals * 60 * 60);
                         } else {
-                            $brk    = $bf_date;
-                            $lunch  = $lnh_date;
+                            $brk = $bf_date;
+                            $lunch = $lnh_date;
                             $dinner = $dnr_date;
                         }
 
                         $Additional_Fields_Array['Breakfast']['Field_Value'] = $brk;
-                        $Additional_Fields_Array['Lunch']['Field_Value']     = $lunch;
-                        $Additional_Fields_Array['Dinner']['Field_Value']    = $dinner;
+                        $Additional_Fields_Array['Lunch']['Field_Value'] = $lunch;
+                        $Additional_Fields_Array['Dinner']['Field_Value'] = $dinner;
                     }
                 }
                 //Custom code end
@@ -1139,13 +1140,13 @@ function Edit_Account_Info_User()
 
                 foreach ($Additional_Fields_Array as $Field) {
                     $CurrentField = $wpdb->get_row($wpdb->prepare("SELECT User_Field_ID FROM $ewd_feup_user_fields_table_name WHERE Field_ID='%d' AND User_ID='%d'",
-                                                                  $Field['Field_ID'], $User_ID));
+                        $Field['Field_ID'], $User_ID));
                     if ($CurrentField->User_Field_ID != "") {
                         $user_update = Edit_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                                $Field['Field_Value']);
+                            $Field['Field_Value']);
                     } else {
                         $user_update = Add_EWD_FEUP_User_Field($Field['Field_ID'], $User_ID, $Field['Field_Name'],
-                                                               $Field['Field_Value'], $date);
+                            $Field['Field_Value'], $date);
                     }
                 }
             }
@@ -1153,12 +1154,12 @@ function Edit_Account_Info_User()
                 CreateLoginCookie($_POST['Username'], $_POST['User_Password']);
             }
         }
-        $user_update  = array("Message_Type" => "Update", "Message" => $user_update);
+        $user_update = array("Message_Type" => "Update", "Message" => $user_update);
         $feup_success = true;
         //        Brian3T sends sms here
         //find uid
         if ($_POST['ewd-feup-action'] == "register") {
-            $sql    = "SELECT `User_ID` FROM `wp_ewd_feup_users` order by User_ID DESC LIMIT 1";
+            $sql = "SELECT `User_ID` FROM `wp_ewd_feup_users` ORDER BY User_ID DESC LIMIT 1";
             $result = $wpdb->get_results($sql);
 
             if (isset($result[0]->User_ID)) {
@@ -1184,31 +1185,31 @@ function Edit_Account_Info_User()
 function EWD_FEUP_Send_Email($User_Fields, $Additional_Fields_Array, $User_ID = 0)
 {
     global $wpdb, $ewd_feup_user_table_name;
-    $Admin_Email              = get_option("EWD_FEUP_Admin_Email");
-    $Email_Subject            = get_option("EWD_FEUP_Email_Subject");
+    $Admin_Email = get_option("EWD_FEUP_Admin_Email");
+    $Email_Subject = get_option("EWD_FEUP_Email_Subject");
     $Encrypted_Admin_Password = get_option("EWD_FEUP_Admin_Password");
-    $SMTP_Mail_Server         = get_option("EWD_FEUP_SMTP_Mail_Server");
-    $SMTP_Username            = get_option("EWD_FEUP_SMTP_Username", "");
-    $Message_Body             = get_option("EWD_FEUP_Message_Body");
-    $Email_Field              = get_option("EWD_FEUP_Email_Field");
-    $Username_Is_Email        = get_option("EWD_FEUP_Username_Is_Email");
+    $SMTP_Mail_Server = get_option("EWD_FEUP_SMTP_Mail_Server");
+    $SMTP_Username = get_option("EWD_FEUP_SMTP_Username", "");
+    $Message_Body = get_option("EWD_FEUP_Message_Body");
+    $Email_Field = get_option("EWD_FEUP_Email_Field");
+    $Username_Is_Email = get_option("EWD_FEUP_Username_Is_Email");
 
     $Email_Confirmation = get_option("EWD_FEUP_Email_Confirmation");
 
-    $key            = 'EWD_FEUP';
+    $key = 'EWD_FEUP';
     $Admin_Password = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5($key), base64_decode($Encrypted_Admin_Password),
-                                           MCRYPT_MODE_CBC, md5(md5($key))), "\0");
+        MCRYPT_MODE_CBC, md5(md5($key))), "\0");
 
     if ($Email_Confirmation == "Yes") {
         $ConfirmationCode = EWD_FEUP_RandomString();
-        $PageLink         = get_permalink($_POST['ewd-feup-post-id']);
+        $PageLink = get_permalink($_POST['ewd-feup-post-id']);
         if (strpos($PageLink, "?") !== false) {
             $ConfirmationLink = $PageLink . "&User_ID=" . $User_ID . "&ConfirmationCode=" . $ConfirmationCode;
         } else {
             $ConfirmationLink = $PageLink . "?User_ID=" . $User_ID . "&ConfirmationCode=" . $ConfirmationCode;
         }
         $wpdb->query($wpdb->prepare("UPDATE $ewd_feup_user_table_name SET User_Confirmation_Code=%s",
-                                    $ConfirmationCode));
+            $ConfirmationCode));
     }
 
     $Message_Body = str_replace("[username]", $User_Fields['Username'], $Message_Body);
@@ -1235,7 +1236,7 @@ function EWD_FEUP_Send_Email($User_Fields, $Additional_Fields_Array, $User_ID = 
         try {
             $mail->CharSet = 'UTF-8';
             $mail->IsSMTP();
-            $mail->Host     = $SMTP_Mail_Server;
+            $mail->Host = $SMTP_Mail_Server;
             $mail->SMTPAuth = true;
             $mail->Username = $SMTP_Username == "" ? $Admin_Email : $SMTP_Username;
             $mail->Password = $Admin_Password;
@@ -1244,10 +1245,10 @@ function EWD_FEUP_Send_Email($User_Fields, $Additional_Fields_Array, $User_ID = 
             $mail->SetFrom($Admin_Email);
             $mail->AddAddress($User_Email);
             $mail->Subject = $Email_Subject;
-            $mail->Body    = $Message_Body;
+            $mail->Body = $Message_Body;
             $mail->isHTML(true);
             //$mail->AltBody = $Text;
-            if (! $mail->Send()) {
+            if (!$mail->Send()) {
                 //echo "Email not sent.<br>";
                 //echo $mail->ErrorInfo;
             } else {
@@ -1261,9 +1262,9 @@ function EWD_FEUP_Send_Email($User_Fields, $Additional_Fields_Array, $User_ID = 
             //echo $e->getMessage(); // from anything else!
         }
     } else {
-        $headers      = 'From: ' . $Admin_Email . "\r\n" .
-                        'Reply-To: ' . $Admin_Email . "\r\n" .
-                        'X-Mailer: PHP/' . phpversion();
+        $headers = 'From: ' . $Admin_Email . "\r\n" .
+            'Reply-To: ' . $Admin_Email . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
         $Mail_Success = mail($User_Email, $Email_Subject, $Message_Body, $headers);
     }
 }
@@ -1274,14 +1275,14 @@ function Handle_File_Upload($Field_Name)
     $msg = '';
 
     /* Test if there is an error with the uploaded file and return that error if there is */
-    if (! empty($_FILES[$Field_Name]['error'])) {
+    if (!empty($_FILES[$Field_Name]['error'])) {
         switch ($_FILES[$Field_Name]['error']) {
             case '1':
                 $error = __('The uploaded file exceeds the upload_max_filesize directive in php.ini', 'EWD_FEUP');
                 break;
             case '2':
                 $error = __('The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
-                            'EWD_FEUP');
+                    'EWD_FEUP');
                 break;
             case '3':
                 $error = __('The uploaded file was only partially uploaded', 'EWD_FEUP');
@@ -1313,14 +1314,14 @@ function Handle_File_Upload($Field_Name)
         $target_path = ABSPATH . 'wp-content/uploads/ewd-feup-user-uploads/';
 
         //create the uploads directory if it doesn't exist
-        if (! file_exists($target_path)) {
+        if (!file_exists($target_path)) {
             mkdir($target_path, 0777, true);
         }
 
-        $Random      = EWD_FEUP_RandomString();
+        $Random = EWD_FEUP_RandomString();
         $target_path = $target_path . $Random . basename($_FILES[$Field_Name]['name']);
 
-        if (! move_uploaded_file($_FILES[$Field_Name]['tmp_name'], $target_path)) {
+        if (!move_uploaded_file($_FILES[$Field_Name]['tmp_name'], $target_path)) {
             //if (!$upload = wp_upload_bits($_FILES["Item_Image"]["name"], null, file_get_contents($_FILES["Item_Image"]["tmp_name"]))) {
             $error .= "There was an error uploading the file, please try again!";
         } else {
@@ -1331,13 +1332,13 @@ function Handle_File_Upload($Field_Name)
     /* Return the file name, or the error that was generated. */
     if (isset($error) and $error == __('No file was uploaded.', 'EWD_FEUP')) {
         $Return['Success'] = "N/A";
-        $Return['Data']    = __('No file was uploaded.', 'EWD_FEUP');
-    } elseif (! isset($error)) {
+        $Return['Data'] = __('No file was uploaded.', 'EWD_FEUP');
+    } elseif (!isset($error)) {
         $Return['Success'] = "Yes";
-        $Return['Data']    = $User_Upload_File_Name;
+        $Return['Data'] = $User_Upload_File_Name;
     } else {
         $Return['Success'] = "No";
-        $Return['Data']    = $error;
+        $Return['Data'] = $error;
     }
 
     return $Return;
@@ -1347,7 +1348,7 @@ function EWD_FEUP_RandomString($CharLength = 10)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $randstring = '';
-    for ($i = 0;$i < $CharLength;$i ++) {
+    for ($i = 0;$i < $CharLength;$i++) {
         $randstring .= $characters[rand(0, strlen($characters))];
     }
 
@@ -1380,7 +1381,7 @@ function Mass_Delete_EWD_FEUP_Users()
         }
     }
 
-    $update      = __("Users have been successfully deleted.", 'EWD_FEUP');
+    $update = __("Users have been successfully deleted.", 'EWD_FEUP');
     $user_update = array("Message_Type" => "Update", "Message" => $update);
 
     return $user_update;
@@ -1394,11 +1395,11 @@ function Mass_Approve_EWD_FEUP_Users()
     if (is_array($Users)) {
         foreach ($Users as $User) {
             $Users = $wpdb->get_results($wpdb->prepare("UPDATE $ewd_feup_user_table_name SET User_Admin_Approved='Yes' WHERE User_ID=%d",
-                                                       $User));
+                $User));
         }
     }
 
-    $update      = __("Users have been successfully approved.", 'EWD_FEUP');
+    $update = __("Users have been successfully approved.", 'EWD_FEUP');
     $user_update = array("Message_Type" => "Update", "Message" => $update);
 
     return $user_update;
@@ -1412,11 +1413,11 @@ function Mass_Assign_Levels_EWD_FEUP_Users()
     if (is_array($Users)) {
         foreach ($Users as $User) {
             $Users = $wpdb->get_results($wpdb->prepare("UPDATE $ewd_feup_user_table_name SET Level_ID=%d WHERE User_ID=%d",
-                                                       $_POST['action'], $User));
+                $_POST['action'], $User));
         }
     }
 
-    $update      = __("User levels have been successfully updated.", 'EWD_FEUP');
+    $update = __("User levels have been successfully updated.", 'EWD_FEUP');
     $user_update = array("Message_Type" => "Update", "Message" => $update);
 
     return $user_update;
@@ -1435,7 +1436,7 @@ function Delete_All_EWD_FEUP_Users()
         }
     }
 
-    $update      = __("Users have been successfully deleted.", 'EWD_OTP');
+    $update = __("Users have been successfully deleted.", 'EWD_OTP');
     $user_update = array("Message_Type" => "Update", "Message" => $update);
 
     return $user_update;
@@ -1445,27 +1446,27 @@ function Add_Edit_Field()
 {
     global $wpdb, $ewd_feup_fields_table_name;
 
-    $Field_ID                = stripslashes_deep($_POST['Field_ID']);
-    $Field_Name              = stripslashes_deep($_POST['Field_Name']);
-    $Field_Type              = stripslashes_deep($_POST['Field_Type']);
-    $Field_Description       = stripslashes_deep($_POST['Field_Description']);
-    $Field_Options           = stripslashes_deep($_POST['Field_Options']);
-    $Field_Show_In_Admin     = stripslashes_deep($_POST['Field_Show_In_Admin']);
+    $Field_ID = stripslashes_deep($_POST['Field_ID']);
+    $Field_Name = stripslashes_deep($_POST['Field_Name']);
+    $Field_Type = stripslashes_deep($_POST['Field_Type']);
+    $Field_Description = stripslashes_deep($_POST['Field_Description']);
+    $Field_Options = stripslashes_deep($_POST['Field_Options']);
+    $Field_Show_In_Admin = stripslashes_deep($_POST['Field_Show_In_Admin']);
     $Field_Show_In_Front_End = stripslashes_deep($_POST['Field_Show_In_Front_End']);
-    $Field_Required          = stripslashes_deep($_POST['Field_Required']);
+    $Field_Required = stripslashes_deep($_POST['Field_Required']);
 
     $Field_Date_Created = date("Y-m-d H:i:s");
 
-    if (! isset($error)) {
+    if (!isset($error)) {
         /* Pass the data to the appropriate function in Update_Admin_Databases.php to create the product */
         if ($_POST['action'] == "Add_Field") {
             $user_update = Add_EWD_FEUP_Field($Field_Name, $Field_Type, $Field_Description, $Field_Options,
-                                              $Field_Show_In_Admin, $Field_Show_In_Front_End, $Field_Required,
-                                              $Field_Date_Created);
+                $Field_Show_In_Admin, $Field_Show_In_Front_End, $Field_Required,
+                $Field_Date_Created);
         } /* Pass the data to the appropriate function in Update_Admin_Databases.php to edit the product */
         else {
             $user_update = Edit_EWD_FEUP_Field($Field_ID, $Field_Name, $Field_Type, $Field_Description, $Field_Options,
-                                               $Field_Show_In_Admin, $Field_Show_In_Front_End, $Field_Required);
+                $Field_Show_In_Admin, $Field_Show_In_Front_End, $Field_Required);
         }
         $user_update = array("Message_Type" => "Update", "Message" => $user_update);
 
@@ -1490,7 +1491,7 @@ function Mass_Delete_EWD_FEUP_Fields()
         }
     }
 
-    $update      = __("Fields have been successfully deleted.", 'EWD_FEUP');
+    $update = __("Fields have been successfully deleted.", 'EWD_FEUP');
     $user_update = array("Message_Type" => "Update", "Message" => $update);
 
     return $user_update;
@@ -1498,13 +1499,13 @@ function Mass_Delete_EWD_FEUP_Fields()
 
 function Add_Edit_Level()
 {
-    $Level_ID        = $_POST['Level_ID'];
-    $Level_Name      = $_POST['Level_Name'];
+    $Level_ID = $_POST['Level_ID'];
+    $Level_Name = $_POST['Level_Name'];
     $Level_Privilege = $_POST['Level_Privilege'];
 
     $Level_Date_Created = date("Y-m-d H:i:s");
 
-    if (! isset($error)) {
+    if (!isset($error)) {
         /* Pass the data to the appropriate function in Update_Admin_Databases.php to create the product */
         if ($_POST['action'] == "Add_Level") {
             $user_update = Add_EWD_FEUP_Level($Level_Name, $Level_Privilege, $Level_Date_Created);
@@ -1535,7 +1536,7 @@ function Mass_Delete_EWD_FEUP_Levels()
         }
     }
 
-    $update      = __("Fields have been successfully deleted.", 'EWD_FEUP');
+    $update = __("Fields have been successfully deleted.", 'EWD_FEUP');
     $user_update = array("Message_Type" => "Update", "Message" => $update);
 
     return $user_update;
