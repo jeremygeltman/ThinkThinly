@@ -31,7 +31,7 @@ $old_date_def_timezone = date_default_timezone_get();
 date_default_timezone_set('UTC');
 
 //based on cronjob this should be 16:00
-$current_time = (new DateTime('now'))->add(new DateInterval('P' . NUM_OF_DAYS. 'D'));
+$current_time = (new DateTime('now'))->sub(new DateInterval('P' . NUM_OF_DAYS. 'D'));
 
 if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
     define('DEBUG_DONT_SEND_SMS', true);
@@ -80,7 +80,7 @@ if (! empty($user_ids_pst)) {
 }
 $user_ids_all_expired = implode(",", array_merge($user_ids_cst_expired, $user_ids_est_expired, $user_ids_mst_expired, $user_ids_pst_expired));
 
-error_log("Sending mms expired yesterday. Time pst: " . $time_pst . " All users expired: " . json_encode($user_ids_all_expired) . "\n\n", 0, $error_file_name);
+error_log("Sending mms expired yesterday. Time pst: " . $time_pst . " All users expired: " . json_encode($user_ids_all_expired) . "\n\n", 3, $error_file_name);
 if (! empty($user_ids_all_expired)) {
 
 
@@ -107,7 +107,7 @@ if (! empty($user_ids_all_expired)) {
         if (! empty($bl_link) && ! is_array($bl_link)) {
             $content_to_send .= $bl_link;
         } else {
-            error_log("Can not get bitly link. User id: " . $user->User_ID, 0, $error_file_name);
+            error_log("Can not get bitly link. User id: " . $user->User_ID, 3, $error_file_name);
         }
 
         $image = wp_get_attachment_image_src(get_post_thumbnail_id($template_expired_1_day->ID), 'large');
@@ -186,7 +186,7 @@ $user_ids_all_expired = implode(",", array_merge($user_ids_cst_expired, $user_id
 if (empty($user_ids_all_expired)) {
     return;
 }
-error_log("Sending mms expired 3 days ago. Time pst: " . $time_pst . " All users expired: " . json_encode($user_ids_all_expired) . "\n\n", 0, $error_file_name);
+error_log("Sending mms expired 3 days ago. Time pst: " . $time_pst . " All users expired: " . json_encode($user_ids_all_expired) . "\n\n", 3, $error_file_name);
 $users = $wpdb->get_results("SELECT Field_Value,u.User_ID FROM `wp_ewd_feup_users` as u JOIN `wp_ewd_feup_user_fields` as uf on u.User_ID = uf.User_ID where uf.Field_Name = 'Phone' and u.User_ID in ($user_ids_all_expired)");
 
 $args = array(
@@ -209,7 +209,7 @@ foreach ($users as $user) {
     if (! empty($bl_link) && ! is_array($bl_link)) {
         $content_to_send .= $bl_link;
     } else {
-        error_log("Can not get bitly link. User id: " . $user->User_ID, 0, $error_file_name);
+        error_log("Can not get bitly link. User id: " . $user->User_ID, 3, $error_file_name);
     }
 
     $image = wp_get_attachment_image_src(get_post_thumbnail_id($template_expired_3_day->ID), 'large');

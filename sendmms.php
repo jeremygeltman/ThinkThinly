@@ -46,7 +46,7 @@ $time_est = clone $current_time;
 $time_mst = clone $current_time;
 $time_pst = clone $current_time;
 
-error_log("\nSendMMS being called at" . $time_pst->format('Y-m-d H:i:s') . " pst \n");
+error_log("\nSendMMS being called at" . $time_pst->format('Y-m-d H:i:s') . " pst \n", 3, $error_file_name);
 
 $time_pst->setTimezone(new DateTimeZone('America/Los_Angeles'));
 $time_mst->setTimezone(new DateTimeZone('America/Denver'));
