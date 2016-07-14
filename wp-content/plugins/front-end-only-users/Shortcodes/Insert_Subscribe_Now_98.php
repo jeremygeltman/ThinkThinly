@@ -4,8 +4,8 @@ Braintree\Configuration::environment('production');
 Braintree\Configuration::merchantId('n548vrvhgb7ff3jm');
 Braintree\Configuration::publicKey('t639rjppfmt8ncmn');
 Braintree\Configuration::privateKey('0b1344f7ceb652389173603af7b682c1');
-define('SUBSCRIPTION_PLAN_ID', 'cwn6');
-//define('SUBSCRIPTION_PLAN_ID', '5tpb');
+//define('SUBSCRIPTION_PLAN_ID', 'cwn6');
+define('SUBSCRIPTION_PLAN_ID', '5tpb');
 
 // Braintree\Configuration::environment('sandbox');
 // Braintree\Configuration::merchantId('n887h3wthpjvcqjh');

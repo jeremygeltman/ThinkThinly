@@ -14,3 +14,10 @@ Stack trace:
 #2 /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/sdk-core-php/lib/PPLoggingManager.php(43): PPConfigManager::getInstance()
 #3 /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/rest-api-sdk-php/lib/PayPal/Auth/OAuthTokenCredential.php(49): PPLoggingManager->__construct('PayPal\\Auth\\OAu...')
 #4 /home4/saramy/public_html/Thinkthinly.com/pp/bootstrap.php(75): PayPal\Auth\OAuthTokenCredential->__construct('AY7rStyj9hsTxKm...', 'EJSZ8J9mj in /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/sdk-core-php/lib/PPConfigManager.php on line 40
+[11-Jul-2016 16:21:28 America/Chicago] PHP Fatal error:  Uncaught exception 'PPConfigurationException' with message 'Config file /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/sdk-core-php/lib/../config/sdk_config.ini not found' in /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/sdk-core-php/lib/PPConfigManager.php:40
+Stack trace:
+#0 /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/sdk-core-php/lib/PPConfigManager.php(23): PPConfigManager->load('/home4/saramy/p...')
+#1 /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/sdk-core-php/lib/PPConfigManager.php(30): PPConfigManager->__construct()
+#2 /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/sdk-core-php/lib/PPLoggingManager.php(43): PPConfigManager::getInstance()
+#3 /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/rest-api-sdk-php/lib/PayPal/Auth/OAuthTokenCredential.php(49): PPLoggingManager->__construct('PayPal\\Auth\\OAu...')
+#4 /home4/saramy/public_html/Thinkthinly.com/pp/bootstrap.php(75): PayPal\Auth\OAuthTokenCredential->__construct('AY7rStyj9hsTxKm...', 'EJSZ8J9mj in /home4/saramy/public_html/Thinkthinly.com/vendor/paypal/sdk-core-php/lib/PPConfigManager.php on line 40
