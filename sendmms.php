@@ -1,7 +1,7 @@
 <?php
 /** @var $wpdb */
 
-if (strpos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
+if (strpos($_SERVER['SERVER_NAME'], 'thinkthinlocal') !== false) {
     define('DEBUG_DONT_SEND_SMS', true);
 } else {
     define('DEBUG_DONT_SEND_SMS', false);
@@ -38,7 +38,7 @@ $current_time = (new DateTime());
 if (DEBUG_DONT_SEND_SMS) {
 //    $current_time = ((new DateTime())->setTimezone((new DateTimeZone('UTC')))->setTime(21, 2));
     $current_time = (new DateTime())->setTimezone((new DateTimeZone('UTC')));
-    $current_time->setTime(12, 0);
+    $current_time->setTime(16, 15);
 }
 
 $time_cst = clone $current_time;
@@ -46,7 +46,7 @@ $time_est = clone $current_time;
 $time_mst = clone $current_time;
 $time_pst = clone $current_time;
 
-error_log("\nSendMMS being called at" . $time_pst->format('Y-m-d H:i:s') . " pst \n");
+error_log("\nSendMMS being called at" . $time_pst->format('Y-m-d H:i:s') . " pst \n", 3, $error_file_name);
 
 $time_pst->setTimezone(new DateTimeZone('America/Los_Angeles'));
 $time_mst->setTimezone(new DateTimeZone('America/Denver'));
@@ -66,7 +66,7 @@ $user_ids_est = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_
 $user_ids_mst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` AS u, `wp_ewd_feup_user_fields` AS uf WHERE u.User_ID = uf.User_ID AND uf.Field_Name='Time zone' AND uf.Field_Value = 'MST'"));
 $user_ids_pst = implode(",", $wpdb->get_col("SELECT u.User_ID FROM `wp_ewd_feup_users` AS u, `wp_ewd_feup_user_fields` AS uf WHERE u.User_ID = uf.User_ID AND uf.Field_Name='Time zone' AND uf.Field_Value = 'PST'"));
 
-$test_time = "12:00pm";
+$test_time = "01:00am";
 if (DEBUG_DONT_SEND_SMS) {
     $time_cst = $test_time;
     $time_est = $test_time;
@@ -92,8 +92,8 @@ if (!empty($user_ids_pst)) {
 }
 $user_ids_all_current = array_merge($user_ids_cst_current, $user_ids_est_current, $user_ids_mst_current, $user_ids_pst_current);
 $user_ids_all_current = array_diff($user_ids_all_current, $user_expired);
-error_log("Pst cur:" . json_encode($user_ids_pst_current) . "Cst cur:" . json_encode($user_ids_cst_current) . "Est cur:" . json_encode($user_ids_est_current) . "Mst cur:" . json_encode($user_ids_mst_current) . ". Expired: " . json_encode($user_expired) . " \n", 0, $error_file_name);
-error_log("Sending mms. Time pst: " . $time_pst . " All users current: " . json_encode($user_ids_all_current) . "\n\n", 0, $error_file_name);
+error_log("Pst cur:" . json_encode($user_ids_pst_current) . "Cst cur:" . json_encode($user_ids_cst_current) . "Est cur:" . json_encode($user_ids_est_current) . "Mst cur:" . json_encode($user_ids_mst_current) . ". Expired: " . json_encode($user_expired) . " \n", 3, $error_file_name);
+error_log("Sending mms. Time pst: " . $time_pst . " All users current: " . json_encode($user_ids_all_current) . "\n\n", 3, $error_file_name);
 
 if (empty($user_ids_all_current)) {
     return;

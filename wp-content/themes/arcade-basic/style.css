@@ -7178,7 +7178,7 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
     position: absolute;
     top: 180px;
     left: 217px;
-    display: none;
+    /*display: none;*/
 }
 
 

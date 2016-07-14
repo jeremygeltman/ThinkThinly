@@ -217,7 +217,9 @@ function Add_Edit_User()
 
             $Additional_Fields_Array['Membership Expiry Date']['Field_Value'] = $expiry_date;
 
-
+            // if (!$Additional_Fields_Array['Time zone']['Field_Value']){
+            //     $Additional_Fields_Array['Time zone']['Field_Value'] = 'PST';
+            // };
             $user_update = Add_EWD_FEUP_User($User_Fields);
             $User_ID = $wpdb->insert_id;
 

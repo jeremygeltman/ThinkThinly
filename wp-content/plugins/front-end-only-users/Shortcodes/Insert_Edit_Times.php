@@ -174,9 +174,10 @@ function Insert_Edit_Times($atts)
 <div><br/></div>
 <div class="pure-control-group center">
     <select rel="" name="Time zone" id="ewd-feup-register-input-14" class="ewd-feup-select">
-    <option value="Please select">Please select</option><option value="PST" selected="selected">Pacific Time Zone</option>
+    <option value="Please select">Please select</option><option value="PST">Pacific Time Zone</option>
     <option value="EST">Eastern Standard Timezone</option><option value="CST">Central Standard Timezone</option><option value="MST">Mountain Standard Timezone</option></select>
 </div>
+<script src="/wp-content/js/autotimezone.js"></script>
 HTML;
     /** @var string $submit_text */
     $ReturnString .= "<input type='submit' class='ewd-feup-submit pure-button pure-button-primary' name='Edit_Profile_Submit' value='Save'>";
