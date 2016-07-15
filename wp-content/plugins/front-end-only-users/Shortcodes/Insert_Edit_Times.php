@@ -5,6 +5,7 @@ function Insert_Edit_Times($atts)
     global $ewd_feup_user_table_name;
     global $ewd_feup_fields_table_name, $ewd_feup_user_table_name, $ewd_feup_user_fields_table_name;
     global $login_page, $redirect_page, $Time, $Salt;
+    /** @var wpdb $wpdb */
 /** @var string $login_page
      * @var string $Time
      * @var string $Salt
@@ -17,6 +18,14 @@ function Insert_Edit_Times($atts)
     $User = $wpdb->get_row($wpdb->prepare("SELECT * FROM $ewd_feup_user_table_name WHERE Username='%s'", $CheckCookie['Username']));
     $UserData = $wpdb->get_results($wpdb->prepare("SELECT * FROM $ewd_feup_user_fields_table_name WHERE User_ID='%d'",
                                                   $User->User_ID));
+    
+    $Sql      = "SELECT Field_Value FROM wp_ewd_feup_user_fields WHERE Field_Name='Time zone' and User_ID = '{$User->User_ID}'";
+    $time_zone   = $wpdb->get_var($Sql);
+    if ($time_zone){
+        echo "<script>var user_time_zone = '$time_zone';</script>";
+    }
+    
+    
     $print_field = function ($Field, $hidden = false) use ($Omitted_Fields, $UserData, &$ReturnString) {
         $display_label = $Field->Field_Name;
         if ($display_label == "Breakfast") {

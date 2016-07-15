@@ -1,27 +1,35 @@
-$(document).ready(function () {
-        //brian3t defaults timezone:
-        var timezone_select = $('select[name="Time zone"]');
-        if (timezone_select.val() === "Please select") {
-            var hours_offset = -(new Date().getTimezoneOffset() / 60);
-            //Brian3t assuming daylight saving time
-            //In the future, create cronjob to update hours offset when daylight savings is in effect
-            switch (hours_offset) {
-                case -7:
-                    timezone_val = 'PST';
-                    break;
-                case -6:
-                    timezone_val = 'MST';
-                    break;
-                case -5:
-                    timezone_val = 'CST';
-                    break;
-                case -4:
-                    timezone_val = 'EST';
-                    break;
-            }
-            timezone_select.val(timezone_val);
+function auto_timezone() {
+    //brian3t defaults timezone:
+    var timezone_select = $('select[name="Time zone"]');
+
+    if (user_time_zone){
+        timezone_select.val(user_time_zone);//default from database
+    }
+
+    if (timezone_select.val() === "Please select") {
+        var hours_offset = -(new Date().getTimezoneOffset() / 60);
+        //Brian3t assuming daylight saving time
+        //In the future, create cronjob to update hours offset when daylight savings is in effect
+        switch (hours_offset) {
+            case -7:
+                timezone_val = 'PST';
+                break;
+            case -6:
+                timezone_val = 'MST';
+                break;
+            case -5:
+                timezone_val = 'CST';
+                break;
+            case -4:
+                timezone_val = 'EST';
+                break;
         }
-        ////brian3t defaults timezone:
+        timezone_select.val(timezone_val);
+    }
+    ////brian3t defaults timezone:
+}
+$(document).ready(function () {
+        auto_timezone();
         var regx = "/[a-zA-Z()]/g";
         var word = $('#ewd-feup-register-input-14').val();
         if (typeof word !== "undefined" && word !== null) {

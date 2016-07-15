@@ -4877,9 +4877,9 @@ button.close {
     position: fixed;
 }
 
-@-ms-viewport {
-    width: device-width;
-}
+/*@-ms-viewport {*/
+    /*width: device-width;*/
+/*}*/
 
 .visible-xs, .visible-sm, .visible-md, .visible-lg {
     display: none !important;
@@ -7178,7 +7178,7 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
     position: absolute;
     top: 180px;
     left: 217px;
-    /*display: none;*/
+    display: none;
 }
 
 
@@ -7352,7 +7352,7 @@ body.page-id-588 #ewd-feup-edit-7{display: none;}
     display: none;
 }
 
-p.terms_cond{font-size: }
+p.terms_cond{font-size: inherit}
 
 div.terms_cond {
     display: none;
