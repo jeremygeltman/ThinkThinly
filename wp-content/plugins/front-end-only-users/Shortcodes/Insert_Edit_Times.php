@@ -171,6 +171,7 @@ function Insert_Edit_Times($atts)
     $ReturnString .= $print_field($Fields[10], true);
     $ReturnString .=
 <<<HTML
+<!--set default value here-->
 <div><br/></div>
 <div class="pure-control-group center">
     <select rel="" name="Time zone" id="ewd-feup-register-input-14" class="ewd-feup-select">
