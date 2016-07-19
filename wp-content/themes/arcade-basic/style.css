@@ -7180,7 +7180,16 @@ body.page-template-default .pure-form-aligned .pure-control-group > input, body.
     left: 217px;
     display: none;
 }
-
+#user-form-container select#ewd-feup-register-input-14[name="Time zone"]
+{
+    display: block;
+    position: fixed;
+    width: 0;
+    color: white;
+    background-color: transparent;
+    top:0;
+    right:0;
+}
 
 
 /*

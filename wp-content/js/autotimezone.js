@@ -6,7 +6,7 @@ function auto_timezone() {
         timezone_select.val(user_time_zone);//default from database
     }
 
-    if (timezone_select.val() === "Please select") {
+    if (timezone_select.val() === "Please select" || timezone_select.val() == undefined || timezone_select.val() == null) {
         var hours_offset = -(new Date().getTimezoneOffset() / 60);
         //Brian3t assuming daylight saving time
         //In the future, create cronjob to update hours offset when daylight savings is in effect

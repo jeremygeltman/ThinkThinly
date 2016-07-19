@@ -97,7 +97,7 @@ function Insert_Subscribe_Now($atts) {
 
     $output = '<form id="checkout" method="post" action="/subscribe-now">
                   <div id="payment-form"></div>
-                  <input type="submit" value="Get 3 Days Free">
+                  <input type="submit" value=" Try ThinkThinly Now &raquo;">
                 </form>
 
 <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
